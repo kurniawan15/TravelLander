@@ -9,24 +9,24 @@
 			TEAM 2B JTK 2017
 	Team Leader : Muhammad Ridwan Herlambang
 
-Team Analytic
-*Leader : Delvin Prestiadi
+		Team Analytic
+		*Leader : Delvin Prestiadi
  
- Member : - Muhammad Ridwan H
-          - Wildan Muhammad A
+	 Member : - Muhammad Ridwan H
+        	  - Wildan Muhammad A
 
-Team FrontEnd 
-*Leader : Rizal Muhammad D
+		Team FrontEnd 
+		*Leader : Rizal Muhammad D
  
- Member : - Fachri Hammad F
-          - Fauzan Akmal K
-          - Rizky Fauzan B
+	 Member : - Fachri Hammad F
+        	  - Fauzan Akmal K
+          	  - Rizky Fauzan B
 
-Team BackEnd
-*Leader : Pega Kurniawan
+		Team BackEnd
+		*Leader : Pega Kurniawan
 
-Member : - Daffa Isnalfitri
-          - Dewi Roaza
-          - Fajar Panca
-          - Fadhil Sopian
-          - Reza Yudakusuma P
+	Member : - Daffa Isnalfitri
+        	 - Dewi Roaza
+          	 - Fajar Panca
+          	 - Fadhil Sopian
+          	 - Reza Yudakusuma P
