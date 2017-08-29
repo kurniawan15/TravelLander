@@ -1,5 +1,5 @@
-#Project_Travlendar
-#Title: A Travel-Time-Aware Calendar
+	#Travlendar
+	#A Travel-Time-Aware Calendar
 
    Many endeavors require scheduling meetings at various locations all across a city, whether in support of a mobile job or a busy parent. The goal of this project is to create a calendar interface (either by extending something like google calendar or as a standalone application) that automatically computes and accounts for travel time between appointments to make sure that you're never late for an appointment. Locations of meetings are required to create meetings, and when meetings are created at locations that are unreachable in the allotted time, a warning is created. The application should also suggest travel means by appointment (e.g., perhaps you drive to the office in the morning but the bus is a better choice between a pair of afternoon meetings) and by day (e.g., the app should suggest that you leave your home via car in the morning because meetings during the day will not be doable via public transportation). The application should be user customizable (e.g., the user should be able to select preferred (or non-preferred) means of transportation).
 
@@ -11,17 +11,20 @@
 
 Team Analytic
 *Leader : Delvin Prestiadi
+ 
  Member : - Muhammad Ridwan H
           - Wildan Muhammad A
 
 Team FrontEnd 
 *Leader : Rizal Muhammad D
+ 
  Member : - Fachri Hammad F
           - Fauzan Akmal K
           - Rizky Fauzan B
 
 Team BackEnd
 *Leader : Pega Kurniawan
+
 Member : - Daffa Isnalfitri
           - Dewi Roaza
           - Fajar Panca
