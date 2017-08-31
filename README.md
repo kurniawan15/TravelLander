@@ -25,8 +25,8 @@
 	Team BackEnd
 		*Leader : Pega Kurniawan
 
-	Member : - Daffa Isnalfitri
+	Member : - Daffa Isnalfitra
         	 - Dewi Roaza
           	 - Fajar Panca
-          	 - Fadhil Sopian
+          	 - Fadhil Shofian
           	 - Reza Yudakusuma P
