@@ -23,16 +23,22 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: bisque;
 }
 
-.sectOne {
-    background-image:url(images/image.jpg)
+.subSection img{
+    position: center;
 }
+
+.sectOne {
+    background-image:url(images/cover1.png)
+}
+
 
 .sectTwo {
-    background-image:url(images/image2.jpg)
+    background-image:url(images/cover2.png)
 }
 
+
 .sectThree {
-    background-image:url(images/image3.jpg)
+    background-image:url(images/cover3.png)
 }
 
 #head{
