@@ -1,4 +1,4 @@
-package org.apache.jsp;
+package org.apache.jsp.WEB_002dINF;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -51,32 +51,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("                <h1>SELAMAT DATANG DI TRAVELLENDER</h1>\n");
-      out.write("        <form name=\"login\" action=\"ceklogin.jsp\">\n");
-      out.write("        \n");
       out.write("        <table border=\"0\">\n");
       out.write("            <tbody>\n");
       out.write("                <tr>\n");
-      out.write("                    <td colspan=\"2\" align=\"center\"> FORM LOGIN</td>\n");
+      out.write("                    <td colspan=\"2\"> FORM LOGIN</td>\n");
       out.write("                </tr>\n");
       out.write("                <tr>\n");
       out.write("                    <td>Username</td>\n");
       out.write("                    <td><input type=\"text\" name=\"user\" value=\"\" size=\"20\" /></td>\n");
       out.write("                </tr>\n");
+      out.write("                <tr>\n");
+      out.write("                    <td>Password</td>\n");
+      out.write("                    <td><input type=\"password\" name=\"pass\" value=\"\" size=\"20\" /></td>\n");
+      out.write("                </tr>\n");
       out.write("               <tr>\n");
       out.write("                    <td>Password</td>\n");
       out.write("                    <td><input type=\"password\" name=\"pass\" value=\"\" size=\"20\" /></td>\n");
       out.write("                </tr> \n");
-      out.write("            <td colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"login\" name=\"login\" /></td>\n");
-      out.write("            <tr>\n");
-      out.write("               <td colspan=\"2\">Yet Not Registered!! <a href=\"registrasi.jsp\">Register Here</a></td>\n");
-      out.write("            </tr>\n");
-      out.write("            \n");
+      out.write("            <td colspan=\"2\"><input type=\"submit\" value=\"login\" name=\"login\" /></td>\n");
       out.write("            </tbody>\n");
       out.write("        </table>\n");
-      out.write("    </form>\n");
-      out.write("        \n");
       out.write("\n");
+      out.write("        \n");
+      out.write("        <h1>Hello World!</h1>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

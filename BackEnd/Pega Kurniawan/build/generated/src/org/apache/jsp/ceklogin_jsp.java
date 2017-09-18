@@ -3,8 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import traveller.controller.koneksi;
+import java.sql.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -44,6 +46,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -51,31 +56,29 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("                <h1>SELAMAT DATANG DI TRAVELLENDER</h1>\n");
-      out.write("        <form name=\"login\" action=\"ceklogin.jsp\">\n");
-      out.write("        \n");
-      out.write("        <table border=\"0\">\n");
-      out.write("            <tbody>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td colspan=\"2\" align=\"center\"> FORM LOGIN</td>\n");
-      out.write("                </tr>\n");
-      out.write("                <tr>\n");
-      out.write("                    <td>Username</td>\n");
-      out.write("                    <td><input type=\"text\" name=\"user\" value=\"\" size=\"20\" /></td>\n");
-      out.write("                </tr>\n");
-      out.write("               <tr>\n");
-      out.write("                    <td>Password</td>\n");
-      out.write("                    <td><input type=\"password\" name=\"pass\" value=\"\" size=\"20\" /></td>\n");
-      out.write("                </tr> \n");
-      out.write("            <td colspan=\"2\" align=\"center\"><input type=\"submit\" value=\"login\" name=\"login\" /></td>\n");
-      out.write("            <tr>\n");
-      out.write("               <td colspan=\"2\">Yet Not Registered!! <a href=\"registrasi.jsp\">Register Here</a></td>\n");
-      out.write("            </tr>\n");
-      out.write("            \n");
-      out.write("            </tbody>\n");
-      out.write("        </table>\n");
-      out.write("    </form>\n");
-      out.write("        \n");
+      out.write("        ");
+
+          String username = request.getParameter("user");
+          String password = request.getParameter("pass");
+          //koneksi connection = new koneksi();  
+//          Class.forName("com.mysql.jdbc.Driver");
+//          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/traveller","root", "");
+//          Statement st = con.createStatement();
+//          ResultSet rs;
+//          rs = st.executeQuery("select * from admin where username='" + Username + "' and password='" + Password + "'");
+//          if(rs.next())
+        if (username.equals("pega")&&(password.equals("pega")))
+          {
+              //berhasil
+              session.setAttribute("username",username);
+              response.sendRedirect("addEvent.jsp");
+          }
+          else
+          {
+              //gagal 
+              response.sendRedirect("error.jsp");
+          }
+        
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");

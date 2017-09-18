@@ -4,7 +4,7 @@ JSP
 *S JSP
 *F
 + 0 index.jsp
-index.jsp
+WEB-INF/index.jsp
 *L
-5,39:44
+5,36:44
 *E
