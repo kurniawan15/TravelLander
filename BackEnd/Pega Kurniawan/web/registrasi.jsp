@@ -13,7 +13,7 @@
         <title>Registration</title>
     </head>
     <body>
-        <form method="post" action="prosesregis.jsp">
+        <form method="post" action="prosesregistrasi.jsp">
             <center>
             <table border="1" width="30%" cellpadding="5">
                 <thead>

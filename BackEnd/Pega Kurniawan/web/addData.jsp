@@ -15,11 +15,12 @@
         <h1>ADD EVENT TRAVELLER!</h1>
         <% 
             String dateTraveller = request.getParameter("date");
-            String nameTraveller = request.getParameter("name");
+            String nameTraveller = request.getParameter("event");
             String destinationTraveller = request.getParameter("destination");
             String transfortationTraveller = request.getParameter("transfortation");
             String arriveTraveller = request.getParameter("arrive");
             String departTraveller = request.getParameter("depart");
+            String durationTraveller = request.getParameter("duration");
         %>
         <table border="1">
             <thead>
@@ -48,6 +49,10 @@
                 <tr>
                     <td>TIME DEPART</td>
                     <td><%= departTraveller %></td>
+                </tr>
+                <tr>
+                    <td>DURATION TIME</td>
+                    <td><%= durationTraveller %></td>
                 </tr>
             </tbody>
             <a href="addEvent.jsp">Tambah Data</a>

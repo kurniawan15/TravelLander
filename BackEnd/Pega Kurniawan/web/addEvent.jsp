@@ -9,12 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>BERANDA</title>
+        <title>Add Event</title>
     </head>
     <body>
         <%
             String nama = session.getAttribute("username").toString();
-            out.println("Selamat Datang" + nama +"<br> Anda berhasil Login");
+            out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
         %>
         
         <a href="logout.jsp"> LOGOUT </a>
@@ -29,13 +29,15 @@
                         <td><input type="text" name="date" value="MM/DD/YYYY" size="40" /></td>
                     </tr>
                     <tr>
-                        <td>Name :</td>
-                        <td><input type="text" name="name" value="" size="40" /></td>
+                        <td>Event :</td>
+                        <td><input type="text" name="event" value="" size="40" /></td>
                     </tr>
                     <tr>
                         <td>Destination :</td>
                         <td><input type="text" name="destination" value="" size="40" /></td>
                     </tr>
+                    
+                   
                     <tr>
                         <td>Transfortation :</td>
                         <td><select name="transfortation">
@@ -50,12 +52,16 @@
                     </tr>
                    
                     <tr>
-                        <td>TIME ARRIVE :</td>
+                        <td>Time Arrive :</td>
                         <td><input type="text" name="arrive" value="HH:MM:SS" size="15" /></td>
                     </tr>
                     <tr>
-                        <td>TIME DEPART :</td>
+                        <td>Time Depart :</td>
                         <td><input type="text" name="depart" value="HH:MM:SS" size="15" /></td>
+                    </tr>
+                     <tr>
+                        <td>Duration time:</td>
+                        <td><input type="text" name="duration" value="" size="40" /></td>
                     </tr>
                 
                 </tbody>
