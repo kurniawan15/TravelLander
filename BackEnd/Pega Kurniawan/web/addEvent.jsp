@@ -13,7 +13,7 @@
     </head>
     <body>
         <%
-            String nama = session.getAttribute("username").toString();
+            String nama = session.getAttribute("id_Admin").toString();
             out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
         %>
         

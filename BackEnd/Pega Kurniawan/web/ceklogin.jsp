@@ -21,15 +21,15 @@
           String password = request.getParameter("pass");
           koneksi connection = new koneksi();  
           Class.forName("com.mysql.jdbc.Driver");
-          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/traveller","root", "");
+          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender","root", "");
           Statement st = con.createStatement();
           ResultSet rs;
-          rs = st.executeQuery("select * from akun where username='" + username + "' and password='" + password + "'");
+          rs = st.executeQuery("select * from admin where id_Admin ='" + username + "' and password='" + password + "'");
           if(rs.next())
 //        if (username.equals("pega")&&(password.equals("pega")))
           {
               //berhasil
-              session.setAttribute("username",username);
+              session.setAttribute("id_Admin",username);
               response.sendRedirect("addEvent.jsp");
           }
           else
