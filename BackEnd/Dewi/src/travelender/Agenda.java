@@ -16,8 +16,6 @@ public class Agenda {
     private String idAgenda;
     private Time startTime;
     private Time endTime;
-    private Float lat;
-    private Float lang;
     private String nameLocation;
     private String nameAgenda;
     private String transport;
@@ -79,34 +77,6 @@ public class Agenda {
     }
 
     /**
-     * @return the lat
-     */
-    public Float getLat() {
-        return lat;
-    }
-
-    /**
-     * @param lat the lat to set
-     */
-    public void setLat(Float lat) {
-        this.lat = lat;
-    }
-
-    /**
-     * @return the lang
-     */
-    public Float getLang() {
-        return lang;
-    }
-
-    /**
-     * @param lang the lang to set
-     */
-    public void setLang(Float lang) {
-        this.lang = lang;
-    }
-
-    /**
      * @return the nameLocation
      */
     public String getNameLocation() {
@@ -146,5 +116,15 @@ public class Agenda {
      */
     public void setTransport(String transport) {
         this.transport = transport;
+    }
+    
+    /**
+     * @param transport the transport to set
+     */
+    public void printAgenda() {
+        System.out.println("Nama agenda \t : " + this.nameAgenda);
+        System.out.println("Lokasi \t : " + this.nameLocation);
+        System.out.println("Waktu mulai \t : " + this.startTime);
+        System.out.println("Waktu selesai \t : " + this.endTime + "\n");
     }
 }

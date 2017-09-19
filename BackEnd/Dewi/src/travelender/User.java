@@ -6,21 +6,34 @@
 package travelender;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Dewi Roaza
  */
 public class User {
+    
     private String idUser;
     private String nameUser;
     private String email;
-    private Date birth;
-    private String Password;
-    private Float lat;
-    private Float lang;
-    private String transport;
+    private List<Agenda> listAgenda = new ArrayList<Agenda>();
 
+    /**
+     * @return the ListAgenda
+     */
+    public List<Agenda> getListAgenda() {
+        return listAgenda;
+    }
+
+    /**
+     * @param ListAgenda the ListAgenda to set
+     */
+    public void setListAgenda(List<Agenda> ListAgenda) {
+        this.listAgenda = ListAgenda;
+    }
+    
     /**
      * @return the idUser
      */
@@ -63,74 +76,14 @@ public class User {
         this.email = email;
     }
 
-    /**
-     * @return the birth
-     */
-    public Date getBirth() {
-        return birth;
+    public void printListAgenda(){
+        int size = this.listAgenda.size();
+        int i;
+        
+        for(i = 0;i < size;i++){
+            System.out.println("======================");
+            this.listAgenda.get(i).printAgenda();
+        }
     }
-
-    /**
-     * @param birth the birth to set
-     */
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-
-    /**
-     * @return the Password
-     */
-    public String getPassword() {
-        return Password;
-    }
-
-    /**
-     * @param Password the Password to set
-     */
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-
-    /**
-     * @return the lat
-     */
-    public Float getLat() {
-        return lat;
-    }
-
-    /**
-     * @param lat the lat to set
-     */
-    public void setLat(Float lat) {
-        this.lat = lat;
-    }
-
-    /**
-     * @return the lang
-     */
-    public Float getLang() {
-        return lang;
-    }
-
-    /**
-     * @param lang the lang to set
-     */
-    public void setLang(Float lang) {
-        this.lang = lang;
-    }
-
-    /**
-     * @return the transport
-     */
-    public String getTransport() {
-        return transport;
-    }
-
-    /**
-     * @param transport the transport to set
-     */
-    public void setTransport(String transport) {
-        this.transport = transport;
-    }
-   
+    
 }
