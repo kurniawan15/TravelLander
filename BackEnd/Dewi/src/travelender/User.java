@@ -5,19 +5,19 @@
  */
 package travelender;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Dewi Roaza
+ * 
  */
 public class User {
     
     private String idUser;
     private String nameUser;
     private String email; 
+    private List<Agenda> listAgenda;
 
 
     /**
