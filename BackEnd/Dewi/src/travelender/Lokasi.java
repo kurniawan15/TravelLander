@@ -72,4 +72,6 @@ public class Lokasi {
         this.lokasi_akhir = lokasi_akhir;
     }
 
+    
+    
 }
