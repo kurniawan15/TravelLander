@@ -75,5 +75,14 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public void printListAgenda(){
+        int size = this.listAgenda.size();
+        int i;
+        for(i = 0; i < size  ; i++){
+            this.listAgenda.get(i).printAgenda();
+        }
+        
+    }
 }
 
