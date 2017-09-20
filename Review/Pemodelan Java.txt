@@ -1,0 +1,10 @@
+REVIEWER : PEGA KURNIAWAN
+
+REVIEW 1 20 September 2017
+
+
+Untuk pemodelan dan OOP nya sudah bagus dan cukup rapih cuman tolong ada beberapa yang harus di perbaiki
+1. Tolong tambahkan variabel untuk location awal dan location akhir
+2. Tolong tambahkan class atau variabel untuk duration 
+3. Tolong tambahkan variabel untuk password
+4. Di file transfort averageVelovity buat apa? tolong fokuskan dulu saja untuk target minggu depan
