@@ -6,18 +6,34 @@
 package travelender;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Dewi Roaza
  */
 public class User {
+    
     private String idUser;
     private String nameUser;
-    private String email;
-    private String Password;
+    private String email; 
 
 
+    /**
+     * @return the ListAgenda
+     */
+    public List<Agenda> getListAgenda() {
+        return listAgenda;
+    }
+
+    /**
+     * @param ListAgenda the ListAgenda to set
+     */
+    public void setListAgenda(List<Agenda> ListAgenda) {
+        this.listAgenda = ListAgenda;
+    }
+    
     /**
      * @return the idUser
      */
@@ -59,19 +75,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    /**
-     * @return the Password
-     */
-    public String getPassword() {
-        return Password;
-    }
-
-    /**
-     * @param Password the Password to set
-     */
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-   
 }
+

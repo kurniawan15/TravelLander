@@ -11,6 +11,11 @@ package travelender;
  */
 public class Lokasi {
 
+    private String lokasi_akhir;
+    private String id_lokasi;
+    private String nama_lokasi;
+    private String lokasi_awal;
+    
     /**
      * @return the id_lokasi
      */
@@ -67,8 +72,4 @@ public class Lokasi {
         this.lokasi_akhir = lokasi_akhir;
     }
 
-    private String id_lokasi;
-    private String nama_lokasi;
-    private String lokasi_awal;
-    private String lokasi_akhir;
 }

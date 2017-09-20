@@ -117,4 +117,14 @@ public class Agenda {
     public void setTransport(String transport) {
         this.transport = transport;
     }
+    
+    /**
+     * @param transport the transport to set
+     */
+    public void printAgenda() {
+        System.out.println("Nama agenda \t : " + this.nameAgenda);
+        System.out.println("Lokasi \t : " + this.nameLocation);
+        System.out.println("Waktu mulai \t : " + this.startTime);
+        System.out.println("Waktu selesai \t : " + this.endTime + "\n");
+    }
 }
