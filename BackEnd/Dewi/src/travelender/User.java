@@ -5,20 +5,20 @@
  */
 package travelender;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Dewi Roaza
+ * 
  */
 public class User {
     
     private String idUser;
     private String nameUser;
-    private String email;
-    private List<Agenda> listAgenda = new ArrayList<Agenda>();
+    private String email; 
+    private List<Agenda> listAgenda;
+
 
     /**
      * @return the ListAgenda
@@ -75,15 +75,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public void printListAgenda(){
-        int size = this.listAgenda.size();
-        int i;
-        
-        for(i = 0;i < size;i++){
-            System.out.println("======================");
-            this.listAgenda.get(i).printAgenda();
-        }
-    }
-    
 }
+
