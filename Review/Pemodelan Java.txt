@@ -8,7 +8,3 @@ Untuk pemodelan dan OOP nya sudah bagus dan cukup rapih cuman tolong ada beberap
 2. Tolong tambahkan class atau variabel untuk duration 
 3. Tolong tambahkan variabel untuk password
 4. Di file transfort averageVelovity buat apa? tolong fokuskan dulu saja untuk target minggu depan
-5. Perbedaan IdUser dengan Username
-6. Tambahkan tanggal
-7. Transfort pake case saja
-8. 
