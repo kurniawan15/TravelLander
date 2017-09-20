@@ -12,6 +12,7 @@ package travelender;
 public class Transport {
     private String idTransport;
     private String nameTransport;
+    private Float averageVelocity;
 
     /**
      * @return the idTransport
@@ -41,4 +42,17 @@ public class Transport {
         this.nameTransport = nameTransport;
     }
 
+    /**
+     * @return the averageVelocity
+     */
+    public Float getAverageVelocity() {
+        return averageVelocity;
+    }
+
+    /**
+     * @param averageVelocity the averageVelocity to set
+     */
+    public void setAverageVelocity(Float averageVelocity) {
+        this.averageVelocity = averageVelocity;
+    }
 }

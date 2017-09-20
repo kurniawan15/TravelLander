@@ -67,22 +67,8 @@ public class Lokasi {
         this.lokasi_akhir = lokasi_akhir;
     }
 
-    /**
-     * @return the jarak
-     */
-    public double getJarak() {
-        return jarak;
-    }
-
-    /**
-     * @param jarak the jarak to set
-     */
-    public void setJarak(double jarak) {
-        this.jarak = jarak;
-    }
     private String id_lokasi;
     private String nama_lokasi;
     private String lokasi_awal;
     private String lokasi_akhir;
-    private double jarak;
 }

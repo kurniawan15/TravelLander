@@ -16,6 +16,8 @@ public class Agenda {
     private String idAgenda;
     private Time startTime;
     private Time endTime;
+    private Float lat;
+    private Float lang;
     private String nameLocation;
     private String nameAgenda;
     private String transport;
@@ -74,6 +76,34 @@ public class Agenda {
      */
     public void setEndTime(Time endTime) {
         this.endTime = endTime;
+    }
+
+    /**
+     * @return the lat
+     */
+    public Float getLat() {
+        return lat;
+    }
+
+    /**
+     * @param lat the lat to set
+     */
+    public void setLat(Float lat) {
+        this.lat = lat;
+    }
+
+    /**
+     * @return the lang
+     */
+    public Float getLang() {
+        return lang;
+    }
+
+    /**
+     * @param lang the lang to set
+     */
+    public void setLang(Float lang) {
+        this.lang = lang;
     }
 
     /**
