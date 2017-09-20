@@ -19,7 +19,7 @@ public class koneksi {
    private String jdbc = "jdbc:mysql://";  
    private String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
    private String port = "3306/"; // Port ini port MySQL  
-   private String database = "traveller"; // Ini Database yang akan digunakan  
+   private String database = "travelender"; // Ini Database yang akan digunakan  
    private String url = jdbc + host + port + database;  
    private String username = "root"; // username default mysql  
    private String password = "";  
