@@ -5,10 +5,13 @@
  */
 package travelender;
 
-import java.sql.Time;
-import java.time.LocalTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
+
+
 
 /**
  *
@@ -31,32 +34,48 @@ public class Travelender {
         
         agenda1.setNameAgenda("Rapat Kurikulum");
         agenda1.setNameLocation("DISDIK Kota");
-        agenda1.setStartTime(Time.valueOf("08:00:00"));
-        agenda1.setEndTime(Time.valueOf("10:00:00"));
+        
+        String pattern = "dd/MM/yyyy hh:mm:ss";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        try {
+          Date date1 = format.parse("21/9/2017 10:00:00");
+          Date date2 = format.parse("24/9/2017 10:00:00");
+          
+          agenda1.setStartTime(date1);
+          agenda1.setEndTime(date2);
+          
+        } catch (ParseException e) {
+          e.printStackTrace();
+        }
+        
+            
+        // formatting
+        
+            
         agenda1.setTransport("Mobil");
         
         listAgenda.add(agenda1);
         
-        Agenda agenda2 = new Agenda();
-        
-        agenda2.setNameAgenda("Akreditasi SMA 1");
-        agenda2.setNameLocation("SMA 1");
-        agenda2.setStartTime(Time.valueOf("13:00:00"));
-        agenda2.setEndTime(Time.valueOf("16:00:00"));
-        agenda2.setTransport("Kereta");
-        
-        listAgenda.add(agenda2);
-        
-        Agenda agenda3 = new Agenda();
-        
-        agenda3.setNameAgenda("Ramah Tamah bersama Walikota");
-        agenda3.setNameLocation("Pemkot");
-        agenda3.setStartTime(Time.valueOf("18:30:00"));
-        agenda3.setEndTime(Time.valueOf("20:00:00"));
-        agenda3.setTransport("Mobil");
-        
-        listAgenda.add(agenda3);
-        
+//        Agenda agenda2 = new Agenda();
+//        
+//        agenda2.setNameAgenda("Akreditasi SMA 1");
+//        agenda2.setNameLocation("SMA 1");
+//        agenda2.setStartTime(Time.valueOf("13:00:00"));
+//        agenda2.setEndTime(Time.valueOf("16:00:00"));
+//        agenda2.setTransport("Kereta");
+//        
+//        listAgenda.add(agenda2);
+//        
+//        Agenda agenda3 = new Agenda();
+//        
+//        agenda3.setNameAgenda("Ramah Tamah bersama Walikota");
+//        agenda3.setNameLocation("Pemkot");
+//        agenda3.setStartTime(Time.valueOf("18:30:00"));
+//        agenda3.setEndTime(Time.valueOf("20:00:00"));
+//        agenda3.setTransport("Mobil");
+//        
+//        listAgenda.add(agenda3);
+//        
         kartan.setListAgenda(listAgenda);
         
         kartan.printListAgenda();
