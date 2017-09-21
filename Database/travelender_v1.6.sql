@@ -55,6 +55,7 @@ CREATE TABLE `lokasi` (
 
 CREATE TABLE `lookup` (
   `id_lookup` varchar(7) NOT NULL,
+  `jarak_tempuh` int(11) DEFAULT NULL,
   `waktu_tempuh` int(11) DEFAULT NULL,
   `kode_lokasi_awal` varchar(7) DEFAULT NULL,
   `kode_lokasi_akhir` varchar(7) DEFAULT NULL,
