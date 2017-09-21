@@ -5,7 +5,7 @@
  */
 package travelender;
 
-import java.sql.Time;
+import java.util.Date;
 
 /**
  *
@@ -14,8 +14,8 @@ import java.sql.Time;
 public class Agenda {
     private String idUser;
     private String idAgenda;
-    private Time startTime;
-    private Time endTime;
+    private Date startTime;
+    private Date endTime;
     private String nameLocation;
     private String nameAgenda;
     private String transport;
@@ -51,28 +51,28 @@ public class Agenda {
     /**
      * @return the startTime
      */
-    public Time getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
     /**
      * @param startTime the startTime to set
      */
-    public void setStartTime(Time startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
     /**
      * @return the endTime
      */
-    public Time getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
     /**
      * @param endTime the endTime to set
      */
-    public void setEndTime(Time endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
@@ -119,11 +119,11 @@ public class Agenda {
     }
     
     /**
-     * @param transport the transport to set
+     * Prosedur untuk menampilkan satu agenda
      */
     public void printAgenda() {
         System.out.println("Nama agenda \t : " + this.nameAgenda);
-        System.out.println("Lokasi \t : " + this.nameLocation);
+        System.out.println("Lokasi \t\t : " + this.nameLocation);
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime + "\n");
     }
