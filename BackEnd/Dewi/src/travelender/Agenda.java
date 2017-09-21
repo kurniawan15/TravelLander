@@ -16,7 +16,7 @@ public class Agenda {
     private String idAgenda;
     private Date startTime;
     private Date endTime;
-    private String nameLocation;
+    private String destination;
     private String nameAgenda;
     private String transport;
 
@@ -80,14 +80,14 @@ public class Agenda {
      * @return the nameLocation
      */
     public String getNameLocation() {
-        return nameLocation;
+        return destination;
     }
 
     /**
      * @param nameLocation the nameLocation to set
      */
     public void setNameLocation(String nameLocation) {
-        this.nameLocation = nameLocation;
+        this.destination = nameLocation;
     }
 
     /**
@@ -123,7 +123,7 @@ public class Agenda {
      */
     public void printAgenda() {
         System.out.println("Nama agenda \t : " + this.nameAgenda);
-        System.out.println("Lokasi \t\t : " + this.nameLocation);
+        System.out.println("Lokasi \t\t : " + this.destination);
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime + "\n");
     }
