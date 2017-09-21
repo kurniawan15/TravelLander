@@ -27,6 +27,12 @@ body{
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.contentkiribawah{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 469px;
+}
 .kiri{
 	font-size: 16px;
 	padding-right: 0px;
@@ -37,7 +43,7 @@ body{
 	border-bottom: 2px solid #111111;
 }
 .kiri:hover{
-	background-color: orange;
+	background-color: maroon;
 }
 /*------------------------Create Schedule------------------------------*/
 .contentkanan{
@@ -75,7 +81,7 @@ body{
 	font-size: 15px;
 }
 .InputWaktu{
-	padding-top: 5px;
+	padding-top: 10px;
 	padding-bottom: 10px;
 }
 .textWaktu{
@@ -123,6 +129,8 @@ body{
 }
 .Destination{
 	padding-top: 5px;
+	padding-bottom: 10px;
+
 }
 .textDest{
 	height: 30px;
@@ -134,3 +142,23 @@ body{
 	line-height: 30px;
 	font-size: 15px;
 }
+.HeaderJudul4{
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	background-color: #ff3c00;
+	font-size: 19px;
+}
+/*-------------------------------------------------------------*/
+.wrap
+{
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 40px;
+}
+.choise > div
+{
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+/*---------------------------------------------------------------*/
