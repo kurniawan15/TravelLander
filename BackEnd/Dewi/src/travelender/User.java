@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class User {
     
-    
+    private String idUser;
     private String nameUser;
     private String email; 
     private List<Agenda> listAgenda;
@@ -99,6 +99,20 @@ public class User {
      */
     public void setCurrentLocation(String currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    /**
+     * @return the idUser
+     */
+    public String getIdUser() {
+        return idUser;
+    }
+
+    /**
+     * @param idUser the idUser to set
+     */
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 }
 
