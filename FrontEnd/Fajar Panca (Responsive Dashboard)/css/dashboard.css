@@ -27,6 +27,11 @@ body{
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.contentkiri{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+}
 .contentkiribawah{
 	background-color: black;
 	padding-left: 0px;
@@ -43,6 +48,31 @@ body{
 	border-bottom: 2px solid #111111;
 }
 .kiri:hover{
+	background-color: maroon;
+}
+.kirismmd{
+	font-size: 14px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+.kirismmd:hover{
+	background-color: maroon;
+}
+.kirixs{
+	font-size: 12px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+.kirixs:hover{
 	background-color: maroon;
 }
 /*------------------------Create Schedule------------------------------*/
@@ -68,7 +98,7 @@ body{
 	font-size: 19px;
 }
 .InputNama{
-	padding-top: 10px;
+	padding-top: 5px;
 }
 .textNama{
 	height: 30px;
@@ -96,6 +126,7 @@ body{
 }
 .startPoint{
 	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .textStart{
 	height: 30px;
@@ -116,6 +147,7 @@ body{
 }
 .endPoint{
 	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .textEnd{
 	height: 30px;
