@@ -12,3 +12,13 @@ Untuk pemodelan dan OOP nya sudah bagus dan cukup rapih cuman tolong ada beberap
 6. Tambahkan tanggal
 7. Transfort pake case saja
 8. Tolong untuk nge commit di branch
+
+24 september 2017
+
+tolong untuk backEnd di branches biar nanti bisa bisa di review terlebih dahulu.
+
+
+1.transfort tipe datanya string , alangkah baiknya jika transfort di buat class lagi dan di panggil di class agenda agar transfort di pilih bukan di input
+2. destination tipe datanya string , alangkah baiknya jika destination di buat class lagi dan di panggil di class agenda agar transfort di pilih bukan di input
+3. destination di classs agenda dengan tempat awal dan tempat akhir di class lookup apa bedanya ?
+4. transfort di class agenda dengan transfort di class lookup apa bedanya?
