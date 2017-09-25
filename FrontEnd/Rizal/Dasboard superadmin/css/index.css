@@ -53,11 +53,6 @@ div#container
 	top:50px;
 }
 
-.date
-{
-	
-}
-
 .content
 {
 	width: auto;
@@ -226,4 +221,24 @@ input[type="text"]
 	margin-top:15px;
 	width: 50%;
 	margin-bottom:5px;
+}
+/*___________________Buat Tombol User_______________________*/
+
+ul#dropdown li a
+{
+	float:right;
+	background:#27ae60;
+	color:#fff;
+	display:block;
+	height:50px;
+	width:80px;
+	padding:10px;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2;
+	-o-transition: 0.2;
+}
+ul#dropdown li a:hover
+{
+	background-color:#F8A200;
+	color:#fff;
 }
