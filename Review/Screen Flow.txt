@@ -1,0 +1,14 @@
+REVIEW         : Screen Flow Project
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 25 SEPTEMBER 2017
+ 
+________________________________________
+
+Screen Flow nya sudah cukup lengkap dan alur program terbaca dengan sangat jelas tetapi 
+ada beberapa hal yang perlu di tambahkan di antara nya:
+1. tolong di tambahkan screen flow untuk "super admin"
+
+
+
+Terimakasih
+ 
