@@ -33,11 +33,13 @@ public class Travelender {
         List<Agenda> listAgenda = new ArrayList<Agenda>();
         
         Agenda agenda1 = new Agenda();
+        Lokasi lokasi1 = new Lokasi();
         
-        
+        lokasi1.setNamaLokasi("Disdiik");
+        lokasi1.setAlamat("Jl. Diponegoro no.27 ");
         
         agenda1.setNameAgenda("Rapat Kurikulum");
-        agenda1.setDestination("DISDIK Kota");
+        agenda1.setDestination(lokasi1);
         
         /*
         Pengubahan format tanggal

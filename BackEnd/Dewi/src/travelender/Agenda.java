@@ -18,7 +18,7 @@ public class Agenda {
     private Date endTime;
     private String nameAgenda;
     private Transport transport;
-    private String destination;
+    private Lokasi destination;
     
     /**
      * @return the idUser
@@ -110,14 +110,14 @@ public class Agenda {
     /**
      * @return the destination
      */
-    public String getDestination() {
+    public Lokasi getDestination() {
         return destination;
     }
 
     /**
      * @param destination the destination to set
      */
-    public void setDestination(String destination) {
+    public void setDestination(Lokasi destination) {
         this.destination = destination;
     }
 
