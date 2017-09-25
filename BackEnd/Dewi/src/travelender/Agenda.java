@@ -17,8 +17,8 @@ public class Agenda {
     private Date startTime;
     private Date endTime;
     private String nameAgenda;
-    private String transport;
-    private String destination;
+    private Transport transport;
+    private Lokasi destination;
     
     /**
      * @return the idUser
@@ -96,28 +96,28 @@ public class Agenda {
     /**
      * @return the transport
      */
-    public String getTransport() {
+    public Transport getTransport() {
         return transport;
     }
 
     /**
      * @param transport the transport to set
      */
-    public void setTransport(String transport) {
+    public void setTransport(Transport transport) {
         this.transport = transport;
     }
 
     /**
      * @return the destination
      */
-    public String getDestination() {
+    public Lokasi getDestination() {
         return destination;
     }
 
     /**
      * @param destination the destination to set
      */
-    public void setDestination(String destination) {
+    public void setDestination(Lokasi destination) {
         this.destination = destination;
     }
 

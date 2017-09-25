@@ -10,50 +10,52 @@ package travelender;
  * @author Mohridwan
  */
 public class Lokasi {
-
-    private String id_lokasi;
-    private String nama_lokasi;
-    private Lookup alamat;
     
+    
+    private String idLokasi;
+    private String namaLokasi;
+    private String alamat;
     /**
-     * @return the id_lokasi
+     * @return the idLokasi
      */
-    public String getId_lokasi() {
-        return id_lokasi;
+    public String getIdLokasi() {
+        return idLokasi;
     }
 
     /**
-     * @param id_lokasi the id_lokasi to set
+     * @param idLokasi the idLokasi to set
      */
-    public void setId_lokasi(String id_lokasi) {
-        this.id_lokasi = id_lokasi;
+    public void setIdLokasi(String idLokasi) {
+        this.idLokasi = idLokasi;
     }
 
     /**
-     * @return the nama_lokasi
+     * @return the namaLokasi
      */
-    public String getNama_lokasi() {
-        return nama_lokasi;
+    public String getNamaLokasi() {
+        return namaLokasi;
     }
 
     /**
-     * @param nama_lokasi the nama_lokasi to set
+     * @param namaLokasi the namaLokasi to set
      */
-    public void setNama_lokasi(String nama_lokasi) {
-        this.nama_lokasi = nama_lokasi;
+    public void setNamaLokasi(String namaLokasi) {
+        this.namaLokasi = namaLokasi;
     }
 
+    
+ 
     /**
      * @return the alamat
      */
-    public Lookup getAlamat() {
+    public String getAlamat() {
         return alamat;
     }
 
     /**
      * @param alamat the alamat to set
      */
-    public void setAlamat(Lookup alamat) {
+    public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
 
