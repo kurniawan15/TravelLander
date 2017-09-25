@@ -26,15 +26,24 @@ public class Travelender {
      */
     public static void main(String[] args) {
         
-        User kartan = new User();
+        User kanto = new User();
+        kanto.setNameUser("Kanto");
+        
         
         List<Agenda> listAgenda = new ArrayList<Agenda>();
         
         Agenda agenda1 = new Agenda();
+        Lokasi lokasi1 = new Lokasi();
+        
+        lokasi1.setNamaLokasi("Disdiik");
+        lokasi1.setAlamat("Jl. Diponegoro no.27 ");
         
         agenda1.setNameAgenda("Rapat Kurikulum");
-        agenda1.setDestination("DISDIK Kota");
+        agenda1.setDestination(lokasi1);
         
+        /*
+        Pengubahan format tanggal
+        */
         String pattern = "dd/MM/yyyy hh:mm:ss";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         try {
@@ -76,8 +85,8 @@ public class Travelender {
 //        
 //        listAgenda.add(agenda3);
 //        
-        kartan.setListAgenda(listAgenda);
+        kanto.setListAgenda(listAgenda);
         
-        kartan.printListAgenda();
+        kanto.printListAgenda();
     }    
 }
