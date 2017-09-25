@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+body{
+	font-family: 'open sans';
+}
+.wrapper{
+	background-color: #2c3e50;
+}
+.menubar{
+	height: 50px;
+	line-height: 50px;
+	font-size: 21px;
+	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.dashboard{
+	padding-left: 0px;
+	padding-right: 0px; 
+}
+.contentkiri{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.contentkiri{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.contentkiribawah{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 469px;
+}
+.kiri{
+	font-size: 16px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	color: white;
+	border-bottom: 2px solid #111111;
+}
+.kiri:hover{
+	background-color: maroon;
+}
+.kirismmd{
+	font-size: 14px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+.kirismmd:hover{
+	background-color: maroon;
+}
+.kirixs{
+	font-size: 12px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+.kirixs:hover{
+	background-color: maroon;
+}
+/*------------------------Create Schedule------------------------------*/
+.contentkanan{
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: white;
+	height: 20px;	
+}
+.HeaderJudul{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background-color: #ebebeb;
+	color: black;
+	font-size: 22px;
+}
+.HeaderJudul2{
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	background-color: #00cbff;
+	font-size: 19px;
+}
+.InputNama{
+	padding-top: 5px;
+}
+.textNama{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.formNama{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.InputWaktu{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.textWaktu{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.formWaktu{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.startPoint{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.textStart{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.formStart{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.HeaderJudul3{
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	background-color: #ff8e00;
+	font-size: 19px;
+}
+.endPoint{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.textEnd{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.formEnd{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.Destination{
+	padding-top: 5px;
+	padding-bottom: 10px;
+
+}
+.textDest{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.formDest{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.HeaderJudul4{
+	height: 30px;
+	line-height: 30px;
+	color: white;
+	background-color: #ff3c00;
+	font-size: 19px;
+}
+/*-------------------------------------------------------------*/
+.wrap
+{
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 40px;
+}
+.choise > div
+{
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+/*---------------------------------------------------------------*/

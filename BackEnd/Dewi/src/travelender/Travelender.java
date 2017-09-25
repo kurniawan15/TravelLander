@@ -33,7 +33,7 @@ public class Travelender {
         Agenda agenda1 = new Agenda();
         
         agenda1.setNameAgenda("Rapat Kurikulum");
-        agenda1.setNameLocation("DISDIK Kota");
+        agenda1.setDestination("DISDIK Kota");
         
         String pattern = "dd/MM/yyyy hh:mm:ss";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
@@ -52,7 +52,7 @@ public class Travelender {
         // formatting
         
             
-        agenda1.setTransport("Mobil");
+//        agenda1.setTransport("Mobil");
         
         listAgenda.add(agenda1);
         

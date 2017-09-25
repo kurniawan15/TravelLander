@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+	<link href="css/dashboard.css" type="text/css" rel="stylesheet">
+<body>
+	<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 wrapper container-fluid">
+		<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 menubar">
+			HalooSource
+		</div>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dashboard container-fluid">
+		<div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 contentkiri visible-lg">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kiri">
+				&nbsp;&nbsp;Dashboard
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kiri">
+				&nbsp;&nbsp;Create Schedule
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kiri">
+				&nbsp;&nbsp;Finished Task
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 kiri">
+				&nbsp;&nbsp;Pending or Cancel
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contentkiribawah visible-lg">
+				&nbsp;
+			</div>
+		</div>
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contentkiri visible-sm visible-md">
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirismmd">
+				&nbsp;&nbsp;Dashboard
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirismmd">
+				&nbsp;&nbsp;Create Schedule
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirismmd">
+				&nbsp;&nbsp;Finished Task
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirismmd">
+				&nbsp;&nbsp;Pending or Cancel
+			</div>
+		</div>
+
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contentkiri visible-xs">
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirixs">
+				&nbsp;&nbsp;Dashboard
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirixs">
+				&nbsp;&nbsp;Create Schedule
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirixs">
+				&nbsp;&nbsp;Finished Task
+			</div>
+			<div class="col-lg-12 col-md-3 col-sm-3 col-xs-3 kirixs">
+				&nbsp;&nbsp;Pending or Cancel
+			</div>
+		</div>
+
+		<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 contentkanan">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 HeaderJudul">
+				<b>Create Scedule</b>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 HeaderJudul2">
+				<b>Please Input Created In here</b>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 InputNama">
+				<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 textNama">
+					Nama Acara
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 col-xs-12 formNama">
+					<input type="text" name="nama_agenda" placeholder="Untitled event" size="26" maxlength="40">
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 InputWaktu">
+				<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 textWaktu">
+					Input Waktu
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 col-xs-12 formWaktu">
+					<input type="datetime-local" size="40" name="waktu_mulai" placeholder="start time">
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 HeaderJudul3">
+				Event Detail
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 startPoint">
+				<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 textStart">
+					Starting Point : Location
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 col-xs-12 formStart">
+					<input type="text" id="txtautocomplete" size="26" maxlength="40" placeholder="Location"/>
+                    <label id="lblresult"></label>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 endPoint">
+				<div class="col-lg-3 col-sm-6 col-xs-12 col-xs-12 textEnd">
+					End Point
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 col-xs-12 formEnd">
+					<input type="text" name="long_rumah" size="26" maxlength="40" placeholder="Posisi Akhir">
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Destination">
+				<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 textDest">
+					Destination
+				</div>
+				<div class="col-lg-9 col-md-6 col-sm-12 col-xs-12 formDest">
+					<input type="text" name="destination" size="26" maxlength="40" placeholder="Destinasi">
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 HeaderJudul4">
+				Transportation
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pilihanTransport">
+				<div class="wrap">
+                    <form action="" class="choise">
+                        <div class="radio">
+                            <input type="radio" name="#1" id="mobil">
+                                <label for="mobil">Mobil</label>
+                                
+                            <input type="radio" name="#2" id="motor">
+                                <label for="motor">Motor</label>
+                                
+                            <input type="radio" name="#3" id="angkot">
+                                <label for="angkot">Angkot</label>
+                                
+                            <input type="radio" name="#4" id="Bus">
+                                <label for="Bus">Bus</label>
+                        </div>
+                    </form>
+            	</div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 submitAgenda">
+				<input type="submit" value="Create" id="button-blue"/>
+				<div class="ease"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

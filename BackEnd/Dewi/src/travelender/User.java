@@ -18,6 +18,8 @@ public class User {
     private String nameUser;
     private String email; 
     private List<Agenda> listAgenda;
+    private String Password;
+    private String currentLocation;
 
 
     /**
@@ -32,20 +34,6 @@ public class User {
      */
     public void setListAgenda(List<Agenda> ListAgenda) {
         this.listAgenda = ListAgenda;
-    }
-    
-    /**
-     * @return the idUser
-     */
-    public String getIdUser() {
-        return idUser;
-    }
-
-    /**
-     * @param idUser the idUser to set
-     */
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
     }
 
     /**
@@ -83,6 +71,48 @@ public class User {
             this.listAgenda.get(i).printAgenda();
         }
         
+    }
+
+    /**
+     * @return the Password
+     */
+    public String getPassword() {
+        return Password;
+    }
+
+    /**
+     * @param Password the Password to set
+     */
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    /**
+     * @return the currentLocation
+     */
+    public String getCurrentLocation() {
+        return currentLocation;
+    }
+
+    /**
+     * @param currentLocation the currentLocation to set
+     */
+    public void setCurrentLocation(String currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
+    /**
+     * @return the idUser
+     */
+    public String getIdUser() {
+        return idUser;
+    }
+
+    /**
+     * @param idUser the idUser to set
+     */
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 }
 

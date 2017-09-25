@@ -11,10 +11,9 @@ package travelender;
  */
 public class Lokasi {
 
-    private String lokasi_akhir;
     private String id_lokasi;
     private String nama_lokasi;
-    private String lokasi_awal;
+    private Lookup alamat;
     
     /**
      * @return the id_lokasi
@@ -45,31 +44,17 @@ public class Lokasi {
     }
 
     /**
-     * @return the lokasi_awal
+     * @return the alamat
      */
-    public String getLokasi_awal() {
-        return lokasi_awal;
+    public Lookup getAlamat() {
+        return alamat;
     }
 
     /**
-     * @param lokasi_awal the lokasi_awal to set
+     * @param alamat the alamat to set
      */
-    public void setLokasi_awal(String lokasi_awal) {
-        this.lokasi_awal = lokasi_awal;
-    }
-
-    /**
-     * @return the lokasi_akhir
-     */
-    public String getLokasi_akhir() {
-        return lokasi_akhir;
-    }
-
-    /**
-     * @param lokasi_akhir the lokasi_akhir to set
-     */
-    public void setLokasi_akhir(String lokasi_akhir) {
-        this.lokasi_akhir = lokasi_akhir;
+    public void setAlamat(Lookup alamat) {
+        this.alamat = alamat;
     }
 
 }

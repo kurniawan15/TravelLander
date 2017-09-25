@@ -16,10 +16,10 @@ public class Agenda {
     private String idAgenda;
     private Date startTime;
     private Date endTime;
-    private String nameLocation;
     private String nameAgenda;
     private String transport;
-
+    private String destination;
+    
     /**
      * @return the idUser
      */
@@ -76,19 +76,6 @@ public class Agenda {
         this.endTime = endTime;
     }
 
-    /**
-     * @return the nameLocation
-     */
-    public String getNameLocation() {
-        return nameLocation;
-    }
-
-    /**
-     * @param nameLocation the nameLocation to set
-     */
-    public void setNameLocation(String nameLocation) {
-        this.nameLocation = nameLocation;
-    }
 
     /**
      * @return the nameAgenda
@@ -104,6 +91,8 @@ public class Agenda {
         this.nameAgenda = nameAgenda;
     }
 
+    
+
     /**
      * @return the transport
      */
@@ -117,14 +106,29 @@ public class Agenda {
     public void setTransport(String transport) {
         this.transport = transport;
     }
-    
+
     /**
+     * @return the destination
+     */
+    public String getDestination() {
+        return destination;
+    }
+
+    /**
+     * @param destination the destination to set
+     */
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+        /**
      * Prosedur untuk menampilkan satu agenda
      */
     public void printAgenda() {
         System.out.println("Nama agenda \t : " + this.nameAgenda);
-        System.out.println("Lokasi \t\t : " + this.nameLocation);
+        System.out.println("Lokasi \t\t : " + this.destination);
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime + "\n");
     }
+
 }
