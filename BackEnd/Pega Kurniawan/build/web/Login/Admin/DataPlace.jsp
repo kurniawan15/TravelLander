@@ -34,9 +34,9 @@
         <ul id="nav">
         	<li><a href="#">Calendar</a></li>
             <li><a class="selected" href="#">Manage Place</a></li>
-            <li><a href="distance.html">Manage Distance</a></li>
-            <li><a href="time.html">Manage Time</a></li>
-            <li><a href="#">Manage Transpotation</a></li>
+            <li><a href="distance.jsp">Manage Distance</a></li>
+            <li><a href="time.jsp">Manage Time</a></li>
+            <li><a href="transpotation.jsp">Manage Transpotation</a></li>
       	</ul>
         <div id="calendar">
 			<p id="calendar-day"></p>
