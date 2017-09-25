@@ -17,7 +17,7 @@ public class Agenda {
     private Date startTime;
     private Date endTime;
     private String nameAgenda;
-    private String transport;
+    private Transport transport;
     private String destination;
     
     /**
@@ -96,14 +96,14 @@ public class Agenda {
     /**
      * @return the transport
      */
-    public String getTransport() {
+    public Transport getTransport() {
         return transport;
     }
 
     /**
      * @param transport the transport to set
      */
-    public void setTransport(String transport) {
+    public void setTransport(Transport transport) {
         this.transport = transport;
     }
 
