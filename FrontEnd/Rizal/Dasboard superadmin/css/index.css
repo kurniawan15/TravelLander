@@ -156,7 +156,7 @@ div#box .box-panel
 th, td {
     border: none;
     padding: 8px 100px;
-	text-align:left;
+	text-align:center;
 	
 }
 tr:nth-child(even){background-color: #f2f2f2}
