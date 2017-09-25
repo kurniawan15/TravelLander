@@ -14,7 +14,7 @@
     <body>
         <%
          session.invalidate(); //untuk membersihkan session  
-         response.sendRedirect("../login.jsp");
+         response.sendRedirect("login.jsp");
         %>
     </body>
 </html>

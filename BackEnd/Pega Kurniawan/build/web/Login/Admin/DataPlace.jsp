@@ -1,3 +1,10 @@
+<%-- 
+    Document   : Data Place
+    Created on : Sep 25, 2017, 8:51:22 PM
+    Author     : Cyber Pegasus
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
@@ -14,8 +21,12 @@
 <div id="header">
     	<div class="logo"><a href="#">Travel<span>Calendar</span></a></div>
         <ul id="dropdown">
-			<li><a href="#">Log Out</a></li>
-		</ul>
+        <%
+            String nama = session.getAttribute("id_Admin").toString();
+        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
+            %>
+            <li><a href="../logout.jsp">Log Out</a></li>
+	</ul>
     </div>
     
     <div id="container">

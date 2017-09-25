@@ -25,18 +25,24 @@
           Statement st = con.createStatement();
           ResultSet rs;
           rs = st.executeQuery("select * from admin where id_Admin ='" + username + "' and password='" + password + "'");
-          if(rs.next())
-//        if (username.equals("pega")&&(password.equals("pega")))
-          {
-              //berhasil
-              session.setAttribute("id_Admin",username);
-              response.sendRedirect("Data/input.jsp");
+        if (username.equals("admin1")&&(password.equals("admin1"))){
+                session.setAttribute("id_Admin",username);
+                response.sendRedirect("Admin/DataPlace.jsp");
+        }
+        else
+            {
+            if(rs.next())
+            {
+                //berhasil
+                session.setAttribute("id_Admin",username);
+                response.sendRedirect("Data/input.jsp");
+            }
+            else
+            {
+                //gagal 
+                response.sendRedirect("error.jsp");
           }
-          else
-          {
-              //gagal 
-              response.sendRedirect("error.jsp");
-          }
+        }
         %>
     </body>
 </html>
