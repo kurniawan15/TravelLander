@@ -170,122 +170,44 @@ body{
 	background-color: red;
 	transition: 0.5s;
 }
-/*------------------------Create Schedule------------------------------*/
+/*-------------------------------------*/
 .contentkanan{
 	padding-left: 0px;
 	padding-right: 0px;
 	background-color: white;
-	height: 20px;	
+	height: 20px;
 }
 .HeaderJudul{
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
-	background-color: #ebebeb;
+	background-color: #00cbff;
 	color: black;
 	font-size: 22px;
 }
-.HeaderJudul2{
-	height: 30px;
-	line-height: 30px;
-	color: white;
-	background-color: #00cbff;
-	font-size: 19px;
+.isiprofil{
+	padding-right: 0px;
+	padding-left: 0px;
 }
-.InputNama{
-	padding-top: 5px;
+.fotoprofil{
+	background-color: lightgrey;
+	height: 250px;
+	line-height: 420px;
+	border: 15px solid white;
 }
-.textNama{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
+.keteranganprofil{
+	padding-top: 35px;
 }
-.formNama{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
+.usernama{
+	padding-top: 35px;	
 }
-.InputWaktu{
-	padding-top: 10px;
-	padding-bottom: 10px;
+.birthday{
+	padding-top: 35px;
 }
-.textWaktu{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
+.email{
+	padding-top: 35px;
 }
-.formWaktu{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
+.editprofil{
+	padding-top: 15px;
+	text-align: right;
 }
-.startPoint{
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.textStart{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.formStart{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.HeaderJudul3{
-	height: 30px;
-	line-height: 30px;
-	color: white;
-	background-color: #ff8e00;
-	font-size: 19px;
-}
-.endPoint{
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.textEnd{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.formEnd{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.Destination{
-	padding-top: 5px;
-	padding-bottom: 10px;
-
-}
-.textDest{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.formDest{
-	height: 30px;
-	line-height: 30px;
-	font-size: 15px;
-}
-.HeaderJudul4{
-	height: 30px;
-	line-height: 30px;
-	color: white;
-	background-color: #ff3c00;
-	font-size: 19px;
-}
-/*-------------------------------------------------------------*/
-.wrap
-{
-	width: 90%;
-	max-width: 1000px;
-	margin: 0 40px;
-}
-.choise > div
-{
-	padding: 20px 0;
-	border-bottom: 1px solid #ccc;
-}
-/*---------------------------------------------------------------*/
