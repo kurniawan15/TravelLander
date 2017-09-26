@@ -31,7 +31,10 @@ public class Travelender {
         //Lokasi yang ada pada referensi
         List<Lokasi> listLokasi = new ArrayList<Lokasi>();
         
-        Agenda agenda1 = new Agenda();
+        //Transport 
+        List<Transport> listTransport = new ArrayList<Transport>();
+        
+        
         
         //Lokasi Item yang pertama
         Lokasi lokasi1 = new Lokasi();
@@ -49,12 +52,55 @@ public class Travelender {
 
         listLokasi.add(lokasi2);
         
+        //Transport item pertama
+        Transport moda1 =new Transport ();
+        moda1.setNameTransport("Pejalan kaki");
+        
+        listTransport.add(moda1);
+        
+        //Transport item kedua
+        Transport moda2 =new Transport ();
+        moda2.setNameTransport("Sepeda");
+        
+        listTransport.add(moda2);
+        
+        //Transport item ketiga
+        Transport moda3 =new Transport ();
+        moda3.setNameTransport("Motor");
+        
+        listTransport.add(moda3);
+        
+        //Transport item keempat
+        Transport moda4 =new Transport ();
+        moda4.setNameTransport("Mobil");
+        
+        listTransport.add(moda4);
+        
+        //Transport item kelima
+        Transport moda5 =new Transport ();
+        moda5.setNameTransport("Bus");
+        
+        listTransport.add(moda5);
+        
+        //Transport item keenam
+        Transport moda6 =new Transport ();
+        moda6.setNameTransport("Kereta");
+        
+        listTransport.add(moda6);
+        
+        //Transport item ketuju
+        Transport moda7 =new Transport ();
+        moda7.setNameTransport("Pesawat");
+        
+        listTransport.add(moda7);
         
         User kanto = new User();
         kanto.setNameUser("Kanto");
         
+        Agenda agenda1 = new Agenda();
         agenda1.setNameAgenda("Rapat Kurikulum");
         agenda1.setDestination(listLokasi.get(0));
+        agenda1.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
         
         /*
         Pengubahan format tanggal
@@ -72,7 +118,8 @@ public class Travelender {
           e.printStackTrace();
         }
         
-            
+        
+        
         // formatting
         
             

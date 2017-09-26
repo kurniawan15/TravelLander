@@ -128,7 +128,7 @@ public class Agenda {
         System.out.println("Nama agenda \t : " + this.nameAgenda);
         System.out.println("Lokasi \t\t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + this.startTime);
-        System.out.println("Waktu selesai \t : " + this.endTime + "\n");
-    }
-
+        System.out.println("Waktu selesai \t : " + this.endTime);
+        System.out.println("Transportasi \t : " + this.transport.getNameTransport());
+        }
 }
