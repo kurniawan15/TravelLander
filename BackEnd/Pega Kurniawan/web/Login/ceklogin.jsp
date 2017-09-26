@@ -35,7 +35,7 @@
             {
                 //berhasil
                 session.setAttribute("id_Admin",username);
-                response.sendRedirect("Data/input.jsp");
+                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
             }
             else
             {
