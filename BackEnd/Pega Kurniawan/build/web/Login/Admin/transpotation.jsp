@@ -1,3 +1,10 @@
+<%-- 
+    Document   : transpotation
+    Created on : Sep 25, 2017, 9:31:25 PM
+    Author     : Cyber Pegasus
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
@@ -14,7 +21,11 @@
 <div id="header">
     	<div class="logo"><a href="#">Travel<span>Calendar</span></a></div>
         <ul id="dropdown">
-			<li><a href="#">Log Out</a></li>
+        <%
+            String nama = session.getAttribute("id_Admin").toString();
+        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
+            %>
+            <li><a href="../logout.jsp">Log Out</a></li>
 		</ul>
     </div>
     
@@ -22,10 +33,10 @@
     	<div class="sidebar">
         <ul id="nav">
         	<li><a href="#">Calendar</a></li>
-            <li><a class="selected" href="#">Manage Place</a></li>
-            <li><a href="distance.html">Manage Distance</a></li>
-            <li><a href="time.html">Manage Time</a></li>
-            <li><a href="transfortation.html">Manage Transpotation</a></li>
+            <li><a href="DatePlace.jsp">Manage Place</a></li>
+            <li><a href="distance.jsp">Manage Distance</a></li>
+            <li><a href="time.jsp">Manage Time</a></li>
+            <li><a class="selected" href="#">Manage Transpotation</a></li>
       	</ul>
         <div id="calendar">
 			<p id="calendar-day"></p>
@@ -46,73 +57,49 @@
                          <table id="table2">
                          	<tr>
                             <th> No </th>
-                            <th> Place Name </th>
+                            <th> Transpotation</th>
                             <th> Action </th>
                             </tr>
                          	<tr>
                             <td > 1 </td>
-                            <td> Rumah </td>
+                            <td> Pesawat </td>
                             <td > <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>
                             <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
+                            <td> 2 </td>
+                            <td> Kereta </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>
                             <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
+                            <td> 3 </td>
+                            <td> Mobil </td>
                             <td> <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>
                             <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
+                            <td> 4 </td>
+                            <td> Motor </td>
                             <td> <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>    
                             <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
+                            <td> 5 </td>
+                            <td> Jalan Kaki </td>
                             <td> <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>    
                             <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
+                            <td> 6 </td>
+                            <td> Bus </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
-                            <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
-                            <td> <input type="submit" name="" value="Delet Data"> </td>
-                       		</tr>    
-                            <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
-                            <td> <input type="submit" name="" value="Delet Data"> </td>
-                       		</tr>    
-                            <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
-                            <td> <input type="submit" name="" value="Delet Data"> </td>
-                       		</tr>    
-                            <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
-                            <td> <input type="submit" name="" value="Delet Data"> </td>
-                       		</tr>    
-                            <tr>
-                            <td> 1 </td>
-                            <td> Rumah </td>
-                            <td> <input type="submit" name="" value="Delet"> </td>
-                       		</tr>                           
+                                                      
                        	  </table>                          
                         </div>
                         <div id="imput">
                         	 Imput Place
                         </div>
                         <div id="form">
-                        	 <input type="text" name="#" style="width:100%" placeholder="Place Name">
+                        	 <input type="text" name="#" style="width:100%" placeholder="Transpotation">
                             
-                             	<button class="button" name="#" style="width:100%"><span>Submit </span></button>
+                             	<button class="button" style="width:100%"><span>Submit </span></button>
                              
                         </div>
                     </div>

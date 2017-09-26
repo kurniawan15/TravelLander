@@ -53,11 +53,6 @@ div#container
 	top:50px;
 }
 
-.date
-{
-	
-}
-
 .content
 {
 	width: auto;
@@ -69,7 +64,7 @@ div#container
 .content p
 {
 	text-align:center;
-	padding: 15px;
+	padding: 5px;
 	font-size:24px;
 	color:#000000;
 	font-weight:bold;
@@ -134,33 +129,40 @@ div#box .box-panel
 
 #table1
 {
-	border-collapse: collapse;
+	border-collapse: separete;
     border-spacing: 0;
     width: 100%;
 	color:#FFFFFF;	
 }
 #div2
 {
-	height:250px;
+	height:235px;
 	width:100%;
-	overflow-x:hidden;
-	
+	overflow:scroll;
+	position:relative;
 }
 #table2
 {
-	
 	border-collapse: collapse;
     border-spacing: 0;
-    width: 100%;
 }
-th, td {
-    border: none;
-    padding: 8px 100px;
-	text-align:center;
-	
-}
-tr:nth-child(even){background-color: #f2f2f2}
 
+th, td 
+{
+	width:1%;
+    border: none;
+    padding: 8px ;
+	text-align:center;
+}
+
+th
+{
+	background:#00EBFF;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){background-color:#fff;}
+/*_________________ buat imput data ______________________________*/
 #imput
 {
 	width: 100%;
@@ -178,12 +180,19 @@ input[type="text"]
 	padding: 5px;
 	width: 500px;
 	font-size: inherit;
+	margin-top:15px;
 }
 
 #form
 {
+	
 	margin-top: 10px;
 	margin-bottom:20px;
+	display:inline;
+}
+#tombol
+{
+	width:100%;
 }
 .button {
   border-radius: 4px;
@@ -195,6 +204,41 @@ input[type="text"]
   padding: 10px;
   width: 200px;
   height:50px;
-  margin-left:430px;
-  margin-top: 20px;
+  margin-top: 20px; 
+}
+
+/*_________________________ choise untuk pilihan tempat_________________*/
+
+.chose1
+{
+	margin-top:15px;
+	width: 100%;
+	height: 40px;
+	
+}
+.chose2
+{
+	margin-top:15px;
+	width: 50%;
+	margin-bottom:5px;
+}
+/*___________________Buat Tombol User_______________________*/
+
+ul#dropdown li a
+{
+	float:right;
+	background:#27ae60;
+	color:#fff;
+	display:block;
+	height:50px;
+	width:80px;
+	padding:10px;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2;
+	-o-transition: 0.2;
+}
+ul#dropdown li a:hover
+{
+	background-color:#F8A200;
+	color:#fff;
 }

@@ -33,7 +33,7 @@
             String nama = session.getAttribute("id_Admin").toString();
         //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
             %>
-            <li><a href="logout.jsp">LOGOUT</a></li>
+            <li><a href="../logout.jsp">LOGOUT</a></li>
       	</ul>
             
         <div id="calendar">
