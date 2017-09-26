@@ -11,13 +11,41 @@ import java.util.Date;
  *
  * @author Dewi Roaza
  */
-public class Agenda {
+public class Event {
+
+    /**
+     * @return the idEvent
+     */
+    public String getIdEvent() {
+        return idEvent;
+    }
+
+    /**
+     * @param idEvent the idEvent to set
+     */
+    public void setIdEvent(String idEvent) {
+        this.idEvent = idEvent;
+    }
+
+    /**
+     * @return the nameEvent
+     */
+    public String getNameEvent() {
+        return nameEvent;
+    }
+
+    /**
+     * @param nameEvent the nameEvent to set
+     */
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
+    }
     private String idUser;
-    private String idAgenda;
+    private String idEvent;
     private Date startTime;
     private Date endTime;
-    private String nameAgenda;
-    private Transport transport;
+    private String nameEvent;
+    private ModaTransportasi transport;
     private Lokasi destination;
     
     /**
@@ -37,17 +65,7 @@ public class Agenda {
     /**
      * @return the idAgenda
      */
-    public String getIdAgenda() {
-        return idAgenda;
-    }
-
-    /**
-     * @param idAgenda the idAgenda to set
-     */
-    public void setIdAgenda(String idAgenda) {
-        this.idAgenda = idAgenda;
-    }
-
+   
     /**
      * @return the startTime
      */
@@ -75,35 +93,18 @@ public class Agenda {
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
-
-
-    /**
-     * @return the nameAgenda
-     */
-    public String getNameAgenda() {
-        return nameAgenda;
-    }
-
-    /**
-     * @param nameAgenda the nameAgenda to set
-     */
-    public void setNameAgenda(String nameAgenda) {
-        this.nameAgenda = nameAgenda;
-    }
-
     
-
     /**
      * @return the transport
      */
-    public Transport getTransport() {
+    public ModaTransportasi getTransport() {
         return transport;
     }
 
     /**
      * @param transport the transport to set
      */
-    public void setTransport(Transport transport) {
+    public void setTransport(ModaTransportasi transport) {
         this.transport = transport;
     }
 
@@ -122,13 +123,13 @@ public class Agenda {
     }
 
         /**
-     * Prosedur untuk menampilkan satu agenda
+     * Prosedur untuk menampilkan satu event
      */
-    public void printAgenda() {
-        System.out.println("Nama agenda \t : " + this.nameAgenda);
+    public void printEvent() {
+        System.out.println("Nama event \t : " + this.getNameEvent());
         System.out.println("Lokasi \t\t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime);
-        System.out.println("Transportasi \t : " + this.transport.getNameTransport());
+        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         }
 }

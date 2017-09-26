@@ -9,7 +9,7 @@ package travelender;
  *
  * @author Dewi Roaza
  */
-public class Transport {
+public class ModaTransportasi {
     private String idTransport;
     private String nameTransport;
 
