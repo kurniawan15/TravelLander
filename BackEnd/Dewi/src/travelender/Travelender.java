@@ -34,6 +34,8 @@ public class Travelender {
         //Transport 
         List<ModaTransportasi> listTransport = new ArrayList<ModaTransportasi>();
         
+        //lookup
+        List<Lookup>listLookup = new ArrayList<Lookup>();
         
         
         Lokasi lokasi1 = new Lokasi();
@@ -104,7 +106,7 @@ public class Travelender {
         //Transport item ketiga
         ModaTransportasi moda3 =new ModaTransportasi ();
         moda3.setIdTransport("KMT03");
-        moda3.setNameTransport("MObil");
+        moda3.setNameTransport("Mobil");
         
         listTransport.add(moda3);
         
@@ -136,6 +138,96 @@ public class Travelender {
         
         listTransport.add(moda7);
         
+        //LookupItem pertama
+        Lookup lookupItem1 = new Lookup();
+        
+        lookupItem1.setIdLookup("IDP0001");
+        lookupItem1.setWaktuTempuh(63);
+        lookupItem1.setJarakTempuh(99);
+        lookupItem1.setLokasiAwal("KL00001");
+        lookupItem1.setLokasiAkhir("Kl00002");
+        lookupItem1.setTransport("KMT03");
+        
+        //LookupItem kedua
+        Lookup lookupItem2 = new Lookup();
+        
+        lookupItem2.setIdLookup("IDP0002");
+        lookupItem2.setWaktuTempuh(3);
+        lookupItem2.setJarakTempuh(1);
+        lookupItem2.setLokasiAwal("KL00002");
+        lookupItem2.setLokasiAkhir("Kl00003");
+        lookupItem2.setTransport("KMT03");
+        
+        //LookupItem ketiga
+        Lookup lookupItem3 = new Lookup();
+        
+        lookupItem3.setIdLookup("IDP0003");
+        lookupItem3.setWaktuTempuh(7);
+        lookupItem3.setJarakTempuh(3);
+        lookupItem3.setLokasiAwal("KL00003");
+        lookupItem3.setLokasiAkhir("Kl00004");
+        lookupItem3.setTransport("KMT03");
+        
+        //LookupItem keempat
+        Lookup lookupItem4 = new Lookup();
+        
+        lookupItem4.setIdLookup("IDP0004");
+        lookupItem4.setWaktuTempuh(10);
+        lookupItem4.setJarakTempuh(4);
+        lookupItem4.setLokasiAwal("KL00004");
+        lookupItem4.setLokasiAkhir("Kl00002");
+        lookupItem4.setTransport("KMT03");
+        
+        //LookupItem kelima
+        Lookup lookupItem5 = new Lookup();
+        
+        lookupItem5.setIdLookup("IDP0005");
+        lookupItem5.setWaktuTempuh(5);
+        lookupItem5.setJarakTempuh(2);
+        lookupItem5.setLokasiAwal("KL00002");
+        lookupItem5.setLokasiAkhir("Kl00005");
+        lookupItem5.setTransport("KMT03");
+        
+        //LookupItem keenam
+        Lookup lookupItem6 = new Lookup();
+        
+        lookupItem6.setIdLookup("IDP0006");
+        lookupItem6.setWaktuTempuh(9);
+        lookupItem6.setJarakTempuh(4);
+        lookupItem6.setLokasiAwal("KL00005");
+        lookupItem6.setLokasiAkhir("Kl00006");
+        lookupItem6.setTransport("KMT03");
+        
+        //LookupItem ketuju
+        Lookup lookupItem7 = new Lookup();
+        
+        lookupItem7.setIdLookup("IDP0007");
+        lookupItem7.setWaktuTempuh(10);
+        lookupItem7.setJarakTempuh(4);
+        lookupItem7.setLokasiAwal("KL00006");
+        lookupItem7.setLokasiAkhir("Kl00002");
+        lookupItem7.setTransport("KMT03");
+        
+        //LookupItem kedelapan
+        Lookup lookupItem8 = new Lookup();
+        
+        lookupItem8.setIdLookup("IDP0008");
+        lookupItem8.setWaktuTempuh(95);
+        lookupItem8.setJarakTempuh(68);
+        lookupItem8.setLokasiAwal("KL00002");
+        lookupItem8.setLokasiAkhir("Kl00007");
+        lookupItem8.setTransport("KMT03");
+        
+        //LookupItem kesembilan
+        Lookup lookupItem9 = new Lookup();
+        
+        lookupItem9.setIdLookup("IDP0009");
+        lookupItem9.setWaktuTempuh(11);
+        lookupItem9.setJarakTempuh(8);
+        lookupItem9.setLokasiAwal("KL00007");
+        lookupItem9.setLokasiAkhir("Kl00001");
+        lookupItem9.setTransport("KMT03");
+        
         /*
         Pengubahan format tanggal
         */
@@ -150,7 +242,7 @@ public class Travelender {
         Event event1 = new Event();
         event1.setNameEvent("Check In Hotel dan istirahat");
         event1.setDestination(listLokasi.get(1));
-        event1.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event1.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime1 = format.parse("21/9/2017 22:45:00");
@@ -169,7 +261,7 @@ public class Travelender {
         Event event2 = new Event();
         event2.setNameEvent("Pengawasan dan Pelatihan");
         event2.setDestination(listLokasi.get(2));
-        event2.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event2.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime2 = format.parse("22/9/2017 06:15:00");
@@ -187,7 +279,7 @@ public class Travelender {
         Event event3 = new Event();
         event3.setNameEvent("Evaluasi dan Pelaporan");
         event3.setDestination(listLokasi.get(3));
-        event3.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event3.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime3 = format.parse("22/9/2017 18:00:00");
@@ -206,7 +298,7 @@ public class Travelender {
         Event event4 = new Event();
         event4.setNameEvent("Istirahat");
         event4.setDestination(listLokasi.get(1));
-        event4.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event4.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime4 = format.parse("22/9/2017 21:10:00");
@@ -224,7 +316,7 @@ public class Travelender {
         Event event5 = new Event();
         event5.setNameEvent("Pengawasan dan Pelatihan");
         event5.setDestination(listLokasi.get(4));
-        event5.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event5.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime5 = format.parse("23/9/2017 06:10:00");
@@ -242,7 +334,7 @@ public class Travelender {
         Event event6 = new Event();
         event6.setNameEvent("Laporan dan Evaluasi");
         event6.setDestination(listLokasi.get(5));
-        event6.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event6.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime6 = format.parse("23/9/2017 18:00:00");
@@ -260,7 +352,7 @@ public class Travelender {
         Event event7 = new Event();
         event7.setNameEvent("Istirahat");
         event7.setDestination(listLokasi.get(1));
-        event7.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event7.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime7 = format.parse("23/9/2017 21:10:00");
@@ -278,7 +370,7 @@ public class Travelender {
         Event event8 = new Event();
         event8.setNameEvent("Penyerahan laporan");
         event8.setDestination(listLokasi.get(6));
-        event8.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event8.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime8 = format.parse("24/9/2017 06:15:00");
@@ -297,7 +389,7 @@ public class Travelender {
         Event event9 = new Event();
         event9.setNameEvent("Istirahat di rumah");
         event9.setDestination(listLokasi.get(0));
-        event9.setTransport(listTransport.get(5)); //disesuaikan dengan combobox pada desain web
+        event9.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime9 = format.parse("24/9/2017 08:45:00");
