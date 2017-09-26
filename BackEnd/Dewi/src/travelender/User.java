@@ -17,7 +17,7 @@ public class User {
     private String idUser;
     private String nameUser;
     private String email; 
-    private List<Agenda> listAgenda;
+    private List<Event> listEvent;
     private String Password;
     private String currentLocation;
 
@@ -25,15 +25,12 @@ public class User {
     /**
      * @return the ListAgenda
      */
-    public List<Agenda> getListAgenda() {
-        return listAgenda;
+    public List<Event> getListEvent() {
+        return listEvent;
     }
 
-    /**
-     * @param ListAgenda the ListAgenda to set
-     */
-    public void setListAgenda(List<Agenda> ListAgenda) {
-        this.listAgenda = ListAgenda;
+    public void setListEvent(List<Event> ListEvent) {
+        this.listEvent = ListEvent;
     }
 
     /**
@@ -64,11 +61,11 @@ public class User {
         this.email = email;
     }
     
-    public void printListAgenda(){
-        int size = this.listAgenda.size();
+    public void printListEvent(){
+        int size = this.listEvent.size();
         int i;
         for(i = 0; i < size  ; i++){
-            this.listAgenda.get(i).printAgenda();
+            this.listEvent.get(i).printEvent();
         }
         
     }
