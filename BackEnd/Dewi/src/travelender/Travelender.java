@@ -54,43 +54,50 @@ public class Travelender {
         
         //Transport item pertama
         Transport moda1 =new Transport ();
-        moda1.setNameTransport("Pejalan kaki");
+        moda1.setIdTransport("KMT01");
+        moda1.setNameTransport("Kereta Api");
         
         listTransport.add(moda1);
         
         //Transport item kedua
         Transport moda2 =new Transport ();
-        moda2.setNameTransport("Sepeda");
+        moda2.setIdTransport("KMT02");
+        moda2.setNameTransport("Pesawat");
         
         listTransport.add(moda2);
         
         //Transport item ketiga
         Transport moda3 =new Transport ();
-        moda3.setNameTransport("Motor");
+        moda3.setIdTransport("KMT03");
+        moda3.setNameTransport("MObil");
         
         listTransport.add(moda3);
         
         //Transport item keempat
         Transport moda4 =new Transport ();
-        moda4.setNameTransport("Mobil");
+        moda4.setIdTransport("KMT04");
+        moda4.setNameTransport("Bus");
         
         listTransport.add(moda4);
         
         //Transport item kelima
         Transport moda5 =new Transport ();
-        moda5.setNameTransport("Bus");
+        moda5.setIdTransport("KMT05");
+        moda5.setNameTransport("Motor");
         
         listTransport.add(moda5);
         
         //Transport item keenam
         Transport moda6 =new Transport ();
-        moda6.setNameTransport("Kereta");
+        moda6.setIdTransport("KMT06");
+        moda6.setNameTransport("Sepeda");
         
         listTransport.add(moda6);
         
         //Transport item ketuju
         Transport moda7 =new Transport ();
-        moda7.setNameTransport("Pesawat");
+        moda7.setIdTransport("KMT07");
+        moda7.setNameTransport("Berjalan Kaki");
         
         listTransport.add(moda7);
         
