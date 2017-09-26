@@ -126,7 +126,7 @@ public class Agenda {
      */
     public void printAgenda() {
         System.out.println("Nama agenda \t : " + this.nameAgenda);
-        System.out.println("Lokasi \t\t : " + this.destination);
+        System.out.println("Lokasi \t\t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime + "\n");
     }

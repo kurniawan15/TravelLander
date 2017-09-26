@@ -25,21 +25,36 @@ public class Travelender {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+             
+        List<Agenda> listAgenda = new ArrayList<Agenda>();
+        
+        //Lokasi yang ada pada referensi
+        List<Lokasi> listLokasi = new ArrayList<Lokasi>();
+        
+        Agenda agenda1 = new Agenda();
+        
+        //Lokasi Item yang pertama
+        Lokasi lokasi1 = new Lokasi();
+        
+        lokasi1.setNamaLokasi("Disdik");
+        lokasi1.setAlamat("Jl. Diponegoro no.27 ");
+
+        listLokasi.add(lokasi1);
+        
+        //Lokasi item yang kedua
+        Lokasi lokasi2 = new Lokasi();
+        
+        lokasi2.setNamaLokasi("Kantor DPRD Kota Bandung");
+        lokasi2.setAlamat("Jl. Jakarta no.193");
+
+        listLokasi.add(lokasi2);
+        
         
         User kanto = new User();
         kanto.setNameUser("Kanto");
         
-        
-        List<Agenda> listAgenda = new ArrayList<Agenda>();
-        
-        Agenda agenda1 = new Agenda();
-        Lokasi lokasi1 = new Lokasi();
-        
-        lokasi1.setNamaLokasi("Disdiik");
-        lokasi1.setAlamat("Jl. Diponegoro no.27 ");
-        
         agenda1.setNameAgenda("Rapat Kurikulum");
-        agenda1.setDestination(lokasi1);
+        agenda1.setDestination(listLokasi.get(0));
         
         /*
         Pengubahan format tanggal
