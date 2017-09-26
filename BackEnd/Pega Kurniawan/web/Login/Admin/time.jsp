@@ -33,7 +33,7 @@
     <div id="container">
     	<div class="sidebar">
         <ul id="nav">
-        	<li><a href="#">Calendar</a></li>
+        	<li><a href="calender.jsp">Calendar</a></li>
             <li><a href="DatePlace.jsp">Manage Place</a></li>
             <li><a href="distance.jsp">Manage Distance</a></li>
             <li><a class="selected" href="#">Manage Time</a></li>
@@ -68,57 +68,88 @@
                             <td > 1 </td>
                             <td> Rumah </td>
                             <td> Kantor </td>
+                            <td> Mobil </td>
                             <td> 10 </td>
                             <td > <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <a href="place-update.html"><input type="submit" name="" value=" Delet Data"></a> </td>
                        		</tr>
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value=" Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet Data"> </td>
                        		</tr>    
                             <tr>
                             <td> 1 </td>
                             <td> Rumah </td>
+                            <td> Kantor </td>
+                            <td> Mobil </td>
+                            <td> 10 </td>
                             <td> <input type="submit" name="" value="Delet"> </td>
                        		</tr>                           
                        	  </table>                          

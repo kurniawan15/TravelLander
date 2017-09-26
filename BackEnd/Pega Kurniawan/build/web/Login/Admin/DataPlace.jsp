@@ -32,7 +32,7 @@
     <div id="container">
     	<div class="sidebar">
         <ul id="nav">
-        	<li><a href="#">Calendar</a></li>
+        	<li><a href="calender.jsp">Calendar</a></li>
             <li><a class="selected" href="#">Manage Place</a></li>
             <li><a href="distance.jsp">Manage Distance</a></li>
             <li><a href="time.jsp">Manage Time</a></li>
