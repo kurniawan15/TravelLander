@@ -53,40 +53,40 @@ public class Travelender {
         lokasi2.setAlamat("Jl. Aceh No. 71");
         listLokasi.add(lokasi2);
 
-        Lokasi Lokasi3 = new Lokasi();
+        Lokasi lokasi3 = new Lokasi();
 
-        Lokasi3.setIdLokasi("KL00003");
-        Lokasi3.setNamaLokasi("SMA Negeri 20 Bandung");
-        Lokasi3.setAlamat("Jalan Citarum No.23, Citarum");
-        listLokasi.add(Lokasi3);
+        lokasi3.setIdLokasi("KL00003");
+        lokasi3.setNamaLokasi("SMA Negeri 20 Bandung");
+        lokasi3.setAlamat("Jalan Citarum No.23, Citarum");
+        listLokasi.add(lokasi3);
 
-        Lokasi Lokasi4 = new Lokasi();
+        Lokasi lokasi4 = new Lokasi();
 
-        Lokasi4.setIdLokasi("KL00004");
-        Lokasi4.setNamaLokasi("Rumah Makan Ampera");
-        Lokasi4.setAlamat("Jl. PH.H. Mustofa, Neglasari, Cibeunying Kaler, Bandung, Jawa Barat 40124");
-        listLokasi.add(Lokasi4);
+        lokasi4.setIdLokasi("KL00004");
+        lokasi4.setNamaLokasi("Rumah Makan Ampera");
+        lokasi4.setAlamat("Jl. PH.H. Mustofa, Neglasari, Cibeunying Kaler, Bandung, Jawa Barat 40124");
+        listLokasi.add(lokasi4);
 
-        Lokasi Lokasi5 = new Lokasi();
+        Lokasi lokasi5 = new Lokasi();
 
-        Lokasi5.setIdLokasi("KL00005");
-        Lokasi5.setNamaLokasi("SMP Negeri 14 Bandung");
-        Lokasi5.setAlamat("Jl.Lap Supratman, Cihapit");
-        listLokasi.add(Lokasi5);
+        lokasi5.setIdLokasi("KL00005");
+        lokasi5.setNamaLokasi("SMP Negeri 14 Bandung");
+        lokasi5.setAlamat("Jl.Lap Supratman, Cihapit");
+        listLokasi.add(lokasi5);
 
-        Lokasi Lokasi6 = new Lokasi();
+        Lokasi lokasi6 = new Lokasi();
 
-        Lokasi6.setIdLokasi("KL00006");
-        Lokasi6.setNamaLokasi("R.M Sugih Parahyangan");
-        Lokasi6.setAlamat("Jl. Ters. Jkt No.48, Babakan Surabaya, Kiaracondong, Kota Bandung, Jawa Barat 40291");
-        listLokasi.add(Lokasi6);
+        lokasi6.setIdLokasi("KL00006");
+        lokasi6.setNamaLokasi("R.M Sugih Parahyangan");
+        lokasi6.setAlamat("Jl. Ters. Jkt No.48, Babakan Surabaya, Kiaracondong, Kota Bandung, Jawa Barat 40291");
+        listLokasi.add(lokasi6);
 
-        Lokasi Lokasi7 = new Lokasi();
+        Lokasi lokasi7 = new Lokasi();
 
-        Lokasi7.setIdLokasi("KL00007");
-        Lokasi7.setNamaLokasi("Dinas Pendidikan Kota Cianjur");
-        Lokasi7.setAlamat("Jl. Perintis Kemerdekaan No. 3, Cilaku, Sirnagalih, Cilaku, Kabupaten Cianjur, Jawa Barat");
-        listLokasi.add(Lokasi7);
+        lokasi7.setIdLokasi("KL00007");
+        lokasi7.setNamaLokasi("Dinas Pendidikan Kota Cianjur");
+        lokasi7.setAlamat("Jl. Perintis Kemerdekaan No. 3, Cilaku, Sirnagalih, Cilaku, Kabupaten Cianjur, Jawa Barat");
+        listLokasi.add(lokasi7);
 
         
         //Transport item pertama
@@ -144,9 +144,9 @@ public class Travelender {
         lookupItem1.setIdLookup("IDP0001");
         lookupItem1.setWaktuTempuh(63);
         lookupItem1.setJarakTempuh(99);
-        lookupItem1.setLokasiAwal("KL00001");
-        lookupItem1.setLokasiAkhir("Kl00002");
-        lookupItem1.setTransport("KMT03");
+        lookupItem1.setLokasiAwal(lokasi1);
+        lookupItem1.setLokasiAkhir(lokasi2);
+        lookupItem1.setTransport(moda3);
         
         //LookupItem kedua
         Lookup lookupItem2 = new Lookup();
@@ -154,9 +154,9 @@ public class Travelender {
         lookupItem2.setIdLookup("IDP0002");
         lookupItem2.setWaktuTempuh(3);
         lookupItem2.setJarakTempuh(1);
-        lookupItem2.setLokasiAwal("KL00002");
-        lookupItem2.setLokasiAkhir("Kl00003");
-        lookupItem2.setTransport("KMT03");
+        lookupItem2.setLokasiAwal(lokasi2);
+        lookupItem2.setLokasiAkhir(lokasi3);
+        lookupItem2.setTransport(moda3);
         
         //LookupItem ketiga
         Lookup lookupItem3 = new Lookup();
@@ -164,9 +164,9 @@ public class Travelender {
         lookupItem3.setIdLookup("IDP0003");
         lookupItem3.setWaktuTempuh(7);
         lookupItem3.setJarakTempuh(3);
-        lookupItem3.setLokasiAwal("KL00003");
-        lookupItem3.setLokasiAkhir("Kl00004");
-        lookupItem3.setTransport("KMT03");
+        lookupItem3.setLokasiAwal(lokasi3);
+        lookupItem3.setLokasiAkhir(lokasi4);
+        lookupItem3.setTransport(moda3);
         
         //LookupItem keempat
         Lookup lookupItem4 = new Lookup();
@@ -174,9 +174,9 @@ public class Travelender {
         lookupItem4.setIdLookup("IDP0004");
         lookupItem4.setWaktuTempuh(10);
         lookupItem4.setJarakTempuh(4);
-        lookupItem4.setLokasiAwal("KL00004");
-        lookupItem4.setLokasiAkhir("Kl00002");
-        lookupItem4.setTransport("KMT03");
+        lookupItem4.setLokasiAwal(lokasi4);
+        lookupItem4.setLokasiAkhir(lokasi4);
+        lookupItem4.setTransport(moda3);
         
         //LookupItem kelima
         Lookup lookupItem5 = new Lookup();
@@ -184,9 +184,9 @@ public class Travelender {
         lookupItem5.setIdLookup("IDP0005");
         lookupItem5.setWaktuTempuh(5);
         lookupItem5.setJarakTempuh(2);
-        lookupItem5.setLokasiAwal("KL00002");
-        lookupItem5.setLokasiAkhir("Kl00005");
-        lookupItem5.setTransport("KMT03");
+        lookupItem5.setLokasiAwal(lokasi2);
+        lookupItem5.setLokasiAkhir(lokasi5);
+        lookupItem5.setTransport(moda3);
         
         //LookupItem keenam
         Lookup lookupItem6 = new Lookup();
@@ -194,9 +194,9 @@ public class Travelender {
         lookupItem6.setIdLookup("IDP0006");
         lookupItem6.setWaktuTempuh(9);
         lookupItem6.setJarakTempuh(4);
-        lookupItem6.setLokasiAwal("KL00005");
-        lookupItem6.setLokasiAkhir("Kl00006");
-        lookupItem6.setTransport("KMT03");
+        lookupItem6.setLokasiAwal(lokasi5);
+        lookupItem6.setLokasiAkhir(lokasi6);
+        lookupItem6.setTransport(moda3);
         
         //LookupItem ketuju
         Lookup lookupItem7 = new Lookup();
@@ -204,9 +204,9 @@ public class Travelender {
         lookupItem7.setIdLookup("IDP0007");
         lookupItem7.setWaktuTempuh(10);
         lookupItem7.setJarakTempuh(4);
-        lookupItem7.setLokasiAwal("KL00006");
-        lookupItem7.setLokasiAkhir("Kl00002");
-        lookupItem7.setTransport("KMT03");
+        lookupItem7.setLokasiAwal(lokasi6);
+        lookupItem7.setLokasiAkhir(lokasi2);
+        lookupItem7.setTransport(moda3);
         
         //LookupItem kedelapan
         Lookup lookupItem8 = new Lookup();
@@ -214,9 +214,9 @@ public class Travelender {
         lookupItem8.setIdLookup("IDP0008");
         lookupItem8.setWaktuTempuh(95);
         lookupItem8.setJarakTempuh(68);
-        lookupItem8.setLokasiAwal("KL00002");
-        lookupItem8.setLokasiAkhir("Kl00007");
-        lookupItem8.setTransport("KMT03");
+        lookupItem8.setLokasiAwal(lokasi2);
+        lookupItem8.setLokasiAkhir(lokasi7);
+        lookupItem8.setTransport(moda3);
         
         //LookupItem kesembilan
         Lookup lookupItem9 = new Lookup();
@@ -224,9 +224,9 @@ public class Travelender {
         lookupItem9.setIdLookup("IDP0009");
         lookupItem9.setWaktuTempuh(11);
         lookupItem9.setJarakTempuh(8);
-        lookupItem9.setLokasiAwal("KL00007");
-        lookupItem9.setLokasiAkhir("Kl00001");
-        lookupItem9.setTransport("KMT03");
+        lookupItem9.setLokasiAwal(lokasi7);
+        lookupItem9.setLokasiAkhir(lokasi1);
+        lookupItem9.setTransport(moda3);
         
         /*
         Pengubahan format tanggal
