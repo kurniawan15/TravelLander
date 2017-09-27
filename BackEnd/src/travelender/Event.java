@@ -127,6 +127,7 @@ public class Event {
      */
     public void printEvent() {
         System.out.println("Nama event \t : " + this.getNameEvent());
+        System.out.println("Lokasi awal \t : " + this.destination.getNamaLokasi());
         System.out.println("Lokasi \t\t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime);

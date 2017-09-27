@@ -13,9 +13,9 @@ public class Lookup {
     private String idLookup;
     private float jarakTempuh;
     private int waktuTempuh;
-    private String lokasiAwal;
-    private String LokasiAkhir;
-    private String transport;
+    private Lokasi lokasiAwal;
+    private Lokasi LokasiAkhir;
+    private ModaTransportasi transport;
 
     /**
      * @return the idLookup
@@ -62,42 +62,42 @@ public class Lookup {
     /**
      * @return the lokasiAwal
      */
-    public String getLokasiAwal() {
+    public Lokasi getLokasiAwal() {
         return lokasiAwal;
     }
 
     /**
      * @param lokasiAwal the lokasiAwal to set
      */
-    public void setLokasiAwal(String lokasiAwal) {
+    public void setLokasiAwal(Lokasi lokasiAwal) {
         this.lokasiAwal = lokasiAwal;
     }
 
     /**
      * @return the LokasiAkhir
      */
-    public String getLokasiAkhir() {
+    public Lokasi getLokasiAkhir() {
         return LokasiAkhir;
     }
 
     /**
      * @param LokasiAkhir the LokasiAkhir to set
      */
-    public void setLokasiAkhir(String LokasiAkhir) {
+    public void setLokasiAkhir(Lokasi LokasiAkhir) {
         this.LokasiAkhir = LokasiAkhir;
     }
 
     /**
      * @return the transport
      */
-    public String getTransport() {
+    public ModaTransportasi getTransport() {
         return transport;
     }
 
     /**
      * @param transport the transport to set
      */
-    public void setTransport(String transport) {
+    public void setTransport(ModaTransportasi transport) {
         this.transport = transport;
     }
 }
