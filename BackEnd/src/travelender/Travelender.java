@@ -28,8 +28,11 @@ public class Travelender {
              
         List<Event> listEvent = new ArrayList<Event>();
         
-        //Lokasi yang ada pada referensi
+        //Lokasi awal yang ada pada referensi
         List<Lokasi> listLokasi = new ArrayList<Lokasi>();
+        
+        //lokasi tujuan
+        List<Lokasi> listLokasi2 = new ArrayList<Lokasi>();
         
         //Transport 
         List<ModaTransportasi> listTransport = new ArrayList<ModaTransportasi>();
@@ -43,8 +46,8 @@ public class Travelender {
         lokasi1.setIdLokasi("KL00001");
         lokasi1.setNamaLokasi("Rumah");
         lokasi1.setAlamat("Jl. Maleber Cianjur");
-
         listLokasi.add(lokasi1);
+        listLokasi2.add(lokasi1);
 
         Lokasi lokasi2 = new Lokasi();
 
@@ -52,6 +55,7 @@ public class Travelender {
         lokasi2.setNamaLokasi("Hotel Amarossa Bandung");
         lokasi2.setAlamat("Jl. Aceh No. 71");
         listLokasi.add(lokasi2);
+        listLokasi2.add(lokasi2);
 
         Lokasi lokasi3 = new Lokasi();
 
@@ -241,7 +245,8 @@ public class Travelender {
         
         Event event1 = new Event();
         event1.setNameEvent("Check In Hotel dan istirahat");
-        event1.setDestination(listLokasi.get(1));
+        event1.setDestination(listLokasi.get(0));
+        event1.setDestination(listLokasi2.get(1));
         event1.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
