@@ -7,7 +7,7 @@ body{
 .navbar{
   background-color:#2980b9;
   overflow:hidden;
-  height:63px;
+  height:50px;
 }
 /*---------------tombil navigasi---------------------*/
 .navbar a{
@@ -17,7 +17,7 @@ body{
 }
 
 .navbar ul{
-  margin:8px 0 0 0;
+  margin:0 0 0 0;
   list-style:none;
 }
 
@@ -72,6 +72,26 @@ body{
   font-size:36px;
   margin-left:50px;
 }
+/*----------------log out---------------------------*/
+ul#dropdown li a
+{
+	float:right;
+	background:#27ae60;
+	color:#fff;
+	text-decoration:none;
+	display:block;
+	height:50px;
+	width:80px;
+	text-align:center;
+	padding:14px 16px;
+}
+ul#dropdown li a:hover
+{
+	background-color:#F8A200;
+	color:#fff;
+}
+
+/*-------------------- halaman utama ------------------------*/
 
 #main{
 	
