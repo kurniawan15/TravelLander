@@ -97,7 +97,30 @@ ul#dropdown li a:hover
 	
 	flex-flow: row wrap;
 }
-
+/*--------------------tabel--------------------------------*/
+table.gridtable {
+        margin:0 auto;
+		margin-top:8px;
+        width:95%;
+        overflow:auto;
+        font-size:18px;
+        color:#fff;
+        border-width: 1px;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    table.gridtable th {
+        border-width: 1px;
+        padding: 8px;
+        background-color: #2ecc71;
+    }
+    table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+		color:#000;
+        border-style: solid;
+        border-color: #666666;
+    }
 
 @media(max-width:568px){
   .navbar-nav{display:none}
