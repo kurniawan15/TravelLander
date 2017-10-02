@@ -47,7 +47,7 @@ public class Event {
     private String nameEvent;
     private ModaTransportasi transport;
     private Lokasi destination;
-    
+    private Lokasi lokasiAwal;
     /**
      * @return the idUser
      */
@@ -122,15 +122,30 @@ public class Event {
         this.destination = destination;
     }
 
+    
+    /**
+     * @return the lokasiAwal
+     */
+    public Lokasi getLokasiAwal() {
+        return lokasiAwal;
+    }
+
+    /**
+     * @param lokasiAwal the lokasiAwal to set
+     */
+    public void setLokasiAwal(Lokasi lokasiAwal) {
+        this.lokasiAwal = lokasiAwal;
+    }
         /**
      * Prosedur untuk menampilkan satu event
      */
     public void printEvent() {
         System.out.println("Nama event \t : " + this.getNameEvent());
-        System.out.println("Lokasi awal \t : " + this.destination.getNamaLokasi());
+        System.out.println("Lokasi awal \t : " + this.lokasiAwal.getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + this.startTime);
         System.out.println("Waktu selesai \t : " + this.endTime);
         System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         }
+
 }

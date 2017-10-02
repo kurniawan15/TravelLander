@@ -31,9 +31,6 @@ public class Travelender {
         //Lokasi awal yang ada pada referensi
         List<Lokasi> listLokasi = new ArrayList<Lokasi>();
         
-        //lokasi tujuan
-        List<Lokasi> listLokasi2 = new ArrayList<Lokasi>();
-        
         //Transport 
         List<ModaTransportasi> listTransport = new ArrayList<ModaTransportasi>();
         
@@ -47,7 +44,6 @@ public class Travelender {
         lokasi1.setNamaLokasi("Rumah");
         lokasi1.setAlamat("Jl. Maleber Cianjur");
         listLokasi.add(lokasi1);
-        listLokasi2.add(lokasi1);
 
         Lokasi lokasi2 = new Lokasi();
 
@@ -55,7 +51,6 @@ public class Travelender {
         lokasi2.setNamaLokasi("Hotel Amarossa Bandung");
         lokasi2.setAlamat("Jl. Aceh No. 71");
         listLokasi.add(lokasi2);
-        listLokasi2.add(lokasi2);
 
         Lokasi lokasi3 = new Lokasi();
 
@@ -245,8 +240,8 @@ public class Travelender {
         
         Event event1 = new Event();
         event1.setNameEvent("Check In Hotel dan istirahat");
-        event1.setDestination(listLokasi.get(0));
-        event1.setDestination(listLokasi2.get(1));
+        event1.setLokasiAwal(listLokasi.get(0));
+        event1.setDestination(listLokasi.get(1));
         event1.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
         try {
@@ -265,6 +260,7 @@ public class Travelender {
         
         Event event2 = new Event();
         event2.setNameEvent("Pengawasan dan Pelatihan");
+        event2.setLokasiAwal(event1.getDestination());
         event2.setDestination(listLokasi.get(2));
         event2.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -283,6 +279,7 @@ public class Travelender {
         
         Event event3 = new Event();
         event3.setNameEvent("Evaluasi dan Pelaporan");
+        event3.setLokasiAwal(event2.getDestination());
         event3.setDestination(listLokasi.get(3));
         event3.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -302,6 +299,7 @@ public class Travelender {
         
         Event event4 = new Event();
         event4.setNameEvent("Istirahat");
+        event4.setLokasiAwal(event3.getDestination());
         event4.setDestination(listLokasi.get(1));
         event4.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -320,6 +318,7 @@ public class Travelender {
         
         Event event5 = new Event();
         event5.setNameEvent("Pengawasan dan Pelatihan");
+        event5.setLokasiAwal(event4.getDestination());
         event5.setDestination(listLokasi.get(4));
         event5.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -338,6 +337,7 @@ public class Travelender {
         
         Event event6 = new Event();
         event6.setNameEvent("Laporan dan Evaluasi");
+        event6.setLokasiAwal(event5.getDestination());
         event6.setDestination(listLokasi.get(5));
         event6.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -356,6 +356,7 @@ public class Travelender {
         
         Event event7 = new Event();
         event7.setNameEvent("Istirahat");
+        event7.setLokasiAwal(event6.getDestination());
         event7.setDestination(listLokasi.get(1));
         event7.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -374,6 +375,7 @@ public class Travelender {
         
         Event event8 = new Event();
         event8.setNameEvent("Penyerahan laporan");
+        event8.setLokasiAwal(event7.getDestination());
         event8.setDestination(listLokasi.get(6));
         event8.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -393,6 +395,7 @@ public class Travelender {
         
         Event event9 = new Event();
         event9.setNameEvent("Istirahat di rumah");
+        event9.setLokasiAwal(event8.getDestination());
         event9.setDestination(listLokasi.get(0));
         event9.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
