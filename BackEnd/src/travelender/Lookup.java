@@ -100,4 +100,8 @@ public class Lookup {
     public void setTransport(ModaTransportasi transport) {
         this.transport = transport;
     }
+    
+    public void getIntervalTime(Lokasi lokasi1,Lokasi lokasi2,Event event){
+        
+    }
 }
