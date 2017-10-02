@@ -14,8 +14,6 @@ import java.util.List;
  */
 public class ModaSuggester {
     public static void main(String[]args){
-        //lookup
-        List<Lookup>listLookup = new ArrayList<Lookup>();
         
         
     }
