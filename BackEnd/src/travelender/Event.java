@@ -5,6 +5,7 @@
  */
 package travelender;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -140,11 +141,15 @@ public class Event {
      * Prosedur untuk menampilkan satu event
      */
     public void printEvent() {
+        
+        String pattern = "EEEE, dd/MM/yyyy hh:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        
         System.out.println("Nama event \t : " + this.getNameEvent());
         System.out.println("Lokasi awal \t : " + this.lokasiAwal.getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
-        System.out.println("Waktu mulai \t : " + this.startTime);
-        System.out.println("Waktu selesai \t : " + this.endTime);
+        System.out.println("Waktu mulai \t : " + format.format(this.startTime));
+        System.out.println("Waktu selesai \t : " + format.format(this.endTime));
         System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         }
 
