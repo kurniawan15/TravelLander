@@ -1,6 +1,6 @@
 REVIEWER : PEGA KURNIAWAN
 
-REVIEW 1 20 September 2017
+REVIEW 1 
 
 
 Untuk pemodelan dan OOP nya sudah bagus dan cukup rapih cuman tolong ada beberapa yang harus di perbaiki
@@ -13,18 +13,18 @@ Untuk pemodelan dan OOP nya sudah bagus dan cukup rapih cuman tolong ada beberap
 7. Transfort pake case saja
 8. Tolong untuk nge commit di branch
 
-24 september 2017
+Review 2
 
 tolong untuk backEnd di branches biar nanti bisa bisa di review terlebih dahulu.
-
 
 1.transfort tipe datanya string , alangkah baiknya jika transfort di buat class lagi dan di panggil di class agenda agar transfort di pilih bukan di input
 2. destination tipe datanya string , alangkah baiknya jika destination di buat class lagi dan di panggil di class agenda agar transfort di pilih bukan di input
 3. destination di classs agenda dengan tempat awal dan tempat akhir di class lookup apa bedanya ?
 4. transfort di class agenda dengan transfort di class lookup apa bedanya?
 
-2 september 2017
+Review 3
 1. Tolong untuk waktu yang di gunakan cukup menit dan jam saja
 2. Untuk tanggal cukup satu kali ditampilkan di awal, ketika user akan masukan event maka akan ada pengecekan tanggal
 3. kalau bisa untuk list liat lookup di tampilkan biar bisa di buktikan dan penjelasannya lebih mudah
-4. 
+4. Recommender mode kendaraan masih belum selesai, belum ada perhitungan waktu ketika memaikai salah satu kendaraan
+5. Masih ada bug di recommender , tolong benarkan 
