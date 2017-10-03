@@ -423,7 +423,7 @@ public class Travelender {
         
         kanto.setListEvent(listEvent);
         
-        kanto.printListEvent();
+        kanto.printListEvent(listLookup);
         
         
     }    

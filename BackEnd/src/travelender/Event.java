@@ -7,6 +7,7 @@ package travelender;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -140,18 +141,21 @@ public class Event {
         /**
      * Prosedur untuk menampilkan satu event
      */
-    public void printEvent() {
+    public void printEvent(List<Lookup> list) {
         
         String pattern = "EEEE, dd/MM/yyyy hh:mm";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         
+        Lookup l = new Lookup();
         System.out.println("Nama event \t : " + this.getNameEvent());
         System.out.println("Lokasi awal \t : " + this.getEmbarkation().getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + format.format(this.startTime));
-        System.out.println("Waktu selesai \t : " + format.format(this.endTime));
+        System.out.println("Waktu selesai \t : " + format.format(this.endTime) + "\n");
 //        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
-
+        
+        l.getSameLocation(list, this);
+        
         }
 
 

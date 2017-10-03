@@ -128,6 +128,8 @@ public class Lookup {
             
         i++;
         }          
+        
+        System.out.println("\n");
 //           return listSame;
     }
 }
