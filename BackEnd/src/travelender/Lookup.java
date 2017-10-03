@@ -5,6 +5,9 @@
  */
 package travelender;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Dewi Roaza
@@ -103,5 +106,28 @@ public class Lookup {
     
     public void getIntervalTime(Lokasi lokasi1,Lokasi lokasi2,Event event){
         
+    }
+    
+    public void getSameLocation(List<Lookup> listLookup,Event event){
+           
+        List<Lookup> listSame = new ArrayList<Lookup>();
+        int i = 0,j = 1;
+        System.out.println("Moda yang memungkinkan : ");
+            
+        for(Lookup l :listLookup){
+            
+            
+            
+            if((l.getLokasiAwal() == event.getEmbarkation())&&(l.getLokasiAkhir() == event.getDestination())){
+                
+                listSame.add(listLookup.get(i));
+                System.out.println(j + "." + l.getTransport().getNameTransport());                
+                j++;
+            }
+            
+            
+        i++;
+        }          
+//           return listSame;
     }
 }

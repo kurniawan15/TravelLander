@@ -48,7 +48,7 @@ public class Event {
     private String nameEvent;
     private ModaTransportasi transport;
     private Lokasi destination;
-    private Lokasi lokasiAwal;
+    private Lokasi embarkation;
     /**
      * @return the idUser
      */
@@ -123,20 +123,20 @@ public class Event {
         this.destination = destination;
     }
 
-    
     /**
-     * @return the lokasiAwal
+     * @return the embarkation
      */
-    public Lokasi getLokasiAwal() {
-        return lokasiAwal;
+    public Lokasi getEmbarkation() {
+        return embarkation;
     }
 
     /**
-     * @param lokasiAwal the lokasiAwal to set
+     * @param embarkation the embarkation to set
      */
-    public void setLokasiAwal(Lokasi lokasiAwal) {
-        this.lokasiAwal = lokasiAwal;
-    }
+    public void setEmbarkation(Lokasi embarkation) {
+        this.embarkation = embarkation;
+    }    
+   
         /**
      * Prosedur untuk menampilkan satu event
      */
@@ -146,11 +146,13 @@ public class Event {
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         
         System.out.println("Nama event \t : " + this.getNameEvent());
-        System.out.println("Lokasi awal \t : " + this.lokasiAwal.getNamaLokasi());
+        System.out.println("Lokasi awal \t : " + this.getEmbarkation().getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
         System.out.println("Waktu mulai \t : " + format.format(this.startTime));
         System.out.println("Waktu selesai \t : " + format.format(this.endTime));
-        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
+//        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
+
         }
+
 
 }
