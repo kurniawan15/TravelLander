@@ -22,3 +22,9 @@ tolong untuk backEnd di branches biar nanti bisa bisa di review terlebih dahulu.
 2. destination tipe datanya string , alangkah baiknya jika destination di buat class lagi dan di panggil di class agenda agar transfort di pilih bukan di input
 3. destination di classs agenda dengan tempat awal dan tempat akhir di class lookup apa bedanya ?
 4. transfort di class agenda dengan transfort di class lookup apa bedanya?
+
+2 september 2017
+1. Tolong untuk waktu yang di gunakan cukup menit dan jam saja
+2. Untuk tanggal cukup satu kali ditampilkan di awal, ketika user akan masukan event maka akan ada pengecekan tanggal
+3. kalau bisa untuk list liat lookup di tampilkan biar bisa di buktikan dan penjelasannya lebih mudah
+4. 
