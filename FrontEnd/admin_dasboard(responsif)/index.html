@@ -44,22 +44,22 @@
             <tr>
                 <td title="NO">1</td>
                 <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
                 <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
                 <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
+                <td title="Action"><input type="submit" onClick="openo()" id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
                 <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit"  id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
+                <td title="Action"><input type="submit"  onClick="openo()" id="myBtn" class="button1" name="" value=" Edit ">&nbsp <input type="submit" class="button2" name="" value=" Delete"></td>
             </tr>
             </table>
 			<div class="tex">
@@ -74,7 +74,7 @@
 </div>
 <div id="confirm" class="confirm2">
 	<div class="confirm-content">
-    <span class="exit">&times;</span>
+    <span onClick="tutup()" class="exit" >&times;</span>
     	<div class="form">
         	<label style="font-weight:bold"><a>Edit Place</a></label>
     		<input type="text" placeholder="Enter New Place" name="#" required>
@@ -96,33 +96,21 @@
 	
 /*-------------------------Membuat modal Pop Up-----------------------------------------*/
 /* (Belum Paham) */
-	
-	// Get the modal
-var modal = document.getElementById('confirm');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("exit")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+	var span = document.getElementsByClassName("exit")[0];
+	function openo()
+	{
+		document.getElementById("confirm").style.display = "block"
+	}
+	function tutup()
+	{
+		document.getElementById("confirm").style.display = "none"
+		if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+	}
+	
+
+
   </script>
 </body>
 </html>
