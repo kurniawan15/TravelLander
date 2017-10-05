@@ -274,6 +274,45 @@ button:hover {
 	color:#fff;
 }
 
+/*-------------------------------konfirmasi delet data------------------------*/
+.ask-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+	border-radius:10px;
+    width: 20%;
+	height:100px;
+}
+.ask
+{
+	padding:2%;
+	margin-top:5%;
+	text-align:center;
+}
+.b1
+{
+	background-color: #4CAF50;
+    color: white;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 40%;
+}
+.b2
+{
+	background-color: #c0392b;
+    color: white;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 40%;
+}
+
 
 @media screen and (max-width:500px)
 {
@@ -319,7 +358,17 @@ button:hover {
     width: 70%;
 	height:143px;
 	}
+/*----------------konfirmasi edit data-------------------------*/
 
+	.ask-content {
+		background-color: #fefefe;
+		margin: auto;
+		padding: 10px;
+		border: 1px solid #888;
+		border-radius:10px;
+		width: 80%;
+		height:120px;
+	}
 	
 	
 }
