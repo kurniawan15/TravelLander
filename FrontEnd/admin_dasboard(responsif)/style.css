@@ -313,6 +313,26 @@ button:hover {
     width: 40%;
 }
 
+/*------------------------------------------bagian imput data----------------------------*/
+.imput
+{
+	font-weight:bold;
+	color:#6F6F6F;
+	font-size:100%;
+	width:240px;
+	padding:1%;
+}
+.ImputButton
+{
+	background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 1px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 170px;
+}
 
 @media screen and (max-width:500px)
 {
@@ -356,7 +376,7 @@ button:hover {
     padding: 10px;
     border: 1px solid #888;
     width: 70%;
-	height:143px;
+	height:156px;
 	}
 /*----------------konfirmasi edit data-------------------------*/
 
@@ -369,6 +389,26 @@ button:hover {
 		width: 80%;
 		height:120px;
 	}
-	
-	
+/*------------------Bagian Imput data--------------------------*/
+	.imput
+	{
+		text-align:center;
+		font-weight:bold;
+		color:#6F6F6F;
+		font-size:100%;
+		width:100%;
+		padding:10px 1px;
+	}
+	.ImputButton
+	{
+		background-color: #4CAF50;
+		color: white;
+		padding: 10px 20px;
+		margin: 1px 0;
+		border: none;
+		border-radius:5px;
+		cursor: pointer;
+		width: 100%;
+	}
+
 }
