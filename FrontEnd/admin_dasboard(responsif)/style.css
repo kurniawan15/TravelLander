@@ -9,6 +9,9 @@ body{
   overflow:hidden;
   height:50px;
 }
+
+
+
 /*---------------tombil navigasi---------------------*/
 .navbar a{
   float:left;
@@ -98,6 +101,7 @@ ul#dropdown li a:hover
 	
 	flex-flow: row wrap;
 	height:100%;
+
 }
 /*--------------------tabel--------------------------------*/
 
@@ -410,5 +414,6 @@ button:hover {
 		cursor: pointer;
 		width: 100%;
 	}
-
+	
+	
 }
