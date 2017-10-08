@@ -143,9 +143,8 @@ public class Event {
      */
     public void printEvent(List<Lookup> list) {
         
-        String pattern = "EEEE, dd/MM/yyyy hh:mm";
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
-        
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);  
         Lookup l = new Lookup();
         System.out.println("Nama event \t : " + this.getNameEvent());
         System.out.println("Lokasi awal \t : " + this.getEmbarkation().getNamaLokasi());
