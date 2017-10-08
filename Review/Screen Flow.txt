@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+REVIEW         : Screen Flow Project
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 25 SEPTEMBER 2017
+ 
+________________________________________
+
+Screen Flow nya sudah cukup lengkap dan alur program terbaca dengan sangat jelas tetapi 
+ada beberapa hal yang perlu di tambahkan di antara nya:
+1. tolong di tambahkan screen flow untuk "super admin"
+
+
+
+Terimakasih
+=======
+REVIEW         : Screen Flow Project
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 25 SEPTEMBER 2017
+ 
+________________________________________
+
+Screen Flow nya sudah cukup lengkap dan alur program terbaca dengan sangat jelas tetapi 
+ada beberapa hal yang perlu di tambahkan di antara nya:
+1. tolong di tambahkan screen flow untuk "super admin"
+
+
+
+Terimakasih
+>>>>>>> 1797abcb5b380a8c3199747273625ec3eb7b8eb7
+ 

@@ -1,0 +1,12 @@
+
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 27 SEPTEMBER 2017
+ 
+________________________________________
+
+Untuk diagram Studi Kasus sudah baik dan berurutan sesuai dengan studi kasus yang telah di sepakati 
+sebelum nya, tetapi ada beberapa hal yang perlu di perbaiki di antaranya
+1. dalam diagram kasus belum di cantumkan tanggal
+2. di usahakan transportasi yang di gunakan tidak hanya mobil saja
+
+Terimakasih
