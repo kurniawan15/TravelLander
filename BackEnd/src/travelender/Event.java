@@ -15,6 +15,16 @@ import java.util.List;
  */
 public class Event {
 
+    
+    private String idUser;
+    private String idEvent;
+    private Date startTime;
+    private Date endTime;
+    private String nameEvent;
+    private ModaTransportasi transport;
+    private Lokasi destination;
+    private Lokasi embarkation;
+    
     /**
      * @return the idEvent
      */
@@ -42,14 +52,6 @@ public class Event {
     public void setNameEvent(String nameEvent) {
         this.nameEvent = nameEvent;
     }
-    private String idUser;
-    private String idEvent;
-    private Date startTime;
-    private Date endTime;
-    private String nameEvent;
-    private ModaTransportasi transport;
-    private Lokasi destination;
-    private Lokasi embarkation;
     /**
      * @return the idUser
      */
