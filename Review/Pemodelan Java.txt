@@ -28,3 +28,4 @@ Review 3
 3. kalau bisa untuk list liat lookup di tampilkan biar bisa di buktikan dan penjelasannya lebih mudah
 4. Recommender mode kendaraan masih belum selesai, belum ada perhitungan waktu ketika memaikai salah satu kendaraan
 5. Masih ada bug di recommender , tolong benarkan 
+6. Di input data ke lookupitem lebih baik di get saja karena sudah di set di awal , kalau di set lagi makan set di awal se akan akan di tidak berfungsi
