@@ -35,7 +35,7 @@
         <ul id="nav">
         	<li><a href="calender.jsp">Calendar</a></li>
             <li><a href="DataPlace.jsp">Manage Place</a></li>
-            <li><a class="selected"  href="distance.html">Manage Distance</a></li>
+            <li><a class="selected"  href="distance.jsp">Manage Distance</a></li>
             <li><a href="time.jsp">Manage Time</a></li>
             <li><a href="transpotation.jsp">Manage Transpotation</a></li>
       	</ul>
