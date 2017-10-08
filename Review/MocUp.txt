@@ -1,0 +1,18 @@
+
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 27 SEPTEMBER 2017
+ 
+________________________________________
+
+Dari segi MockUp sudah baik dan sesuai dengan ScreenFlow tetapi ada beberapa 
+hal yang perlu di di perbaiki di antara nya
+1. tolong tampilan sign in dan sign up harus lebih di perbaiki menjadi lebih user friendly
+   dan untuk boton di simpan sesuai penempatan nya
+2. untuk created schedule tombol create dan cancel tolong dipindahkan ke bawah from
+3. untuk detail tolong tombol back di pindahkan ke bawah dan tulisan imput waktu
+   di ganti dengan start time
+4. untuk event list tolong hilangkan bebeapa fitur "please choose" karena di dalam
+   calendar yang digunankan sudah ada fitur tsb
+
+
+Terimakasih
