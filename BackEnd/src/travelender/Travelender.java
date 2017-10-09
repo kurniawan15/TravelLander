@@ -87,6 +87,97 @@ public class Travelender {
         lokasi7.setNamaLokasi("Dinas Pendidikan Kota Cianjur");
         lokasi7.setAlamat("Jl. Perintis Kemerdekaan No. 3, Cilaku, Sirnagalih, Cilaku, Kabupaten Cianjur, Jawa Barat");
         listLokasi.add(lokasi7);
+        
+        Lokasi lokasi8 = new Lokasi();
+
+        lokasi8.setIdLokasi("KL00008");
+        lokasi8.setNamaLokasi("Bandara Husein Sastranegara");
+        lokasi8.setAlamat("Jl. Pajajaran No. 156, Husen Sastranegara, Cicendo");
+        listLokasi.add(lokasi8);
+        
+        Lokasi lokasi9 = new Lokasi();
+
+        lokasi9.setIdLokasi("KL00009");
+        lokasi9.setNamaLokasi("Red Planet Hotel Surabaya");
+        lokasi9.setAlamat("Jl. Arjuna No. 64 - 66, Surabaya, Jawa Timur 60251");
+        listLokasi.add(lokasi9);
+        
+        Lokasi lokasi10 = new Lokasi();
+
+        lokasi10.setIdLokasi("KL000010");
+        lokasi10.setNamaLokasi("Bandara Internasional Juanda Surabaya");
+        lokasi10.setAlamat("Jl. Ir. H. Juanda, Betro, Sedati, Kabupaten Sidoarjo");
+        listLokasi.add(lokasi10);
+        
+        Lokasi lokasi11 = new Lokasi();
+
+        lokasi11.setIdLokasi("KL000011");
+        lokasi11.setNamaLokasi("SMAN 15 Surabaya");
+        lokasi11.setAlamat("Jl. Dukuh Menanggal Sel. No.103, Dukuh Menanggal");
+        listLokasi.add(lokasi11);
+        
+        Lokasi lokasi12 = new Lokasi();
+
+        lokasi12.setIdLokasi("KL000012");
+        lokasi12.setNamaLokasi("Bebek Handayani Surabaya");
+        lokasi12.setAlamat("Jl. Parang Kusumo No.2-I, Kemayoran, Krembangan");
+        listLokasi.add(lokasi12);
+        
+        Lokasi lokasi13 = new Lokasi();
+
+        lokasi13.setIdLokasi("KL000013");
+        lokasi13.setNamaLokasi("Stasiun Surabaya Gubeng");
+        lokasi13.setAlamat("Jl. Stasiun Gubeng, Pacar Keling, Tambaksari");
+        listLokasi.add(lokasi13);
+        
+        Lokasi lokasi14 = new Lokasi();
+
+        lokasi14.setIdLokasi("KL000014");
+        lokasi14.setNamaLokasi("Mesjid Cheng Ho Surabaya");
+        lokasi14.setAlamat("Jl. Gading No.2, Ketabang, Genteng, Kota SBY,");
+        listLokasi.add(lokasi14);
+        
+        Lokasi lokasi15 = new Lokasi();
+
+        lokasi15.setIdLokasi("KL000015");
+        lokasi15.setNamaLokasi("Stasiun Kota Malang");
+        lokasi15.setAlamat("Jalan Trunojoyo No.10, Klojen, Kiduldalem");
+        listLokasi.add(lokasi15);
+        
+        Lokasi lokasi16 = new Lokasi();
+
+        lokasi16.setIdLokasi("KL000016");
+        lokasi16.setNamaLokasi("Hotel Gajahmada Graha");
+        lokasi16.setAlamat("Jalan Doktor Cipto No.17, Rampal Celaket,");
+        listLokasi.add(lokasi16);
+        
+        Lokasi lokasi17 = new Lokasi();
+
+        lokasi17.setIdLokasi("KL000017");
+        lokasi17.setNamaLokasi("Bakso Bakar Pak Man");
+        lokasi17.setAlamat("Jl. Diponegoro No.19, Klojen, Kota Malang");
+        listLokasi.add(lokasi17);
+        
+        Lokasi lokasi18 = new Lokasi();
+
+        lokasi18.setIdLokasi("KL000018");
+        lokasi18.setNamaLokasi("SMPN 12 Malang");
+        lokasi18.setAlamat("Bandungrejosari, Sukun, Kota Malang, Jawa Timur 65");
+        listLokasi.add(lokasi18);
+        
+        Lokasi lokasi19 = new Lokasi();
+
+        lokasi19.setIdLokasi("KL000019");
+        lokasi19.setNamaLokasi("Taman Kunang Kunang");
+        lokasi19.setAlamat("Jl. Jakarta, Oro-oro Dowo, Klojen, Kota Malang");
+        listLokasi.add(lokasi19);
+        
+        Lokasi lokasi20 = new Lokasi();
+
+        lokasi20.setIdLokasi("KL000020");
+        lokasi20.setNamaLokasi("Bandar Udara Internasional Abdulrachman Saleh");
+        lokasi20.setAlamat("Jl. Komodor Udara Abdul Rahman Saleh, Bunut Wetan");
+        listLokasi.add(lokasi20);
 
         
         //Transport item pertama
@@ -370,6 +461,177 @@ public class Travelender {
         lookupItem21.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
         lookupItem21.setTransport(moda7);            //Berjalan kaki
         listLookup.add(lookupItem21);
+        
+        Lookup lookupItem22 = new Lookup();
+        
+        lookupItem22.setIdLookup("IDP0022");
+        lookupItem22.setWaktuTempuh(133);
+        lookupItem22.setJarakTempuh(63);
+        lookupItem22.setLokasiAwal(lokasi1);         //dari rumah
+        lookupItem22.setLokasiAkhir(lokasi8);        //ke bandara husain
+        lookupItem22.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem22);
+        
+        Lookup lookupItem23 = new Lookup();
+        
+        lookupItem23.setIdLookup("IDP0023");
+        lookupItem23.setWaktuTempuh(90);
+        lookupItem23.setJarakTempuh(573);
+        lookupItem23.setLokasiAwal(lokasi8);         //dari bandara husain
+        lookupItem23.setLokasiAkhir(lokasi10);       //ke bandara juanda
+        lookupItem23.setTransport(moda2);            //pesawat
+        listLookup.add(lookupItem23);
+        
+        Lookup lookupItem24 = new Lookup();
+        
+        lookupItem24.setIdLookup("IDP0024");
+        lookupItem24.setWaktuTempuh(40);
+        lookupItem24.setJarakTempuh(19);
+        lookupItem24.setLokasiAwal(lokasi10);        //dari bandara juanda
+        lookupItem24.setLokasiAkhir(lokasi9);        //ke red planet
+        lookupItem24.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem24);
+        
+        Lookup lookupItem25 = new Lookup();
+        
+        lookupItem25.setIdLookup("IDP0025");
+        lookupItem25.setWaktuTempuh(30);
+        lookupItem25.setJarakTempuh(12);
+        lookupItem25.setLokasiAwal(lokasi9);         //dari red planet
+        lookupItem25.setLokasiAkhir(lokasi11);       //ke SMAN 15 SBY
+        lookupItem25.setTransport(moda2);            //mobil
+        listLookup.add(lookupItem25);
+        
+        Lookup lookupItem26 = new Lookup();
+        
+        lookupItem26.setIdLookup("IDP0026");
+        lookupItem26.setWaktuTempuh(34);
+        lookupItem26.setJarakTempuh(14);
+        lookupItem26.setLokasiAwal(lokasi11);         //dari SMAN 15 SBY
+        lookupItem26.setLokasiAkhir(lokasi12);       //ke bebek handayani
+        lookupItem26.setTransport(moda5);            //motor
+        listLookup.add(lookupItem26);
+        
+        Lookup lookupItem27 = new Lookup();
+        
+        lookupItem27.setIdLookup("IDP0027");
+        lookupItem27.setWaktuTempuh(25);
+        lookupItem27.setJarakTempuh(4);
+        lookupItem27.setLokasiAwal(lokasi12);         //dari bebek handayani
+        lookupItem27.setLokasiAkhir(lokasi14);       //ke masjid cheng ho
+        lookupItem27.setTransport(moda5);            //mobil
+        listLookup.add(lookupItem27);
+        
+        Lookup lookupItem28 = new Lookup();
+        
+        lookupItem28.setIdLookup("IDP0028");
+        lookupItem28.setWaktuTempuh(15);
+        lookupItem28.setJarakTempuh(2);
+        lookupItem28.setLokasiAwal(lokasi14);         //dari masjid cheng ho
+        lookupItem28.setLokasiAkhir(lokasi13);       //ke stasiun gubek
+        lookupItem28.setTransport(moda2);            //mobil
+        listLookup.add(lookupItem28);
+        
+        Lookup lookupItem29 = new Lookup();
+        
+        lookupItem29.setIdLookup("IDP0029");
+        lookupItem29.setWaktuTempuh(168);
+        lookupItem29.setJarakTempuh(90);
+        lookupItem29.setLokasiAwal(lokasi13);         //dari stasiun gubek
+        lookupItem29.setLokasiAkhir(lokasi15);       //ke stasiun kota malang
+        lookupItem29.setTransport(moda1);            //mobil
+        listLookup.add(lookupItem29);
+        
+        Lookup lookupItem30 = new Lookup();
+        
+        lookupItem30.setIdLookup("IDP0030");
+        lookupItem30.setWaktuTempuh(3);
+        lookupItem30.setJarakTempuh(1);
+        lookupItem30.setLokasiAwal(lokasi15);         //dari stasiun kota malang
+        lookupItem30.setLokasiAkhir(lokasi16);       //ke hotel gajah mada
+        lookupItem30.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem30);
+        
+        Lookup lookupItem31 = new Lookup();
+        
+        lookupItem31.setIdLookup("IDP0031");
+        lookupItem31.setWaktuTempuh(18);
+        lookupItem31.setJarakTempuh(5);
+        lookupItem31.setLokasiAwal(lokasi16);         //dari hotel gajah mada
+        lookupItem31.setLokasiAkhir(lokasi18);       //ke SMPN 12 malang
+        lookupItem31.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem31);
+        
+        Lookup lookupItem32 = new Lookup();
+        
+        lookupItem32.setIdLookup("IDP0032");
+        lookupItem32.setWaktuTempuh(18);
+        lookupItem32.setJarakTempuh(5);
+        lookupItem32.setLokasiAwal(lokasi18);         //dari SMPN 12 malang
+        lookupItem32.setLokasiAkhir(lokasi17);       //ke Bakso bakar
+        lookupItem32.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem32);
+        
+        Lookup lookupItem33 = new Lookup();
+        
+        lookupItem33.setIdLookup("IDP0033");
+        lookupItem33.setWaktuTempuh(9);
+        lookupItem33.setJarakTempuh(3);
+        lookupItem33.setLokasiAwal(lokasi17);         //dari Bakso bakar
+        lookupItem33.setLokasiAkhir(lokasi19);       //ke taman kunang kunang
+        lookupItem33.setTransport(moda5);            //mobil
+        listLookup.add(lookupItem33);
+        
+        Lookup lookupItem34 = new Lookup();
+        
+        lookupItem34.setIdLookup("IDP0034");
+        lookupItem34.setWaktuTempuh(10);
+        lookupItem34.setJarakTempuh(4);
+        lookupItem34.setLokasiAwal(lokasi19);         //dari taman kunang kunang
+        lookupItem34.setLokasiAkhir(lokasi16);       //ke hotel gajah mada
+        lookupItem34.setTransport(moda5);            //mobil
+        listLookup.add(lookupItem34);
+        
+        Lookup lookupItem35 = new Lookup();
+        
+        lookupItem35.setIdLookup("IDP0035");
+        lookupItem35.setWaktuTempuh(25);
+        lookupItem35.setJarakTempuh(12);
+        lookupItem35.setLokasiAwal(lokasi16);         //dari hotel gajah mada
+        lookupItem35.setLokasiAkhir(lokasi20);       //ke bandar abdul
+        lookupItem35.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem34);
+        
+        Lookup lookupItem36 = new Lookup();
+        
+        lookupItem36.setIdLookup("IDP0036");
+        lookupItem36.setWaktuTempuh(110);
+        lookupItem36.setJarakTempuh(800);
+        lookupItem36.setLokasiAwal(lokasi20);         //dari bandara abdul
+        lookupItem36.setLokasiAkhir(lokasi8);       //ke bandara husein
+        lookupItem36.setTransport(moda2);            //pesawat
+        listLookup.add(lookupItem36);
+        
+        Lookup lookupItem37 = new Lookup();
+        
+        lookupItem37.setIdLookup("IDP0037");
+        lookupItem37.setWaktuTempuh(120);
+        lookupItem37.setJarakTempuh(66);
+        lookupItem37.setLokasiAwal(lokasi8);         //dari bandara husein
+        lookupItem37.setLokasiAkhir(lokasi7);       //ke dinas p
+        lookupItem37.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem37);
+        
+        Lookup lookupItem38 = new Lookup();
+        
+        lookupItem38.setIdLookup("IDP0038");
+        lookupItem38.setWaktuTempuh(13);
+        lookupItem38.setJarakTempuh(5);
+        lookupItem38.setLokasiAwal(lokasi7);         //dari dinas p
+        lookupItem38.setLokasiAkhir(lokasi1);       //ke rumah
+        lookupItem38.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem38);
+        
         
         /*
         Pengubahan format tanggal
