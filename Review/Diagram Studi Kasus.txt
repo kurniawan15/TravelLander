@@ -1,7 +1,6 @@
 
 REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
 TANGGAL REVIEW : 27 SEPTEMBER 2017
- 
 ________________________________________
 
 Untuk diagram Studi Kasus sudah baik dan berurutan sesuai dengan studi kasus yang telah di sepakati 
@@ -10,3 +9,17 @@ sebelum nya, tetapi ada beberapa hal yang perlu di perbaiki di antaranya
 2. di usahakan transportasi yang di gunakan tidak hanya mobil saja
 
 Terimakasih
+
+
+REVIEWER       : RIZAL MUHAMMAD DJAJAATMADJA
+TANGGAL REVIEW : 02 OKTOBER 2017
+________________________________________
+Pada diagram ini sudah lebih baik dan transportasi nya sudah beragram
+tetapi ada hal yang perlu di perbaiki di antaranya penggunaan Tools MS. Word 
+untuk pembuatan di agram kurang efektif sehingga bila di buka masih terlihat 
+berantakan, untuk kedepan nya bisa menggunakan tools MS.Excel agar lebih mudah
+
+
+
+
+Terima kasih

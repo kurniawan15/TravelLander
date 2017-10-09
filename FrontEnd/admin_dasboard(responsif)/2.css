@@ -10,6 +10,10 @@ body{
   height:50px;
 }
 
+	#calendar {
+		max-width: 70%;
+		margin: 0 auto;
+	}
 
 
 /*---------------tombil navigasi---------------------*/
@@ -28,13 +32,6 @@ body{
   background-color:#F8A200;
   color:#000;
 }
-.navbar ul a.selected
-{
-	background-color:#F8A200;
-	color:#fff;
-	padding-left: 40px;
-}
-
 /*----------------------navigasi kiri -----------------*/
 .side-nav{
   margin-top:8px;	
@@ -110,64 +107,6 @@ ul#dropdown li a:hover
 	height:100%;
 
 }
-/*--------------------tabel--------------------------------*/
-
-.table{
-	    margin:0 auto;
-		margin-top:8px;
-        width:95%;
-        overflow:auto;
-        font-family: helvetica,arial,sans-serif;
-        font-size:14px;
-        color:#000;
-        border-collapse: collapse;
-        text-align: center;
-}
-
-.table th {
-       
-        padding: 8px;
-        color:#fff;
-        background-color: #27ae60;
-}
-.table tr {
-    border-width: 1px;
-    padding: 8px;
-	font-size:20px;
-}
-.table tr td {
-    text-align: center;
-}
-tr:nth-child(odd){background-color: #f2f2f2}
-
-/*----------------------tombol edit dan delet---------------------*/
-
-.button1 {
-    position: relative;
-    background-color: #f39c12;
-    border: none;
-	border-radius:5px;
-    font-size: 12px;
-    color: #FFF;
-    padding: 5px;
-    width: 50px;
-    text-align: center;
-	cursor: pointer;
-}
-
-.button2 {
-    position: relative;
-    background-color: #c0392b;
-    border: none;
-	border-radius:5px;
-    font-size: 12px;
-    color: #FFF;
-    padding: 5px;
-    width: 50px;
-    text-align: center;
-	cursor: pointer;
-}
-
 
 @media(max-width:568px){
   .navbar-nav{display:none}
@@ -241,15 +180,6 @@ tr:nth-child(odd){background-color: #f2f2f2}
     width: 40%;
 	height:220px;
 }
-.confirm-content-distance
-{
-	background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 40%;
-	height:250px;
-}
 .exit {
     color: #aaaaaa;
     float: right;
@@ -263,92 +193,9 @@ tr:nth-child(odd){background-color: #f2f2f2}
     cursor: pointer;
 }
 /*-------------------------------imput data------------------------------ */
-.form 
-{
-	padding:2% 5%;
-	margin-top:5%;
-	border-radius:5px;
-    border: 3px solid #f4f4f4;
-}
-input[type=text]
-{
-    width: 100%;
-    padding: 10px 14px;
-    margin: 8px 0;
-	font-size:18px;
-	border-radius:5px;
-    box-sizing: border-box;
-}
-.huhu
-{
-	width: 10%;
-    padding: 2% 4%;
-    margin: 8px 0;
-	font-size:18px;
-	border-radius:5px;
-    box-sizing: border-box;
-}
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-	border-radius:5px;
-    cursor: pointer;
-    width: 100%;
-}
-button:hover {
-    background-color:#F8A200;
-	color:#fff;
-}
-/*-------------------------------imput data jarak------------------------------ */
-.imput-distace
-{
-	font-weight:bold;
-	color:#6F6F6F;
-	width:50%;
-	padding:1%;
-}
 
 /*-------------------------------konfirmasi delet data------------------------*/
-.ask-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-	border-radius:10px;
-    width: 20%;
-	height:100px;
-}
-.ask
-{
-	padding:2%;
-	margin-top:5%;
-	text-align:center;
-}
-.b1
-{
-	background-color: #4CAF50;
-    color: white;
-    padding: 10px 12px;
-    margin: 8px 0;
-    border: none;
-	border-radius:5px;
-    cursor: pointer;
-    width: 40%;
-}
-.b2
-{
-	background-color: #c0392b;
-    color: white;
-    padding: 10px 12px;
-    margin: 8px 0;
-    border: none;
-	border-radius:5px;
-    cursor: pointer;
-    width: 40%;
-}
+
 
 /*------------------------------------------bagian imput data----------------------------*/
 .imput

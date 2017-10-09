@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Super Admin</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Super Admin</title>
+    <link rel="stylesheet" href="2.css">
+    <link rel="stylesheet" href="lib/fullcalendar.css">
+
+	<script src="lib/jquery.min.js"> </script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/fullcalendar.min.js"></script>
 </head>
 <body>
   <nav class="navbar">
@@ -25,58 +30,22 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Calendar</a>                                                                                   
-    <a href="#">Manage Place</a>
-    <a href="#">Manage Distance</a>
+    <a class="selected" href="calendar.html">Calendar</a>                                                                                   
+    <a href="Place.html">Manage Place</a>
+    <a href="distance.html">Manage Distance</a>
     <a href="#">Manage Time</a>
-    <a href="#">Manage Transpotation</a>
+    <a href="Vehicle.html">Manage Transpotation</a>
   </div>
 <div class="main-content">
 	  <div id="main">																					
 		<div class="widget">
-			<div class="title">Manage Place</div>
-            <table class="table">
-            <tr>
-                <th>NO</th>
-                <th>Place</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td title="NO">1</td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            </table>
+			<div class="title">Calendar</div>
+            <div id="calendar">
+                       </div>
 			<div class="tex">
            <p></p>
-            </div>
-		</div>
-        <div class="widget">
-        	<div class="title"> 
-            	Imput Data Transportation 
-            </div>
-            <div class="imput">
-            	Imput New Vehicle 
-                <input type="text" placeholder="Enter New Place" name="#" required>
-                <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
-            </div>
-        </div>
-	  </div>
+           </div>
+		</div>      
 </div>
 <div id="confirm" class="confirm2">
 	<div class="confirm-content">
@@ -90,6 +59,7 @@
         </div>
 	</div>
 </div>
+
 <div id="ask" class="confirm2">
 	<div class="ask-content">
     	<span onClick="tutup2()" class="exit" >&times;</span>
@@ -132,7 +102,78 @@
 		document.getElementById("ask").style.display = "none"
 	}
 	 
-	
+/*--------------------------------scrip calendar----------------------------------------*/
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay,listWeek'
+			},
+			defaultDate: '2017-09-12',
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2017-09-01',
+				},
+				{
+					title: 'Long Event',
+					start: '2017-09-07',
+					end: '2017-09-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-09-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-09-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2017-09-11',
+					end: '2017-09-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2017-09-12T10:30:00',
+					end: '2017-09-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2017-09-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2017-09-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2017-09-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2017-09-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2017-09-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2017-09-28'
+				}
+			]
+		});
+		
+	});
 
 
   </script>
