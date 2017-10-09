@@ -147,6 +147,7 @@ public class Travelender {
         lookupItem1.setLokasiAwal(lokasi1);         //dari Rumah
         lookupItem1.setLokasiAkhir(lokasi2);        //ke hotel
         lookupItem1.setTransport(moda3);            //mobil
+        
         listLookup.add(lookupItem1);
         
         listLookup.add(lookupItem1);

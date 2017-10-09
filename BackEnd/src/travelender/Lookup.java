@@ -5,7 +5,9 @@
  */
 package travelender;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -110,18 +112,19 @@ public class Lookup {
     
     public void getSameLocation(List<Lookup> listLookup,Event event){
            
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern); 
         List<Lookup> listSame = new ArrayList<Lookup>();
         int i = 0,j = 1;
         System.out.println("Moda yang memungkinkan : ");
             
         for(Lookup l :listLookup){
-            
-            
-            
             if((l.getLokasiAwal() == event.getEmbarkation())&&(l.getLokasiAkhir() == event.getDestination())){
                 
                 listSame.add(listLookup.get(i));
-                System.out.println(j + "." + l.getTransport().getNameTransport());                
+                System.out.print(j + "." + l.getTransport().getNameTransport());
+//                System.out.println(", waktu berangkat : " + event.getStartTime().getTime()  - (l.getWaktuTempuh() * 60));
+                System.out.println(" \t, waktu berangkat : " + format.format(new Date(event.getStartTime().getTime() - (l.getWaktuTempuh() * 60000))));
                 j++;
             }
             
