@@ -66,6 +66,14 @@ public class User {
         int i;
         for(i = 0; i < size  ; i++){
             this.listEvent.get(i).printEvent(list);
+            
+            if(i == 0){
+                list.get(i).getModaTransportasi(list,this.listEvent.get(i));
+            }
+            else{
+                list.get(i).getModaTransportasi(list,this.listEvent.get(i-1),this.listEvent.get(i));
+            }
+            System.out.println();
         }
         
     }

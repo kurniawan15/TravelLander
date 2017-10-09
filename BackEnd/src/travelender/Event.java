@@ -143,6 +143,7 @@ public class Event {
         /**
      * Prosedur untuk menampilkan satu event
      */
+    
     public void printEvent(List<Lookup> list) {
         
         String pattern = "EEEE, dd/MM/yyyy HH:mm";
@@ -155,7 +156,7 @@ public class Event {
         System.out.println("Waktu selesai \t : " + format.format(this.endTime) + "\n");
 //        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         
-        l.getSameLocation(list, this);
+//        l.getSameLocation(list, this);
         
         }
 
