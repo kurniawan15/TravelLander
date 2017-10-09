@@ -43,19 +43,19 @@ public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <title>JSP Page</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
       out.write("        ");
 
           String username = request.getParameter("user");
@@ -63,25 +63,34 @@ public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase
           koneksi connection = new koneksi();  
           Class.forName("com.mysql.jdbc.Driver");
           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender","root", "");
-          Statement st = con.createStatement();
+         Statement st = con.createStatement();
           ResultSet rs;
           rs = st.executeQuery("select * from admin where id_Admin ='" + username + "' and password='" + password + "'");
-          if(rs.next())
-//        if (username.equals("pega")&&(password.equals("pega")))
-          {
-              //berhasil
-              session.setAttribute("id_Admin",username);
-              response.sendRedirect("addEvent.jsp");
-          }
-          else
-          {
-              //gagal 
-              response.sendRedirect("error.jsp");
-          }
+        if (username.equals("admin1")&&(password.equals("admin1"))){
+                session.setAttribute("id_Admin",username);
+                response.sendRedirect("Admin/DataPlace.jsp");
+        }
+        else
+            {
+                session.setAttribute("id_Admin",username);
+                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
+                
+//            if(rs.next())
+//            {
+//                //berhasil
+//                session.setAttribute("id_Admin",username);
+//                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
+//            }
+//            else
+//            {
+//                //gagal 
+//                response.sendRedirect("error.jsp");
+//          }
+        }
         
-      out.write("\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

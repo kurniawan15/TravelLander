@@ -5,7 +5,9 @@
  */
 package travelender;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -13,6 +15,16 @@ import java.util.Date;
  */
 public class Event {
 
+    
+    private String idUser;
+    private String idEvent;
+    private Date startTime;
+    private Date endTime;
+    private String nameEvent;
+    private ModaTransportasi transport;
+    private Lokasi destination;
+    private Lokasi embarkation;
+    
     /**
      * @return the idEvent
      */
@@ -40,14 +52,6 @@ public class Event {
     public void setNameEvent(String nameEvent) {
         this.nameEvent = nameEvent;
     }
-    private String idUser;
-    private String idEvent;
-    private Date startTime;
-    private Date endTime;
-    private String nameEvent;
-    private ModaTransportasi transport;
-    private Lokasi destination;
-    
     /**
      * @return the idUser
      */
@@ -122,15 +126,38 @@ public class Event {
         this.destination = destination;
     }
 
+    /**
+     * @return the embarkation
+     */
+    public Lokasi getEmbarkation() {
+        return embarkation;
+    }
+
+    /**
+     * @param embarkation the embarkation to set
+     */
+    public void setEmbarkation(Lokasi embarkation) {
+        this.embarkation = embarkation;
+    }    
+   
         /**
      * Prosedur untuk menampilkan satu event
      */
-    public void printEvent() {
+    public void printEvent(List<Lookup> list) {
+        
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);  
+        Lookup l = new Lookup();
         System.out.println("Nama event \t : " + this.getNameEvent());
-        System.out.println("Lokasi awal \t : " + this.destination.getNamaLokasi());
+        System.out.println("Lokasi awal \t : " + this.getEmbarkation().getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
-        System.out.println("Waktu mulai \t : " + this.startTime);
-        System.out.println("Waktu selesai \t : " + this.endTime);
-        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
+        System.out.println("Waktu mulai \t : " + format.format(this.startTime));
+        System.out.println("Waktu selesai \t : " + format.format(this.endTime) + "\n");
+//        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
+        
+        l.getSameLocation(list, this);
+        
         }
+
+
 }

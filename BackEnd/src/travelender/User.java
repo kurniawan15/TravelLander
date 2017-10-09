@@ -61,11 +61,11 @@ public class User {
         this.email = email;
     }
     
-    public void printListEvent(){
+    public void printListEvent(List<Lookup> list){
         int size = this.listEvent.size();
         int i;
         for(i = 0; i < size  ; i++){
-            this.listEvent.get(i).printEvent();
+            this.listEvent.get(i).printEvent(list);
         }
         
     }

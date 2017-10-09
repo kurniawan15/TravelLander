@@ -31,23 +31,20 @@ public class Travelender {
         //Lokasi awal yang ada pada referensi
         List<Lokasi> listLokasi = new ArrayList<Lokasi>();
         
-        //lokasi tujuan
-        List<Lokasi> listLokasi2 = new ArrayList<Lokasi>();
-        
         //Transport 
         List<ModaTransportasi> listTransport = new ArrayList<ModaTransportasi>();
         
         //lookup
-        List<Lookup>listLookup = new ArrayList<Lookup>();
+        List<Lookup> listLookup = new ArrayList<Lookup>();
         
-        
+        Lookup l = new Lookup();
+                
         Lokasi lokasi1 = new Lokasi();
 
         lokasi1.setIdLokasi("KL00001");
         lokasi1.setNamaLokasi("Rumah");
         lokasi1.setAlamat("Jl. Maleber Cianjur");
         listLokasi.add(lokasi1);
-        listLokasi2.add(lokasi1);
 
         Lokasi lokasi2 = new Lokasi();
 
@@ -55,7 +52,6 @@ public class Travelender {
         lokasi2.setNamaLokasi("Hotel Amarossa Bandung");
         lokasi2.setAlamat("Jl. Aceh No. 71");
         listLokasi.add(lokasi2);
-        listLokasi2.add(lokasi2);
 
         Lokasi lokasi3 = new Lokasi();
 
@@ -148,19 +144,23 @@ public class Travelender {
         lookupItem1.setIdLookup("IDP0001");
         lookupItem1.setWaktuTempuh(63);
         lookupItem1.setJarakTempuh(99);
-        lookupItem1.setLokasiAwal(lokasi1);
-        lookupItem1.setLokasiAkhir(lokasi2);
-        lookupItem1.setTransport(moda3);
+        lookupItem1.setLokasiAwal(lokasi1);         //dari Rumah
+        lookupItem1.setLokasiAkhir(lokasi2);        //ke hotel
+        lookupItem1.setTransport(moda3);            //mobil
         
+        listLookup.add(lookupItem1);
+        
+        listLookup.add(lookupItem1);
         //LookupItem kedua
         Lookup lookupItem2 = new Lookup();
         
         lookupItem2.setIdLookup("IDP0002");
         lookupItem2.setWaktuTempuh(3);
         lookupItem2.setJarakTempuh(1);
-        lookupItem2.setLokasiAwal(lokasi2);
-        lookupItem2.setLokasiAkhir(lokasi3);
-        lookupItem2.setTransport(moda3);
+        lookupItem2.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem2.setLokasiAkhir(lokasi3);        //ke SMA 20 Bandung
+        lookupItem2.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem2);
         
         //LookupItem ketiga
         Lookup lookupItem3 = new Lookup();
@@ -168,9 +168,10 @@ public class Travelender {
         lookupItem3.setIdLookup("IDP0003");
         lookupItem3.setWaktuTempuh(7);
         lookupItem3.setJarakTempuh(3);
-        lookupItem3.setLokasiAwal(lokasi3);
-        lookupItem3.setLokasiAkhir(lokasi4);
-        lookupItem3.setTransport(moda3);
+        lookupItem3.setLokasiAwal(lokasi3);         //dari SMA 20 Bandung
+        lookupItem3.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
+        lookupItem3.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem3);
         
         //LookupItem keempat
         Lookup lookupItem4 = new Lookup();
@@ -178,9 +179,10 @@ public class Travelender {
         lookupItem4.setIdLookup("IDP0004");
         lookupItem4.setWaktuTempuh(10);
         lookupItem4.setJarakTempuh(4);
-        lookupItem4.setLokasiAwal(lokasi4);
-        lookupItem4.setLokasiAkhir(lokasi4);
-        lookupItem4.setTransport(moda3);
+        lookupItem4.setLokasiAwal(lokasi4);         //dari Rumah Makan A
+        lookupItem4.setLokasiAkhir(lokasi5);        //ke SMP 14 Bandung
+        lookupItem4.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem4);
         
         //LookupItem kelima
         Lookup lookupItem5 = new Lookup();
@@ -188,9 +190,10 @@ public class Travelender {
         lookupItem5.setIdLookup("IDP0005");
         lookupItem5.setWaktuTempuh(5);
         lookupItem5.setJarakTempuh(2);
-        lookupItem5.setLokasiAwal(lokasi2);
-        lookupItem5.setLokasiAkhir(lokasi5);
-        lookupItem5.setTransport(moda3);
+        lookupItem5.setLokasiAwal(lokasi2);         //dari Hotel
+        lookupItem5.setLokasiAkhir(lokasi5);        //ke SMA 14 Bandung
+        lookupItem5.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem5);
         
         //LookupItem keenam
         Lookup lookupItem6 = new Lookup();
@@ -198,9 +201,10 @@ public class Travelender {
         lookupItem6.setIdLookup("IDP0006");
         lookupItem6.setWaktuTempuh(9);
         lookupItem6.setJarakTempuh(4);
-        lookupItem6.setLokasiAwal(lokasi5);
-        lookupItem6.setLokasiAkhir(lokasi6);
-        lookupItem6.setTransport(moda3);
+        lookupItem6.setLokasiAwal(lokasi5);         //dari SMP 14 Bandung
+        lookupItem6.setLokasiAkhir(lokasi6);        //ke Rumah makan Sugih
+        lookupItem6.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem6);
         
         //LookupItem ketuju
         Lookup lookupItem7 = new Lookup();
@@ -208,9 +212,10 @@ public class Travelender {
         lookupItem7.setIdLookup("IDP0007");
         lookupItem7.setWaktuTempuh(10);
         lookupItem7.setJarakTempuh(4);
-        lookupItem7.setLokasiAwal(lokasi6);
-        lookupItem7.setLokasiAkhir(lokasi2);
-        lookupItem7.setTransport(moda3);
+        lookupItem7.setLokasiAwal(lokasi6);         //dari Rumah makan Sugih
+        lookupItem7.setLokasiAkhir(lokasi2);        //ke Hotel
+        lookupItem7.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem7);
         
         //LookupItem kedelapan
         Lookup lookupItem8 = new Lookup();
@@ -218,9 +223,10 @@ public class Travelender {
         lookupItem8.setIdLookup("IDP0008");
         lookupItem8.setWaktuTempuh(95);
         lookupItem8.setJarakTempuh(68);
-        lookupItem8.setLokasiAwal(lokasi2);
-        lookupItem8.setLokasiAkhir(lokasi7);
-        lookupItem8.setTransport(moda3);
+        lookupItem8.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem8.setLokasiAkhir(lokasi7);        //ke Dinas
+        lookupItem8.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem8);
         
         //LookupItem kesembilan
         Lookup lookupItem9 = new Lookup();
@@ -228,14 +234,147 @@ public class Travelender {
         lookupItem9.setIdLookup("IDP0009");
         lookupItem9.setWaktuTempuh(11);
         lookupItem9.setJarakTempuh(8);
-        lookupItem9.setLokasiAwal(lokasi7);
-        lookupItem9.setLokasiAkhir(lokasi1);
-        lookupItem9.setTransport(moda3);
+        lookupItem9.setLokasiAwal(lokasi7);         //dari Dinas
+        lookupItem9.setLokasiAkhir(lokasi1);        //ke Rumah
+        lookupItem9.setTransport(moda3);            //mobil
+        listLookup.add(lookupItem9);
+        
+        //LookupItem kesepuluh
+        Lookup lookupItem10 = new Lookup();
+        
+        lookupItem10.setIdLookup("IDP0010");
+        lookupItem10.setWaktuTempuh(50);
+        lookupItem10.setJarakTempuh(99);
+        lookupItem10.setLokasiAwal(lokasi1);        //dari rumah
+        lookupItem10.setLokasiAkhir(lokasi2);       //ke hotel
+        lookupItem10.setTransport(moda1);           //KA
+        listLookup.add(lookupItem10);
+        
+        //LookupItem kesebelas
+        Lookup lookupItem11 = new Lookup();
+        
+        lookupItem11.setIdLookup("IDP0011");
+        lookupItem11.setWaktuTempuh(70);
+        lookupItem11.setJarakTempuh(99);
+        lookupItem11.setLokasiAwal(lokasi1);        //dari rumah
+        lookupItem11.setLokasiAkhir(lokasi2);       //ke hotel
+        lookupItem11.setTransport(moda4);           //Bus
+        listLookup.add(lookupItem11);
+        
+        //LookupItem keduabelas
+        Lookup lookupItem12 = new Lookup();
+        
+        lookupItem12.setIdLookup("IDP0012");
+        lookupItem12.setWaktuTempuh(45);
+        lookupItem12.setJarakTempuh(99);
+        lookupItem12.setLokasiAwal(lokasi1);        //dari rumah
+        lookupItem12.setLokasiAkhir(lokasi2);       //ke hotel
+        lookupItem12.setTransport(moda5);           //Motor
+        listLookup.add(lookupItem12);
+        
+        //LookupItem ketigabelas
+        Lookup lookupItem13 = new Lookup();
+        
+        lookupItem13.setIdLookup("IDP0013");
+        lookupItem13.setWaktuTempuh(75);
+        lookupItem13.setJarakTempuh(99);
+        lookupItem13.setLokasiAwal(lokasi1);        //dari rumah
+        lookupItem13.setLokasiAkhir(lokasi2);       //ke hotel
+        lookupItem13.setTransport(moda6);           //Sepeda
+        listLookup.add(lookupItem13);
+    
+        //LookupItem keempatbelas
+        Lookup lookupItem14 = new Lookup();
+        
+        lookupItem14.setIdLookup("IDP0014");
+        lookupItem14.setWaktuTempuh(3);
+        lookupItem14.setJarakTempuh(1);
+        lookupItem14.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem14.setLokasiAkhir(lokasi3);        //ke SMA 20 Bandung
+        lookupItem14.setTransport(moda4);            //Bus
+        listLookup.add(lookupItem14);
+        
+        //LookupItem kelimabelas
+        Lookup lookupItem15 = new Lookup();
+        
+        lookupItem15.setIdLookup("IDP0015");
+        lookupItem15.setWaktuTempuh(2);
+        lookupItem15.setJarakTempuh(1);
+        lookupItem15.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem15.setLokasiAkhir(lokasi3);        //ke SMA 20 Bandung
+        lookupItem15.setTransport(moda5);            //Motor
+        listLookup.add(lookupItem15);
+        
+        //LookupItem keenambelas
+        Lookup lookupItem16 = new Lookup();
+        
+        lookupItem16.setIdLookup("IDP0016");
+        lookupItem16.setWaktuTempuh(5);
+        lookupItem16.setJarakTempuh(1);
+        lookupItem16.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem16.setLokasiAkhir(lokasi3);        //ke SMA 20 Bandung
+        lookupItem16.setTransport(moda6);            //Sepeda
+        listLookup.add(lookupItem16);
+        
+        //LookupItem ketujuhbelas
+        Lookup lookupItem17 = new Lookup();
+        
+        lookupItem17.setIdLookup("IDP0017");
+        lookupItem17.setWaktuTempuh(10);
+        lookupItem17.setJarakTempuh(1);
+        lookupItem17.setLokasiAwal(lokasi2);         //dari hotel
+        lookupItem17.setLokasiAkhir(lokasi3);        //ke SMA 20 Bandung
+        lookupItem17.setTransport(moda7);            //Jalan Kaki
+        listLookup.add(lookupItem17);
+        
+        //LookupItem kedelapanbelas
+        Lookup lookupItem18 = new Lookup();
+        
+        lookupItem18.setIdLookup("IDP0018");
+        lookupItem18.setWaktuTempuh(10);
+        lookupItem18.setJarakTempuh(3);
+        lookupItem18.setLokasiAwal(lokasi3);         //dari SMA 20 Bandung
+        lookupItem18.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
+        lookupItem18.setTransport(moda4);            //bus
+        listLookup.add(lookupItem18);
+        
+        //LookupItem kesembilanbelas
+        Lookup lookupItem19 = new Lookup();
+        
+        lookupItem19.setIdLookup("IDP0018");
+        lookupItem19.setWaktuTempuh(5);
+        lookupItem19.setJarakTempuh(3);
+        lookupItem19.setLokasiAwal(lokasi3);         //dari SMA 20 Bandung
+        lookupItem19.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
+        lookupItem19.setTransport(moda5);            //motor
+        listLookup.add(lookupItem19);
+        
+        //LookupItem keduapuluh
+        Lookup lookupItem20 = new Lookup();
+        
+        lookupItem20.setIdLookup("IDP0020");
+        lookupItem20.setWaktuTempuh(12);
+        lookupItem20.setJarakTempuh(3);
+        lookupItem20.setLokasiAwal(lokasi3);         //dari SMA 20 Bandung
+        lookupItem20.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
+        lookupItem20.setTransport(moda6);            //sepeda
+        listLookup.add(lookupItem20);
+        
+        //LookupItem keduapuluhsatu
+        Lookup lookupItem21 = new Lookup();
+        
+        lookupItem21.setIdLookup("IDP0021");
+        lookupItem21.setWaktuTempuh(20);
+        lookupItem21.setJarakTempuh(3);
+        lookupItem21.setLokasiAwal(lokasi3);         //dari SMA 20 Bandung
+        lookupItem21.setLokasiAkhir(lokasi4);        //ke Rumah Makan A
+        lookupItem21.setTransport(moda7);            //Berjalan kaki
+        listLookup.add(lookupItem21);
         
         /*
         Pengubahan format tanggal
         */
-        String pattern = "dd/MM/yyyy hh:mm:ss";
+        String pattern = "dd/MM/yyyy hh:mm";
         SimpleDateFormat format = new SimpleDateFormat(pattern);
         
         User kanto = new User();
@@ -245,9 +384,9 @@ public class Travelender {
         
         Event event1 = new Event();
         event1.setNameEvent("Check In Hotel dan istirahat");
-        event1.setDestination(listLokasi.get(0));
-        event1.setDestination(listLokasi2.get(1));
-        event1.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
+        event1.setEmbarkation(listLokasi.get(0));        //rumah
+        event1.setDestination(listLokasi.get(1));        //hotel
+        //event1.setTransport(listTransport.get(2));     //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime1 = format.parse("21/9/2017 22:45:00");
@@ -262,11 +401,11 @@ public class Travelender {
         
         listEvent.add(event1);
         
-        
         Event event2 = new Event();
         event2.setNameEvent("Pengawasan dan Pelatihan");
-        event2.setDestination(listLokasi.get(2));
-        event2.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
+        event2.setEmbarkation(event1.getDestination());
+        event2.setDestination(listLokasi.get(2));        //SMA 20 bandung
+        event2.setTransport(listTransport.get(2));       //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime2 = format.parse("22/9/2017 06:15:00");
@@ -283,8 +422,9 @@ public class Travelender {
         
         Event event3 = new Event();
         event3.setNameEvent("Evaluasi dan Pelaporan");
-        event3.setDestination(listLokasi.get(3));
-        event3.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
+        event3.setEmbarkation(event2.getDestination());
+        event3.setDestination(listLokasi.get(3));       //Rumah makan  
+        event3.setTransport(listTransport.get(2));      //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime3 = format.parse("22/9/2017 18:00:00");
@@ -299,11 +439,11 @@ public class Travelender {
         
         listEvent.add(event3);
         
-        
         Event event4 = new Event();
         event4.setNameEvent("Istirahat");
-        event4.setDestination(listLokasi.get(1));
-        event4.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
+        event4.setEmbarkation(event3.getDestination());
+        event4.setDestination(listLokasi.get(1));       //Hotel
+        event4.setTransport(listTransport.get(2));      //disesuaikan dengan combobox pada desain web
         
         try {
           Date startTime4 = format.parse("22/9/2017 21:10:00");
@@ -320,6 +460,7 @@ public class Travelender {
         
         Event event5 = new Event();
         event5.setNameEvent("Pengawasan dan Pelatihan");
+        event5.setEmbarkation(event4.getDestination());
         event5.setDestination(listLokasi.get(4));
         event5.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -338,6 +479,7 @@ public class Travelender {
         
         Event event6 = new Event();
         event6.setNameEvent("Laporan dan Evaluasi");
+        event6.setEmbarkation(event5.getDestination());
         event6.setDestination(listLokasi.get(5));
         event6.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -356,6 +498,7 @@ public class Travelender {
         
         Event event7 = new Event();
         event7.setNameEvent("Istirahat");
+        event7.setEmbarkation(event6.getDestination());
         event7.setDestination(listLokasi.get(1));
         event7.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -374,6 +517,7 @@ public class Travelender {
         
         Event event8 = new Event();
         event8.setNameEvent("Penyerahan laporan");
+        event8.setEmbarkation(event7.getDestination());
         event8.setDestination(listLokasi.get(6));
         event8.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -393,6 +537,7 @@ public class Travelender {
         
         Event event9 = new Event();
         event9.setNameEvent("Istirahat di rumah");
+        event9.setEmbarkation(event8.getDestination());
         event9.setDestination(listLokasi.get(0));
         event9.setTransport(listTransport.get(2)); //disesuaikan dengan combobox pada desain web
         
@@ -411,6 +556,8 @@ public class Travelender {
         
         kanto.setListEvent(listEvent);
         
-        kanto.printListEvent();
+        kanto.printListEvent(listLookup);
+        
+        
     }    
 }
