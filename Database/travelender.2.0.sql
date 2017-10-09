@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2017 at 01:49 PM
+-- Generation Time: Oct 09, 2017 at 02:36 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -323,7 +323,10 @@ INSERT INTO `perjalanan` (`id_perjalanan`, `waktu_tempuh`, `jarak_tempuh`, `kode
 ('IDP0027', 18, 5, 'KL00048', 'KL00049', 'KMT03'),
 ('IDP0028', 9, 3, 'KL00049', 'KL00050', 'KMT05'),
 ('IDP0029', 10, 4, 'KL00050', 'KL00047', 'KMT05'),
-('IDP0030', 25, 12, 'KL00047', 'KL00007', 'KMT03');
+('IDP0030', 25, 12, 'KL00047', 'KL00007', 'KMT03'),
+('IDP0031', 110, 800, 'KL00007', 'KL00018', 'KMT02'),
+('IDP0032', 120, 66, 'KL00018', 'KL00039', 'KMT03'),
+('IDP0033', 13, 5, 'KL00039', 'KL00033', 'KMT03');
 
 -- --------------------------------------------------------
 
