@@ -28,6 +28,13 @@ body{
   background-color:#F8A200;
   color:#000;
 }
+.navbar ul a.selected
+{
+	background-color:#F8A200;
+	color:#fff;
+	padding-left: 40px;
+}
+
 /*----------------------navigasi kiri -----------------*/
 .side-nav{
   margin-top:8px;	
@@ -234,6 +241,15 @@ tr:nth-child(odd){background-color: #f2f2f2}
     width: 40%;
 	height:220px;
 }
+.confirm-content-distance
+{
+	background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+	height:250px;
+}
 .exit {
     color: #aaaaaa;
     float: right;
@@ -257,6 +273,15 @@ tr:nth-child(odd){background-color: #f2f2f2}
 input[type=text]
 {
     width: 100%;
+    padding: 10px 14px;
+    margin: 8px 0;
+	font-size:18px;
+	border-radius:5px;
+    box-sizing: border-box;
+}
+.huhu
+{
+	width: 10%;
     padding: 2% 4%;
     margin: 8px 0;
 	font-size:18px;
@@ -276,6 +301,14 @@ button {
 button:hover {
     background-color:#F8A200;
 	color:#fff;
+}
+/*-------------------------------imput data jarak------------------------------ */
+.imput-distace
+{
+	font-weight:bold;
+	color:#6F6F6F;
+	width:50%;
+	padding:1%;
 }
 
 /*-------------------------------konfirmasi delet data------------------------*/
