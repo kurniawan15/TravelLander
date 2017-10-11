@@ -55,7 +55,7 @@ body{
 		<div class="col-6 2">
 		<div class="header">
                 </form>
-                    <form name="login" action="Registrasi/progresregistrasi.jsp">
+                    <form name="registrasi" action="Registrasi/progresregistrasi.jsp">
 		  <center>Register</center>
 		</div>
 			<div class="col-6 3.1">
@@ -64,9 +64,9 @@ body{
 			<div class="col-6 3.2">
 			    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 			</div>
-			<input type="text" id="lname" name="lastname" placeholder="Your E-mail..">
+			<input type="text" id="lname" name="email" placeholder="Your E-mail..">
 			<div class="col-6 3.1">
-			    <input type="text" id="fname" name="firstname" placeholder="Your Username..">
+			    <input type="text" id="fname" name="user" placeholder="Your Username..">
 			</div>
 			<div class="col-6 3.2">
 			    <input type="text" id="lname" name="lastname" placeholder="Your Password..">

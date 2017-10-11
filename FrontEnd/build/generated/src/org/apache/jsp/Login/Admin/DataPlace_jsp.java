@@ -66,19 +66,13 @@ public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </a>\r\n");
       out.write("    </span>\r\n");
       out.write("    <ul id=\"dropdown\">\r\n");
-      out.write("             ");
-
-         //   String nama = session.getAttribute("id_Admin").toString();
-        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
-            
-      out.write("\r\n");
       out.write("    \t<li><a href=\"../logout.jsp\">Log Out</a></li>\r\n");
       out.write("    </ul>\r\n");
       out.write("  </nav>\r\n");
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a href=\"calendar.jsp\">Calendar</a>                                                                                   \r\n");
+      out.write("    <a href=\"calender.jsp\">Calendar</a>                                                                                   \r\n");
       out.write("    <a class=\"selected\" href=\"#\">Manage Place</a>\r\n");
       out.write("    <a href=\"distance.jsp\">Manage Distance</a>\r\n");
       out.write("    <a href=\"time.jsp\">Manage Time</a>\r\n");

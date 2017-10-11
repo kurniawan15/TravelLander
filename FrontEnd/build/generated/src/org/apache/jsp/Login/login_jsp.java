@@ -94,7 +94,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div class=\"col-6 2\">\r\n");
       out.write("\t\t<div class=\"header\">\r\n");
       out.write("                </form>\r\n");
-      out.write("                    <form name=\"login\" action=\"Registrasi/progresregistrasi.jsp\">\r\n");
+      out.write("                    <form name=\"registrasi\" action=\"Registrasi/progresregistrasi.jsp\">\r\n");
       out.write("\t\t  <center>Register</center>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t\t\t<div class=\"col-6 3.1\">\r\n");
@@ -103,9 +103,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<div class=\"col-6 3.2\">\r\n");
       out.write("\t\t\t    <input type=\"text\" id=\"lname\" name=\"lastname\" placeholder=\"Your last name..\">\r\n");
       out.write("\t\t\t</div>\r\n");
-      out.write("\t\t\t<input type=\"text\" id=\"lname\" name=\"lastname\" placeholder=\"Your E-mail..\">\r\n");
+      out.write("\t\t\t<input type=\"text\" id=\"lname\" name=\"email\" placeholder=\"Your E-mail..\">\r\n");
       out.write("\t\t\t<div class=\"col-6 3.1\">\r\n");
-      out.write("\t\t\t    <input type=\"text\" id=\"fname\" name=\"firstname\" placeholder=\"Your Username..\">\r\n");
+      out.write("\t\t\t    <input type=\"text\" id=\"fname\" name=\"user\" placeholder=\"Your Username..\">\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t\t\t<div class=\"col-6 3.2\">\r\n");
       out.write("\t\t\t    <input type=\"text\" id=\"lname\" name=\"lastname\" placeholder=\"Your Password..\">\r\n");
