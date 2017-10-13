@@ -46,26 +46,31 @@
             <table class="table">
             <tr>
                 <th>NO</th>
+                <th>Adrees</th>
                 <th>Place</th>
                 <th>Action</th>
             </tr>
             <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -79,8 +84,11 @@
             	Imput Place 
             </div>
             <div class="imput">
-            	Imput New Place 
+            	Imput New Place 999
                 <input type="text" placeholder="Enter New Place" name="#" required>
+                Input New Address
+                <textarea class="address"  name="#" form="#">
+Enter Imput Address In here...</textarea>
                 <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
             </div>
         </div>

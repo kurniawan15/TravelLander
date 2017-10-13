@@ -16,18 +16,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<<<<<<< HEAD
-					
-<div id="header">
-    	<div class="logo"><a href="#">Travel<span>Calendar</span></a></div>
-        <ul id="dropdown">
-        <%
-            //String nama = session.getAttribute("id_Admin").toString();
-        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
-            %>
-            <li><a href="../logout.jsp">Log Out</a></li>
-	</ul>
-=======
   <nav class="navbar">
     <span class="open-slide">
       <a href="#" onclick="openSlideMenu()">
@@ -58,26 +46,31 @@
             <table class="table">
             <tr>
                 <th>NO</th>
+                <th>Adrees</th>
                 <th>Place</th>
                 <th>Action</th>
             </tr>
             <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
+                <td title="Adrees"> Jl. Sekehaji </td>
                 <td title="Place">Bandung</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -91,8 +84,11 @@
             	Imput Place 
             </div>
             <div class="imput">
-            	Imput New Place 
+            	Imput New Place 999
                 <input type="text" placeholder="Enter New Place" name="#" required>
+                Input New Address
+                <textarea class="address"  name="#" form="#">
+Enter Imput Address In here...</textarea>
                 <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
             </div>
         </div>
@@ -120,7 +116,6 @@
             </label>
             <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
         </div> 
->>>>>>> 84e6ea0d3c0ce4e0225115ca81d52d2e14cd87a4
     </div>
 </div>
   <script>
