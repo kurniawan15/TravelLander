@@ -19,6 +19,9 @@ tetapi ada hal yang perlu di perbaiki di antaranya penggunaan Tools MS. Word
 untuk pembuatan di agram kurang efektif sehingga bila di buka masih terlihat 
 berantakan, untuk kedepan nya bisa menggunakan tools MS.Excel agar lebih mudah
 
+tolong tambahkan nama event, karena di sini tidak ada nama event
+untuk data kasus tolong di hilangkan kendaraan nya soalnya akan di jadikan sebagai rekomendasi
+
 
 
 
