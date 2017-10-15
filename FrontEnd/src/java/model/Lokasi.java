@@ -12,7 +12,7 @@ package model;
 public class Lokasi {
     
     
-    private Integer idLokasi;
+    private Integer kdLokasi;
     private String namaLokasi;
     private String alamat;
     
@@ -21,7 +21,7 @@ public class Lokasi {
     }
     
     public Lokasi(Integer idLokasi, String namalokasi, String alamat){
-        this.idLokasi = idLokasi;
+        this.kdLokasi = idLokasi;
         this.namaLokasi = namalokasi;
         this.alamat = alamat;
     }
@@ -33,15 +33,15 @@ public class Lokasi {
     /**
      * @return the idLokasi
      */
-    public Integer getIdLokasi() {
-        return idLokasi;
+    public Integer getKdLokasi() {
+        return kdLokasi;
     }
 
     /**
-     * @param idLokasi the idLokasi to set
+     * @param kdLokasi the idLokasi to set
      */
-    public void setIdLokasi(Integer idLokasi) {
-        this.idLokasi = idLokasi;
+    public void setKdLokasi(Integer kdLokasi) {
+        this.kdLokasi = kdLokasi;
     }
 
     /**

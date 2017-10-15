@@ -75,7 +75,7 @@ public class EventController extends HttpServlet {
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
         
         for (int i = 0; i < listEvent.size(); i++) {
-            Lokasi locations =   locationDAO.getLocation(listEvent.get(i).getLokasi());
+//            Lokasi locations =   locationDAO.getLocation(listEvent.get(i).getLokasi());
 //            JSONObject json = new JSONObject();
 //            json.put("title", listEvent.get(i).getEventName());
 //            json.put("start", sdf.format(listEvent.get(i).getDepartureTime()));

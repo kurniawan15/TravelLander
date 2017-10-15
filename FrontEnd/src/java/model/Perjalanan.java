@@ -9,7 +9,7 @@ package model;
  *
  * @author Dewi Roaza
  */
-public class Lookup {
+public class Perjalanan {
     private String idLookup;
     private float jarakTempuh;
     private int waktuTempuh;
