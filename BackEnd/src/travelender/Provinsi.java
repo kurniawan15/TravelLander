@@ -9,7 +9,7 @@ package travelender;
  *
  * @author Dewi Roaza
  */
-public class Province {
+public class Provinsi {
     private String idProv;
     private String nameProv;
     private String ibuKota;

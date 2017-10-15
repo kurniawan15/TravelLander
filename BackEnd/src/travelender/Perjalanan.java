@@ -14,26 +14,26 @@ import java.util.List;
  *
  * @author Dewi Roaza
  */
-public class Lookup {
-    private String idLookup;
+public class Perjalanan {
+    private String idPerjalanan;
     private float jarakTempuh;
     private int waktuTempuh;
-    private Lokasi lokasiAwal;
-    private Lokasi LokasiAkhir;
-    private ModaTransportasi transport;
+    private Lokasi kodeLokasiAwal;
+    private Lokasi kodeLokasiAkhir;
+    private ModaTransportasi kdModa;
 
     /**
      * @return the idLookup
      */
-    public String getIdLookup() {
-        return idLookup;
+    public String getIdPerjalanan() {
+        return idPerjalanan;
     }
 
     /**
-     * @param idLookup the idLookup to set
+     * @param idPerjalanan the idLookup to set
      */
-    public void setIdLookup(String idLookup) {
-        this.idLookup = idLookup;
+    public void setIdPerjalanan(String idPerjalanan) {
+        this.idPerjalanan = idPerjalanan;
     }
 
     /**
@@ -67,64 +67,64 @@ public class Lookup {
     /**
      * @return the lokasiAwal
      */
-    public Lokasi getLokasiAwal() {
-        return lokasiAwal;
+    public Lokasi getKodeLokasiAwal() {
+        return kodeLokasiAwal;
     }
 
     /**
-     * @param lokasiAwal the lokasiAwal to set
+     * @param kodeLokasiAwal the lokasiAwal to set
      */
-    public void setLokasiAwal(Lokasi lokasiAwal) {
-        this.lokasiAwal = lokasiAwal;
+    public void setKodeLokasiAwal(Lokasi kodeLokasiAwal) {
+        this.kodeLokasiAwal = kodeLokasiAwal;
     }
 
     /**
      * @return the LokasiAkhir
      */
-    public Lokasi getLokasiAkhir() {
-        return LokasiAkhir;
+    public Lokasi getKodeLokasiAkhir() {
+        return kodeLokasiAkhir;
     }
 
     /**
-     * @param LokasiAkhir the LokasiAkhir to set
+     * @param kodeLokasiAkhir the LokasiAkhir to set
      */
-    public void setLokasiAkhir(Lokasi LokasiAkhir) {
-        this.LokasiAkhir = LokasiAkhir;
+    public void setKodeLokasiAkhir(Lokasi kodeLokasiAkhir) {
+        this.kodeLokasiAkhir = kodeLokasiAkhir;
     }
 
     /**
      * @return the transport
      */
-    public ModaTransportasi getTransport() {
-        return transport;
+    public ModaTransportasi getKdModa() {
+        return kdModa;
     }
 
     /**
-     * @param transport the transport to set
+     * @param kdModa the transport to set
      */
-    public void setTransport(ModaTransportasi transport) {
-        this.transport = transport;
+    public void setKdModa(ModaTransportasi kdModa) {
+        this.kdModa = kdModa;
     }
     
     public void getIntervalTime(Lokasi lokasi1,Lokasi lokasi2,Event event){
         
     }
     
-    public void getSameLocation(List<Lookup> listLookup,Event event){
+    public void getSameLocation(List<Perjalanan> listLookup,Event event){
            
         String pattern = "EEEE, dd/MM/yyyy HH:mm";
         SimpleDateFormat format = new SimpleDateFormat(pattern); 
-        List<Lookup> listSame = new ArrayList<Lookup>();
+        List<Perjalanan> listSame = new ArrayList<Perjalanan>();
         int i = 0,j = 1;
         System.out.println("Moda yang memungkinkan : ");
             
-        for(Lookup l :listLookup){
-            if((l.getLokasiAwal() == event.getEmbarkation())&&(l.getLokasiAkhir() == event.getDestination())){
+        for(Perjalanan l :listLookup){
+            if((l.getKodeLokasiAwal() == event.getEmbarkation())&&(l.getKodeLokasiAkhir() == event.getDestination())){
                 
                 listSame.add(listLookup.get(i));
-                System.out.print(j + "." + l.getTransport().getNameTransport());
+                System.out.print(j + "." + l.getKdModa().getTipeModa());
 //                System.out.println(", waktu berangkat : " + event.getStartTime().getTime()  - (l.getWaktuTempuh() * 60));
-                System.out.println(" \t, waktu berangkat : " + format.format(new Date(event.getStartTime().getTime() - (l.getWaktuTempuh() * 60000))));
+                System.out.println(" \t, waktu berangkat : " + format.format(new Date(event.getWaktuMulai().getTime() - (l.getWaktuTempuh() * 60000))));
                 j++;
             }
             
