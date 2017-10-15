@@ -123,11 +123,10 @@ public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            \tImput Place \r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"imput\">\r\n");
-      out.write("            \tImput New Place 999\r\n");
+      out.write("            \tImput New Place \r\n");
       out.write("                <input type=\"text\" placeholder=\"Enter New Place\" name=\"#\" required>\r\n");
       out.write("                Input New Address\r\n");
-      out.write("                <textarea class=\"address\"  name=\"#\" form=\"#\">\r\n");
-      out.write("Enter Imput Address In here...</textarea>\r\n");
+      out.write("                <textarea class=\"address\"  rows=\"4\" cols=\"50\" name=\"#\" form=\"#\" placeholder=\"Enter Imput Address In here...\"></textarea>\r\n");
       out.write("                <button type=\"submit\" class=\"ImputButton\" onClick=\"tutup()\" name=\"#\">Update Data</button>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");

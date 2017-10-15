@@ -84,11 +84,10 @@
             	Imput Place 
             </div>
             <div class="imput">
-            	Imput New Place 999
+            	Imput New Place 
                 <input type="text" placeholder="Enter New Place" name="#" required>
                 Input New Address
-                <textarea class="address"  name="#" form="#">
-Enter Imput Address In here...</textarea>
+                <textarea class="address"  rows="4" cols="50" name="#" form="#" placeholder="Enter Imput Address In here..."></textarea>
                 <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
             </div>
         </div>

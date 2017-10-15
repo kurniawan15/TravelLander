@@ -1,0 +1,109 @@
+HTML
+
+
+<div id="div1">
+                         <table id="table1">
+                         	<tr>
+                            <th> No </th>
+                            <th> Place Name </th>
+                            <th> Action </th>
+                            </tr>
+                       	 </table>
+                        </div>
+                        <div id="div2">
+                         <table id="table2">
+                         	<tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>    
+                            <tr>
+                            <th> 1 </th>
+                            <th> Rumah </th>
+                            <th> <input type="submit" name="" value=" Sign In"> </th>
+                       		</tr>                           
+                       	  </table>                          
+                        </div>
+
+
+CSS
+#div1
+{
+	height: 30px;
+	width: 100%;
+	background-color:#00EBFF;
+}
+
+#table1
+{
+	border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+	color:#FFFFFF;	
+}
+#div2
+{
+	height:250px;
+	width:100%;
+	overflow-x:hidden;
+	
+}
+#table2
+{
+	
+	border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+th, td {
+    border: none;
+    padding: 8px 100px;
+	text-align:left;
+	
+}
+tr:nth-child(even){background-color: #f2f2f2}
