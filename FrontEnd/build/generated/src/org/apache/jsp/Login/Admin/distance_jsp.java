@@ -73,11 +73,11 @@ public final class distance_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a href=\"calendar.jsp\">Calendar</a>                                                                                   \r\n");
+      out.write("    <a href=\"calender.jsp\">Calendar</a>                                                                                   \r\n");
       out.write("    <a href=\"DataPlace.jsp\">Manage Place</a>\r\n");
       out.write("    <a class=\"selected\" href=\"#\">Manage Distance</a>\r\n");
-      out.write("    <a href=\"time.html\">Manage Time</a>\r\n");
-      out.write("    <a href=\"Vehictransportation.jsp\" >Manage Transpotation</a>\r\n");
+      out.write("    <a href=\"time.jsp\">Manage Time</a>\r\n");
+      out.write("    <a href=\"transportation.jsp\" >Manage Transpotation</a>\r\n");
       out.write("  </div>\r\n");
       out.write("<div class=\"main-content\">\r\n");
       out.write("\t  <div id=\"main\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n");
