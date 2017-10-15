@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 03 Okt 2017 pada 08.47
+-- Generation Time: 13 Okt 2017 pada 06.23
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -32,6 +32,7 @@ CREATE TABLE `event` (
   `nama_agenda` varchar(50) DEFAULT NULL,
   `waktu_mulai` datetime DEFAULT NULL,
   `waktu_selesai` datetime DEFAULT NULL,
+  `keterangan` text NOT NULL,
   `id_perjalanan` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,31 +40,16 @@ CREATE TABLE `event` (
 -- Dumping data untuk tabel `event`
 --
 
-INSERT INTO `event` (`id_event`, `id_user`, `nama_agenda`, `waktu_mulai`, `waktu_selesai`, `id_perjalanan`) VALUES
-('EV230917TR000101', 'TR0001', 'Menginap', '2017-09-23 21:00:00', '2017-09-24 05:40:00', 'IDP0008'),
-('EV230917TR000102', 'TR0001', 'Pengawasan dan Pelatihan', '2017-09-24 06:15:00', '2017-09-24 14:00:00', 'IDP0009'),
-('EV230917TR000103', 'TR0001', 'Laporan dan Evaluasi', '2017-09-24 18:00:00', '2017-09-24 20:45:00', 'IDP0010'),
-('EV230917TR000104', 'TR0001', 'Menginap', '2017-09-24 21:10:00', '2017-09-25 03:45:00', 'IDP0011'),
-('EV230917TR000105', 'TR0001', 'Pengawasan dan Pelatihan', '2017-09-25 06:20:00', '2017-09-25 14:00:00', 'IDP0012'),
-('EV230917TR000106', 'TR0001', 'Laporan dan Evaluasi', '2017-09-25 18:00:00', '2017-09-25 20:45:00', 'IDP0013'),
-('EV230917TR000107', 'TR0001', 'Menginap', '2017-09-25 21:10:00', '2017-09-26 03:45:00', 'IDP0014'),
-('EV230917TR000108', 'TR0001', 'Penyerahan Laporan', '2017-09-26 06:15:00', '2017-09-26 08:30:00', 'IDP0015'),
-('EV230917TR000109', 'TR0001', 'Pulang ke Rumah', '2017-09-26 08:45:00', NULL, 'IDP0016');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `kendaraan`
---
-
-CREATE TABLE `kendaraan` (
-  `kd_kendaraan` varchar(12) NOT NULL,
-  `kd_moda` varchar(6) DEFAULT NULL,
-  `nama_kendaraan` varchar(50) DEFAULT NULL,
-  `waktu_keberangkatan` datetime DEFAULT NULL,
-  `waktu_kedatangan` datetime DEFAULT NULL,
-  `kecepatan_kendaraan` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `event` (`id_event`, `id_user`, `nama_agenda`, `waktu_mulai`, `waktu_selesai`, `keterangan`, `id_perjalanan`) VALUES
+('EV230917TR000101', 'TR0001', 'Menginap', '2017-09-23 21:00:00', '2017-09-24 05:40:00', '', 'IDP0008'),
+('EV230917TR000102', 'TR0001', 'Pengawasan dan Pelatihan', '2017-09-24 06:15:00', '2017-09-24 14:00:00', '', 'IDP0009'),
+('EV230917TR000103', 'TR0001', 'Laporan dan Evaluasi', '2017-09-24 18:00:00', '2017-09-24 20:45:00', '', 'IDP0010'),
+('EV230917TR000104', 'TR0001', 'Menginap', '2017-09-24 21:10:00', '2017-09-25 03:45:00', '', 'IDP0011'),
+('EV230917TR000105', 'TR0001', 'Pengawasan dan Pelatihan', '2017-09-25 06:20:00', '2017-09-25 14:00:00', '', 'IDP0012'),
+('EV230917TR000106', 'TR0001', 'Laporan dan Evaluasi', '2017-09-25 18:00:00', '2017-09-25 20:45:00', '', 'IDP0013'),
+('EV230917TR000107', 'TR0001', 'Menginap', '2017-09-25 21:10:00', '2017-09-26 03:45:00', '', 'IDP0014'),
+('EV230917TR000108', 'TR0001', 'Penyerahan Laporan', '2017-09-26 06:15:00', '2017-09-26 08:30:00', '', 'IDP0015'),
+('EV230917TR000109', 'TR0001', 'Pulang ke Rumah', '2017-09-26 08:45:00', NULL, '', 'IDP0016');
 
 -- --------------------------------------------------------
 
@@ -239,7 +225,17 @@ INSERT INTO `lokasi` (`kd_lokasi`, `nama_lokasi`, `alamat`, `id_kota`) VALUES
 ('KL00037', 'SMP Negeri 14 Bandung', 'Jl. Lap. Supratman No.8, Cihapit, Bandung Wetan, Kota Bandung, Jawa Barat 40114', 'KT005'),
 ('KL00038', 'Rumah Makan Sugih Parahyangan', 'Jl. Ters. Jkt No.48, Babakan Surabaya, Kiaracondong, Kota Bandung, Jawa Barat 40291', 'KT005'),
 ('KL00039', 'Dinas Pendidikan Kab. Cianjur', 'Jl. Perintis Kemerdekaan No. 3, Cilaku, Sirnagalih, Cilaku, Kabupaten Cianjur, Jawa Barat', 'KT099'),
-('KL00040', 'Dinas Pendidikan Provinsi Jawa Barat', 'Jl. Ahmad Yani No.239, Pasir Kaliki, Cicendo, Kota Bandung, Jawa Barat 40171', 'KT005');
+('KL00040', 'Dinas Pendidikan Provinsi Jawa Barat', 'Jl. Ahmad Yani No.239, Pasir Kaliki, Cicendo, Kota Bandung, Jawa Barat 40171', 'KT005'),
+('KL00041', 'Bandara Internasional Juanda Surabaya ', 'Jl. Ir. H. Juanda, Betro, Sedati, Kabupaten Sidoarjo, Jawa Timur 61253', 'KT084'),
+('KL00042', 'Red Planet Hotel Surabaya', 'Jl. Arjuna No. 64 - 66, Surabaya, Jawa Timur 60251', 'KT084'),
+('KL00043', 'SMAN 15 Surabaya', 'Jl. Dukuh Menanggal Sel. No.103, Dukuh Menanggal, Gayungan, Kota SBY, Jawa Timur 60234', 'KT084'),
+('KL00044', 'Bebek Handayani Surabaya', 'Jl. Parang Kusumo No.2-I, Kemayoran, Krembangan, Kota SBY, Jawa Timur 60176', 'KT084'),
+('KL00045', 'Mesjid Cheng Ho Surabaya', 'Jl. Gading No.2, Ketabang, Genteng, Kota SBY, Jawa Timur 60272', 'KT084'),
+('KL00046', 'Stasiun Kota Malang', 'Jalan Trunojoyo No.10, Klojen, Kiduldalem, Klojen, Kota Malang, Jawa Timur 65111', 'KT046'),
+('KL00047', 'Hotel Gajahmada Graha', 'Jalan Doktor Cipto No.17, Rampal Celaket, Klojen, Rampal Celaket, Klojen, Kota Malang, Jawa Timur 65111', 'KT046'),
+('KL00048', 'SMPN 12 Malang', 'Bandungrejosari, Sukun, Kota Malang, Jawa Timur 65148', 'KT046'),
+('KL00049', 'Bakso Bakar Pak Man', 'Jl. Diponegoro No.19, Klojen, Kota Malang, Jawa Timur 65111', 'KT046'),
+('KL00050', 'Taman Kunang Kunang ', 'Jl. Jakarta, Oro-oro Dowo, Klojen, Kota Malang, Jawa Timur 65113', 'KT046');
 
 -- --------------------------------------------------------
 
@@ -249,20 +245,21 @@ INSERT INTO `lokasi` (`kd_lokasi`, `nama_lokasi`, `alamat`, `id_kota`) VALUES
 
 CREATE TABLE `moda_transportasi` (
   `kd_moda` varchar(6) NOT NULL,
-  `tipe_moda` varchar(15) DEFAULT NULL
+  `tipe_moda` varchar(15) DEFAULT NULL,
+  `nama_moda` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `moda_transportasi`
 --
 
-INSERT INTO `moda_transportasi` (`kd_moda`, `tipe_moda`) VALUES
-('KMT01', 'Kereta Api'),
-('KMT02', 'Pesawat'),
-('KMT03', 'Mobil'),
-('KMT04', 'Bus'),
-('KMT05', 'Motor'),
-('KMT06', 'Sepeda');
+INSERT INTO `moda_transportasi` (`kd_moda`, `tipe_moda`, `nama_moda`) VALUES
+('KMT01', 'Kereta Api', ''),
+('KMT02', 'Pesawat', ''),
+('KMT03', 'Mobil', ''),
+('KMT04', 'Bus', ''),
+('KMT05', 'Motor', ''),
+('KMT06', 'Sepeda', '');
 
 -- --------------------------------------------------------
 
@@ -299,7 +296,21 @@ INSERT INTO `perjalanan` (`id_perjalanan`, `waktu_tempuh`, `jarak_tempuh`, `kode
 ('IDP0013', 9, 4, 'KL00037', 'KL00038', 'KMT03'),
 ('IDP0014', 10, 4, 'KL00038', 'KL00034', 'KMT03'),
 ('IDP0015', 95, 68, 'KL00034', 'KL00039', 'KMT03'),
-('IDP0016', 11, 8, 'KL00039', 'KL00033', 'KMT03');
+('IDP0016', 11, 8, 'KL00039', 'KL00033', 'KMT03'),
+('IDP0017', 133, 63, 'KL00033', 'KL00018', 'KMT03'),
+('IDP0018', 90, 573, 'KL00018', 'KL00041', 'KMT02'),
+('IDP0019', 40, 19, 'KL00041', 'KL00042', 'KMT03'),
+('IDP0020', 30, 12, 'KL00042', 'KL00043', 'KMT03'),
+('IDP0021', 34, 14, 'KL00043', 'KL00044', 'KMT05'),
+('IDP0022', 25, 4, 'KL00044', 'KL00045', 'KMT05'),
+('IDP0023', 15, 2, 'KL00045', 'KL00004', 'KMT04'),
+('IDP0024', 168, 90, 'KL00004', 'KL00046', 'KMT01'),
+('IDP0025', 3, 1, 'KL00046', 'KL00047', 'KMT03'),
+('IDP0026', 18, 5, 'KL00047', 'KL00048', 'KMT03'),
+('IDP0027', 18, 5, 'KL00048', 'KL00049', 'KMT03'),
+('IDP0028', 9, 3, 'KL00049', 'KL00050', 'KMT05'),
+('IDP0029', 10, 4, 'KL00050', 'KL00047', 'KMT05'),
+('IDP0030', 25, 12, 'KL00047', 'KL00007', 'KMT03');
 
 -- --------------------------------------------------------
 
@@ -361,18 +372,18 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`, `ibu_kota`) VALUES
 
 CREATE TABLE `user` (
   `id_user` varchar(6) NOT NULL,
-  `nama_user` varchar(50) DEFAULT NULL,
+  `nama_user` varchar(50) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `email` varchar(35) DEFAULT NULL,
-  `password` varchar(17) DEFAULT NULL,
-  `posisi_sekarang` varchar(7) DEFAULT NULL
+  `password` varchar(17) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama_user`, `email`, `password`, `posisi_sekarang`) VALUES
-('TR0001', 'Kanto', 'kanto1@gmail.com', 'kanto123', 'KL00033');
+INSERT INTO `user` (`id_user`, `nama_user`, `username`, `email`, `password`) VALUES
+('TR0001', 'Kanto', 'kanto1', 'kanto1@gmail.com', 'kanto123');
 
 --
 -- Indexes for dumped tables
@@ -385,13 +396,6 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`id_event`),
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_lookup` (`id_perjalanan`);
-
---
--- Indexes for table `kendaraan`
---
-ALTER TABLE `kendaraan`
-  ADD PRIMARY KEY (`kd_kendaraan`),
-  ADD KEY `kd_moda` (`kd_moda`);
 
 --
 -- Indexes for table `kota`
@@ -433,7 +437,7 @@ ALTER TABLE `provinsi`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`),
-  ADD KEY `posisi_sekarang` (`posisi_sekarang`);
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -445,12 +449,6 @@ ALTER TABLE `user`
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`),
   ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`id_perjalanan`) REFERENCES `perjalanan` (`id_perjalanan`);
-
---
--- Ketidakleluasaan untuk tabel `kendaraan`
---
-ALTER TABLE `kendaraan`
-  ADD CONSTRAINT `kendaraan_ibfk_1` FOREIGN KEY (`kd_moda`) REFERENCES `moda_transportasi` (`kd_moda`);
 
 --
 -- Ketidakleluasaan untuk tabel `kota`
@@ -471,12 +469,6 @@ ALTER TABLE `perjalanan`
   ADD CONSTRAINT `perjalanan_ibfk_1` FOREIGN KEY (`kode_lokasi_awal`) REFERENCES `lokasi` (`kd_lokasi`),
   ADD CONSTRAINT `perjalanan_ibfk_2` FOREIGN KEY (`kode_lokasi_akhir`) REFERENCES `lokasi` (`kd_lokasi`),
   ADD CONSTRAINT `perjalanan_ibfk_3` FOREIGN KEY (`kd_moda`) REFERENCES `moda_transportasi` (`kd_moda`);
-
---
--- Ketidakleluasaan untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`posisi_sekarang`) REFERENCES `lokasi` (`kd_lokasi`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
