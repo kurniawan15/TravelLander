@@ -6,20 +6,111 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<title>Super Admin</title>
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<script type="text/javascript" src="Js/date.js"></script>
-<script type="text/javascript" src="Js/place.js"></script>
-<link rel="stylesheet" type="text/css" href="css/calendar.css"/>
-<link rel="stylesheet" href="lib/fullcalendar.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Super Admin</title>
+    <link rel="stylesheet" href="css/2.css">
+    <link rel="stylesheet" href="lib/fullcalendar.css">
 
-<script src="lib/jquery.min.js"> </script>
-<script src="lib/moment.min.js"></script>
-<script src="lib/fullcalendar.min.js"></script>
+	<script src="lib/jquery.min.js"> </script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/fullcalendar.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <ul id="dropdown">
+    	<li><a href="../logout">Log Out</a></li>
+    </ul>
+  </nav>
 
-<script>
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a class="selected" href="calender.jsp">Calendar</a>                                                                                   
+    <a href="DataPlace.jsp">Manage Place</a>
+    <a href="distance.jsp">Manage Distance</a>
+    <a href="time.jsp">Manage Time</a>
+    <a href="transportation.jsp">Manage Transpotation</a>
+  </div>
+<div class="main-content">
+	  <div id="main">																					
+		<div class="widget">
+			<div class="title">Calendar</div>
+            <div id="calendar">
+                       </div>
+			<div class="tex">
+           <p></p>
+           </div>
+		</div>      
+</div>
+<div id="confirm" class="confirm2">
+	<div class="confirm-content">
+    <span onClick="tutup()" class="exit" >&times;</span>
+    	<div class="form">
+        	<label style="font-weight:bold">
+            	<a>Edit Place</a>
+            </label>
+    		<input type="text" placeholder="Enter New Place" name="#" required>
+            <button type="submit" onClick="tutup()" name="#">Update Data</button>
+        </div>
+	</div>
+</div>
+
+<div id="ask" class="confirm2">
+	<div class="ask-content">
+    	<span onClick="tutup2()" class="exit" >&times;</span>
+        <div class="ask">
+            <label style="font-weight:bold">
+                <a> &nbsp &nbsp Are You Sure To Delete Data? </a> <br>
+            </label>
+            <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
+        </div> 
+    </div>
+</div>
+  <script>
+/*----------------------------edit buat mav----------------------------------------------*/
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+	
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+	function openo()
+	{
+		document.getElementById("confirm").style.display = "block"
+	}
+	function opena()
+	{
+		document.getElementById("ask").style.display = "block"
+	}
+	function tutup()
+	{
+		document.getElementById("confirm").style.display = "none"
+	}
+	function tutup2()
+	{
+		document.getElementById("ask").style.display = "none"
+	}
+	 
+/*--------------------------------scrip calendar----------------------------------------*/
 	$(document).ready(function() {
 		
 		$('#calendar').fullCalendar({
@@ -91,51 +182,8 @@
 		});
 		
 	});
-</script>
-<style>
-	#calendar {
-		max-width: 90%;
-		margin: 0 auto;
-	}
-</style>
-</head>
 
-<body>
-             <%
-            String nama = session.getAttribute("id_Admin").toString();
-        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
-            %>					
-<div id="header">
-   	<div class="logo"><a href="#">Travel<span>Calendar</span></a></div>
-	<ul id="dropdown">
-			<li><a href="../logout.jsp"">Log Out</a></li>
-	</ul>
-</div>
-    
-    <div id="container">
-    	<div class="sidebar">
-        <ul id="nav">
-        	<li><a class="selected" href="#">Calendar</a></li>
-            <li><a href="DataPlace.jsp">Manage Place</a></li>
-            <li><a href="distance.jsp">Manage Distance</a></li>
-            <li><a href="time.jsp">Manage Time</a></li>
-            <li><a href="transpotation.jsp">Manage Transpotation</a></li>
-      	</ul>
-        
-            
-    	</div>
-        
-<div class="content">
-        	<h1></h1>
-            <p>Calendar</p>                      
-            	<div id="box">                    
-                 	<div class="box-panel">
-                    	<h2></h2>
-                        <div id="calendar">
-                       </div>
-                    </div>
-                </div>
-   </div>
-   </div>
-   </body>
+
+  </script>
+</body>
 </html>
