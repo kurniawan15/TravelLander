@@ -26,7 +26,7 @@ import model.Lokasi;
 //import org.json.JSONException;
 //import org.json.JSONObject;
 import repository.EventDAO;
-import repository.LocationDAO;
+import repository.LokasiDAO;
 
 /**
  *
@@ -37,7 +37,7 @@ public class EventController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     private EventDAO eventDAO;
-    private LocationDAO locationDAO;
+    private LokasiDAO locationDAO;
 
     @Override
     public void init() {
@@ -48,7 +48,7 @@ public class EventController extends HttpServlet {
 //        String jdbcUsername = "root";
 //        String jdbcPassword = "";
         eventDAO = new EventDAO(jdbcURL, jdbcUsername, jdbcPassword);
-        locationDAO = new LocationDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        locationDAO = new LokasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
     }
 
     @Override

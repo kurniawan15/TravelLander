@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Lokasi;
+import model.ModaTransportasi;
+import model.Perjalanan;
 
 /**
  *
@@ -23,21 +25,21 @@ public class PerjalananDAO extends DAO{
     }
     
     public List<Perjalanan> listAll() throws SQLException {
-        List<Lokasi> listData = new ArrayList();
+        List<Perjalanan> listData = new ArrayList();
         String sql = "SELECT * FROM perjalanan";
         connect(); 
         Statement statement = jdbcConnection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
-            String idPerjalanan;
-            int waktuTempuh;
-            int jarakTempuh;
-            String kdLokasiAwal;
-            String kdLokasiAkhir;
-            String kdModa;
-            Perjalanan per = new Perjalanan();
-            listData.add(locations);
+            String idPerjalanan = resultSet.getString("id_perjalanan");
+            int waktuTempuh = resultSet.getInt("waktu_tempuh");
+            int jarakTempuh = resultSet.getString("jarak_tempuh");
+            Lokasi lokasiAwal = new LokasiDAO(super.getJdbcURL(),super.getJdbcUsername(),super.getJdbcPassword()).getLocation(resultSet.getString("kd_lokasi_awal"));
+            Lokasi lokasiAkhir;
+            ModaTransportasi modaTransportasi;
+            Perjalanan per = new Perjalanan(idPerjalanan,waktuTempuh,jarakTempuh,lokasiAwal,lokasiAkhir,modaTransportasi);
+            listData.add(per);
         } 
         resultSet.close();
         statement.close(); 

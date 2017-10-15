@@ -21,27 +21,26 @@ import model.Lokasi;
  *
  * @author Zulkifli Arsyad
  */
-public class LocationDAO  extends DAO {
+public class LokasiDAO  extends DAO {
 
-    public LocationDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) {
+    public LokasiDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) {
         super(jdbcURL, jdbcUsername, jdbcPassword);
     }
 
     
   public List<Lokasi> listAll() throws SQLException {
         List<Lokasi> listData = new ArrayList();
-        String sql = "SELECT * FROM location";
+        String sql = "SELECT * FROM lokasi";
         connect(); 
         Statement statement = jdbcConnection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
-            int id = resultSet.getInt("locationId");
-            String locationName = resultSet.getString("locationName"); 
-            String description = resultSet.getString("description");
-            String address = resultSet.getString("address");
-            Lokasi locations = new Lokasi(id, locationName,address);
-            listData.add(locations);
+            String kdLokasi = resultSet.getString("kd_lokasi");
+            String namaLokasi = resultSet.getString("nama_lokasi"); 
+            String alamat = resultSet.getString("alamat");
+            Lokasi lokasi = new Lokasi(kdLokasi,namaLokasi,alamat);
+            listData.add(lokasi);
         } 
         resultSet.close();
         statement.close(); 
@@ -50,9 +49,9 @@ public class LocationDAO  extends DAO {
     }
 
     
-    public Lokasi getLocation(int id) throws SQLException {
+    public Lokasi getLocation(String id) throws SQLException {
 		Lokasi location = null;
-		String sql = "SELECT * FROM location WHERE locationId = ?"; 
+		String sql = "SELECT * FROM lokasi WHERE locationId = ?"; 
 		connect(); 
 		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 		statement.setInt(1, id); 

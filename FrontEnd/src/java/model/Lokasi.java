@@ -10,9 +10,16 @@ package model;
  * @author Mohridwan
  */
 public class Lokasi {
+
+    /**
+     * @param kdLokasi the kdLokasi to set
+     */
+    public void setKdLokasi(String kdLokasi) {
+        this.kdLokasi = kdLokasi;
+    }
     
     
-    private Integer kdLokasi;
+    private String kdLokasi;
     private String namaLokasi;
     private String alamat;
     
@@ -20,7 +27,7 @@ public class Lokasi {
         
     }
     
-    public Lokasi(Integer idLokasi, String namalokasi, String alamat){
+    public Lokasi(String idLokasi, String namalokasi, String alamat){
         this.kdLokasi = idLokasi;
         this.namaLokasi = namalokasi;
         this.alamat = alamat;
@@ -33,17 +40,7 @@ public class Lokasi {
     /**
      * @return the idLokasi
      */
-    public Integer getKdLokasi() {
-        return kdLokasi;
-    }
-
-    /**
-     * @param kdLokasi the idLokasi to set
-     */
-    public void setKdLokasi(Integer kdLokasi) {
-        this.kdLokasi = kdLokasi;
-    }
-
+    
     /**
      * @return the namaLokasi
      */

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Lokasi; 
-import repository.LocationDAO;
+import repository.LokasiDAO;
 
 /**
  *
@@ -28,14 +28,14 @@ import repository.LocationDAO;
 public class LocationController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private LocationDAO locationDAO;
+    private LokasiDAO locationDAO;
 
     @Override
     public void init() {
         String jdbcURL = getServletContext().getInitParameter("jdbcURL");
         String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
         String jdbcPassword = getServletContext().getInitParameter("jdbcPassword"); 
-        locationDAO = new LocationDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        locationDAO = new LokasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
     }
 
     @Override

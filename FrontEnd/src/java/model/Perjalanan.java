@@ -11,12 +11,20 @@ package model;
  */
 public class Perjalanan {
     private String idLookup;
-    private float jarakTempuh;
+    private int jarakTempuh;
     private int waktuTempuh;
     private Lokasi lokasiAwal;
-    private Lokasi LokasiAkhir;
+    private Lokasi lokasiAkhir;
     private ModaTransportasi transport;
 
+    
+    public Perjalanan(String idLookup,int jarakTempuh, int waktuTempuh,Lokasi lokasiAwal,Lokasi lokasiAkhir,ModaTransportasi transportasi){
+        this.idLookup = idLookup;
+        this.jarakTempuh = jarakTempuh;
+        this.lokasiAkhir = lokasiAkhir;
+        this.transport = transport;
+        this.waktuTempuh = waktuTempuh;
+    }
     /**
      * @return the idLookup
      */
@@ -41,7 +49,7 @@ public class Perjalanan {
     /**
      * @param jarakTempuh the jarakTempuh to set
      */
-    public void setJarakTempuh(float jarakTempuh) {
+    public void setJarakTempuh(int jarakTempuh) {
         this.jarakTempuh = jarakTempuh;
     }
 
@@ -77,14 +85,14 @@ public class Perjalanan {
      * @return the LokasiAkhir
      */
     public Lokasi getLokasiAkhir() {
-        return LokasiAkhir;
+        return lokasiAkhir;
     }
 
     /**
      * @param LokasiAkhir the LokasiAkhir to set
      */
     public void setLokasiAkhir(Lokasi LokasiAkhir) {
-        this.LokasiAkhir = LokasiAkhir;
+        this.lokasiAkhir = LokasiAkhir;
     }
 
     /**
