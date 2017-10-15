@@ -12,6 +12,16 @@ package model;
 public class ModaTransportasi {
     private String kdModa;
     private String tipeModa;
+    
+    public ModaTransportasi (){
+    
+    }
+    
+    public ModaTransportasi (String kdModa, String tipeModa){
+        this.kdModa = kdModa;
+        this.tipeModa = tipeModa;
+    }
+    
 
     /**
      * @return the idTransport
