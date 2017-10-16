@@ -60,11 +60,8 @@
                 String jdbc = "jdbc:mysql://";  
                 String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
                 String port = "3306/"; // Port ini port MySQL  
-<<<<<<< HEAD
-                String database = "travelendar2"; // Ini Database yang akan digunakan  
-=======
                 String database = "travelender"; // Ini Database yang akan digunakan  
->>>>>>> 853f31a687a7bfcffa0fc9fdfe8e15263170b679
+
                 String jdbcURL = jdbc + host + port + database;  
                 String jdbcUsername = "root"; // username default mysql  
                 String jdbcPassword = "";
