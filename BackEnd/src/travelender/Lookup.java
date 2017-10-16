@@ -5,7 +5,9 @@
  */
 package travelender;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -104,32 +106,73 @@ public class Lookup {
         this.transport = transport;
     }
     
-    public void getIntervalTime(Lokasi lokasi1,Lokasi lokasi2,Event event){
-        
+    public long getIntervalTime(Event prevEvent,Event curEvent){
+        return curEvent.getStartTime().getTime() - prevEvent.getEndTime().getTime();
     }
     
-    public void getSameLocation(List<Lookup> listLookup,Event event){
+    public List<Lookup> getSameLocation(List<Lookup> listLookup,Event event){
            
+        
         List<Lookup> listSame = new ArrayList<Lookup>();
         int i = 0,j = 1;
-        System.out.println("Moda yang memungkinkan : ");
+//        System.out.println("Moda yang memungkinkan : ");
             
         for(Lookup l :listLookup){
-            
-            
-            
             if((l.getLokasiAwal() == event.getEmbarkation())&&(l.getLokasiAkhir() == event.getDestination())){
                 
                 listSame.add(listLookup.get(i));
-                System.out.println(j + "." + l.getTransport().getNameTransport());                
+//                System.out.print(j + "." + l.getTransport().getNameTransport());
+//                System.out.println(", waktu berangkat : " + event.getStartTime().getTime()  - (l.getWaktuTempuh() * 60));
+//                System.out.println(" \t, waktu berangkat : " + format.format(new Date(event.getStartTime().getTime() - (l.getWaktuTempuh() * 60000))));
                 j++;
-            }
-            
-            
+            }         
         i++;
         }          
         
-        System.out.println("\n");
-//           return listSame;
+        
+//        System.out.println("\n");
+           return listSame;
     }
+    
+    public void getModaTransportasi(List<Lookup> listLookup,Event event){
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern); 
+        
+        List<Lookup> listSame = getSameLocation(listLookup, event);
+        int i = 0,j = 1;
+        System.out.println("Moda yang memungkinkan : ");
+        for(Lookup l :listSame){
+                
+//                if(l.getWaktuTempuh() <= ){
+                    System.out.print(j + "." + l.getTransport().getNameTransport());
+//                    System.out.println(", waktu berangkat : " + event.getStartTime().getTime()  - (l.getWaktuTempuh() * 60));
+                    System.out.println(" \t, waktu berangkat : " + format.format(new Date(event.getStartTime().getTime() - (l.getWaktuTempuh() * 60000))));
+                
+                    j++;
+//                }
+                i++;
+        }
+    }
+    
+    public void getModaTransportasi(List<Lookup> listLookup,Event prevEvent,Event curEvent){
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern); 
+        
+        List<Lookup> listSame = getSameLocation(listLookup, curEvent);
+        int i = 0,j = 1;
+        System.out.println("Moda yang memungkinkan : ");
+        for(Lookup l :listSame){
+                
+                if((l.getWaktuTempuh() * 60000) <= getIntervalTime(prevEvent,curEvent)){
+                    System.out.print(j + "." + l.getTransport().getNameTransport());
+//                    System.out.println(", waktu berangkat : " + event.getStartTime().getTime()  - (l.getWaktuTempuh() * 60));
+                    System.out.println(" \t, waktu berangkat : " + format.format(new Date(curEvent.getStartTime().getTime() - (l.getWaktuTempuh() * 60000))));
+//                    System.out.println("waktu tempuh : " + l.getWaktuTempuh() + ", waktu travel " + getIntervalTime(prevEvent,curEvent)/60000);
+                    
+                    j++;
+                }
+                i++;
+        }
+    }
+    
 }

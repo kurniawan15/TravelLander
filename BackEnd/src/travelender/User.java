@@ -17,9 +17,9 @@ public class User {
     private String idUser;
     private String nameUser;
     private String email; 
-    private List<Event> listEvent;
+    private List<Event> listEvent;  //nanti hapus aja klo sudah kejsp
     private String Password;
-    private String currentLocation;
+    private String posisiSekarang;
 
 
     /**
@@ -61,7 +61,7 @@ public class User {
         this.email = email;
     }
     
-    public void printListEvent(List<Lookup> list){
+    public void printListEvent(List<Perjalanan> list){
         int size = this.listEvent.size();
         int i;
         for(i = 0; i < size  ; i++){
@@ -87,15 +87,15 @@ public class User {
     /**
      * @return the currentLocation
      */
-    public String getCurrentLocation() {
-        return currentLocation;
+    public String getPosisiSekarang() {
+        return posisiSekarang;
     }
 
     /**
-     * @param currentLocation the currentLocation to set
+     * @param posisiSekarang the currentLocation to set
      */
-    public void setCurrentLocation(String currentLocation) {
-        this.currentLocation = currentLocation;
+    public void setPosisiSekarang(String posisiSekarang) {
+        this.posisiSekarang = posisiSekarang;
     }
 
     /**
