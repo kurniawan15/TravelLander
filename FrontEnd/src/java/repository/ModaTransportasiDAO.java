@@ -71,5 +71,34 @@ public class ModaTransportasiDAO extends DAO {
         disconnect();
         return rowInserted;
     }
+      
+      public String getNewKodeModa() throws SQLException{
+            String kdModa = "KM00";
+            int cnt;
+            String sql = "SELECT MAX(kd_moda) FROM moda_transportasi"; 
+            
+            connect();
+            Statement statement = jdbcConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                kdModa = resultSet.getString(1);
+            } 
+            
+            cnt = Integer.parseInt(kdModa.substring(3));
+            cnt++;
+            if(cnt < 10){
+                kdModa = "KMT0" + String.valueOf(cnt);
+            }
+            else{
+                kdModa = "KMT" + String.valueOf(cnt);
+            }
+            
+            
+            resultSet.close();
+            statement.close(); 
+            disconnect(); 
+            return kdModa;
+         }
     
 }

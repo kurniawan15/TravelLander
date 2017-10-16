@@ -23,7 +23,7 @@
 
     ModaTransportasiDAO modaDAO = new ModaTransportasiDAO(url,username,password);
 
-    String kdModa = "KMT09";
+    String kdModa = modaDAO.getNewKodeModa();
     String tipeModa = request.getParameter("nama_moda");
     
     
