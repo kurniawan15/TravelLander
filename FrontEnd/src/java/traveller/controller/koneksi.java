@@ -14,7 +14,7 @@ package traveller.controller;
  * @author Cyber Pegasus
  */
 public class koneksi {
-      private Connection connect;  
+   private Connection connect;  
    private String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
    private String jdbc = "jdbc:mysql://";  
    private String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  

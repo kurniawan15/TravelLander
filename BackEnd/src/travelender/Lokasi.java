@@ -12,21 +12,21 @@ package travelender;
 public class Lokasi {
     
     
-    private String idLokasi;
+    private String kdLokasi;
     private String namaLokasi;
     private String alamat;
     /**
      * @return the idLokasi
      */
-    public String getIdLokasi() {
-        return idLokasi;
+    public String getKdLokasi() {
+        return kdLokasi;
     }
 
     /**
-     * @param idLokasi the idLokasi to set
+     * @param kdLokasi the idLokasi to set
      */
-    public void setIdLokasi(String idLokasi) {
-        this.idLokasi = idLokasi;
+    public void setKdLokasi(String kdLokasi) {
+        this.kdLokasi = kdLokasi;
     }
 
     /**
