@@ -13,73 +13,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Super Admin</title>
-    <link rel="stylesheet" href="css/2.css">
+    <link rel="stylesheet" href="css/2.css"/>
+    
     <link rel="stylesheet" href="lib/fullcalendar.css">
 
 	<script src="lib/jquery.min.js"> </script>
     <script src="lib/moment.min.js"></script>
     <script src="lib/fullcalendar.min.js"></script>
-</head>
-<body>
-  <nav class="navbar">
-    <span class="open-slide">
-      <a href="#" onclick="openSlideMenu()">
-        <svg width="30" height="30">
-            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
-            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-        </svg>
-      </a>
-    </span>
-    <ul id="dropdown">
-    	<li><a href="../logout">Log Out</a></li>
-    </ul>
-  </nav>
-
-  <div id="side-menu" class="side-nav">
-    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a class="selected" href="calender.jsp">Calendar</a>                                                                                   
-    <a href="DataPlace.jsp">Manage Place</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp">Manage Transpotation</a>
-  </div>
-<div class="main-content">
-	  <div id="main">																					
-		<div class="widget">
-			<div class="title">Calendar</div>
-            <div id="calendar">
-                       </div>
-			<div class="tex">
-           <p></p>
-           </div>
-		</div>      
-</div>
-<div id="confirm" class="confirm2">
-	<div class="confirm-content">
-    <span onClick="tutup()" class="exit" >&times;</span>
-    	<div class="form">
-        	<label style="font-weight:bold">
-            	<a>Edit Place</a>
-            </label>
-    		<input type="text" placeholder="Enter New Place" name="#" required>
-            <button type="submit" onClick="tutup()" name="#">Update Data</button>
-        </div>
-	</div>
-</div>
-
-<div id="ask" class="confirm2">
-	<div class="ask-content">
-    	<span onClick="tutup2()" class="exit" >&times;</span>
-        <div class="ask">
-            <label style="font-weight:bold">
-                <a> &nbsp &nbsp Are You Sure To Delete Data? </a> <br>
-            </label>
-            <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
-        </div> 
-    </div>
-</div>
-  <script>
+      <script>
 /*----------------------------edit buat mav----------------------------------------------*/
     function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
@@ -185,5 +126,104 @@
 
 
   </script>
+ 
+  
+  
+    
+    
+      <style>
+      body
+      {
+        margin: 40px 10px;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica, Arial, Verdana,sans-serif;
+        font-size: 14px;
+        background-color: cyan;
+      }
+      
+      #calendar
+      {
+          width: 50%;
+          height: 20%;
+          margin-top: auto;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 10%;
+      }
+      
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <ul id="dropdown">
+    	<li><a href="../logout">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a class="selected" href="calender.jsp">Calendar</a>                                                                                   
+    <a href="DataPlace.jsp">Manage Place</a>
+    <a href="distance.jsp">Manage Distance</a>
+    <a href="time.jsp">Manage Time</a>
+    <a href="transportation.jsp">Manage Transpotation</a>
+  </div>
+<div class="main-content">
+	  <div id="main">																					
+		<div class="widget">
+			<div class="title">
+                            Calendar
+                                <div id="calendar">
+                      
+                                </div>
+                        </div>
+
+			
+           <div class="tex">
+               <p>
+                   
+               </p>
+           </div>
+		</div>      
+</div>
+<div id="confirm" class="confirm2">
+	<div class="confirm-content">
+    <span onClick="tutup()" class="exit" >&times;</span>
+    	<div class="form">
+        	<label style="font-weight:bold">
+            	<a>Edit Place</a>
+            </label>
+    		<input type="text" placeholder="Enter New Place" name="#" required>
+            <button type="submit" onClick="tutup()" name="#">Update Data</button>
+        </div>
+	</div>
+</div>
+
+<div id="ask" class="confirm2">
+	<div class="ask-content">
+    	<span onClick="tutup2()" class="exit" >&times;</span>
+        <div class="ask">
+            <label style="font-weight:bold">
+                <a> &nbsp &nbsp Are You Sure To Delete Data? </a> <br>
+            </label>
+            <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
+        </div> 
+    </div>
+</div>
+
+  
+
+  
+
+  
 </body>
 </html>
