@@ -10,7 +10,7 @@ package model;
  * @author Dewi Roaza
  */
 public class Perjalanan {
-    private String idLookup;
+    private String idPerjalanan;
     private int jarakTempuh;
     private int waktuTempuh;
     private Lokasi lokasiAwal;
@@ -18,8 +18,8 @@ public class Perjalanan {
     private ModaTransportasi transport;
 
     
-    public Perjalanan(String idLookup,int jarakTempuh, int waktuTempuh,Lokasi lokasiAwal,Lokasi lokasiAkhir,ModaTransportasi transportasi){
-        this.idLookup = idLookup;
+    public Perjalanan(String idPerjalanan,int jarakTempuh, int waktuTempuh,Lokasi lokasiAwal,Lokasi lokasiAkhir,ModaTransportasi transportasi){
+        this.idPerjalanan = idPerjalanan;
         this.jarakTempuh = jarakTempuh;
         this.lokasiAkhir = lokasiAkhir;
         this.transport = transport;
@@ -28,21 +28,21 @@ public class Perjalanan {
     /**
      * @return the idLookup
      */
-    public String getIdLookup() {
-        return idLookup;
+    public String getIdPerjalanan() {
+        return idPerjalanan;
     }
 
     /**
      * @param idLookup the idLookup to set
      */
-    public void setIdLookup(String idLookup) {
-        this.idLookup = idLookup;
+    public void setIdPerjalanan(String idPerjalanan) {
+        this.idPerjalanan = idPerjalanan;
     }
 
     /**
      * @return the jarakTempuh
      */
-    public float getJarakTempuh() {
+    public int getJarakTempuh() {
         return jarakTempuh;
     }
 
