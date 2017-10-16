@@ -46,32 +46,32 @@
             <table class="table">
             <tr>
                 <th>NO</th>
-                <th>Adrees</th>
                 <th>Place</th>
+                <th>Adrees</th>
                 <th>Action</th>
             </tr>
             <tr>
                 <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
+                <td title="Plase"> polban </td>
+                <td title="Adress">Jln.Sekehaji</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
+                <td title="Plase"> polban </td>
+                <td title="Adress">Jln.Sekehaji</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
+                <td title="Plase"> polban </td>
+                <td title="Adress">Jln.Sekehaji</td>
                 <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
               <tr>
                 <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
+                <td title="Plase"> polban </td>
+                <td title="Adress">Jln.Sekehaji</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
             </table>

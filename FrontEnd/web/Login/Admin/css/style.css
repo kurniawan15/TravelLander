@@ -350,6 +350,15 @@ button:hover {
 	border-radius:5px;
     box-sizing: border-box;
 }
+.choise-imput
+{
+    width: 20%;
+    padding: 2px 5px;
+    margin: 8px 0;
+    font-size:18px;
+    border-radius:5px;
+    box-sizing: border-box;
+}
 /*-------------------------------konfirmasi delet data------------------------*/
 .ask-content {
     background-color: #fefefe;
@@ -488,8 +497,17 @@ button:hover {
     padding: 10px;
     border: 1px solid #888;
     width: 80%;
-	height:250px;
+	
 	}
+    .choise-imput
+    {
+        width: 100px;;
+        padding: 2px 5px;
+        margin: 8px 0;
+        font-size:18px;
+        border-radius:5px;
+        box-sizing: border-box;
+    }    
 /*------------------Bagian Imput data--------------------------*/
 	.imput
 	{

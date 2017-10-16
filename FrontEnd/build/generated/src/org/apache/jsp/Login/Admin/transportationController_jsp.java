@@ -1,12 +1,15 @@
-package org.apache.jsp.Login;
+package org.apache.jsp.Login.Admin;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import traveller.controller.koneksi;
+import repository.ModaTransportasiDAO;
+import model.ModaTransportasi;
+import java.io.*;
+import java.util.*;
 import java.sql.*;
 
-public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class transportationController_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -49,46 +52,50 @@ public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
+      out.write("\r\n");
+
+   String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+   String jdbc = "jdbc:mysql://";  
+   String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+   String port = "3306/"; // Port ini port MySQL  
+   String database = "travelender"; // Ini Database yang akan digunakan  
+   String url = jdbc + host + port + database;  
+   String username = "root"; // username default mysql  
+   String password = "";  
+
+    ModaTransportasiDAO modaDAO = new ModaTransportasiDAO(url,username,password);
+
+    String kdModa = "KMT09";
+    String tipeModa = request.getParameter("nama_moda");
+    
+    
+    ModaTransportasi moda = new ModaTransportasi(kdModa, tipeModa);
+    boolean row = modaDAO.insert(moda);
+    
+    if(row == true  ){
+        response.sendRedirect("transportation.jsp");
+    }
+    else{
+
+    
+
+      out.write("\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>JSP Page</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
+      out.write("        \r\n");
       out.write("        ");
 
-          String username = request.getParameter("user");
-          String password = request.getParameter("pass");
-          koneksi connection = new koneksi();  
-          Class.forName("com.mysql.jdbc.Driver");
-          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender","root", "");
-         Statement st = con.createStatement();
-          ResultSet rs;
-          rs = st.executeQuery("select * from admin where id_Admin ='" + username + "' and password='" + password + "'");
-        if (username.equals("admin1")&&(password.equals("admin1"))){
-                session.setAttribute("id_Admin",username);
-                response.sendRedirect("Admin/DataPlace.jsp");
-        }
-        else
-            {
-                session.setAttribute("id_Admin",username);
-                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
-                
-//            if(rs.next())
-//            {
-//                //berhasil
-//                session.setAttribute("id_Admin",username);
-//                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
-//            }
-//            else
-//            {
-//                //gagal 
-//                response.sendRedirect("error.jsp");
-//          }
+            out.println("GAGAL");
         }
         
       out.write("\r\n");
+      out.write("        <h1>Hello World!</h1>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
