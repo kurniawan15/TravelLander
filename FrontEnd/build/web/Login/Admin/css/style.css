@@ -343,8 +343,8 @@ button:hover {
 }
 .selected-time
 {
-	width: 100%;
-    padding: 8px 10px;
+	
+    padding: 2px 5px;
     margin: 8px 0;
 	font-size:18px;
 	border-radius:5px;
@@ -488,7 +488,7 @@ button:hover {
     padding: 10px;
     border: 1px solid #888;
     width: 80%;
-	height:250px;
+	
 	}
 /*------------------Bagian Imput data--------------------------*/
 	.imput

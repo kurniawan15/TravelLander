@@ -26,15 +26,15 @@ public class EventDAO extends DAO {
  
     public List<Event> listAllEvent() throws SQLException {
         List<Event> listEvent = new ArrayList();
-        String sql = "SELECT * FROM events";
+        String sql = "SELECT * FROM event";
         connect();
 
         Statement statement = jdbcConnection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
         while (resultSet.next()) {
-            int id = resultSet.getInt("eventId");
-            String eventName = resultSet.getString("eventName");
+            String idEvent = resultSet.getString("id_event");
+            String idUser = resultSet.getString("id_user");
             Date arrivalTime = resultSet.getDate("arrivalTime");
             Date departureTime = resultSet.getDate("departureTime");
          //   int state = resultSet.getInt("state");
