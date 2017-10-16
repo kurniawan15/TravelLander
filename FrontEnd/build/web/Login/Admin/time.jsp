@@ -50,6 +50,7 @@
                 <th>Start Point</th>
                 <th>End Point </th>
                 <th>Vehicle </th>
+                <th>Distance (KM)</th>
                 <th>Time (Minute) </th>
                 <th>Action</th>
             </tr>
@@ -58,6 +59,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -66,6 +68,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -74,6 +77,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -82,6 +86,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -90,6 +95,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -98,6 +104,7 @@
                 <td title="Start">Posisi</td>
                 <td title="End">Posisi</td>
                 <td title="Vehicle">Motor</td>
+                <td title="Distance">12</td>
                 <td title="Time">10</td>
                 <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
@@ -106,6 +113,7 @@
            <p></p>
             </div>
 		</div>
+<!--------------------------------------------IMPUT DATA WAKTU------------------------------------------>
         <div class="widget">
         	<div class="title"> 
             	Imput Time 
@@ -114,7 +122,7 @@
             	<span style="font-size:24px"> <u>  Imput Time here </u>  </span> <br>
            	<div class="form-time"> 
                 Start Point 
-                	<select > 
+                      <select class="selected-time"> 
                       <option value="Posisi 1">Posisi 1</option>
                       <option value="Posisi 2">Posisi 2</option>
                       <option value="Posisi 3">Posisi 3</option>
@@ -122,16 +130,15 @@
                    </select> 
               	
                 End Point
-                	<select>
+                	<select class="selected-time">
                       <option value="Posisi 1">Posisi 1</option>
                       <option value="Posisi 2">Posisi 2</option>
                       <option value="Posisi 3">Posisi 3</option>
                       <option value="Posisi 4">Posisi 4</option>
                     </select> 
                     </div> 
-                <br>
-                Vehicle &nbsp&nbsp
-                    <select>
+                Vehicle &nbsp &nbsp &nbsp
+                    <select class="selected-time">
                       <option value="Mobi">Mobil</option>
                       <option value="Motor">Motor</option>
                       <option value="Pesawat">Pesawat</option>
@@ -140,7 +147,9 @@
                       <option value="Sepedah">Sepedah</option>
                     </select>
                     <br>
-                    Imput Time <input type="text" placeholder="" style="width:80px" name="#" required> Minute 
+                    Imput Distance <input type="text" placeholder="" style="width:80px" name="#" required> KM
+                    <br> 
+                    Imput Time &nbsp &nbsp &nbsp <input type="text" placeholder="" style="width:80px" name="#" required> Minute 
                  <br>
                 <button type="submit" class="ImputButton" style="width:170px"  onClick="tutup()" name="#">Update Data</button>
             </div>
@@ -153,11 +162,35 @@
     <span onClick="tutup()" class="exit" >&times;</span>
     	<div class="form">
         	<label style="font-weight:bold">
-            	<a>Edit Distance</a>
+                    <a>Edit Distance <br> </a>
             </label>
-    	<input type="text" placeholder="Enter New Start Point" name="#" >
-            <input type="text" placeholder="Enter New End Point" name="#"  >
+            start point
+    		<select class="selected-time"> 
+                      <option value="Posisi 1">Posisi 1</option>
+                      <option value="Posisi 2">Posisi 2</option>
+                      <option value="Posisi 3">Posisi 3</option>
+                      <option value="Posisi 4">Posisi 4</option>
+                </select> 
+            End point
+            <select class="selected-time"> 
+                      <option value="Posisi 1">Posisi 1</option>
+                      <option value="Posisi 2">Posisi 2</option>
+                      <option value="Posisi 3">Posisi 3</option>
+                      <option value="Posisi 4">Posisi 4</option>
+                   </select> 
+            <br>
+            Vehicle &nbsp &nbsp
+            <select class="selected-time">
+                      <option value="Mobi">Mobil</option>
+                      <option value="Motor">Motor</option>
+                      <option value="Pesawat">Pesawat</option>
+                      <option value="Kereta">Kereta</option>
+                      <option value="Bus">Bus</option>
+                      <option value="Sepedah">Sepedah</option>
+                    </select>
+            <br>
             <input type="text" placeholder="New Distance" name="#" style="width:50%" > KM
+            <input type="text" placeholder="New Time" name="#" style="width:50%" > Minutes
             <button type="submit" onClick="tutup()" name="#">Update Data</button>
         </div>
 	</div>

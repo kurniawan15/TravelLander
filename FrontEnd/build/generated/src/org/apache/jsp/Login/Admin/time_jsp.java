@@ -73,7 +73,7 @@ public final class time_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a href=\"calendar.jsp\">Calendar</a>                                                                                   \r\n");
+      out.write("    <a href=\"calender.jsp\">Calendar</a>                                                                                   \r\n");
       out.write("    <a href=\"DataPlace.jsp\">Manage Place</a>\r\n");
       out.write("    <a href=\"distance.jsp\">Manage Distance</a>\r\n");
       out.write("    <a class=\"selected\" href=\"#\">Manage Time</a>\r\n");
