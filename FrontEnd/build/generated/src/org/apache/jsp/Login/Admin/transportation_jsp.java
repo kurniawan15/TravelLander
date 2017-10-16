@@ -3,6 +3,10 @@ package org.apache.jsp.Login.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.ModaTransportasi;
+import java.util.List;
+import java.util.ArrayList;
+import repository.ModaTransportasiDAO;
 
 public final class transportation_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +45,11 @@ public final class transportation_jsp extends org.apache.jasper.runtime.HttpJspB
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -88,36 +97,40 @@ public final class transportation_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                <th>Vehicle</th>\r\n");
       out.write("                <th>Action</th>\r\n");
       out.write("            </tr>\r\n");
-      out.write("            <tr>\r\n");
-      out.write("                <td title=\"NO\">1</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Mobil</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">2</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Motor</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">3</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Pesawat</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\"  class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">4</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Kereta Api</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\"  onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("            <tr>\r\n");
-      out.write("                <td title=\"NO\">5</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Bus</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\"  onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("            <tr>\r\n");
-      out.write("                <td title=\"NO\">6</td>\r\n");
-      out.write("                <td title=\"Vehicle\">Sepedah</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\"  onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
+      out.write("            ");
+
+                String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+                String jdbc = "jdbc:mysql://";  
+                String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+                String port = "3306/"; // Port ini port MySQL  
+                String database = "travelender"; // Ini Database yang akan digunakan  
+                String jdbcURL = jdbc + host + port + database;  
+                String jdbcUsername = "root"; // username default mysql  
+                String jdbcPassword = "";
+                
+                List<ModaTransportasi> listModaTransportasi = new ArrayList();
+                ModaTransportasiDAO modaDAO = new ModaTransportasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
+                listModaTransportasi = modaDAO.listAll();
+                 int i = 1;
+                for(ModaTransportasi md : listModaTransportasi){
+                    
+      out.write("\r\n");
+      out.write("                    <tr>\r\n");
+      out.write("                        <td title=\"NO\"> ");
+      out.print(i);
+      out.write(" </td>\r\n");
+      out.write("                        <td title=\"Vehicle\">");
+ out.print(md.getTipeModa());
+      out.write("</td>\r\n");
+      out.write("                        <td title=\"Action\"><input type=\"submit\"  onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
+      out.write("                    </tr>\r\n");
+      out.write("            \r\n");
+      out.write("            ");
+
+                i++;
+                }
+            
+      out.write("\r\n");
       out.write("            </table>\r\n");
       out.write("\t\t\t<div class=\"tex\">\r\n");
       out.write("           <p></p>\r\n");

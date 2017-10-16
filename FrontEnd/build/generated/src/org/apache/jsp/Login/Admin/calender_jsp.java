@@ -77,7 +77,7 @@ public final class calender_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a class=\"selected\" href=\"calendar.jsp\">Calendar</a>                                                                                   \r\n");
+      out.write("    <a class=\"selected\" href=\"calender.jsp\">Calendar</a>                                                                                   \r\n");
       out.write("    <a href=\"DataPlace.jsp\">Manage Place</a>\r\n");
       out.write("    <a href=\"distance.jsp\">Manage Distance</a>\r\n");
       out.write("    <a href=\"time.jsp\">Manage Time</a>\r\n");
@@ -88,9 +88,13 @@ public final class calender_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<div class=\"widget\">\r\n");
       out.write("\t\t\t<div class=\"title\">Calendar</div>\r\n");
       out.write("            <div id=\"calendar\">\r\n");
-      out.write("                       </div>\r\n");
-      out.write("\t\t\t<div class=\"tex\">\r\n");
-      out.write("           <p></p>\r\n");
+      out.write("                      \r\n");
+      out.write("            </div>\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("           <div class=\"tex\">\r\n");
+      out.write("               <p>\r\n");
+      out.write("                   \r\n");
+      out.write("               </p>\r\n");
       out.write("           </div>\r\n");
       out.write("\t\t</div>      \r\n");
       out.write("</div>\r\n");
@@ -224,6 +228,7 @@ public final class calender_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("  </script>\r\n");
+      out.write(" \r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
