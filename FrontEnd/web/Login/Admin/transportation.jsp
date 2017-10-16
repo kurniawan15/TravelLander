@@ -4,6 +4,11 @@
     Author     : Cyber Pegasus
 --%>
 
+<%@page import="model.ModaTransportasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+
+<%@page import="repository.ModaTransportasiDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!DOCTYPE html>
@@ -49,51 +54,50 @@
                 <th>Vehicle</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td title="NO">1</td>
-                <td title="Vehicle">Mobil</td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">2</td>
-                <td title="Vehicle">Motor</td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">3</td>
-                <td title="Vehicle">Pesawat</td>
-                <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">4</td>
-                <td title="Vehicle">Kereta Api</td>
-                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NO">5</td>
-                <td title="Vehicle">Bus</td>
-                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NO">6</td>
-                <td title="Vehicle">Sepedah</td>
-                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
+            <%
+                String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+                String jdbc = "jdbc:mysql://";  
+                String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+                String port = "3306/"; // Port ini port MySQL  
+                String database = "travelender"; // Ini Database yang akan digunakan  
+                String jdbcURL = jdbc + host + port + database;  
+                String jdbcUsername = "root"; // username default mysql  
+                String jdbcPassword = "";
+                
+                List<ModaTransportasi> listModaTransportasi = new ArrayList();
+                ModaTransportasiDAO modaDAO = new ModaTransportasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
+                listModaTransportasi = modaDAO.listAll();
+                 int i = 1;
+                for(ModaTransportasi md : listModaTransportasi){
+                    %>
+                    <tr>
+                        <td title="NO"> <%=i%> </td>
+                        <td title="Vehicle"><% out.print(md.getTipeModa());%></td>
+                        <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+                    </tr>
+            
+            <%
+                i++;
+                }
+            %>
             </table>
 			<div class="tex">
            <p></p>
             </div>
 		</div>
+              <form action="transportationController.jsp" method="post">      
         <div class="widget">
         	<div class="title"> 
             	Imput Transpotation 
             </div>
             <div class="imput">
             	Imput New Transpotation 
-                <input type="text" placeholder="Enter New Transpotation" name="#" required>
+                <input type="text" placeholder="Enter New Transpotation" name="nama_moda" required>
                 <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
             </div>
         </div>
+        </form>
+              
 </div>
 <div id="confirm" class="confirm2">
 	<div class="confirm-content">

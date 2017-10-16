@@ -61,7 +61,7 @@ public class ModaTransportasiDAO extends DAO {
 	}
     
       public boolean insert(ModaTransportasi modaTransportasi) throws SQLException {
-        String sql = "INSERT INTO location(kd_moda, tipe_moda) VALUES (?, ?)";
+        String sql = "INSERT INTO moda_transportasi(kd_moda, tipe_moda,nama_moda) VALUES (?, ?,'')";
         connect(); 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
         statement.setString(1, modaTransportasi.getKdModa());

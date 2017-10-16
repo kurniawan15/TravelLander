@@ -54,7 +54,7 @@ public class LokasiDAO  extends DAO {
 		String sql = "SELECT * FROM lokasi WHERE locationId = ?"; 
 		connect(); 
 		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-		statement.setInt(1, id); 
+		statement.setString(1, id); 
 		ResultSet resultSet = statement.executeQuery(); 
 		if (resultSet.next()) {
 			String locationName = resultSet.getString("locationName");
