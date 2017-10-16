@@ -4,6 +4,10 @@
     Author     : Cyber Pegasus
 --%>
 
+<%@page import="repository.LokasiDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Lokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!DOCTYPE html>
@@ -50,47 +54,56 @@
                 <th>Place</th>
                 <th>Action</th>
             </tr>
+            
+            <%
+                String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+                String jdbc = "jdbc:mysql://";  
+                String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+                String port = "3306/"; // Port ini port MySQL  
+                String database = "travelender"; // Ini Database yang akan digunakan  
+                String jdbcURL = jdbc + host + port + database;  
+                String jdbcUsername = "root"; // username default mysql  
+                String jdbcPassword = "";
+                
+                List<Lokasi> listLokasi = new ArrayList();
+                LokasiDAO lokasiDAO = new LokasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
+                listLokasi = lokasiDAO.listAll();
+                 int i = 1;
+                for(Lokasi lo : listLokasi){
+                    %>
             <tr>
-                <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
+                <td title="NO"><%=i%></td>
+                <td title="Adrees"><% out.print(lo.getAlamat());%> </td>
+                <td title="Place"><% out.print(lo.getNamaLokasi());%></td>
                 <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NO">1</td>
-                <td title="Adrees"> Jl. Sekehaji </td>
-                <td title="Place">Bandung</td>
-                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
+                    <%
+                i++;
+            }
+            %>
+            
+            
             </table>
 			<div class="tex">
            <p></p>
             </div>
 		</div>
+            <form method="post" action="lokasiController.jsp" name="lokasi" id="lokasi">    
         <div class="widget">
         	<div class="title"> 
             	Imput Place 
             </div>
             <div class="imput">
             	Imput New Place 
-                <input type="text" placeholder="Enter New Place" name="#" required>
+                <input type="text" placeholder="Enter New Place" name="nama_lokasi" required>
                 Input New Address
-                <textarea class="address"  rows="4" cols="50" name="#" form="#" placeholder="Enter Imput Address In here..."></textarea>
+                <textarea class="address"  rows="4" cols="50" name="alamat" form="lokasi" placeholder="Enter Imput Address In here...">
+                    
+                </textarea>
                 <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
             </div>
         </div>
+            </form>
 	  </div>
 </div>
 <div id="confirm" class="confirm2">

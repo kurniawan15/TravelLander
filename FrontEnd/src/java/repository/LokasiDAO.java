@@ -79,5 +79,46 @@ public class LokasiDAO  extends DAO {
         disconnect();
         return rowInserted;
     }
+      public String getNewKodeLokasi() throws SQLException{
+            String kdLokasi = "KL00000";
+            int cnt;
+            String sql = "SELECT MAX(kd_lokasi) FROM lokasi"; 
+            
+            connect();
+            Statement statement = jdbcConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
 
+            while (resultSet.next()) {
+                kdLokasi = resultSet.getString(1);
+            } 
+            
+            cnt = Integer.parseInt(kdLokasi.substring(2));
+            cnt++;
+            if (cnt >= 10000)
+            {
+                kdLokasi = "KL" + String.valueOf(cnt);
+            }
+            else if(cnt < 10000 && cnt >=1000 )
+            {
+                kdLokasi = "KL0" + String.valueOf(cnt);
+            }
+            else if(cnt < 1000 && cnt >= 100)
+            {
+                kdLokasi = "KL00" + String.valueOf(cnt);
+            }
+            else if(cnt < 100 && cnt >= 10)
+            {
+                kdLokasi = "KL000" + String.valueOf(cnt);
+            }
+            else
+            {
+                kdLokasi = "KL0000" + String.valueOf(cnt);  
+            }
+            
+            
+            resultSet.close();
+            statement.close(); 
+            disconnect(); 
+            return kdLokasi;
+         }
 }

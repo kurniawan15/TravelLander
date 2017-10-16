@@ -20,10 +20,9 @@
 
     LokasiDAO lokasiDAO = new LokasiDAO(url,username,password);
 
-    String kdLokasi = request.getParameter("kd_lokasi");
+    String kdLokasi = lokasiDAO.getNewKodeLokasi();
     String namaLokasi = request.getParameter("nama_lokasi");
     String alamat = request.getParameter("alamat");
-    
     Lokasi lokasi = new Lokasi(kdLokasi, namaLokasi, alamat);
     boolean row = lokasiDAO.insert(lokasi);
     
