@@ -50,29 +50,30 @@ public class LokasiDAO  extends DAO {
 
     
     public Lokasi getLocation(String id) throws SQLException {
-		Lokasi location = null;
-		String sql = "SELECT * FROM lokasi WHERE locationId = ?"; 
+		Lokasi lokasi = null;
+		String sql = "SELECT * FROM lokasi WHERE kd_lokasi = ?"; 
 		connect(); 
 		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
 		statement.setString(1, id); 
 		ResultSet resultSet = statement.executeQuery(); 
 		if (resultSet.next()) {
-			String locationName = resultSet.getString("locationName");
-                        String address = resultSet.getString("address"); 
-			location = new Lokasi(id, locationName,address);
+			String namaLokasi = resultSet.getString("nama_lokasi");
+                        String alamat = resultSet.getString("alamat"); 
+			lokasi = new Lokasi(id, namaLokasi,alamat);
 		} 
 		resultSet.close();
 		statement.close(); 
-		return location;
+		return lokasi;
 	}
     
-      public boolean insert(Lokasi location) throws SQLException {
-        String sql = "INSERT INTO location(locationName, address,description) VALUES (?, ?, ?)";
+      public boolean insert(Lokasi lokasi) throws SQLException {
+        String sql = "INSERT INTO lokasi(kd_lokasi,nama_lokasi,alamat) VALUES (?,?,?)";
         connect(); 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-        statement.setString(1, location.getNamaLokasi());
-        statement.setString(2, location.getAlamat()); 
-        statement.setString(3, ""); 
+        statement.setString(1, lokasi.getKdLokasi());
+        statement.setString(2, lokasi.getNamaLokasi()); 
+        statement.setString(3, lokasi.getAlamat());
+        
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
         disconnect();

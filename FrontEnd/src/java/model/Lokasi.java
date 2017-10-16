@@ -11,14 +11,6 @@ package model;
  */
 public class Lokasi {
 
-    /**
-     * @param kdLokasi the kdLokasi to set
-     */
-    public void setKdLokasi(String kdLokasi) {
-        this.kdLokasi = kdLokasi;
-    }
-    
-    
     private String kdLokasi;
     private String namaLokasi;
     private String alamat;
@@ -32,6 +24,20 @@ public class Lokasi {
         this.namaLokasi = namalokasi;
         this.alamat = alamat;
     }
+    
+    public String getKdLokasi() {
+        return this.kdLokasi;
+    }
+    
+    /**
+     * @param kdLokasi the kdLokasi to set
+     */
+    public void setKdLokasi(String kdLokasi) {
+        this.kdLokasi = kdLokasi;
+    }
+    
+    
+    
     
     public Lokasi(String namalokasi, String alamat){
         this.namaLokasi = namalokasi;

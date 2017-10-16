@@ -13,7 +13,7 @@ import java.util.List;
 import model.Lokasi;
 import model.ModaTransportasi;
 import model.Perjalanan;
-
+import repository.ModaTransportasiDAO;
 /**
  *
  * @author Lenovo
@@ -34,10 +34,10 @@ public class PerjalananDAO extends DAO{
         while (resultSet.next()) {
             String idPerjalanan = resultSet.getString("id_perjalanan");
             int waktuTempuh = resultSet.getInt("waktu_tempuh");
-            int jarakTempuh = resultSet.getString("jarak_tempuh");
+            int jarakTempuh = resultSet.getInt("jarak_tempuh");
             Lokasi lokasiAwal = new LokasiDAO(super.getJdbcURL(),super.getJdbcUsername(),super.getJdbcPassword()).getLocation(resultSet.getString("kd_lokasi_awal"));
-            Lokasi lokasiAkhir;
-            ModaTransportasi modaTransportasi;
+            Lokasi lokasiAkhir = new LokasiDAO(super.getJdbcURL(),super.getJdbcUsername(),super.getJdbcPassword()).getLocation(resultSet.getString("kd_lokasi_awal"));
+            ModaTransportasi modaTransportasi = ModaTransportasi(super.getJdbcURL(),super.getJdbcUsername(),super.getJdbcPassword()).getLocation(resultSet.getString("kd_lokasi_awal"));;
             Perjalanan per = new Perjalanan(idPerjalanan,waktuTempuh,jarakTempuh,lokasiAwal,lokasiAkhir,modaTransportasi);
             listData.add(per);
         } 

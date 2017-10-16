@@ -155,7 +155,7 @@
         	<label style="font-weight:bold">
             	<a>Edit Distance</a>
             </label>
-    		<input type="text" placeholder="Enter New Start Point" name="#" >
+    	<input type="text" placeholder="Enter New Start Point" name="#" >
             <input type="text" placeholder="Enter New End Point" name="#"  >
             <input type="text" placeholder="New Distance" name="#" style="width:50%" > KM
             <button type="submit" onClick="tutup()" name="#">Update Data</button>
