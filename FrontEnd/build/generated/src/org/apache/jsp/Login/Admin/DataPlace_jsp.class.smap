@@ -6,6 +6,7 @@ JSP
 + 0 DataPlace.jsp
 Login/Admin/DataPlace.jsp
 *L
+<<<<<<< HEAD
 5,54:48
 59,15:103
 73,2:118
@@ -13,4 +14,7 @@ Login/Admin/DataPlace.jsp
 78,3:129
 81,3:133
 83,87:136
+=======
+5,152:44
+>>>>>>> 853f31a687a7bfcffa0fc9fdfe8e15263170b679
 *E
