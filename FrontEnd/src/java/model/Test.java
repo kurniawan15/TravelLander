@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- package test;  
- import java.sql.SQLException;  
- import traveller.controller.koneksi;
- 
- /**
+package model;
+
+/**
  *
  * @author Cyber Pegasus
  */
- 
- public class percobaan {  
+ import java.sql.SQLException;  
+import repository.KoneksiDB;
+ /**  
+  *  
+  * @author Wahidin-Alambiyah  
+  */  
+ public class Test {  
    public static void main(String[] args) throws SQLException {  
-     koneksi connection = new koneksi();  
-     connection.getKoneksi();  
+       KoneksiDB connection = new KoneksiDB();  
+     connection.koneksi();
    }  
  }  
-
-

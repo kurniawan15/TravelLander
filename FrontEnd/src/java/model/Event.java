@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package model;
-
-import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import java.util.Date;
 
 /**
  *
@@ -16,11 +15,11 @@ import javax.persistence.TemporalType;
 public class Event {
     private String idUser;
     private Integer idEvent;
-    private Date waktuMulai;
-    private Date waktuSelesai;
-    private String namaAgenda;
+    private Date startTime;
+    private Date endTime;
+    private String nameEvent;
     //private ModaTransportasi transport;
-     private String idPerjalanan;
+    private int lokasi;
     
 public Event() {
 }
@@ -28,11 +27,11 @@ public Event() {
 public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, Integer lokasi){
 
     this.idEvent = idEvent;
-    this.namaAgenda = nameEvent;
-    this.waktuMulai = startTime;
-    this.waktuSelesai = endTime;
+    this.nameEvent = nameEvent;
+    this.startTime = startTime;
+    this.endTime = endTime;
   //  this.transport = transport;
-    this.idPerjalanan = idPerjalanan;
+    this.lokasi = lokasi;
 }
     /**
      * @return the idEvent
@@ -51,15 +50,15 @@ public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, I
     /**
      * @return the nameEvent
      */
-    public String getNamaAgenda() {
-        return namaAgenda;
+    public String getNameEvent() {
+        return nameEvent;
     }
 
     /**
-     * @param namaAgenda the nameEvent to set
+     * @param nameEvent the nameEvent to set
      */
-    public void setNamaAgenda(String namaAgenda) {
-        this.namaAgenda = namaAgenda;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
     }
     /**
      * @return the idUser
@@ -82,32 +81,44 @@ public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, I
     /**
      * @return the startTime
      */
-    public Date getWaktuMulai() {
-        return waktuMulai;
+    public Date getStartTime() {
+        return startTime;
     }
 
     /**
-     * @param waktuMulai the startTime to set
+     * @param startTime the startTime to set
      */
-    public void setWaktuMulai(Date waktuMulai) {
-        this.waktuMulai = waktuMulai;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
     /**
      * @return the endTime
      */
-    public Date getWaktuSelesai() {
-        return waktuSelesai;
+    public Date getEndTime() {
+        return endTime;
     }
 
     /**
-     * @param waktuSelesai the endTime to set
+     * @param endTime the endTime to set
      */
-    public void setWaktuSelesai(Date waktuSelesai) {
-        this.waktuSelesai = waktuSelesai;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
-    
+    /**
+     * @return the lokasi
+     */
+    public int getLokasi() {
+        return lokasi;
+    }
+
+    /**
+     * @param lokasi the lokasi to set
+     */
+    public void setLokasi(int lokasi) {
+        this.lokasi = lokasi;
+    }
     
     /**
      * @return the transport
@@ -133,18 +144,4 @@ public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, I
 //        System.out.println("Waktu selesai \t : " + this.endTime);
 //        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         }
-
-    /**
-     * @return the idPerjalanan
-     */
-    public String getIdPerjalanan() {
-        return idPerjalanan;
-    }
-
-    /**
-     * @param idPerjalanan the idPerjalanan to set
-     */
-    public void setIdPerjalanan(String idPerjalanan) {
-        this.idPerjalanan = idPerjalanan;
-    }
 }
