@@ -3,6 +3,10 @@ package org.apache.jsp.Login.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import repository.LokasiDAO;
+import java.util.ArrayList;
+import java.util.List;
+import model.Lokasi;
 
 public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +45,10 @@ public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -89,47 +97,66 @@ public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <th>Place</th>\r\n");
       out.write("                <th>Action</th>\r\n");
       out.write("            </tr>\r\n");
+      out.write("            \r\n");
+      out.write("            ");
+
+                String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+                String jdbc = "jdbc:mysql://";  
+                String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+                String port = "3306/"; // Port ini port MySQL  
+                String database = "travelender"; // Ini Database yang akan digunakan  
+                String jdbcURL = jdbc + host + port + database;  
+                String jdbcUsername = "root"; // username default mysql  
+                String jdbcPassword = "";
+                
+                List<Lokasi> listLokasi = new ArrayList();
+                LokasiDAO lokasiDAO = new LokasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
+                listLokasi = lokasiDAO.listAll();
+                 int i = 1;
+                for(Lokasi lo : listLokasi){
+                    
+      out.write("\r\n");
       out.write("            <tr>\r\n");
-      out.write("                <td title=\"NO\">1</td>\r\n");
-      out.write("                <td title=\"Adrees\"> Jl. Sekehaji </td>\r\n");
-      out.write("                <td title=\"Place\">Bandung</td>\r\n");
+      out.write("                <td title=\"NO\">");
+      out.print(i);
+      out.write("</td>\r\n");
+      out.write("                <td title=\"Adrees\">");
+ out.print(lo.getAlamat());
+      out.write(" </td>\r\n");
+      out.write("                <td title=\"Place\">");
+ out.print(lo.getNamaLokasi());
+      out.write("</td>\r\n");
       out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
       out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">1</td>\r\n");
-      out.write("                <td title=\"Adrees\"> Jl. Sekehaji </td>\r\n");
-      out.write("                <td title=\"Place\">Bandung</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">1</td>\r\n");
-      out.write("                <td title=\"Adrees\"> Jl. Sekehaji </td>\r\n");
-      out.write("                <td title=\"Place\">Bandung</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\" onClick=\"openo()\"  class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
-      out.write("              <tr>\r\n");
-      out.write("                <td title=\"NO\">1</td>\r\n");
-      out.write("                <td title=\"Adrees\"> Jl. Sekehaji </td>\r\n");
-      out.write("                <td title=\"Place\">Bandung</td>\r\n");
-      out.write("                <td title=\"Action\"><input type=\"submit\"  onClick=\"openo()\" class=\"button1\" name=\"\" value=\" Edit \">&nbsp <input type=\"submit\" onClick=\"opena()\" class=\"button2\" name=\"\" value=\" Delete\"></td>\r\n");
-      out.write("            </tr>\r\n");
+      out.write("                    ");
+
+                i++;
+            }
+            
+      out.write("\r\n");
+      out.write("            \r\n");
+      out.write("            \r\n");
       out.write("            </table>\r\n");
       out.write("\t\t\t<div class=\"tex\">\r\n");
       out.write("           <p></p>\r\n");
       out.write("            </div>\r\n");
       out.write("\t\t</div>\r\n");
+      out.write("            <form method=\"post\" action=\"lokasiController.jsp\" name=\"lokasi\" id=\"lokasi\">    \r\n");
       out.write("        <div class=\"widget\">\r\n");
       out.write("        \t<div class=\"title\"> \r\n");
       out.write("            \tImput Place \r\n");
       out.write("            </div>\r\n");
       out.write("            <div class=\"imput\">\r\n");
       out.write("            \tImput New Place \r\n");
-      out.write("                <input type=\"text\" placeholder=\"Enter New Place\" name=\"#\" required>\r\n");
+      out.write("                <input type=\"text\" placeholder=\"Enter New Place\" name=\"nama_lokasi\" required>\r\n");
       out.write("                Input New Address\r\n");
-      out.write("                <textarea class=\"address\"  rows=\"4\" cols=\"50\" name=\"#\" form=\"#\" placeholder=\"Enter Imput Address In here...\"></textarea>\r\n");
+      out.write("                <textarea class=\"address\"  rows=\"4\" cols=\"50\" name=\"alamat\" form=\"lokasi\" placeholder=\"Enter Imput Address In here...\">\r\n");
+      out.write("                    \r\n");
+      out.write("                </textarea>\r\n");
       out.write("                <button type=\"submit\" class=\"ImputButton\" onClick=\"tutup()\" name=\"#\">Update Data</button>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("            </form>\r\n");
       out.write("\t  </div>\r\n");
       out.write("</div>\r\n");
       out.write("<div id=\"confirm\" class=\"confirm2\">\r\n");
