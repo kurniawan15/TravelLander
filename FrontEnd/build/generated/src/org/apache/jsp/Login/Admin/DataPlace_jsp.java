@@ -105,6 +105,10 @@ public final class DataPlace_jsp extends org.apache.jasper.runtime.HttpJspBase
                 String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
                 String port = "3306/"; // Port ini port MySQL  
                 String database = "travelender"; // Ini Database yang akan digunakan  
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1da8019e88bdbcbc8f55d147e97481c2208ebdf2
                 String jdbcURL = jdbc + host + port + database;  
                 String jdbcUsername = "root"; // username default mysql  
                 String jdbcPassword = "";
