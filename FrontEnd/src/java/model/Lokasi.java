@@ -5,76 +5,111 @@
  */
 package model;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import repository.KoneksiDB;
+
+
+
 /**
  *
  * @author Mohridwan
  */
 public class Lokasi {
-
-    private String kdLokasi;
-    private String namaLokasi;
-    private String alamat;
+    
+    public String idLokasi;
+    public String namaLokasi;
+    public String alamat;
+    KoneksiDB db = null;
     
     public Lokasi(){
-        
+        db = new KoneksiDB();
     }
     
-    public Lokasi(String idLokasi, String namalokasi, String alamat){
-        this.kdLokasi = idLokasi;
-        this.namaLokasi = namalokasi;
-        this.alamat = alamat;
+
+    public String getIdLokasi() {
+        return idLokasi;
     }
-    
-    public String getKdLokasi() {
-        return this.kdLokasi;
+
+    public void setIdLokasi(String idLokasi) {
+        this.idLokasi = idLokasi;
     }
-    
-    /**
-     * @param kdLokasi the kdLokasi to set
-     */
-    public void setKdLokasi(String kdLokasi) {
-        this.kdLokasi = kdLokasi;
-    }
-    
-    
-    
-    
-    public Lokasi(String namalokasi, String alamat){
-        this.namaLokasi = namalokasi;
-        this.alamat = alamat;
-        }
-    /**
-     * @return the idLokasi
-     */
-    
-    /**
-     * @return the namaLokasi
-     */
+
+
     public String getNamaLokasi() {
         return namaLokasi;
     }
 
-    /**
-     * @param namaLokasi the namaLokasi to set
-     */
+ 
     public void setNamaLokasi(String namaLokasi) {
         this.namaLokasi = namaLokasi;
     }
 
-    
- 
-    /**
-     * @return the alamat
-     */
+
     public String getAlamat() {
         return alamat;
     }
 
-    /**
-     * @param alamat the alamat to set
-     */
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
+    
+        public void simpan(){
+        String sql = "INSERT into lokasi( Idlokasi, nama_lokasi, alamat) values ('" + idLokasi + "','" + namaLokasi + "','" + alamat + "')";
+        db.simpanData(sql);
+    }
+    public void update(){
+        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',alamat='"+alamat+"' WHERE idLokasi='"+idLokasi+"'";
+        db.simpanData(sql);
+        System.out.println(sql);
+    }
+    public void hapus(){
+        String sql="DELETE FROM lokasi WHERE idLokasi='"+idLokasi+"'";
+        db.simpanData(sql);
+        System.out.println("");
+    }
+    public List tampil() {
+        List<Lokasi> data = new ArrayList<Lokasi>();
+        ResultSet rs = null;
 
+        try {
+            String sql = "select * from lokasi order by idLokasi asc";
+            rs = db.ambilData(sql);
+            while (rs.next()) {
+                Lokasi um = new Lokasi();
+                um.setIdLokasi(rs.getString("idLokasi"));
+                um.setNamaLokasi(rs.getString("nama_lokasi"));
+                um.setAlamat(rs.getString("alamat"));
+                data.add(um);
+
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalahan Saat menampilkan data User" + ex);
+        }
+        return data;
+    }
+        public List cariID() {
+        List<Lokasi> data = new ArrayList<Lokasi>();
+        ResultSet rs = null;
+ 
+        try {
+            String sql = "SELECT * FROM lokasi WHERE idLokasi='"+idLokasi+"'";
+            rs = db.ambilData(sql);
+            while (rs.next()) {
+                Lokasi m = new Lokasi();
+                m.setIdLokasi(rs.getString("idLokasi"));
+                m.setNamaLokasi(rs.getString("nama_lokasi"));
+                m.setAlamat(rs.getString("alamat"));
+                data.add(m);
+
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
+        }
+        return data;
+
+    }
 }
