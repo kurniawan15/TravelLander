@@ -16,12 +16,19 @@ public class User {
     
     private String idUser;
     private String nameUser;
+    private String username;
     private String email; 
     private List<Event> listEvent;
     private String Password;
     private String currentLocation;
 
-
+    public User (String idUser, String nameUser, String username, String email, String Password){
+        this.idUser = idUser;
+        this.nameUser = nameUser;
+        this.username = username;
+        this.email = email;
+        this.Password = Password;
+    }
     /**
      * @return the ListAgenda
      */
@@ -45,6 +52,20 @@ public class User {
      */
     public void setNameUser(String nameUser) {
         this.nameUser = nameUser;
+    }
+    
+    /**
+     * @return the userName
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param userName the nameUser to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**

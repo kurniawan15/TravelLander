@@ -3,7 +3,6 @@ package org.apache.jsp.Login;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import traveller.controller.koneksi;
 import java.sql.*;
 
 public final class ceklogin_jsp extends org.apache.jasper.runtime.HttpJspBase

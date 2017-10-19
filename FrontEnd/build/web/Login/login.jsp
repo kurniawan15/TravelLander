@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Sep 17, 2017, 11:09:46 PM
-    Author     : Cyber Pegasus
+    Author     : Delvin v
 --%>
 
 
@@ -45,8 +45,8 @@ body{
 
 <div class="col-5 1">
 		<div class="header">
-                    <form name="login" action="ceklogin.jsp">
-		  <center>Login</center>
+                    <form name="login" method="post" action="ceklogin.jsp">
+		  <center>Sign In</center>
 		</div>
 		    <input type="text" id="fname" name="user" placeholder="Username">
 		    <input type="password" id="lname" name="pass" placeholder="Password">
@@ -55,7 +55,7 @@ body{
 		<div class="col-6 2">
 		<div class="header">
                 </form>
-                    <form name="registrasi" action="Registrasi/progresregistrasi.jsp">
+                    <form name="registrasi" action="Registrasi/prosesregistrasi.jsp">
 		  <center>Register</center>
 		</div>
 			<div class="col-6 3.1">
@@ -69,7 +69,7 @@ body{
 			    <input type="text" id="fname" name="user" placeholder="Your Username..">
 			</div>
 			<div class="col-6 3.2">
-			    <input type="text" id="lname" name="lastname" placeholder="Your Password..">
+			    <input type="password" id="lname" name="pass" placeholder="Your Password..">
 			</div>
 		    <label for="country" style="color: white">Country</label><br>
 		    <select id="country" name="country">
@@ -81,6 +81,8 @@ body{
 
 </div>
 </form>
+        <br>
+        <br>
 	<div class="footer">
  		<p>© Copyright Kelompok B2 | October 2017</p>
  	</div>
