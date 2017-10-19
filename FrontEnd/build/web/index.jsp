@@ -1,5 +1,6 @@
 <%-- 
     Document   : index
+<<<<<<< HEAD
     Created on : Oct 15, 2017, 5:58:58 PM
     Author     : Delvin
 --%>
