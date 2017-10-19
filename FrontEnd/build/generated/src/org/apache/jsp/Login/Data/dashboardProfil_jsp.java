@@ -71,7 +71,7 @@ public final class dashboardProfil_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\t\t\t\t<ul>\n");
       out.write("\t\t\t\t\t<li>AGENDA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"glyphicon glyphicon-list-alt\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>\n");
       out.write("\t\t\t\t\t<li style=\"background-color: red; color: white;\">MY PROFIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"glyphicon glyphicon-cog\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>\n");
-      out.write("\t\t\t\t\t<li>LOGOUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"glyphicon glyphicon-off\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>\n");
+      out.write("\t\t\t\t\t<li><a href=\"../logout.jsp\" style=\"color: black;\">LOGOUT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=\"glyphicon glyphicon-off\"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>\n");
       out.write("\t\t\t\t</ul>\n");
       out.write("\t\t\t\t</li>\n");
       out.write("\t\t\t</ul>\n");
@@ -84,7 +84,7 @@ public final class dashboardProfil_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\t\t\t\t&nbsp;&nbsp;Dashboard\n");
       out.write("\t\t\t</div>\n");
       out.write("\t\t\t<div class=\"col-lg-12 co l-md-12 col-sm-12 col-xs-12 kiri\">\n");
-      out.write("\t\t\t\t&nbsp;&nbsp;<a href=\"dashboardCreateSchedule.html\" style=\"color: white;\">Create Schedule</a>\n");
+      out.write("\t\t\t\t&nbsp;&nbsp;<a href=\"dashboardCreateSchedule.jsp\" style=\"color: white;\">Create Schedule</a>\n");
       out.write("\t\t\t</div>\n");
       out.write("\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 kiri\">\n");
       out.write("\t\t\t\t&nbsp;&nbsp;Finished Task\n");
@@ -155,7 +155,9 @@ public final class dashboardProfil_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\t\t\t\t\t\t\t:\n");
       out.write("\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t\t<div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12 namauser\">\n");
-      out.write("\t\t\t\t\t\t\tUSER_NAME_1\n");
+      out.write("\t\t\t\t\t\t\t");
+      out.print( nama );
+      out.write("\n");
       out.write("\t\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t</div>\n");
       out.write("\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 birthday\">\n");

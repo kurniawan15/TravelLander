@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/lokasiController.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/ceklogin.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
@@ -18,6 +19,13 @@
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/transportationController.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/distance.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/model/Lokasi.java</file>
+=======
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/css/index.css</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/login.jsp</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/dashboardProfil.jsp</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/dashboardCreateSchedule.jsp</file>
+>>>>>>> cbe4bf2d8b7d365872b01b2c03b6e93ace831471
         </group>
     </open-files>
 </project-private>
