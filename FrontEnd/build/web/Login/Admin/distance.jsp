@@ -28,7 +28,7 @@
       </a>
     </span>
     <ul id="dropdown">
-    	<li><a href="../logout">Log Out</a></li>
+    	<li><a href="../logout.jsp">Log Out</a></li>
     </ul>
   </nav>
 

@@ -83,6 +83,8 @@ public class Lokasi {
                 um.setAlamat(rs.getString("alamat"));
                 data.add(um);
 
+<<<<<<< HEAD
+=======
             }
             db.diskonek(rs);
         } catch (Exception ex) {
@@ -112,4 +114,5 @@ public class Lokasi {
         return data;
 
     }
+>>>>>>> cbe4bf2d8b7d365872b01b2c03b6e93ace831471
 }
