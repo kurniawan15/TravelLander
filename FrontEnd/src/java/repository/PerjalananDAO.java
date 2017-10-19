@@ -79,9 +79,9 @@ public class PerjalananDAO extends DAO{
         statement.setString(1,perjalanan.getIdPerjalanan());
         statement.setInt(2,perjalanan.getWaktuTempuh());
         statement.setInt(3,perjalanan.getJarakTempuh());
-        statement.setString(4,perjalanan.getLokasiAwal().getKdLokasi());
-        statement.setString(5,perjalanan.getLokasiAkhir().getKdLokasi());
-        statement.setString(6,perjalanan.getTransport().getKdModa());
+//        statement.setString(4,perjalanan.getLokasiAwal().getKdLokasi());
+//        statement.setString(5,perjalanan.getLokasiAkhir().getKdLokasi());
+//        statement.setString(6,perjalanan.getTransport().getKdModa());
         
         boolean rowInserted = statement.executeUpdate() > 0;
         

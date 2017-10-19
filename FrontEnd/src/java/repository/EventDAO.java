@@ -42,8 +42,8 @@ public class EventDAO extends DAO {
          //   String createdUser = resultSet.getString("createdUser");
             Integer location = resultSet.getInt("location");
       //      String transfort = resultSet.getString("transfortatin");
-            Event events = new Event(id, eventName, arrivalTime, departureTime,location);
-            listEvent.add(events);
+//            Event events = new Event(id, eventName, arrivalTime, departureTime,location);
+//            listEvent.add(events);
         }
 
         resultSet.close();

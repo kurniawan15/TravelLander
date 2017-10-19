@@ -34,8 +34,8 @@ public class ModaTransportasiDAO extends DAO {
         while (resultSet.next()) {
             String kd = resultSet.getString("kd_moda");
             String tipeModa = resultSet.getString("tipe_moda");
-            ModaTransportasi moda_transportasi = new ModaTransportasi(kd, tipeModa);
-            listData.add(moda_transportasi);
+//            ModaTransportasi moda_transportasi = new ModaTransportasi(kd, tipeModa);
+//            listData.add(moda_transportasi);
         } 
         resultSet.close();
         statement.close(); 
@@ -53,7 +53,7 @@ public class ModaTransportasiDAO extends DAO {
 		if (resultSet.next()) {
 			String kdModa = resultSet.getString("kd_moda");
                         String tipeModa = resultSet.getString("tipe_moda"); 
-			moda = new ModaTransportasi(kdModa,tipeModa);
+//			moda = new ModaTransportasi(kdModa,tipeModa);
 		} 
 		resultSet.close();
 		statement.close(); 
@@ -64,8 +64,8 @@ public class ModaTransportasiDAO extends DAO {
         String sql = "INSERT INTO moda_transportasi(kd_moda, tipe_moda,nama_moda) VALUES (?, ?,'')";
         connect(); 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-        statement.setString(1, modaTransportasi.getKdModa());
-        statement.setString(2, modaTransportasi.getTipeModa()); 
+//        statement.setString(1, modaTransportasi.getKdModa());
+//        statement.setString(2, modaTransportasi.getTipeModa()); 
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
         disconnect();

@@ -39,8 +39,8 @@ public class LokasiDAO  extends DAO {
             String kdLokasi = resultSet.getString("kd_lokasi");
             String namaLokasi = resultSet.getString("nama_lokasi"); 
             String alamat = resultSet.getString("alamat");
-            Lokasi lokasi = new Lokasi(kdLokasi,namaLokasi,alamat);
-            listData.add(lokasi);
+//            Lokasi lokasi = new Lokasi(kdLokasi,namaLokasi,alamat);
+//            listData.add(lokasi);
         } 
         resultSet.close();
         statement.close(); 
@@ -59,7 +59,7 @@ public class LokasiDAO  extends DAO {
 		if (resultSet.next()) {
 			String namaLokasi = resultSet.getString("nama_lokasi");
                         String alamat = resultSet.getString("alamat"); 
-			lokasi = new Lokasi(id, namaLokasi,alamat);
+//			lokasi = new Lokasi(id, namaLokasi,alamat);
 		} 
 		resultSet.close();
 		statement.close(); 
@@ -70,7 +70,7 @@ public class LokasiDAO  extends DAO {
         String sql = "INSERT INTO lokasi(kd_lokasi,nama_lokasi,alamat) VALUES (?,?,?)";
         connect(); 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-        statement.setString(1, lokasi.getKdLokasi());
+//        statement.setString(1, lokasi.getKdLokasi());
         statement.setString(2, lokasi.getNamaLokasi()); 
         statement.setString(3, lokasi.getAlamat());
         
