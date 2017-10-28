@@ -20,7 +20,7 @@ import model.Lokasi;
  *
  * @author Zulkifli Arsyad
  */
-public class DAOEvent extends Event {
+public class DAOEvent extends Event implements DAO{
     
     KoneksiDB db = null;
     
@@ -28,34 +28,70 @@ public class DAOEvent extends Event {
        db = new KoneksiDB();
     }
  
-//    public List<Event> listAllEvent() throws SQLException {
-//        List<Event> listEvent = new ArrayList();
-//        String sql = "SELECT * FROM event";
-//        connect();
-//
-//        Statement statement = jdbcConnection.createStatement();
-//        ResultSet resultSet = statement.executeQuery(sql);
-//
-//        while (resultSet.next()) {
-//            String idEvent = resultSet.getString("id_event");
-//            String idUser = resultSet.getString("id_user");
-//            Date arrivalTime = resultSet.getDate("arrivalTime");
-//            Date departureTime = resultSet.getDate("departureTime");
-//         //   int state = resultSet.getInt("state");
-//         //   Date createdDate = resultSet.getDate("createdDate");
-//         //   String createdUser = resultSet.getString("createdUser");
-//            Integer location = resultSet.getInt("location");
-//      //      String transfort = resultSet.getString("transfortatin");
-////            Event events = new Event(id, eventName, arrivalTime, departureTime,location);
-////            listEvent.add(events);
-//        }
-//
-//        resultSet.close();
-//        statement.close();
-//
-//        disconnect();
-//
-//        return listEvent;
-//    }
 
+    public void simpan(){
+        String sql = "INSERT into Event(id_event,id_perjalanan,kd_traveler,nama_event,waktu_mulai,waktu_selesai,keterangan) values('"+idEvent+"','"+idPerjalanan+"','"+kdTraveller+"','"+nameEvent+"','"+startTime+"','"+endTime+"','"+keterangan+"')";
+        db.simpanData(sql);
+    }
+
+    @Override
+    public void update() {
+       String sql = "UPDATE event set id_perjalanan = '"+idPerjalanan+"',name_event = '"+nameEvent+"',waktu_mulai = '"+startTime+"', waktu_selesai= '"+endTime+"',keterangan = '"+keterangan+"' where id_event = '"+idEvent+"' and kd_traveler = '"+kdTraveller+"'";
+    }
+
+    @Override
+    public void hapus() {
+        String sql ="DELETE FROM Event WHERE id_Event = '"+getIdEvent()+"'";
+    }
+
+    @Override
+    public List tampil() {
+        List<Event> listEvent = new ArrayList<Event>();
+        ResultSet rs = null;
+        try{
+            String sql = "SELECT * FROM event";
+            rs = db.ambilData(sql);
+            while(rs.next()){
+                Event ev = new Event();
+                ev.setIdEvent(rs.getString("id_event"));
+                ev.setNameEvent(rs.getString("nama_event"));
+                ev.setIdPerjalanan(rs.getString("id_perjalanan"));
+                ev.setKeterangan(rs.getString("keterangan"));
+                ev.setStartTime(rs.getDate("waktu_mulai"));
+                ev.setEndTime(rs.getDate("waktu_selesai"));
+                ev.setKdTraveller(rs.getString("kd_traveller"));
+                
+                listEvent.add(ev);
+            }
+        }
+        catch(Exception ex){
+            
+        }
+       return listEvent;
+     }
+
+    
+    public Event cariID(String idEvent) {
+        Event ev = new Event();
+        ResultSet rs = null;
+ 
+        try {
+            String sql = "SELECT * FROM event WHERE id_event='"+idEvent+"'";
+            rs = db.ambilData(sql);
+            while (rs.next()) {
+                ev.setIdEvent(rs.getString("id_event"));
+                ev.setNameEvent(rs.getString("nama_event"));
+                ev.setStartTime(rs.getDate("waktu_mulai"));
+                ev.setEndTime(rs.getDate("waktu_selesai"));
+                ev.setKdTraveller(rs.getString("kd_traveller"));
+                ev.setIdPerjalanan(rs.getString("id_perjalanan"));
+                ev.setKeterangan(rs.getString("keterangan"));
+
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
+        }
+        return ev;
+    }
 }

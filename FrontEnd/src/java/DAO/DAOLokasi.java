@@ -15,7 +15,7 @@ import Database.KoneksiDB;
  *
  * @author Cyber Pegasus
  */
-public class DAOLokasi extends Lokasi{
+public class DAOLokasi extends Lokasi {
     
     KoneksiDB db = null;
 
@@ -79,6 +79,27 @@ public DAOLokasi(){
             System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
         }
         return data;
+    }
+        
+        public List cariID(String idLokasi) {
+        List<Lokasi> data = new ArrayList<Lokasi>();
+        ResultSet rs = null;
+ 
+        try {
+            String sql = "SELECT * FROM lokasi WHERE idLokasi='"+idLokasi+"'";
+            rs = db.ambilData(sql);
+            while (rs.next()) {
+                Lokasi m = new Lokasi();
+                m.setIdLokasi(rs.getString("idLokasi"));
+                m.setNamaLokasi(rs.getString("nama_lokasi"));
+                m.setAlamat(rs.getString("alamat"));
+                data.add(m);
 
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
+        }
+        return data;
     }
 }
