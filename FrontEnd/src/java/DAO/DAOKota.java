@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Kota;
 import Database.KoneksiDB;
+import java.sql.SQLException;
 
 
 /**
@@ -82,4 +83,31 @@ public DAOKota(){
         return data;
 
     }
+        public String getNewId() throws SQLException{
+            
+            String kdKota = "KT000";
+            
+            int cnt = 0;
+            String sql = "SELECT MAX(id_kota) FROM kota"; 
+            
+            ResultSet resultSet = db.ambilData(sql);
+
+            while (resultSet.next()) {
+                kdKota = resultSet.getString(1);
+            } 
+            
+            cnt = Integer.parseInt(kdKota.substring(2));
+            cnt++;
+            if(cnt >= 100){
+                kdKota = "KT" + String.valueOf(cnt);
+            }
+            else if(cnt < 100 && cnt >= 10){
+               kdKota = "KT" + "0" + String.valueOf(cnt);
+            }
+            else{
+               kdKota = "KT" + "00" + String.valueOf(cnt);
+            }
+            db.diskonek(resultSet);
+            return kdKota;
+         }
 }
