@@ -10,35 +10,35 @@ package model;
  * @author Dewi Roaza
  */
 public class ModaTransportasi {
-    private String idTransport;
-    private String nameTransport;
+    private String idModa;
+    private String tipeModa;
 
     /**
      * @return the idTransport
      */
-    public String getIdTransport() {
-        return idTransport;
+    public String getIdModa() {
+        return idModa;
     }
 
     /**
-     * @param idTransport the idTransport to set
+     * @param idModa the idTransport to set
      */
-    public void setIdTransport(String idTransport) {
-        this.idTransport = idTransport;
+    public void setIdModa(String idModa) {
+        this.idModa = idModa;
     }
 
     /**
      * @return the nameTransport
      */
-    public String getNameTransport() {
-        return nameTransport;
+    public String getTipeModa() {
+        return tipeModa;
     }
 
     /**
-     * @param nameTransport the nameTransport to set
+     * @param tipeModa the nameTransport to set
      */
-    public void setNameTransport(String nameTransport) {
-        this.nameTransport = nameTransport;
+    public void setTipeModa(String tipeModa) {
+        this.tipeModa = tipeModa;
     }
 
 }

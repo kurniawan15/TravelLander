@@ -12,7 +12,7 @@ import java.util.List;
  * @author Dewi Roaza
  * 
  */
-public class User {
+public class Traveller {
     
     private String idUser;
     private String nameUser;
@@ -22,7 +22,7 @@ public class User {
     private String Password;
     private String currentLocation;
 
-    public User (String idUser, String nameUser, String username, String email, String Password){
+    public Traveller (String idUser, String nameUser, String username, String email, String Password){
         this.idUser = idUser;
         this.nameUser = nameUser;
         this.username = username;
