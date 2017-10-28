@@ -3,11 +3,11 @@
     Created on : Sep 25, 2017, 8:51:22 PM
     Author     : Cyber Pegasus
 --%>
-
-<%@page import="repository.LokasiDAO"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@page import="model.Lokasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
+<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <!DOCTYPE html>
@@ -54,34 +54,11 @@
                 <th>Place</th>
                 <th>Action</th>
             </tr>
-            
-            <%
-                String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
-                String jdbc = "jdbc:mysql://";  
-                String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
-                String port = "3306/"; // Port ini port MySQL  
-                String database = "travelender"; // Ini Database yang akan digunakan  
-
-                String jdbcURL = jdbc + host + port + database;  
-                String jdbcUsername = "root"; // username default mysql  
-                String jdbcPassword = "";
-                
-                List<Lokasi> listLokasi = new ArrayList();
-                LokasiDAO lokasiDAO = new LokasiDAO(jdbcURL, jdbcUsername, jdbcPassword);
-                listLokasi = lokasiDAO.listAll();
-                 int i = 1;
-                for(Lokasi lo : listLokasi){
-                    %>
+        
             <tr>
-                <td title="NO"><%=i%></td>
-                <td title="Adrees"><% out.print(lo.getAlamat());%> </td>
-                <td title="Place"><% out.print(lo.getNamaLokasi());%></td>
-                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+                
             </tr>
-                    <%
-                i++;
-            }
-            %>
+
             
             
             </table>
