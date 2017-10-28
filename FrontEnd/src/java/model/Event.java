@@ -11,72 +11,79 @@ import java.util.Date;
 /**
  *
  * @author Dewi Roaza
+ * Edited : M.Ridwann H D P
  */
 public class Event {
-    private String idUser;
-    private Integer idEvent;
-    private Date startTime;
-    private Date endTime;
-    private String nameEvent;
-    private int lokasi;
-
+    public String kdTraveller;
+    public String idEvent;
+    public String idPerjalanan;
+    public Date startTime;
+    public Date endTime;
+    public String nameEvent;
+    public String keterangan;
+    
     public Event() {
-}
-
-public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, Integer lokasi){
-
+    
+    }
+    
+    public Event(String kdTraveller,
+    String idEvent,
+    String idPerjalanan,
+    Date startTime,
+    Date endTime,
+    String nameEvent,
+    String keterangan) {
+       this.kdTraveller = kdTraveller;
     this.idEvent = idEvent;
-    this.nameEvent = nameEvent;
+    this.idPerjalanan = idPerjalanan;
     this.startTime = startTime;
     this.endTime = endTime;
-  //  this.transport = transport;
-    this.lokasi = lokasi;
-}
+    this.nameEvent = nameEvent;
+    this.keterangan = keterangan;
+    }
+    
+    /**
+     * @return the kdTraveller
+     */
+    public String getKdTraveller() {
+        return kdTraveller;
+    }
+
+    /**
+     * @param kdTraveller the kdTraveller to set
+     */
+    public void setKdTraveller(String kdTraveller) {
+        this.kdTraveller = kdTraveller;
+    }
+
     /**
      * @return the idEvent
      */
-    public Integer getIdEvent() {
+    public String getIdEvent() {
         return idEvent;
     }
 
     /**
      * @param idEvent the idEvent to set
      */
-    public void setIdEvent(Integer idEvent) {
+    public void setIdEvent(String idEvent) {
         this.idEvent = idEvent;
     }
 
     /**
-     * @return the nameEvent
+     * @return the idPerjalanan
      */
-    public String getNameEvent() {
-        return nameEvent;
+    public String getIdPerjalanan() {
+        return idPerjalanan;
     }
 
     /**
-     * @param nameEvent the nameEvent to set
+     * @param idPerjalanan the idPerjalanan to set
      */
-    public void setNameEvent(String nameEvent) {
-        this.nameEvent = nameEvent;
-    }
-    /**
-     * @return the idUser
-     */
-    public String getIdUser() {
-        return idUser;
+    public void setIdPerjalanan(String idPerjalanan) {
+        this.idPerjalanan = idPerjalanan;
     }
 
-    /**
-     * @param idUser the idUser to set
-     */
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
-
-    /**
-     * @return the idAgenda
-     */
-   
     /**
      * @return the startTime
      */
@@ -106,41 +113,33 @@ public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, I
     }
 
     /**
-     * @return the lokasi
+     * @return the nameEvent
      */
-    public int getLokasi() {
-        return lokasi;
+    public String getNameEvent() {
+        return nameEvent;
     }
 
     /**
-     * @param lokasi the lokasi to set
+     * @param nameEvent the nameEvent to set
      */
-    public void setLokasi(int lokasi) {
-        this.lokasi = lokasi;
+    public void setNameEvent(String nameEvent) {
+        this.nameEvent = nameEvent;
+    }
+
+    /**
+     * @return the keterangan
+     */
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    /**
+     * @param keterangan the keterangan to set
+     */
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
     
-    /**
-     * @return the transport
-     */
 
-    /**
-     * @param transport the transport to set
-     */
-
-    /**
-     * @return the destination
-     */
-
-
-        /**
-     * Prosedur untuk menampilkan satu event
-     */
-   public void printEvent() {
-//        System.out.println("Nama event \t : " + this.getNameEvent());
-//        System.out.println("Lokasi awal \t : " + this.destination.getNamaLokasi());
-//        System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
-//        System.out.println("Waktu mulai \t : " + this.startTime);
-//        System.out.println("Waktu selesai \t : " + this.endTime);
-//        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
-        }
+  
 }
