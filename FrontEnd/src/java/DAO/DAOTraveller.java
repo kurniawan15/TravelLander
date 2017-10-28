@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Traveller;
 import Database.KoneksiDB;
+import java.sql.SQLException;
 
 
 /**
@@ -86,4 +87,34 @@ public DAOTraveller(){
         return data;
 
     }
+        public String getNewId() throws SQLException{
+            
+            String kdTraveller = "TR0000";
+            
+            int cnt = 0;
+            String sql = "SELECT MAX(Kd_Traveller) FROM traveller"; 
+            
+            ResultSet resultSet = db.ambilData(sql);
+
+            while (resultSet.next()) {
+                kdTraveller = resultSet.getString(1);
+            } 
+            
+            cnt = Integer.parseInt(kdTraveller.substring(2));
+            cnt++;
+            if(cnt >= 1000){
+                kdTraveller = "TR" + String.valueOf(cnt);
+            }
+            else if(cnt < 1000 && cnt >= 100){
+               kdTraveller = "TR" + "0" + String.valueOf(cnt);
+            }
+            else if(cnt < 100 && cnt >= 10){
+               kdTraveller = "TR" + "00" + String.valueOf(cnt);
+            }
+            else{
+               kdTraveller = "TR" + "000" + String.valueOf(cnt);
+            }
+            db.diskonek(resultSet);
+            return kdTraveller;
+         }
 }
