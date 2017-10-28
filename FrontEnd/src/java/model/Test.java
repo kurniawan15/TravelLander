@@ -10,7 +10,7 @@ package model;
  * @author Cyber Pegasus
  */
  import java.sql.SQLException;  
-import repository.KoneksiDB;
+import Database.KoneksiDB;
  /**  
   *  
   * @author Wahidin-Alambiyah  

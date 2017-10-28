@@ -6,7 +6,7 @@ import javax.servlet.jsp.*;
 import model.Lokasi;
 import java.util.List;
 import java.util.ArrayList;
-import repository.KoneksiDB;
+import Database.KoneksiDB;
 import DAO.DAOLokasi;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase

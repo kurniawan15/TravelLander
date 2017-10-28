@@ -1,7 +1,7 @@
 <%@page import="model.Lokasi"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="repository.KoneksiDB"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

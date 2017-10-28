@@ -8,7 +8,7 @@ package model;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import repository.KoneksiDB;
+import Database.KoneksiDB;
 
 
 
