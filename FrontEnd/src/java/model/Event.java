@@ -18,10 +18,9 @@ public class Event {
     private Date startTime;
     private Date endTime;
     private String nameEvent;
-    //private ModaTransportasi transport;
     private int lokasi;
-    
-public Event() {
+
+    public Event() {
 }
 
 public Event (Integer idEvent, String nameEvent, Date startTime, Date endTime, Integer lokasi){

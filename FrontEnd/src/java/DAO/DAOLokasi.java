@@ -11,7 +11,6 @@ import java.util.List;
 import model.Lokasi;
 import Database.KoneksiDB;
 
-
 /**
  *
  * @author Cyber Pegasus
