@@ -1,8 +1,4 @@
-<%-- 
-    Document   : edit_user
-    Created on : Nov 22, 2016, 9:42:03 PM
-    Author     : TutorialPedia.NET
---%>
+
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>

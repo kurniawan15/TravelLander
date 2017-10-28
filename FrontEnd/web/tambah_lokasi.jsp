@@ -1,8 +1,4 @@
-<%-- 
-    Document   : tambah_user
-    Created on : Nov 22, 2016, 6:44:26 PM
-    Author     : TutorialPedia.NET
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
