@@ -2,11 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/TransportasiPribadi.java</file>
             <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ControllerTransportasiPribadi.java</file>
             <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/DAO/DAOTransportasiPublik.java</file>
             <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ControllerTransportasiPublik.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 74e349d65be2e7cfd47fdb2ee630c2b71caede79
     </open-files>
 </project-private>

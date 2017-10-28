@@ -1,8 +1,4 @@
-<%-- 
-    Document   : tambah_user
-    Created on : Nov 22, 2016, 6:44:26 PM
-    Author     : TutorialPedia.NET
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +9,7 @@
     </head>
     <body>
         <center><h1>Input lokasi</h1></center>
-        <form action="NewControllerLokasi?data=lokasi&proses=input-lokasi" method="post">
+        <form action="location?data=lokasi&proses=input-lokasi" method="post">
             <table style="margin:20px auto;">
                 <tr>
                     <td>IdLokasi</td>

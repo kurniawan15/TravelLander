@@ -4,15 +4,14 @@
  * and open the template in the editor.
  */
 package model;
-
 /**
  *
  * @author Dewi Roaza
  */
 public class Kota {
-    private String idKota;
-    private String namaKota;
-    private String idProvinsi;
+    public String idKota;
+    public String namaKota;
+    public String idProvinsi;
 
     /**
      * @return the idKota
@@ -55,4 +54,6 @@ public class Kota {
     public void setIdProvinsi(String idProvinsi) {
         this.idProvinsi = idProvinsi;
     }
+
+    
 }

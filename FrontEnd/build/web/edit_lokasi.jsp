@@ -1,26 +1,23 @@
-<%-- 
-    Document   : edit_user
-    Created on : Nov 22, 2016, 9:42:03 PM
-    Author     : TutorialPedia.NET
---%>
+
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Latihan Java Web | TutorialPedia.NET</title>
+        <title></title>
     </head>
     <body>
-        <center><h1>Edit User | TutorialPedia.NET</h1></center>
-        <form action="NewControllerLokasi?data=lokasi&proses=update-lokasi" method="post">
+        <center><h1>Edit User </h1></center>
+        <form action="location?data=lokasi&proses=update-lokasi" method="post">
             <table style="margin:20px auto;">
             <%
                 String idLokasi = request.getParameter("idLokasi");
-                Lokasi km = new Lokasi();
+                DAOLokasi km = new DAOLokasi();
                 km.setIdLokasi(idLokasi);
                 List<Lokasi> data = new ArrayList<Lokasi>();
                 data = km.cariID(); 

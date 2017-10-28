@@ -4,91 +4,58 @@
  * and open the template in the editor.
  */
 package model;
-
-import java.util.List;
-
 /**
  *
  * @author Dewi Roaza
- * 
  */
 public class Traveller {
     
-    private String idUser;
-    private String nameUser;
-    private String username;
-    private String email; 
-    private List<Event> listEvent;
-    private String Password;
-    private String currentLocation;
+    public String Kd_Traveller;
+    public String Nama_Traveller;
+    public String Username;
+    public String Password; 
+    public String Email;
 
-    public Traveller (String idUser, String nameUser, String username, String email, String Password){
-        this.idUser = idUser;
-        this.nameUser = nameUser;
-        this.username = username;
-        this.email = email;
-        this.Password = Password;
-    }
     /**
-     * @return the ListAgenda
+     * @return the Kd_Traveller
      */
-    public List<Event> getListEvent() {
-        return listEvent;
-    }
-
-    public void setListEvent(List<Event> ListEvent) {
-        this.listEvent = ListEvent;
+    public String getKd_Traveller() {
+        return Kd_Traveller;
     }
 
     /**
-     * @return the nameUser
+     * @param Kd_Traveller the Kd_Traveller to set
      */
-    public String getNameUser() {
-        return nameUser;
+    public void setKd_Traveller(String Kd_Traveller) {
+        this.Kd_Traveller = Kd_Traveller;
     }
 
     /**
-     * @param nameUser the nameUser to set
+     * @return the Nama_Traveller
      */
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public String getNama_Traveller() {
+        return Nama_Traveller;
     }
-    
+
     /**
-     * @return the userName
+     * @param Nama_Traveller the Nama_Traveller to set
+     */
+    public void setNama_Traveller(String Nama_Traveller) {
+        this.Nama_Traveller = Nama_Traveller;
+    }
+
+    /**
+     * @return the Username
      */
     public String getUsername() {
-        return username;
+        return Username;
     }
 
     /**
-     * @param userName the nameUser to set
+     * @param Username the Username to set
      */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    public void printListEvent(){
-        int size = this.listEvent.size();
-        int i;
-        for(i = 0; i < size  ; i++){
-            this.listEvent.get(i).printEvent();
-        }
-        
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
     /**
@@ -106,31 +73,19 @@ public class Traveller {
     }
 
     /**
-     * @return the currentLocation
+     * @return the Email
      */
-    public String getCurrentLocation() {
-        return currentLocation;
+    public String getEmail() {
+        return Email;
     }
 
     /**
-     * @param currentLocation the currentLocation to set
+     * @param Email the Email to set
      */
-    public void setCurrentLocation(String currentLocation) {
-        this.currentLocation = currentLocation;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    /**
-     * @return the idUser
-     */
-    public String getIdUser() {
-        return idUser;
-    }
-
-    /**
-     * @param idUser the idUser to set
-     */
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
+    
 }
 
