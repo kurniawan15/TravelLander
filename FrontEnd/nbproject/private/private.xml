@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Event.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Lokasi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/ModaTransportasi.java</file>
             <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/TransportasiPribadi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Perjalanan.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/TransportasiPublik.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/repository/LokasiDAO.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ModaTransportasiController.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/koneksi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Traveller.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/NewControllerLokasi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ControllerTransportasiPribadi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/DAO/DAOTransportasiPublik.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ControllerTransportasiPublik.java</file>
         </group>
     </open-files>
 </project-private>

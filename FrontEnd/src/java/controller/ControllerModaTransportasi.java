@@ -5,38 +5,33 @@
  */
 package controller;
 
+import DAO.DAOModaTransportasi;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Lokasi;
-import Database.KoneksiDB;
-import DAO.DAOLokasi;
 
 /**
  *
- * @author Pegasus Cyber
+ * @author Dewi Roaza
  */
 
-@WebServlet("/location")
-public class NewControllerLokasi extends HttpServlet {
-
+@WebServlet ("/moda_transportasi")
+public class ControllerModaTransportasi {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
             throws ServletException, IOException {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
-        if (proses.equals("input-lokasi")){
-            response.sendRedirect("tambah_lokasi.jsp");
+        if (proses.equals("input-moda")){
+            response.sendRedirect("tambah_moda.jsp");
             return;
-        }else if(proses.equals("edit-lokasi")){
-            response.sendRedirect("edit_lokasi.jsp?idLokasi="+request.getParameter("idLokasi"));
+        }else if(proses.equals("edit-moda")){
+            response.sendRedirect("edit_moda.jsp?Kd_Moda="+request.getParameter("Kd_Moda"));
             return;
-        }else if(proses.equals("hapus-lokasi")){
-            DAOLokasi hm=new DAOLokasi();
-            hm.setIdLokasi(request.getParameter("idLokasi"));
+        }else if(proses.equals("hapus-moda")){
+            DAOModaTransportasi hm=new DAOModaTransportasi();
+            hm.setkdModa(request.getParameter("Kd_Moda"));
             hm.hapus();
             response.sendRedirect("");
         }
@@ -48,21 +43,19 @@ public class NewControllerLokasi extends HttpServlet {
         String proses = request.getParameter("proses");
         
         if (data != null){
-            if(data.equals("lokasi")){
-                DAOLokasi um=new DAOLokasi();
-                um.setIdLokasi(request.getParameter("idLokasi"));
-                um.setNamaLokasi(request.getParameter("nama_lokasi"));
-                um.setAlamat(request.getParameter("alamat"));
-                if (proses.equals("input-lokasi")){
+            if(data.equals("moda_transportasi")){
+                DAOModaTransportasi um=new DAOModaTransportasi();
+                um.setkdModa(request.getParameter("Kd_Moda"));
+                um.settipeModa(request.getParameter("Tipe_Moda"));
+                if (proses.equals("input-moda")){
                     um.simpan();
-                }else if (proses.equals("update-lokasi")){
+                }else if (proses.equals("update-moda")){
                     um.update();
-                } else if(proses.equals("hapus-lokasi")){
+                } else if(proses.equals("hapus-moda")){
                     um.hapus();
                 }
                 response.sendRedirect("");
             }
         }
     }
-
 }
