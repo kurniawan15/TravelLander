@@ -3,37 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/Login/Admin/lokasiController.jsp</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/repository/KoneksiDB.java</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/index.jsp</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/Login/login.jsp</file>
-=======
-<<<<<<< HEAD
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/lokasiController.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/ceklogin.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/controller/LocationController.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/build/generated/src/org/apache/jsp/Login/ceklogin_jsp.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/controller/ModaTransportasiController.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/timeController.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/model/User.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/transportation.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/time.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/repository/UserDAO.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/calender.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/transportationController.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/Login/Admin/distance.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/model/Lokasi.java</file>
-=======
-            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/css/index.css</file>
-            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/login.jsp</file>
-            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
-            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/dashboardProfil.jsp</file>
-            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/FrontEnd/web/Login/Data/dashboardCreateSchedule.jsp</file>
->>>>>>> cbe4bf2d8b7d365872b01b2c03b6e93ace831471
->>>>>>> 53f6ac11f1db7919862e290ca23157b8fbad4078
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Event.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Lokasi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/ModaTransportasi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/TransportasiPribadi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Perjalanan.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/TransportasiPublik.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/repository/LokasiDAO.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/ModaTransportasiController.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/koneksi.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/model/Traveller.java</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/controller/NewControllerLokasi.java</file>
         </group>
     </open-files>
 </project-private>

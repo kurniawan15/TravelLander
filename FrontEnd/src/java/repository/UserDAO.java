@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.User;
+import model.Traveller;
 
 
 /**
@@ -24,7 +24,7 @@ public class UserDAO extends DAO{
         super(jdbcURL, jdbcUsername, jdbcPassword);
     }
     
-    public boolean insert(User user) throws SQLException {
+    public boolean insert(Traveller user) throws SQLException {
         String sql = "INSERT INTO user(id_user, nama_user, username, email, password) VALUES (?, ?, ?, ?, ?)";
         connect(); 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
