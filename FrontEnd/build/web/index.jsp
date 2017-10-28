@@ -2,6 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="repository.KoneksiDB"%>
+<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
                   <th>Action</th>
               </tr>
               <%
-                  Lokasi km = new Lokasi();
+                  DAOLokasi km = new DAOLokasi();
                   List<Lokasi> data = new ArrayList<Lokasi>();
                   String ket = request.getParameter("ket");
                   if (ket == null) {

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Lokasi;
 import repository.KoneksiDB;
+import DAO.DAOLokasi;
 
 /**
  *
@@ -34,7 +35,7 @@ public class NewControllerLokasi extends HttpServlet {
             response.sendRedirect("edit_lokasi.jsp?idLokasi="+request.getParameter("idLokasi"));
             return;
         }else if(proses.equals("hapus-lokasi")){
-            Lokasi hm=new Lokasi();
+            DAOLokasi hm=new DAOLokasi();
             hm.setIdLokasi(request.getParameter("idLokasi"));
             hm.hapus();
             response.sendRedirect("");
@@ -48,7 +49,7 @@ public class NewControllerLokasi extends HttpServlet {
         
         if (data != null){
             if(data.equals("lokasi")){
-                Lokasi um=new Lokasi();
+                DAOLokasi um=new DAOLokasi();
                 um.setIdLokasi(request.getParameter("idLokasi"));
                 um.setNamaLokasi(request.getParameter("nama_lokasi"));
                 um.setAlamat(request.getParameter("alamat"));

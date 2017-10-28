@@ -7,6 +7,7 @@ import model.Lokasi;
 import java.util.List;
 import java.util.ArrayList;
 import repository.KoneksiDB;
+import DAO.DAOLokasi;
 
 public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,6 +51,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -71,7 +73,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              </tr>\r\n");
       out.write("              ");
 
-                  Lokasi km = new Lokasi();
+                  DAOLokasi km = new DAOLokasi();
                   List<Lokasi> data = new ArrayList<Lokasi>();
                   String ket = request.getParameter("ket");
                   if (ket == null) {
