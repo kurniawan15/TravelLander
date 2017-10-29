@@ -38,7 +38,7 @@ public class ControllerLokasi extends HttpServlet {
             DAOLokasi dl=new DAOLokasi();
             dl.setKdLokasi(request.getParameter("kd_lokasi"));
             dl.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexLokasi.jsp");
         }
     }
 
@@ -62,7 +62,7 @@ public class ControllerLokasi extends HttpServlet {
                 } else if(proses.equals("hapus-lokasi")){
                     dlok.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexLokasi.jsp");
             }
         }
     }
