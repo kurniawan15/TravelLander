@@ -38,7 +38,7 @@ public class ControllerKota extends HttpServlet {
             DAOKota hm=new DAOKota();
             hm.setIdKota(request.getParameter("id_kota"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexKota.jsp");
         }
     }
 
@@ -60,7 +60,7 @@ public class ControllerKota extends HttpServlet {
                 } else if(proses.equals("hapus-kota")){
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexKota.jsp");
             }
         }
     }

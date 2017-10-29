@@ -38,7 +38,7 @@ public class ControllerTraveller extends HttpServlet {
             DAOTraveller hm=new DAOTraveller();
             hm.setKd_Traveller(request.getParameter("Kd_Traveller"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexTraveller.jsp");
         }
     }
 
@@ -62,7 +62,7 @@ public class ControllerTraveller extends HttpServlet {
                 } else if(proses.equals("hapus-traveller")){
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexTraveller.jsp");
             }
         }
     }
