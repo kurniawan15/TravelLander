@@ -1,0 +1,532 @@
+body{
+  font-family:"Arial", Serif;
+  background-color:#f4f4f4;
+
+}
+
+.navbar{
+  background-color:#2980b9;
+  overflow:hidden;
+  height:50px;
+}
+
+
+
+/*---------------tombil navigasi---------------------*/
+.navbar a{
+  float:left;
+  display:block;
+  padding:14px 16px;
+}
+
+.navbar ul{
+  margin:0 0 0 0;
+  list-style:none;
+}
+
+.navbar a:hover{
+  background-color:#F8A200;
+  color:#000;
+}
+.navbar ul a.selected
+{
+	background-color:#F8A200;
+	color:#fff;
+	padding-left: 40px;
+}
+
+/*----------------------navigasi kiri -----------------*/
+.side-nav{
+  margin-top:8px;	
+  height:100%;
+  width:0;
+  position:fixed;
+  z-index:1;
+  top:0;
+  left:0;
+  background-color:#2c3e50;
+  overflow-x:hidden;
+  padding-top:60px;
+  transition:0.5s;
+}
+/*  text di sebelah  */
+.side-nav a{
+  padding:10px 2px 10px 5px;
+  text-decoration:none;
+  font-size:20px;
+  color:#fff;
+  display:block;
+  border-bottom: 1px solid #535353;
+ 	-webkit-transition: 0.2s;
+	-moz-transition: 0.2;
+	-o-transition: 0.2;
+}
+/* efek */
+.side-nav a.selected
+{
+	background-color:#F8A200;
+	color:#fff;
+	padding-left: 40px;
+}
+
+.side-nav a:hover{
+  	background-color:#F8A200;
+	color:#fff;
+	padding-left: 40px;
+}
+
+.side-nav .btn-close
+{
+  position:absolute;
+  top:0;
+  right:22px;
+  font-size:36px;
+  margin-left:50px;
+}
+/*----------------log out---------------------------*/
+ul#dropdown li a
+{
+	float:right;
+	background:#27ae60;
+	color:#fff;
+	text-decoration:none;
+	display:block;
+	height:50px;
+	width:80px;
+	text-align:center;
+	padding:14px 16px;
+}
+ul#dropdown li a:hover
+{
+	background-color:#F8A200;
+	color:#fff;
+}
+
+/*-------------------- halaman utama ------------------------*/
+
+#main{
+	
+	flex-flow: row wrap;
+	height:100%;
+
+}
+/*--------------------tabel--------------------------------*/
+
+.table{
+	    margin:0 auto;
+		margin-top:8px;
+        width:95%;
+        overflow:auto;
+        font-family: helvetica,arial,sans-serif;
+        font-size:14px;
+        color:#000;
+        border-collapse: collapse;
+        text-align: center;
+}
+
+.table th {
+       
+        padding: 8px;
+        color:#fff;
+        background-color: #27ae60;
+}
+.table tr {
+    border-width: 1px;
+    padding: 8px;
+	font-size:20px;
+}
+.table tr td {
+    text-align: center;
+}
+tr:nth-child(odd){background-color: #f2f2f2}
+
+/*----------------------tombol edit dan delet---------------------*/
+
+.button1 {
+    position: relative;
+    background-color: #f39c12;
+    border: none;
+	border-radius:5px;
+    font-size: 12px;
+    color: #FFF;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+	cursor: pointer;
+}
+
+.button2 {
+    position: relative;
+    background-color: #c0392b;
+    border: none;
+	border-radius:5px;
+    font-size: 12px;
+    color: #FFF;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+	cursor: pointer;
+}
+
+
+@media(max-width:568px){
+  .navbar-nav{display:none}
+
+}
+
+@media screen and (max-height:568px){
+  /*.open-slide{display:none}*/
+}
+
+/*-------------------------main content---------------------------------*/
+
+.main-content 
+{
+	padding: 40px;
+	margin-top: 0;
+	padding: 0;
+	padding-top: 0px;
+	height: 100%;
+}
+
+.widget 
+{
+	flex-basis: 300px;
+	flex-grow: 10;
+	height: 100%;
+	margin: 15px;
+	border-radius: 6px;
+	background-color: #fff;
+	position: relative;
+}
+.widget .title 
+{
+	background-color: #eef1f7;
+	border-bottom: 1px solid #dfe4ec;
+	padding: 10px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	color: #617085;
+	font-weight: 600;
+}
+
+.widget.tex
+{
+	background-color: #eef1f7;
+	border-bottom: 1px solid #dfe4ec;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	font-weight: 600px;
+	padding:10px;
+}
+/*---------------------------Keterangan edit data----------------------------*/
+.confirm2 {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+.confirm-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+	height:220px;
+}
+/*-------------------------Keterangan edit data jarak-----------------------*/
+.confirm-content-distance
+{
+	background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 40%;
+	}
+.exit {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.exit:hover,
+.exit:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*-----------------------imput data tempat dan beberapa yang lain------------------------ */
+.form 
+{
+	padding:2% 5%;
+	margin-top:5%;
+	border-radius:5px;
+    border: 3px solid #f4f4f4;
+}
+input[type=text]
+{
+    width: 100%;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size:18px;
+    border-radius:5px;
+    box-sizing: border-box;
+}
+.huhu
+{
+	width: 10%;
+    padding: 2% 4%;
+    margin: 8px 0;
+	font-size:18px;
+	border-radius:5px;
+    box-sizing: border-box;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color:#F8A200;
+	color:#fff;
+}
+.address
+{
+     
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size:18px;
+    border-radius:5px;
+    box-sizing: border-box;
+}
+/*-------------------------------imput data jarak------------------------------ */
+.imput-distace
+{
+	font-weight:bold;
+	color:#6F6F6F;
+	width:90%;
+	padding:1%;
+}
+
+.form-distance
+{
+	width:100%;
+	padding:0px 0px;
+}
+/*-------------------------------imput data time------------------------------*/
+.imput-time
+{
+	font-weight:bold;
+	color:#6F6F6F;
+	width:90%;
+	padding:1%;
+}
+.form-time
+{
+	width:100%;
+	padding:0px 0px;
+	margin-top:10px;
+}
+.selected-time
+{
+	
+    padding: 2px 5px;
+    margin: 8px 0;
+	font-size:18px;
+	border-radius:5px;
+    box-sizing: border-box;
+}
+/*-------------------------------konfirmasi delet data------------------------*/
+.ask-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+	border-radius:10px;
+    width: 20%;
+	height:100px;
+}
+.ask
+{
+	padding:2%;
+	margin-top:5%;
+	text-align:center;
+}
+.b1
+{
+	background-color: #4CAF50;
+    color: white;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 40%;
+}
+.b2
+{
+	background-color: #c0392b;
+    color: white;
+    padding: 10px 12px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 40%;
+}
+
+/*------------------------------------------bagian imput data----------------------------*/
+.imput
+{
+	font-weight:bold;
+	color:#6F6F6F;
+	font-size:100%;
+	width:240px;
+	padding:1%;
+}
+.ImputButton
+{
+	background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 1px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 170px;
+}
+
+/*-----------------------------------calendar-----------------------------------*/
+#calendar {
+		max-width: 90%;
+		margin: 0 auto;
+	}
+
+@media screen and (max-width:500px)
+{
+/*------------------------tabel phone------------------------------------------------------------------------*/
+    .table, .table tr, .table td, tbody
+	{
+        display: block;
+	}
+	.table th 
+	{
+       display: none;
+    }
+	.table tr td 
+	{
+  	    position: relative;
+        padding-left: 40%;
+        text-align: left;
+    }
+	.table tr td::before 
+	{
+        content: attr(title) " : ";
+        color:#000;
+        left: 15px;
+        position: absolute;
+    }
+	
+	 .table tr {
+        border: none;
+    }
+    
+    .table tr:nth-child(1n+2){
+        padding: 15px 0; 
+    }
+	tr:nth-child(odd){background-color: #F4f4f4}
+	
+/*---------------Keterangan edit data----------------------------*/
+
+	.confirm-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 70%;
+	height:156px;
+	}
+/*----------------konfirmasi edit data-------------------------*/
+	input[type=text]
+{
+    width: 100%;
+    padding: 8px 10px;
+    margin: 8px 0;
+	font-size:12px;
+	border-radius:5px;
+    box-sizing: border-box;
+}
+
+	.ask-content {
+		background-color: #fefefe;
+		margin: auto;
+		padding: 10px;
+		border: 1px solid #888;
+		border-radius:10px;
+		width: 80%;
+		height:120px;
+	}
+	
+	.confirm-content-distance
+	{
+	background-color: #fefefe;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+	
+	}
+/*------------------Bagian Imput data--------------------------*/
+	.imput
+	{
+		text-align:center;
+		font-weight:bold;
+		color:#6F6F6F;
+		font-size:100%;
+		width:100%;
+		padding:10px 1px;
+	}
+	.ImputButton
+	{
+		background-color: #4CAF50;
+		color: white;
+		padding: 10px 20px;
+		margin: 1px 0;
+		border: none;
+		border-radius:5px;
+		cursor: pointer;
+		width: 100%;
+	}
+	
+	.imput-distace
+	{
+		font-weight:bold;
+		color:#6F6F6F;
+		width:100%;
+		padding:1%;
+	}
+	
+        .address
+        {    
+            padding: 8px 10px;
+            margin: 8px 0;
+            font-size:10px;
+            border-radius:5px;
+            box-sizing: border-box;
+        }
+	
+}

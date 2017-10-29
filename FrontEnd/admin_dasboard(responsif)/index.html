@@ -1,5 +1,6 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
-
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +19,9 @@
         </svg>
       </a>
     </span>
+    <ul id="dropdown">
+    	<li><a href="#">Log Out</a></li>
+    </ul>
   </nav>
 
   <div id="side-menu" class="side-nav">
@@ -31,15 +35,75 @@
 <div class="main-content">
 	  <div id="main">																					
 		<div class="widget">
-			<div class="title">Number of vews</div>
+			<div class="title">Manage Place</div>
+            <table class="table">
+            <tr>
+                <th>NO</th>
+                <th>Place</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+            </table>
 			<div class="tex">
            <p></p>
             </div>
 		</div>
+        <div class="widget">
+        	<div class="title"> 
+            	Imput Data Transportation 
+            </div>
+            <div class="imput">
+            	Imput New Vehicle 
+                <input type="text" placeholder="Enter New Place" name="#" required>
+                <button type="submit" class="ImputButton" onClick="tutup()" name="#">Update Data</button>
+            </div>
+        </div>
 	  </div>
 </div>
-
+<div id="confirm" class="confirm2">
+	<div class="confirm-content">
+    <span onClick="tutup()" class="exit" >&times;</span>
+    	<div class="form">
+        	<label style="font-weight:bold">
+            	<a>Edit Place</a>
+            </label>
+    		<input type="text" placeholder="Enter New Place" name="#" required>
+            <button type="submit" onClick="tutup()" name="#">Update Data</button>
+        </div>
+	</div>
+</div>
+<div id="ask" class="confirm2">
+	<div class="ask-content">
+    	<span onClick="tutup2()" class="exit" >&times;</span>
+        <div class="ask">
+            <label style="font-weight:bold">
+                <a> &nbsp &nbsp Are You Sure To Delete Data? </a> <br>
+            </label>
+            <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
+        </div> 
+    </div>
+</div>
   <script>
+/*----------------------------edit buat mav----------------------------------------------*/
     function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
       document.getElementById('main').style.marginLeft = '250px';
@@ -49,6 +113,202 @@
       document.getElementById('side-menu').style.width = '0';
       document.getElementById('main').style.marginLeft = '0';
     }
+	
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+	function openo()
+	{
+		document.getElementById("confirm").style.display = "block"
+	}
+	function opena()
+	{
+		document.getElementById("ask").style.display = "block"
+	}
+	function tutup()
+	{
+		document.getElementById("confirm").style.display = "none"
+	}
+	function tutup2()
+	{
+		document.getElementById("ask").style.display = "none"
+	}
+	 
+	
+
+
   </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Super Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<style>
+body{
+ /* Location of the image */
+  background-image: url(img/2.jpg);
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+}
+.footer{
+    background-color: #2980b9;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+</style>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <ul id="dropdown">
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">Calendar</a>                                                                                   
+    <a href="#">Manage Place</a>
+    <a href="#">Manage Distance</a>
+    <a href="#">Manage Time</a>
+    <a href="#">Manage Transpotation</a>
+  </div>
+<div class="main-content">
+    <div id="main">                                         
+    <div class="widget">
+      <div class="title">Manage Place</div>
+            <table class="table">
+            <tr>
+                <th>NO</th>
+                <th>Place</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit" onClick="openo()"  class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+              <tr>
+                <td title="NO">1</td>
+                <td title="Place">Bandung</td>
+                <td title="Action"><input type="submit"  onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
+            </tr>
+            </table>
+      <div class="tex">
+           <p></p>
+            </div>
+    </div>
+        <div class="widget">
+          <div class="title"> 
+              input Data Transportation 
+            </div>
+            <div class="input">
+              input New Vehicle 
+                <input type="text" placeholder="Enter New Place" name="#" required>
+                <button type="submit" class="inputButton" onClick="tutup()" name="#">Update Data</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="footer">
+    <p>© Copyright Kelompok B2 | October 2017</p>
+</div>
+<div id="confirm" class="confirm2">
+  <div class="confirm-content">
+    <span onClick="tutup()" class="exit" >&times;</span>
+      <div class="form">
+          <label style="font-weight:bold">
+              <a>Edit Place</a>
+            </label>
+        <input type="text" placeholder="Enter New Place" name="#" required>
+            <button type="submit" onClick="tutup()" name="#">Update Data</button>
+        </div>
+  </div>
+</div>
+<div id="ask" class="confirm2">
+  <div class="ask-content">
+      <span onClick="tutup2()" class="exit" >&times;</span>
+        <div class="ask">
+            <label style="font-weight:bold">
+                <a> &nbsp &nbsp Are You Sure To Delete Data? </a> <br>
+            </label>
+            <button onClick="tutup2()" class="b1" type="submit" name="#">NO</button>  <button onClick="tutup2()" class="b2" type="submit" name="#">YES </button>
+        </div> 
+    </div>
+</div>
+  <script>
+/*----------------------------edit buat mav----------------------------------------------*/
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+  function openo()
+  {
+    document.getElementById("confirm").style.display = "block"
+  }
+  function opena()
+  {
+    document.getElementById("ask").style.display = "block"
+  }
+  function tutup()
+  {
+    document.getElementById("confirm").style.display = "none"
+  }
+  function tutup2()
+  {
+    document.getElementById("ask").style.display = "none"
+  }
+  </script>
+</body>
+</html>
+>>>>>>> b98a1ffef103b5767ea72e46180d9cd0aa76f843

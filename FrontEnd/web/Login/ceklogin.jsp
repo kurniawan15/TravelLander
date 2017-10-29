@@ -1,51 +1,29 @@
 <%-- 
     Document   : ceklogin
     Created on : Sep 17, 2017, 11:28:29 PM
-    Author     : Cyber Pegasus
+    Author     : Delvin V
 
 --%>
-<%@page import="traveller.controller.koneksi"%>
+
 <%@ page import ="java.sql.*" %>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <%
-          String username = request.getParameter("user");
-          String password = request.getParameter("pass");
-        //  koneksi connection = new koneksi();  
-        //  Class.forName("com.mysql.jdbc.Driver");
-        //  Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender","root", "");
-        // Statement st = con.createStatement();
-        //  ResultSet rs;
-        //  rs = st.executeQuery("select * from admin where id_Admin ='" + username + "' and password='" + password + "'");
-        if (username.equals("admin1")&&(password.equals("admin1"))){
-                session.setAttribute("id_Admin",username);
-                response.sendRedirect("Admin/DataPlace.jsp");
-        }
-        else
-            {
-                session.setAttribute("id_Admin",username);
-                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
-                
-//            if(rs.next())
-//            {
-//                //berhasil
-//                session.setAttribute("id_Admin",username);
-//                response.sendRedirect("Data/dashboardCreateSchedule.jsp");
-//            }
-//            else
-//            {
-//                //gagal 
-//                response.sendRedirect("error.jsp");
-//          }
-        }
-        %>
-    </body>
-</html>
+<%
+    String user = request.getParameter("user");    
+    String pass = request.getParameter("pass");
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender",
+            "root", "");
+    Statement st = con.createStatement();
+    ResultSet rs;
+    rs = st.executeQuery("select * from user where username='" + user + "' and password='" + pass + "'");
+    if (rs.next()) {
+        session.setAttribute("user", user);
+        out.println("welcome " + user);
+        //out.println("<a href='../logout.jsp'>Log out</a>");
+        response.sendRedirect("Admin/calender.jsp");
+    } else {
+        out.println("Invalid password <a href='../index.jsp'>try again</a>");
+    }
+%>

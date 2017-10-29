@@ -15,6 +15,17 @@ import java.util.List;
  */
 public class Event {
 
+    
+    private String idUser;
+    private String idEvent;
+    private Date waktuMulai;
+    private Date waktuSelesai;
+    private String namaAgenda;
+    private String idPerjalanan;
+    private ModaTransportasi transport;  //nanti hapus aja klo sudah kejsp
+    private Lokasi destination;          //nanti hapus aja klo sudah kejsp
+    private Lokasi embarkation;          //nanti hapus aja klo sudah kejsp
+    
     /**
      * @return the idEvent
      */
@@ -32,24 +43,16 @@ public class Event {
     /**
      * @return the nameEvent
      */
-    public String getNameEvent() {
-        return nameEvent;
+    public String getNamaAgenda() {
+        return namaAgenda;
     }
 
     /**
-     * @param nameEvent the nameEvent to set
+     * @param namaAgenda the nameEvent to set
      */
-    public void setNameEvent(String nameEvent) {
-        this.nameEvent = nameEvent;
+    public void setNamaAgenda(String namaAgenda) {
+        this.namaAgenda = namaAgenda;
     }
-    private String idUser;
-    private String idEvent;
-    private Date startTime;
-    private Date endTime;
-    private String nameEvent;
-    private ModaTransportasi transport;
-    private Lokasi destination;
-    private Lokasi embarkation;
     /**
      * @return the idUser
      */
@@ -71,29 +74,29 @@ public class Event {
     /**
      * @return the startTime
      */
-    public Date getStartTime() {
-        return startTime;
+    public Date getWaktuMulai() {
+        return waktuMulai;
     }
 
     /**
-     * @param startTime the startTime to set
+     * @param waktuMulai the startTime to set
      */
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setWaktuMulai(Date waktuMulai) {
+        this.waktuMulai = waktuMulai;
     }
 
     /**
      * @return the endTime
      */
-    public Date getEndTime() {
-        return endTime;
+    public Date getWaktuSelesai() {
+        return waktuSelesai;
     }
 
     /**
-     * @param endTime the endTime to set
+     * @param waktuSelesai the endTime to set
      */
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setWaktuSelesai(Date waktuSelesai) {
+        this.waktuSelesai = waktuSelesai;
     }
     
     /**
@@ -141,22 +144,35 @@ public class Event {
         /**
      * Prosedur untuk menampilkan satu event
      */
-    public void printEvent(List<Lookup> list) {
+    public void printEvent(List<Perjalanan> list) {
         
-        String pattern = "EEEE, dd/MM/yyyy hh:mm";
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
-        
-        Lookup l = new Lookup();
-        System.out.println("Nama event \t : " + this.getNameEvent());
+        String pattern = "EEEE, dd/MM/yyyy HH:mm";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);  
+        Perjalanan l = new Perjalanan();
+        System.out.println("Nama event \t : " + this.getNamaAgenda());
         System.out.println("Lokasi awal \t : " + this.getEmbarkation().getNamaLokasi());
         System.out.println("Lokasi akhir \t : " + this.destination.getNamaLokasi());
-        System.out.println("Waktu mulai \t : " + format.format(this.startTime));
-        System.out.println("Waktu selesai \t : " + format.format(this.endTime) + "\n");
+        System.out.println("Waktu mulai \t : " + format.format(this.waktuMulai));
+        System.out.println("Waktu selesai \t : " + format.format(this.waktuSelesai) + "\n");
 //        System.out.println("Transportasi \t : " + this.transport.getNameTransport() + "\n");
         
         l.getSameLocation(list, this);
         
         }
+
+    /**
+     * @return the idPerjalanan
+     */
+    public String getIdPerjalanan() {
+        return idPerjalanan;
+    }
+
+    /**
+     * @param idPerjalanan the idPerjalanan to set
+     */
+    public void setIdPerjalanan(String idPerjalanan) {
+        this.idPerjalanan = idPerjalanan;
+    }
 
 
 }

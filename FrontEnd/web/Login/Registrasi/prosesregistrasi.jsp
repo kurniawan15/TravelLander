@@ -1,102 +1,76 @@
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%-- 
-    Document   : prosesregistrasi
-    Created on : Sep 18, 2017, 7:42:08 PM
-    Author     : Cyber Pegasus
+    Document   : prosesregis
+    Created on : Sep 25, 2017, 11:28:17 PM
+    Author     : Delvin V
 --%>
-<%@page import="traveller.controller.koneksi"%>
+<%@page import="model.User"%>
+<%@page import="repository.UserDAO"%>
+
+%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        
-   <%!
-      public class Data{
-      String URL = "jdbc:mysql://localhost:3306/travelender";
-      String username = "pega";
-      String password = "pega";
+<%
+/*
 
-      Connection connection = null;
-      PreparedStatement insertData = null;
-      ResultSet resultset = null;
-      
-      public Data(){
-      
-      try{
-         connection = DriverManager.getConnection(URL, username,password);
-         insertData = connection.prepareStatement(
-         "INSERT INTO akun (username, password, email)"
-         + "VALUES(?,?,?) ");
+    String firstName = request.getParameter("firstname");    
+    String lastName = request.getParameter("lastname");    
+    String userName = request.getParameter("user");    
+    String email = request.getParameter("email");
+    String pass = request.getParameter("password");
 
-        } catch (SQLException e){
-        e.printStackTrace();
-        }
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/travelender",
+            "root", "");
+    Statement st = con.createStatement();
+    ResultSet rs;
+    int i = st.executeUpdate("insert into user( email, nama_user,firstname, lastname, password) values "
+            + "('" + email + "','" + userName + "','" + firstName + "','" + lastName + "','" + pass + "')");
+    if (i > 0) {
+        //session.setAttribute("userid", user);
+       // response.sendRedirect("welcome.jsp");
+       // out.print("Registration Successfull!"+"<a href='index.jsp'>Go to Login</a>");
+    } else {
+        response.sendRedirect("index.jsp");
     }
+*/
+%>
 
-    public int setData(String usernama, String password, String email){
-    int result = 0;
+<%
+   String driverName = "com.mysql.jdbc.Driver"; // Driver Untuk Koneksi Ke MySQL  
+   String jdbc = "jdbc:mysql://";  
+   String host = "localhost:"; // Bisa Menggunakan IP Anda, Cnth : 192.168.100.100  
+   String port = "3306/"; // Port ini port MySQL  
+   String database = "travelender"; // Ini Database yang akan digunakan  
+   String url = jdbc + host + port + database;  
+   String username = "root"; // username default mysql  
+   String password = "";  
+
+    UserDAO userDAO = new UserDAO(url,username,password);
+
+    String idUser = userDAO.getNewIdUser();
     
-    try{
-      insertData.setString(1, username);
-      insertData.setString(2, password);
-      insertData.setString(3, email);
-      result = insertData.executeUpdate();
+    String firstName = request.getParameter("firstname");    
+    String lastName = request.getParameter("lastname");    
+    String userName = request.getParameter("user");    
+    String email = request.getParameter("email");
+    String pass = request.getParameter("pass");
 
-    }
-     catch(SQLException e){
-     e.printStackTrace();
-    }
     
-    return result;
+    User user = new User(idUser,firstName+" "+lastName,userName,email,pass);
+    boolean row = userDAO.insert(user);
+    
+    if(row == true  ){
+        response.sendRedirect("../login.jsp");
+        out.println(userName);
+        out.println(pass);
     }
-}
-    %>
-        
-    <%
-        int result = 0;
-           
-        String user = new String();
-        String pass = new String();
-        String mail = new String();
-        
-        if(request.getPart("username") != null){
-            user = request.getParameter("username");
-        }
-        if(request.getPart("password") != null){
-            pass = request.getParameter("password");
-        }
-        if(request.getPart("email") != null){
-            mail = request.getParameter("email");
-        }
-        
-       Data data = new Data();
-       result = data.setData(user, pass, mail);
-       
-    %> 
-        
-    <%
-//        String user = request.getParameter("username");    
-//        String pass = request.getParameter("password");
-//        String email = request.getParameter("email");
-//        koneksi connection = new koneksi();
-//        Class.forName("com.mysql.jdbc.Driver");
-//        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/traveller", "root", "");
-//        Statement st = con.createStatement();
-//        ResultSet rs;
-//        int i = st.executeUpdate("insert into akun( username, password, email) values ('" + user + "' ,'" + pass + "','" + email + "'())");
-//        if (i > 0) {
-//            //session.setAttribute("userid", user);
-//            response.sendRedirect("welcome.jsp");
-//            out.print("Registration Successfull!"+"<a href='index.jsp'>Go to Login</a>");
-//        } else {
-//            response.sendRedirect("index.jsp");
-//        }
-    %>
+    else{
 
-    </body>
-</html>
+    
+%>
+
+<%
+            out.println("GAGAL");
+        }
+        %>
+        
+        
