@@ -24,19 +24,19 @@
  
               </tr>
               <%
-                  DAOProvinsi km = new DAOProvinsi();
+                  DAOProvinsi dp = new DAOProvinsi();
                   List<Provinsi> data = new ArrayList<Provinsi>();
                   String ket = request.getParameter("ket");
                   if (ket == null) {
-                      data = km.tampil();
+                      data = dp.tampil();
                   } 
                   for (int x = 0; x < data.size(); x++) {
               %>
                <tr>
                   <td><%=x + 1%></td>
                   <td><%=data.get(x).getIdProvinsi()%></td>
-                  <td><%=data.get(x).getIbuKota()%></td>
                   <td><%=data.get(x).getNamaProvinsi()%></td>
+                  <td><%=data.get(x).getIbuKota()%></td>
  
                   <td>
                       <a href="provinsi?proses=edit-provinsi&id_provinsi=<%=data.get(x).getIdProvinsi()%>">Edit</a>

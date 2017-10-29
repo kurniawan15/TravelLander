@@ -34,7 +34,7 @@
 		</tr>
 		<tr>
                     <td>Ibu Kota</td>
-                    <td><input type="text" name="ibu_kota" value="<%=data.get(0).getIdProvinsi()%>"></td>
+                    <td><input type="text" name="ibu_kota" value="<%=data.get(0).getIbuKota()%>"></td>
 		</tr>
 		<tr>
                     <td></td>
