@@ -10,36 +10,36 @@ package model;
  * @author Dewi Roaza
  */
 public class TransportasiPribadi {
-    private String idTansportasiPribadi;
-    private String idModa;
-    private String namaTransportasiPribadi;
+    public String kdTansportasiPribadi;
+    public String kdModa;
+    public String namaTransportasiPribadi;
 
     /**
      * @return the idTansportasiPribadi
      */
-    public String getIdTansportasiPribadi() {
-        return idTansportasiPribadi;
+    public String getKdTansportasiPribadi() {
+        return kdTansportasiPribadi;
     }
 
     /**
-     * @param idTansportasiPribadi the idTansportasiPribadi to set
+     * @param kdTansportasiPribadi the idTansportasiPribadi to set
      */
-    public void setIdTansportasiPribadi(String idTansportasiPribadi) {
-        this.idTansportasiPribadi = idTansportasiPribadi;
+    public void setKdTansportasiPribadi(String kdTansportasiPribadi) {
+        this.kdTansportasiPribadi = kdTansportasiPribadi;
     }
 
     /**
      * @return the idModa
      */
-    public String getIdModa() {
-        return idModa;
+    public String getKdModa() {
+        return kdModa;
     }
 
     /**
-     * @param idModa the idModa to set
+     * @param kdModa the idModa to set
      */
-    public void setIdModa(String idModa) {
-        this.idModa = idModa;
+    public void setKdModa(String kdModa) {
+        this.kdModa = kdModa;
     }
 
     /**
@@ -54,5 +54,25 @@ public class TransportasiPribadi {
      */
     public void setNamaTransportasiPribadi(String namaTransportasiPribadi) {
         this.namaTransportasiPribadi = namaTransportasiPribadi;
+    }
+
+    public void setkdTansportasiPribadi(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setkdModa(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setnamaTransportasiPribadi(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setkdTansportasiPublik(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setnamaTransportasiPublik(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -12,38 +12,38 @@ import java.util.Date;
  * @author Dewi Roaza
  */
 public class TransportasiPublik {
-    private String idTansportasiPublik;
-    private String idModa;
-    private String namaTransportasiPublik;
-    private Date waktuBerangkat;
-    private Date waktuDatang;
+    public String kdTansportasiPublik;
+    public String kdModa;
+    public String namaTransportasiPublik;
+    public Date waktuBerangkat;
+    public Date waktuDatang;
 
     /**
      * @return the idTansportasiPublik
      */
-    public String getIdTansportasiPublik() {
-        return idTansportasiPublik;
+    public String getKdTansportasiPublik() {
+        return kdTansportasiPublik;
     }
 
     /**
-     * @param idTansportasiPublik the idTansportasiPublik to set
+     * @param kdTansportasiPublik the idTansportasiPublik to set
      */
-    public void setIdTansportasiPublik(String idTansportasiPublik) {
-        this.idTansportasiPublik = idTansportasiPublik;
+    public void setKdTansportasiPublik(String kdTansportasiPublik) {
+        this.kdTansportasiPublik = kdTansportasiPublik;
     }
 
     /**
      * @return the idModa
      */
-    public String getIdModa() {
-        return idModa;
+    public String getKdModa() {
+        return kdModa;
     }
 
     /**
-     * @param idModa the idModa to set
+     * @param kdModa the idModa to set
      */
-    public void setIdModa(String idModa) {
-        this.idModa = idModa;
+    public void setKdModa(String kdModa) {
+        this.kdModa = kdModa;
     }
 
     /**
@@ -86,5 +86,25 @@ public class TransportasiPublik {
      */
     public void setWaktuDatang(Date waktuDatang) {
         this.waktuDatang = waktuDatang;
+    }
+
+    public void setkdTansportasiPublik(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setkdModa(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setnamaTransportasiPublik(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setwaktuDatang(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setwaktuBerangkat(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

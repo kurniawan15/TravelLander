@@ -10,9 +10,9 @@ package model;
  * @author Dewi Roaza
  */
 public class Provinsi {
-    private String idProv;
-    private String nameProv;
-    private String ibuKota;
+    public String idProv;
+    public String nameProv;
+    public String ibuKota;
 
     /**
      * @return the idProv
