@@ -17,6 +17,20 @@ import java.sql.Statement;
 public class KoneksiDB {
     private Connection conn;
     private Statement st;
+    
+    public void ambilKoneksi() {
+        try {
+            String db = "jdbc:mysql://localhost:3306/travelender";
+            String user = "root";
+            String pass = "";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(db, user, pass);
+            st = conn.createStatement();
+            
+        } catch (Exception x) {
+            System.out.println("Terjadi kesalahan ambil koneksi : " + x);
+        }
+    }
 
     public void koneksi() {
         try {
@@ -42,23 +56,26 @@ public class KoneksiDB {
             conn.close();
         } catch (Exception x) {
             System.out.println("Terjadi kesalahan diskoneksi : " + x);
+            x.printStackTrace();
         }
     }
 
     public ResultSet ambilData(String sql) {
         ResultSet rs = null;
         try {
-            koneksi();
+            ambilKoneksi();
+            
             rs = st.executeQuery(sql);
         } catch (Exception x) {
             System.out.println("Terjadi kesalahan ambil data : " + x);
+            x.printStackTrace();
         }
         return rs;
     }
 
     public void simpanData(String sql) {
         try {
-            koneksi();
+            ambilKoneksi();
             st.executeUpdate(sql);
         } catch (Exception x) {
             System.out.println("Terjadi kesalahan simpan data : " + x);
