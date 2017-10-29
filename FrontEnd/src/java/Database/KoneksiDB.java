@@ -20,7 +20,7 @@ public class KoneksiDB {
 
     public void koneksi() {
         try {
-            String db = "jdbc:mysql://localhost:3306/travelendar2";
+            String db = "jdbc:mysql://localhost:3306/travelender";
             String user = "root";
             String pass = "";
             Class.forName("com.mysql.jdbc.Driver");
