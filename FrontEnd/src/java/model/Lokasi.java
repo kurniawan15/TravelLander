@@ -18,9 +18,11 @@ import Database.KoneksiDB;
  */
 public class Lokasi {
     
-    public String idLokasi;
+    public String kd_lokasi;
     public String namaLokasi;
     public String alamat;
+    public String id_kota;
+    public String id_provinsi;
     
     
     public Lokasi(){
@@ -28,12 +30,12 @@ public class Lokasi {
     }
     
 
-    public String getIdLokasi() {
-        return idLokasi;
+    public String getKdLokasi() {
+        return kd_lokasi;
     }
 
-    public void setIdLokasi(String idLokasi) {
-        this.idLokasi = idLokasi;
+    public void setKdLokasi(String kd_lokasi) {
+        this.kd_lokasi = kd_lokasi;
     }
 
 
@@ -53,6 +55,34 @@ public class Lokasi {
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+
+    /**
+     * @return the id_kota
+     */
+    public String getId_kota() {
+        return id_kota;
+    }
+
+    /**
+     * @param id_kota the id_kota to set
+     */
+    public void setId_kota(String id_kota) {
+        this.id_kota = id_kota;
+    }
+
+    /**
+     * @return the id_provinsi
+     */
+    public String getId_provinsi() {
+        return id_provinsi;
+    }
+
+    /**
+     * @param id_provinsi the id_provinsi to set
+     */
+    public void setId_provinsi(String id_provinsi) {
+        this.id_provinsi = id_provinsi;
     }
     
     
