@@ -20,9 +20,9 @@
         <form action="kota?data=kota&proses=update-kota" method="post">
             <table style="margin:20px auto;">
             <%
-                String kd_kota = request.getParameter("id_kota");
+                String id_kota = request.getParameter("id_kota");
                 DAOKota kt = new DAOKota();
-                kt.setIdKota(kd_kota);
+                kt.setIdKota(id_kota);
                 List<Kota> data = new ArrayList<Kota>();
                 data = kt.cariID(); 
                 if (data.size() > 0) {
@@ -35,6 +35,7 @@
 		<tr>
                     <td>IdProvinsi</td>
                     <td><input type="text" name="id_provinsi" value="<%=data.get(0).getIdProvinsi()%>"></td>
+                    <td><input type="hidden" name="id_kota" value="<%=data.get(0).getIdKota()%>"></td>
 		</tr>
 		<tr>
                     <td></td>

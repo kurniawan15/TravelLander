@@ -30,7 +30,7 @@ public class KoneksiDB {
             System.out.println("SUKSES");
         } catch (Exception x) {
 
-            System.out.println("Terjadi kesalahan koneksi : " + x);
+            System.out.println("Terjadi kesalahan koneksi di koneksi karena : " + x);
         }
     }
 
