@@ -11,20 +11,12 @@ package model;
  */
 public class Perjalanan {
     public String idPerjalanan;
-    public int jarakTempuh;
+    public String kdTransportasiPublik;
+    public String kdJarak;
+    public String kdTransportasiPribadi;
     public int waktuTempuh;
-    public Lokasi lokasiAwal;
-    public Lokasi lokasiAkhir;
-    public ModaTransportasi transport;
-
     
-    public Perjalanan(String idPerjalanan,int jarakTempuh, int waktuTempuh,Lokasi lokasiAwal,Lokasi lokasiAkhir,ModaTransportasi transportasi){
-        this.idPerjalanan = idPerjalanan;
-        this.jarakTempuh = jarakTempuh;
-        this.lokasiAkhir = lokasiAkhir;
-        this.transport = transport;
-        this.waktuTempuh = waktuTempuh;
-    }
+  
     /**
      * @return the idLookup
      */
@@ -40,17 +32,45 @@ public class Perjalanan {
     }
 
     /**
-     * @return the jarakTempuh
+     * @return the kdTransportasiPublik
      */
-    public int getJarakTempuh() {
-        return jarakTempuh;
+    public String getKdTransportasiPublik() {
+        return kdTransportasiPublik;
     }
 
     /**
-     * @param jarakTempuh the jarakTempuh to set
+     * @param kdTransportasiPublik the kdTransportasiPublik to set
      */
-    public void setJarakTempuh(int jarakTempuh) {
-        this.jarakTempuh = jarakTempuh;
+    public void setKdTransportasiPublik(String kdTransportasiPublik) {
+        this.kdTransportasiPublik = kdTransportasiPublik;
+    }
+
+    /**
+     * @return the kdJarak
+     */
+    public String getKdJarak() {
+        return kdJarak;
+    }
+
+    /**
+     * @param kdJarak the kdJarak to set
+     */
+    public void setKdJarak(String kdJarak) {
+        this.kdJarak = kdJarak;
+    }
+
+    /**
+     * @return the kdTransportasiPribadi
+     */
+    public String getKdTransportasiPribadi() {
+        return kdTransportasiPribadi;
+    }
+
+    /**
+     * @param kdTransportasiPribadi the kdTransportasiPribadi to set
+     */
+    public void setKdTransportasiPribadi(String kdTransportasiPribadi) {
+        this.kdTransportasiPribadi = kdTransportasiPribadi;
     }
 
     /**
@@ -67,49 +87,19 @@ public class Perjalanan {
         this.waktuTempuh = waktuTempuh;
     }
 
-    /**
-     * @return the lokasiAwal
-     */
-    public Lokasi getLokasiAwal() {
-        return lokasiAwal;
+    public void setkdTransportasiPublik(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @param lokasiAwal the lokasiAwal to set
-     */
-    public void setLokasiAwal(Lokasi lokasiAwal) {
-        this.lokasiAwal = lokasiAwal;
+    public void setkdJarak(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @return the LokasiAkhir
-     */
-    public Lokasi getLokasiAkhir() {
-        return lokasiAkhir;
+    public void setkdTransportasiPribadi(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @param LokasiAkhir the LokasiAkhir to set
-     */
-    public void setLokasiAkhir(Lokasi LokasiAkhir) {
-        this.lokasiAkhir = LokasiAkhir;
-    }
-
-    /**
-     * @return the transport
-     */
-    public ModaTransportasi getTransport() {
-        return transport;
-    }
-
-    /**
-     * @param transport the transport to set
-     */
-    public void setTransport(ModaTransportasi transport) {
-        this.transport = transport;
-    }
-    
-    public void getIntervalTime(Lokasi lokasi1,Lokasi lokasi2,Event event){
-        
+    public void setwaktuTempuh(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -18,21 +18,10 @@ public class KoneksiDB {
     private Connection conn;
     private Statement st;
 
-    public static void ambilKoneksi() {
-        try {
-            String db = "jdbc:mysql://localhost:3306/travelender";
-            String user = "root";
-            String pass = "";
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(db, user, pass);
-        } catch (Exception x) {
-            System.out.println("Terjadi kesalahan ambil koneksi : " + x);
-        }
-    }
 
     public void koneksi() {
         try {
-            String db = "jdbc:mysql://localhost:3306/travelendar2";
+            String db = "jdbc:mysql://localhost:3306/travelender";
             String user = "root";
             String pass = "";
             Class.forName("com.mysql.jdbc.Driver");

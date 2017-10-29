@@ -10,36 +10,36 @@ package model;
  * @author Dewi Roaza
  */
 public class Provinsi {
-    public String idProv;
-    public String nameProv;
+    public String idProvinsi;
+    public String namaProvinsi;
     public String ibuKota;
 
     /**
-     * @return the idProv
+     * @return the idProvinsi
      */
-    public String getIdProv() {
-        return idProv;
+    public String getIdProvinsi() {
+        return idProvinsi;
     }
 
     /**
-     * @param idProv the idProv to set
+     * @param idProvinsi the idProvinsi to set
      */
-    public void setIdProv(String idProv) {
-        this.idProv = idProv;
+    public void setIdProvinsi(String idProvinsi) {
+        this.idProvinsi = idProvinsi;
     }
 
     /**
-     * @return the nameProv
+     * @return the nameProvinsi
      */
-    public String getNameProv() {
-        return nameProv;
+    public String getNamaProvinsi() {
+        return namaProvinsi;
     }
 
     /**
-     * @param nameProv the nameProv to set
+     * @param nameProvinsi the nameProvinsi to set
      */
-    public void setNameProv(String nameProv) {
-        this.nameProv = nameProv;
+    public void setNamaProvinsi(String nameProvinsi) {
+        this.namaProvinsi = nameProvinsi;
     }
 
     /**
@@ -55,4 +55,6 @@ public class Provinsi {
     public void setIbuKota(String ibuKota) {
         this.ibuKota = ibuKota;
     }
+
+    
 }
