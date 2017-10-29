@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Okt 2017 pada 10.03
+-- Generation Time: 29 Okt 2017 pada 11.24
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `event` (
-  `Id_Event` varchar(16) NOT NULL,
+  `Kd_Event` varchar(16) NOT NULL,
   `Id_Pejalanan` varchar(7) NOT NULL,
   `Kd_Traveller` varchar(6) NOT NULL,
   `Nama_Event` varchar(50) NOT NULL,
@@ -279,7 +279,7 @@ INSERT INTO `lokasi` (`kd_lokasi`, `nama_lokasi`, `alamat`, `id_kota`, `id_provi
 --
 
 CREATE TABLE `moda_transportasi` (
-  `Kd_Moda` varchar(6) NOT NULL,
+  `Id_Moda` varchar(6) NOT NULL,
   `Tipe_Moda` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -287,7 +287,7 @@ CREATE TABLE `moda_transportasi` (
 -- Dumping data untuk tabel `moda_transportasi`
 --
 
-INSERT INTO `moda_transportasi` (`Kd_Moda`, `Tipe_Moda`) VALUES
+INSERT INTO `moda_transportasi` (`Id_Moda`, `Tipe_Moda`) VALUES
 ('KMT01', 'Kereta Api'),
 ('KMT02', 'Pesawat'),
 ('KMT03', 'Mobil'),
@@ -302,8 +302,9 @@ INSERT INTO `moda_transportasi` (`Kd_Moda`, `Tipe_Moda`) VALUES
 --
 
 CREATE TABLE `perjalanan` (
-  `Id_Perjalanan` varchar(7) NOT NULL,
-  `Kd_Moda` varchar(6) NOT NULL,
+  `Kd_Perjalanan` varchar(7) NOT NULL,
+  `Kd_Transportasi_Publik` varchar(6) DEFAULT NULL,
+  `Kd_Transportasi_Pribadi` varchar(6) DEFAULT NULL,
   `Kd_jarak` varchar(14) NOT NULL,
   `Waktu_Tempuh` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -312,37 +313,37 @@ CREATE TABLE `perjalanan` (
 -- Dumping data untuk tabel `perjalanan`
 --
 
-INSERT INTO `perjalanan` (`Id_Perjalanan`, `Kd_Moda`, `Kd_jarak`, `Waktu_Tempuh`) VALUES
-('IDP0001', 'KMT03', 'JPL0001', 19),
-('IDP0002', 'KMT05', 'JPL0002', 13),
-('IDP0003', 'KMT03', 'JPL0003', 67),
-('IDP0004', 'KMT05', 'JPL0004', 50),
-('IDP0005', 'KMT03', 'JPL0005', 15),
-('IDP0006', 'KMT05', 'JPL0006', 5),
-('IDP0007', 'KMT06', 'JPL0007', 12),
-('IDP0008', 'KMT03', 'JPL0008', 99),
-('IDP0009', 'KMT03', 'JPL0009', 3),
-('IDP0010', 'KMT03', 'JPL0010', 7),
-('IDP0011', 'KMT03', 'JPL0011', 10),
-('IDP0012', 'KMT03', 'JPL0012', 5),
-('IDP0013', 'KMT03', 'JPL0013', 9),
-('IDP0014', 'KMT03', 'JPL0014', 10),
-('IDP0015', 'KMT03', 'JPL0015', 95),
-('IDP0016', 'KMT03', 'JPL0016', 11),
-('IDP0017', 'KMT03', 'JPL0017', 133),
-('IDP0018', 'KMT02', 'JPL0018', 90),
-('IDP0019', 'KMT03', 'JPL0019', 40),
-('IDP0020', 'KMT03', 'JPL0020', 30),
-('IDP0021', 'KMT05', 'JPL0021', 34),
-('IDP0022', 'KMT05', 'JPL0022', 25),
-('IDP0023', 'KMT04', 'JPL0023', 15),
-('IDP0024', 'KMT01', 'JPL0024', 168),
-('IDP0025', 'KMT03', 'JPL0025', 3),
-('IDP0026', 'KMT03', 'JPL0026', 18),
-('IDP0027', 'KMT03', 'JPL0027', 18),
-('IDP0028', 'KMT05', 'JPL0028', 9),
-('IDP0029', 'KMT05', 'JPL0029', 10),
-('IDP0030', 'KMT03', 'JPL0030', 25);
+INSERT INTO `perjalanan` (`Kd_Perjalanan`, `Kd_Transportasi_Publik`, `Kd_Transportasi_Pribadi`, `Kd_jarak`, `Waktu_Tempuh`) VALUES
+('IDP0001', NULL, NULL, 'JPL0001', 19),
+('IDP0002', NULL, NULL, 'JPL0002', 13),
+('IDP0003', NULL, NULL, 'JPL0003', 67),
+('IDP0004', NULL, NULL, 'JPL0004', 50),
+('IDP0005', NULL, NULL, 'JPL0005', 15),
+('IDP0006', NULL, NULL, 'JPL0006', 5),
+('IDP0007', NULL, NULL, 'JPL0007', 12),
+('IDP0008', NULL, NULL, 'JPL0008', 99),
+('IDP0009', NULL, NULL, 'JPL0009', 3),
+('IDP0010', NULL, NULL, 'JPL0010', 7),
+('IDP0011', NULL, NULL, 'JPL0011', 10),
+('IDP0012', NULL, NULL, 'JPL0012', 5),
+('IDP0013', NULL, NULL, 'JPL0013', 9),
+('IDP0014', NULL, NULL, 'JPL0014', 10),
+('IDP0015', NULL, NULL, 'JPL0015', 95),
+('IDP0016', NULL, NULL, 'JPL0016', 11),
+('IDP0017', NULL, NULL, 'JPL0017', 133),
+('IDP0018', NULL, NULL, 'JPL0018', 90),
+('IDP0019', NULL, NULL, 'JPL0019', 40),
+('IDP0020', NULL, NULL, 'JPL0020', 30),
+('IDP0021', NULL, NULL, 'JPL0021', 34),
+('IDP0022', NULL, NULL, 'JPL0022', 25),
+('IDP0023', NULL, NULL, 'JPL0023', 15),
+('IDP0024', NULL, NULL, 'JPL0024', 168),
+('IDP0025', NULL, NULL, 'JPL0025', 3),
+('IDP0026', NULL, NULL, 'JPL0026', 18),
+('IDP0027', NULL, NULL, 'JPL0027', 18),
+('IDP0028', NULL, NULL, 'JPL0028', 9),
+('IDP0029', NULL, NULL, 'JPL0029', 10),
+('IDP0030', NULL, NULL, 'JPL0030', 25);
 
 -- --------------------------------------------------------
 
@@ -454,7 +455,7 @@ INSERT INTO `traveller` (`Kd_Traveller`, `Nama_Traveller`, `Username`, `Password
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`Id_Event`),
+  ADD PRIMARY KEY (`Kd_Event`),
   ADD KEY `Kd_Traveller` (`Kd_Traveller`),
   ADD KEY `Id_Pejalanan` (`Id_Pejalanan`);
 
@@ -485,15 +486,16 @@ ALTER TABLE `lokasi`
 -- Indexes for table `moda_transportasi`
 --
 ALTER TABLE `moda_transportasi`
-  ADD PRIMARY KEY (`Kd_Moda`);
+  ADD PRIMARY KEY (`Id_Moda`);
 
 --
 -- Indexes for table `perjalanan`
 --
 ALTER TABLE `perjalanan`
-  ADD PRIMARY KEY (`Id_Perjalanan`),
-  ADD KEY `Kd_Moda` (`Kd_Moda`),
-  ADD KEY `Kd_jarak` (`Kd_jarak`);
+  ADD PRIMARY KEY (`Kd_Perjalanan`),
+  ADD KEY `Kd_jarak` (`Kd_jarak`),
+  ADD KEY `Kd_Transportasi_Pribadi` (`Kd_Transportasi_Pribadi`),
+  ADD KEY `Kd_Transportasi_Publik` (`Kd_Transportasi_Publik`);
 
 --
 -- Indexes for table `provinsi`
@@ -532,7 +534,7 @@ ALTER TABLE `traveller`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`Kd_Traveller`) REFERENCES `traveller` (`Kd_Traveller`),
-  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`Id_Pejalanan`) REFERENCES `perjalanan` (`Id_Perjalanan`);
+  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`Id_Pejalanan`) REFERENCES `perjalanan` (`Kd_Perjalanan`);
 
 --
 -- Ketidakleluasaan untuk tabel `jarak`
@@ -558,20 +560,21 @@ ALTER TABLE `lokasi`
 -- Ketidakleluasaan untuk tabel `perjalanan`
 --
 ALTER TABLE `perjalanan`
-  ADD CONSTRAINT `perjalanan_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Kd_Moda`),
-  ADD CONSTRAINT `perjalanan_ibfk_2` FOREIGN KEY (`Kd_jarak`) REFERENCES `jarak` (`Kd_jarak`);
+  ADD CONSTRAINT `perjalanan_ibfk_2` FOREIGN KEY (`Kd_jarak`) REFERENCES `jarak` (`Kd_jarak`),
+  ADD CONSTRAINT `perjalanan_ibfk_3` FOREIGN KEY (`Kd_Transportasi_Pribadi`) REFERENCES `transportasi_pribadi` (`Kd_Transportasi_Pribadi`),
+  ADD CONSTRAINT `perjalanan_ibfk_4` FOREIGN KEY (`Kd_Transportasi_Publik`) REFERENCES `transportasi_publik` (`Kd_Transportasi_Publik`);
 
 --
 -- Ketidakleluasaan untuk tabel `transportasi_pribadi`
 --
 ALTER TABLE `transportasi_pribadi`
-  ADD CONSTRAINT `transportasi_pribadi_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Kd_Moda`);
+  ADD CONSTRAINT `transportasi_pribadi_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Id_Moda`);
 
 --
 -- Ketidakleluasaan untuk tabel `transportasi_publik`
 --
 ALTER TABLE `transportasi_publik`
-  ADD CONSTRAINT `transportasi_publik_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Kd_Moda`),
+  ADD CONSTRAINT `transportasi_publik_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Id_Moda`),
   ADD CONSTRAINT `transportasi_publik_ibfk_2` FOREIGN KEY (`Kd_lokasi_kedatangan`) REFERENCES `lokasi` (`kd_lokasi`),
   ADD CONSTRAINT `transportasi_publik_ibfk_3` FOREIGN KEY (`Kd_lokasi_keberangkatan`) REFERENCES `lokasi` (`kd_lokasi`);
 
