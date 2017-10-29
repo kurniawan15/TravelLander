@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28 Okt 2017 pada 12.48
+-- Generation Time: 29 Okt 2017 pada 10.03
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -418,6 +418,8 @@ CREATE TABLE `transportasi_publik` (
   `Kd_Transportasi_Publik` varchar(6) NOT NULL,
   `Kd_Moda` varchar(6) NOT NULL,
   `Nama_Transportasi_Publik` varchar(50) NOT NULL,
+  `Kd_lokasi_keberangkatan` varchar(7) NOT NULL,
+  `Kd_lokasi_kedatangan` varchar(7) NOT NULL,
   `Waktu_Berangkat` datetime DEFAULT NULL,
   `Waktu_Datang` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -511,7 +513,9 @@ ALTER TABLE `transportasi_pribadi`
 --
 ALTER TABLE `transportasi_publik`
   ADD PRIMARY KEY (`Kd_Transportasi_Publik`),
-  ADD KEY `Kd_Moda` (`Kd_Moda`);
+  ADD KEY `Kd_Moda` (`Kd_Moda`),
+  ADD KEY `Kd_lokasi_kedatangan` (`Kd_lokasi_kedatangan`),
+  ADD KEY `Kd_lokasi_keberangkatan` (`Kd_lokasi_keberangkatan`);
 
 --
 -- Indexes for table `traveller`
@@ -567,7 +571,9 @@ ALTER TABLE `transportasi_pribadi`
 -- Ketidakleluasaan untuk tabel `transportasi_publik`
 --
 ALTER TABLE `transportasi_publik`
-  ADD CONSTRAINT `transportasi_publik_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Kd_Moda`);
+  ADD CONSTRAINT `transportasi_publik_ibfk_1` FOREIGN KEY (`Kd_Moda`) REFERENCES `moda_transportasi` (`Kd_Moda`),
+  ADD CONSTRAINT `transportasi_publik_ibfk_2` FOREIGN KEY (`Kd_lokasi_kedatangan`) REFERENCES `lokasi` (`kd_lokasi`),
+  ADD CONSTRAINT `transportasi_publik_ibfk_3` FOREIGN KEY (`Kd_lokasi_keberangkatan`) REFERENCES `lokasi` (`kd_lokasi`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
