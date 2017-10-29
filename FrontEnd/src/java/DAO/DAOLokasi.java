@@ -47,11 +47,11 @@ public class DAOLokasi extends Lokasi {
             String sql = "select * from lokasi order by idLokasi asc";
             rs = db.ambilData(sql);
             while (rs.next()) {
-                Lokasi um = new Lokasi();
-                um.setIdLokasi(rs.getString("idLokasi"));
-                um.setNamaLokasi(rs.getString("nama_lokasi"));
-                um.setAlamat(rs.getString("alamat"));
-                data.add(um);
+                Lokasi dlok = new Lokasi();
+                dlok.setIdLokasi(rs.getString("idLokasi"));
+                dlok.setNamaLokasi(rs.getString("nama_lokasi"));
+                dlok.setAlamat(rs.getString("alamat"));
+                data.add(dlok);
    }
             db.diskonek(rs);
         } catch (Exception ex) {
@@ -67,11 +67,11 @@ public class DAOLokasi extends Lokasi {
             String sql = "SELECT * FROM lokasi WHERE idLokasi='"+idLokasi+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
-                Lokasi m = new Lokasi();
-                m.setIdLokasi(rs.getString("idLokasi"));
-                m.setNamaLokasi(rs.getString("nama_lokasi"));
-                m.setAlamat(rs.getString("alamat"));
-                data.add(m);
+                Lokasi lok = new Lokasi();
+                lok.setIdLokasi(rs.getString("idLokasi"));
+                lok.setNamaLokasi(rs.getString("nama_lokasi"));
+                lok.setAlamat(rs.getString("alamat"));
+                data.add(lok);
 
             }
             db.diskonek(rs);
