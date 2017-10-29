@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Edit Schedule</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+<style>
+body{
+  background-image: url(img/2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <ul id="dropdown">
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">Dashboard</a>                                                                  
+    <a href="#">Create Schedule</a>
+    <a href="#">Finished Task</a>
+    <a href="#">Event List</a>
+  </div>
+<div class="main-content">
+    <div id="main">                                         
+    <div class="widget">
+      <div class="title">Edit Schedule</div>
+          <div class="col-12">
+
+              <!--______________ Nama Event dari Database______________-->
+              <div class="col-5 namaevent">
+                <p style="font-size: 15px; padding-top: 2%; padding-left: 1%;"><b>Event Name :</b> Nama Event dari database
+                    <input type="submit" class="tablinks" style="width: 20%; margin-left: 5%;" onclick="openCity(event, 'EditEvent')" id="defaultOpen" value="EDIT">
+                </p>
+                
+                <script type="text/javascript">
+                  function openCity(evt, cityName) 
+                  {
+                    // Declare all variables
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                </script>
+                  <div id="EditEvent" class="tabcontent">
+                     <input type="text" id="fname" name="nama_event" placeholder="Input Event Name">
+                  </div>
+              </div>
+
+              <!--______________ Waktu Event dari Database______________-->
+              <div class="col-5 waktu">
+                  <p style="font-size: 15px; padding-left: 1%;"><b>Event Time :</b> Waktu Event dari database
+                    <input type="submit" class="tablinks" style="width: 20%; margin-left: 5%;" onclick="openCity(event, 'EditWaktuEvent')" id="defaultOpen" value="EDIT">
+                  </p>
+                
+                  <script type="text/javascript">
+                  function openCity(evt, cityName) 
+                  {
+                    // Declare all variables
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                  </script>
+                  
+                  <div id="EditWaktuEvent" class="tabcontent">
+                      <input type="text" id="fname" name="nama_event" placeholder="Input Event Name">
+                  </div>
+              </div>
+              
+              <div class="col-5 LokasiAwal">
+                <p style="font-size: 15px; padding-left: 1%;"><b>Start Location :</b> Lokasi Awal Event dari database
+                    <input type="submit" class="tablinks" style="width: 20%; margin-left: 5%;" onclick="openCity(event, 'EditLokasiAwalEvent')" id="defaultOpen" value="EDIT">
+                  </p>
+                
+                  <script type="text/javascript">
+                  function openCity(evt, cityName) 
+                  {
+                    // Declare all variables
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                  </script>
+                  <div id="EditLokasiAwalEvent" class="tabcontent">
+                    <select id="LokasiAwal" name="kd_lokasi_awal">
+                      <option value="Lokasi1">Lokasi 1</option>
+                      <option value="Lokasi2">Lokasi 2</option>
+                      <option value="Lokasi3">Lokasi 3</option>
+                      <option value="Lokasi4">Lokasi 4</option>
+                      <option value="Lokasi5">Lokasi 5</option>
+                    </select>   
+                  </div>  
+              </div>
+              <div class="col-5 LokasiAkhir">
+                <p style="font-size: 15px; padding-left: 1%;"><b>End Location :</b> Lokasi Akhir Event dari database
+                    <input type="submit" class="tablinks" style="width: 20%; margin-left: 5%;" onclick="openCity(event, 'EditLokasiAkhirEvent')" id="defaultOpen" value="EDIT">
+                  </p>
+                
+                  <script type="text/javascript">
+                  function openCity(evt, cityName) 
+                  {
+                    // Declare all variables
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                  </script>
+                  <div id="EditLokasiAkhirEvent" class="tabcontent">
+                    <select id="LokasiAkhir" name="kd_lokasi_akhir">
+                      <option value="Lokasi1">Lokasi 1</option>
+                      <option value="Lokasi2">Lokasi 2</option>
+                      <option value="Lokasi3">Lokasi 3</option>
+                      <option value="Lokasi4">Lokasi 4</option>
+                      <option value="Lokasi5">Lokasi 5</option>
+                    </select>    
+                  </div>  
+              </div>
+
+              <div class="col-5 Transportasi">
+                <p style="font-size: 15px; padding-left: 1%; padding-top: 1%; opacity: 1;"><b>Transportation : </b> Transportasi dari database
+               <input type="submit" class="tablinks" style="width: 20%; margin-left: 5%;" onclick="openCity(event, 'EditTransport')" id="defaultOpen" value="EDIT">
+                  </p>
+                
+                  <script type="text/javascript">
+                  function openCity(evt, cityName) 
+                  {
+                    // Declare all variables
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+                  </script>
+                  <div id="EditTransport" class="tabcontent">
+                  <div class="tab">
+                  <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
+                  <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
+                  </div>
+                        <script type="text/javascript">
+                          function openCity(evt, cityName) {
+                            // Declare all variables
+                            var i, tabcontent, tablinks;
+
+                            // Get all elements with class="tabcontent" and hide them
+                            tabcontent = document.getElementsByClassName("tabcontent");
+                            for (i = 0; i < tabcontent.length; i++) {
+                                tabcontent[i].style.display = "none";
+                            }
+
+                            // Get all elements with class="tablinks" and remove the class "active"
+                            tablinks = document.getElementsByClassName("tablinks");
+                            for (i = 0; i < tablinks.length; i++) {
+                                tablinks[i].className = tablinks[i].className.replace(" active", "");
+                            }
+
+                            // Show the current tab, and add an "active" class to the button that opened the tab
+                            document.getElementById(cityName).style.display = "block";
+                            evt.currentTarget.className += " active";
+                        }
+                        </script>
+                        <div id="Umum" class="tabcontent">
+                         <select id="UmumModa" name="kd_moda">
+                          <option value="Taksi">Taksi</option>
+                          <option value="Bus">Bus</option>
+                          <option value="Kereta">Kereta</option>
+                          <option value="Pesawat">Pesawat</option>
+                        </select>     
+                        </div>
+
+                        <div id="Pribadi" class="tabcontent">
+                          <select id="PribadiModa" name="kd_transport_pribadi">
+                            <option value="Sepeda">Sepede</option>
+                            <option value="Motor">Motor</option>
+                            <option value="Mobil">Mobil</option>
+                          </select>      
+                        </div>
+                    </div>
+                  </div> 
+               
+            <br>
+              <div class="col-12 enter">
+                  <input type="submit" value="Save Edit Schedule">
+                  <input type="submit" value="Cancel" style="background-color: red;">
+            </div>   
+            <br> 
+    </div>
+    </div>
+</div>
+  <script>
+/*----------------------------edit buat mav----------------------------------------------*/
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+</body>
+</html> 
+<div class="footer">
+    <p>© Copyright Kelompok B2 | October 2017</p>
+</div>
+</body>
+</html>
