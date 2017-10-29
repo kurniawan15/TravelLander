@@ -15,7 +15,7 @@ import java.sql.Statement;
  * @author Pegasus Cyber
  */
 public class KoneksiDB {
-    private Connection conn;
+   static  private Connection conn;
     private Statement st;
 
 
