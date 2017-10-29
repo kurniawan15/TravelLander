@@ -21,7 +21,7 @@ import DAO.DAOKota;
  * @author Fadhil-PC
  */
 
-@WebServlet("/kota")
+@WebServlet("/city")
 public class ControllerKota extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
