@@ -16,9 +16,9 @@
         <form action="location?data=lokasi&proses=update-lokasi" method="post">
             <table style="margin:20px auto;">
             <%
-                String kd_lokasi = request.getParameter("kd_lokasi");
+                String idLokasi = request.getParameter("idLokasi");
                 DAOLokasi km = new DAOLokasi();
-                km.setKdLokasi(kd_lokasi);
+                km.setIdLokasi(idLokasi);
                 List<Lokasi> data = new ArrayList<Lokasi>();
                 data = km.cariID(); 
                 if (data.size() > 0) {
@@ -31,16 +31,7 @@
 		<tr>
                     <td>Alamat</td>
                     <td><input type="text" name="alamat" value="<%=data.get(0).getAlamat()%>"></td>
-		</tr>
-                <tr>
-                    <td>Id kota</td>
-                    <td><input type="text" name="id_kota" value="<%=data.get(0).getId_kota()%>"></td>
-                    
-		</tr>
-                <tr>
-                    <td>id provinsi</td>
-                    <td><input type="text" name="id_provinsi" value="<%=data.get(0).getId_provinsi()%>"></td>
-                    <td><input type="hidden" name="kd_lokasi" value="<%=data.get(0).getKdLokasi()%>"></td>
+                    <td><input type="hidden" name="idLokasi" value="<%=data.get(0).getIdLokasi()%>"></td>
 		</tr>
 		<tr>
                     <td></td>

@@ -23,7 +23,7 @@ import model.Lokasi;
  */
 public class DAOEvent extends Event implements DAO{
     
-    KoneksiDB db = null;
+    static KoneksiDB db = null;
     
     public DAOEvent() {
        db = new KoneksiDB();
@@ -127,5 +127,41 @@ public class DAOEvent extends Event implements DAO{
          }
     
 
-    
+    public static void main(String[]args){
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyy");       
+            String idEvent = "EV" + format.format(new Date());
+            String kdTraveller = "TR0001";
+            
+            idEvent+=kdTraveller;
+            try{
+            int cnt = 0;
+            String sql = "SELECT MAX(id_event) FROM event WHERE substring(id_event,1,14) = '"+idEvent+"'"; 
+            System.out.println(idEvent);
+            ResultSet resultSet = new DAOEvent().db.ambilData(sql);
+
+            while (resultSet.next()) {
+                idEvent = resultSet.getString(1);
+                System.out.println(resultSet.getString(1));
+            } 
+            
+            System.out.println(idEvent);
+            cnt = Integer.parseInt(idEvent.substring(14));
+            cnt++;
+            
+            if(cnt < 10){
+                idEvent = "EV" + kdTraveller + "0" +String.valueOf(cnt);
+            }
+            else{
+               idEvent = "EV" + kdTraveller +String.valueOf(cnt);
+            }
+            
+            db.diskonek(resultSet);
+            
+            System.out.println(idEvent);
+    }
+            
+            catch(Exception ex){
+                
+            }
+    }
 }

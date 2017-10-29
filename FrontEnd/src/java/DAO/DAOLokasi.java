@@ -26,16 +26,16 @@ public class DAOLokasi extends Lokasi {
     }
 
     public void simpan(){
-        String sql = "INSERT into lokasi(kd_lokasi, nama_lokasi, alamat, id_kota, id_provinsi) values ('" + kd_lokasi + "','" + namaLokasi + "','" + alamat + "', '" + id_kota + "', '"+id_provinsi+ "')";
+        String sql = "INSERT into lokasi( Idlokasi, nama_lokasi, alamat) values ('" + idLokasi + "','" + namaLokasi + "','" + alamat + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',alamat='"+alamat+"',id_kota='"+id_kota+"',id_provinsi='"+id_provinsi+"' WHERE kd_lokasi='"+kd_lokasi+"'";
+        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',alamat='"+alamat+"' WHERE idLokasi='"+idLokasi+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM lokasi WHERE kd_lokasi='"+kd_lokasi+"'";
+        String sql="DELETE FROM lokasi WHERE idLokasi='"+idLokasi+"'";
         db.simpanData(sql);
         System.out.println("");
     }
@@ -44,16 +44,14 @@ public class DAOLokasi extends Lokasi {
         ResultSet rs = null;
 
         try {
-            String sql = "select * from lokasi order by kd_lokasi asc";
+            String sql = "select * from lokasi order by idLokasi asc";
             rs = db.ambilData(sql);
             while (rs.next()) {
-                Lokasi dlok = new Lokasi();
-                dlok.setKdLokasi(rs.getString("kd_lokasi"));
-                dlok.setNamaLokasi(rs.getString("nama_lokasi"));
-                dlok.setAlamat(rs.getString("alamat"));
-                dlok.setId_kota(rs.getString("id_kota"));
-                dlok.setId_provinsi(rs.getString("id_provinsi"));
-                data.add(dlok);
+                Lokasi um = new Lokasi();
+                um.setIdLokasi(rs.getString("idLokasi"));
+                um.setNamaLokasi(rs.getString("nama_lokasi"));
+                um.setAlamat(rs.getString("alamat"));
+                data.add(um);
    }
             db.diskonek(rs);
         } catch (Exception ex) {
@@ -66,16 +64,14 @@ public class DAOLokasi extends Lokasi {
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM lokasi WHERE kd_lokasi='"+kd_lokasi+"'";
+            String sql = "SELECT * FROM lokasi WHERE idLokasi='"+idLokasi+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
-                Lokasi lok = new Lokasi();
-                lok.setKdLokasi(rs.getString("kd_lokasi"));
-                lok.setNamaLokasi(rs.getString("nama_lokasi"));
-                lok.setAlamat(rs.getString("alamat"));
-                lok.setId_kota(rs.getString("id_kota"));
-                lok.setId_provinsi(rs.getString("id_provinsi"));
-                data.add(lok);
+                Lokasi m = new Lokasi();
+                m.setIdLokasi(rs.getString("idLokasi"));
+                m.setNamaLokasi(rs.getString("nama_lokasi"));
+                m.setAlamat(rs.getString("alamat"));
+                data.add(m);
 
             }
             db.diskonek(rs);
@@ -85,20 +81,18 @@ public class DAOLokasi extends Lokasi {
         return data;
     }
         
-        public List cariID(String kd_lokasi) {
+        public List cariID(String idLokasi) {
         List<Lokasi> data = new ArrayList<Lokasi>();
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM lokasi WHERE kd_lokasi='"+kd_lokasi+"'";
+            String sql = "SELECT * FROM lokasi WHERE idLokasi='"+idLokasi+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Lokasi m = new Lokasi();
-                m.setKdLokasi(rs.getString("kd_lokasi"));
+                m.setIdLokasi(rs.getString("idLokasi"));
                 m.setNamaLokasi(rs.getString("nama_lokasi"));
                 m.setAlamat(rs.getString("alamat"));
-                m.setId_kota(rs.getString("id_kota"));
-                m.setId_provinsi(rs.getString("id_provinsi"));
                 data.add(m);
 
             }

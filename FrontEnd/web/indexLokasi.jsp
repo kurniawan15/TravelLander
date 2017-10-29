@@ -21,8 +21,6 @@
                   <th>Kode Kota</th>
                   <th>Nama</th>
                   <th>Alamat</th>
-                  <th>Kota</th>
-                  <th>provinsi</th>
                   <th>Action</th>
               </tr>
               <%
@@ -36,14 +34,12 @@
               %>
                <tr>
                   <td><%=x + 1%></td>
-                  <td><%=data.get(x).getKdLokasi()%></td>
+                  <td><%=data.get(x).getIdLokasi()%></td>
                   <td><%=data.get(x).getNamaLokasi()%></td>
                   <td><%=data.get(x).getAlamat()%></td>
-                  <td><%=data.get(x).getId_kota()%></td>
-                  <td><%=data.get(x).getId_provinsi()%></td>
                   <td>
-                      <a href="location?proses=edit-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>">Edit</a>
-                      <a href="location?proses=hapus-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>">Hapus</a>
+                      <a href="location?proses=edit-lokasi&idLokasi=<%=data.get(x).getIdLokasi()%>">Edit</a>
+                      <a href="location?proses=hapus-lokasi&idLokasi=<%=data.get(x).getIdLokasi()%>">Hapus</a>
                   </td>
               </tr>
               <% 

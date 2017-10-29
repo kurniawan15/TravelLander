@@ -12,24 +12,16 @@
         <form action="location?data=lokasi&proses=input-lokasi" method="post">
             <table style="margin:20px auto;">
                 <tr>
-                    <td>KdLokasi</td>
-                    <td><input type="text" name="kd_lokasi"></td>
+                    <td>IdLokasi</td>
+                    <td><input type="text" name="idLokasi"></td>
 		</tr>
 		<tr>
-                    <td>Nama Lokasi</td>
+                    <td>Nama</td>
                     <td><input type="text" name="nama_lokasi"></td>
 		</tr>
 		<tr>
                     <td>Alamat</td>
                     <td><input type="text" name="alamat"></td>
-		</tr>
-                <tr>
-                    <td>Id Kota</td>
-                    <td><input type="text" name="id_kota"></td>
-		</tr>
-                <tr>
-                    <td>Id provinsi</td>
-                    <td><input type="text" name="id_provinsi"></td>
 		</tr>
 		<tr>
                     <td></td>

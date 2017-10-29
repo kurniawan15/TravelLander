@@ -9,7 +9,6 @@ package controller;
  *
  * @author Lenovo
  */
-import DAO.DAOEvent;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,9 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Kota;
 import Database.KoneksiDB;
 import DAO.DAOKota;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -37,16 +33,16 @@ public class ControllerEvent extends HttpServlet {
         
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
-        if (proses.equals("input-event")){
-            response.sendRedirect("tambah_event.jsp");
+        if (proses.equals("input-kota")){
+            response.sendRedirect("tambah_kota.jsp");
             return;
-        }else if(proses.equals("edit-event")){
-            response.sendRedirect("edit_event.jsp?id_event="+request.getParameter("id_event"));
+        }else if(proses.equals("edit-kota")){
+            response.sendRedirect("edit_kota.jsp?id_kota="+request.getParameter("id_kota"));
             return;
-        }else if(proses.equals("hapus-event")){
-            DAOEvent ev=new DAOEvent();
-            ev.setIdEvent(request.getParameter("id_event"));
-            ev.hapus();
+        }else if(proses.equals("hapus-kota")){
+            DAOKota hm=new DAOKota();
+            hm.setIdKota(request.getParameter("id_event"));
+            hm.hapus();
             response.sendRedirect("");
         }
     }
@@ -58,25 +54,16 @@ public class ControllerEvent extends HttpServlet {
         
         if (data != null){
             if(data.equals("event")){
-                DAOEvent ev = new DAOEvent();
-                ev.setIdEvent(request.getParameter("id_event"));
-                ev.setNameEvent(request.getParameter("nama_event"));
-//                ev.setStartTime(request.getParameter("waktu_mulai"));
-//                ev.setEndTime(request.getParameter("waktu_selesai"));
-                ev.setKdTraveller(request.getParameter("kd_traveller"));
-                ev.setIdPerjalanan(request.getParameter("id_perjalanan"));
-                ev.setKeterangan(request.getParameter("keterangan"));
+                DAOKota um=new DAOKota();
+                um.setIdKota(request.getParameter("id_kota"));
+                um.setNamaKota(request.getParameter("nama_kota"));
+                um.setIdProvinsi(request.getParameter("id_provinsi"));
                 if (proses.equals("input-kota")){
-                    try {
-                        ev.setIdEvent(ev.getNewId());
-                        ev.simpan();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(ControllerEvent.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    um.simpan();
                 }else if (proses.equals("update-kota")){
-                    ev.update();
+                    um.update();
                 } else if(proses.equals("hapus-kota")){
-                    ev.hapus();
+                    um.hapus();
                 }
                 response.sendRedirect("");
             }

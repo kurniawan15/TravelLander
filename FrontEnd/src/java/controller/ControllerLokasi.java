@@ -32,13 +32,20 @@ public class ControllerLokasi extends HttpServlet {
             response.sendRedirect("tambah_lokasi.jsp");
             return;
         }else if(proses.equals("edit-lokasi")){
-            response.sendRedirect("edit_lokasi.jsp?kd_lokasi="+request.getParameter("kd_lokasi"));
+            response.sendRedirect("edit_lokasi.jsp?idLokasi="+request.getParameter("idLokasi"));
             return;
         }else if(proses.equals("hapus-lokasi")){
+<<<<<<< HEAD
             DAOLokasi dl=new DAOLokasi();
             dl.setKdLokasi(request.getParameter("kd_lokasi"));
             dl.hapus();
             response.sendRedirect("indexLokasi.jsp");
+=======
+            DAOLokasi hm=new DAOLokasi();
+            hm.setIdLokasi(request.getParameter("idLokasi"));
+            hm.hapus();
+            response.sendRedirect("");
+>>>>>>> 585196fe56890d9d87b2c13237af545e726f11ba
         }
     }
 
@@ -49,18 +56,16 @@ public class ControllerLokasi extends HttpServlet {
         
         if (data != null){
             if(data.equals("lokasi")){
-                DAOLokasi dlok=new DAOLokasi();
-                dlok.setKdLokasi(request.getParameter("kd_lokasi"));
-                dlok.setNamaLokasi(request.getParameter("nama_lokasi"));
-                dlok.setAlamat(request.getParameter("alamat"));
-                dlok.setId_kota(request.getParameter("id_kota"));
-                dlok.setId_provinsi(request.getParameter("id_provinsi"));
+                DAOLokasi um=new DAOLokasi();
+                um.setIdLokasi(request.getParameter("idLokasi"));
+                um.setNamaLokasi(request.getParameter("nama_lokasi"));
+                um.setAlamat(request.getParameter("alamat"));
                 if (proses.equals("input-lokasi")){
-                    dlok.simpan();
+                    um.simpan();
                 }else if (proses.equals("update-lokasi")){
-                    dlok.update();
+                    um.update();
                 } else if(proses.equals("hapus-lokasi")){
-                    dlok.hapus();
+                    um.hapus();
                 }
                 response.sendRedirect("indexLokasi.jsp");
             }
