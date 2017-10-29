@@ -10,6 +10,7 @@ import DAO.DAOTransportasiPublik;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @WebServlet ("/transportasi_publik")
-public class ControllerTransportasiPublik {
+public class ControllerTransportasiPublik extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
             throws ServletException, IOException {
         String proses=request.getParameter("proses");

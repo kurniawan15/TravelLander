@@ -20,10 +20,10 @@ public class DAOLokasi extends Lokasi {
     KoneksiDB db = null;
 
 
-public DAOLokasi(){
+    public DAOLokasi(){
 
-     db = new KoneksiDB();
-}
+        db = new KoneksiDB();
+    }
 
     public void simpan(){
         String sql = "INSERT into lokasi( Idlokasi, nama_lokasi, alamat) values ('" + idLokasi + "','" + namaLokasi + "','" + alamat + "')";

@@ -10,10 +10,10 @@ package model;
  * @author Dewi Roaza
  */
 public class Jarak {
-    private String kdJarak;
-    private String kdLokasiAwal;
-    private String kdLokasiAkhir;
-    private int jarak;
+    public String kdJarak;
+    public String kdLokasiAwal;
+    public String kdLokasiAkhir;
+    public int jarak;
 
     /**
      * @return the kdJarak
@@ -69,5 +69,21 @@ public class Jarak {
      */
     public void setJarak(int jarak) {
         this.jarak = jarak;
+    }
+
+    public void setkdJarak(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setkdLokasiAwal(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setkdLokasiAkhir(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setjarak(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

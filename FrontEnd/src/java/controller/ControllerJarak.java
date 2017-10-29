@@ -5,7 +5,8 @@
  */
 package controller;
 
-import DAO.DAOModaTransportasi;
+import DAO.DAOJarak;
+import DAO.DAOLokasi;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,22 +18,22 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dewi Roaza
  */
-
-@WebServlet ("/moda_transportasi")
-public class ControllerModaTransportasi extends HttpServlet{
+@WebServlet("/jarak")
+public class ControllerJarak extends HttpServlet{
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
             throws ServletException, IOException {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
-        if (proses.equals("input-moda")){
-            response.sendRedirect("tambah_moda.jsp");
+        if (proses.equals("input-jarak")){
+            response.sendRedirect("tambah_jarak.jsp");
             return;
-        }else if(proses.equals("edit-moda")){
-            response.sendRedirect("edit_moda.jsp?Kd_Moda="+request.getParameter("Kd_Moda"));
+        }else if(proses.equals("edit-jarak")){
+            response.sendRedirect("edit_jarak.jsp?kdJarak="+request.getParameter("kdJarak"));
             return;
-        }else if(proses.equals("hapus-moda")){
-            DAOModaTransportasi hm=new DAOModaTransportasi();
-            hm.setkdModa(request.getParameter("Kd_Moda"));
+        }else if(proses.equals("hapus-jarak")){
+            DAOJarak hm=new DAOJarak();
+            hm.setkdJarak(request.getParameter("kdJarak"));
             hm.hapus();
             response.sendRedirect("");
         }
@@ -44,15 +45,17 @@ public class ControllerModaTransportasi extends HttpServlet{
         String proses = request.getParameter("proses");
         
         if (data != null){
-            if(data.equals("moda_transportasi")){
-                DAOModaTransportasi um=new DAOModaTransportasi();
-                um.setkdModa(request.getParameter("Kd_Moda"));
-                um.settipeModa(request.getParameter("Tipe_Moda"));
-                if (proses.equals("input-moda")){
+            if(data.equals("jarak")){
+                DAOJarak um=new DAOJarak();
+                um.setkdJarak(request.getParameter("Kd_jarak"));
+                um.setkdLokasiAwal(request.getParameter("Kd_Lokasi_Awal"));
+                um.setkdLokasiAkhir(request.getParameter("Kd_Lokasi_Akhir"));
+                um.setjarak(request.getParameter("Jarak"));
+                if (proses.equals("input-jarak")){
                     um.simpan();
-                }else if (proses.equals("update-moda")){
+                }else if (proses.equals("update-jarak")){
                     um.update();
-                } else if(proses.equals("hapus-moda")){
+                } else if(proses.equals("hapus-jarak")){
                     um.hapus();
                 }
                 response.sendRedirect("");

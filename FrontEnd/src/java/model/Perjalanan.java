@@ -10,12 +10,12 @@ package model;
  * @author Dewi Roaza
  */
 public class Perjalanan {
-    private String idPerjalanan;
-    private int jarakTempuh;
-    private int waktuTempuh;
-    private Lokasi lokasiAwal;
-    private Lokasi lokasiAkhir;
-    private ModaTransportasi transport;
+    public String idPerjalanan;
+    public int jarakTempuh;
+    public int waktuTempuh;
+    public Lokasi lokasiAwal;
+    public Lokasi lokasiAkhir;
+    public ModaTransportasi transport;
 
     
     public Perjalanan(String idPerjalanan,int jarakTempuh, int waktuTempuh,Lokasi lokasiAwal,Lokasi lokasiAkhir,ModaTransportasi transportasi){
