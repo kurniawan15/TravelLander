@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Fajar Panca
  */
-@WebServlet("/kota")
+@WebServlet("/perjalanan")
 public class ControllerPerjalanan extends HttpServlet{
      protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
             throws ServletException, IOException {
@@ -45,7 +45,7 @@ public class ControllerPerjalanan extends HttpServlet{
         if (data != null){
             if(data.equals("perjalanan")){
                 DAOPerjalanan um=new DAOPerjalanan();
-                um.setIdPerjaanan(request.getParameter("id_perjalanan"));
+                um.setIdPerjalanan(request.getParameter("id_perjalanan"));
                 um.setkdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
                 um.setkdJarak(request.getParameter("Kd_Jarak"));
                 um.setkdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
