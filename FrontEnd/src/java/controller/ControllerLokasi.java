@@ -32,13 +32,13 @@ public class ControllerLokasi extends HttpServlet {
             response.sendRedirect("tambah_lokasi.jsp");
             return;
         }else if(proses.equals("edit-lokasi")){
-            response.sendRedirect("edit_lokasi.jsp?idLokasi="+request.getParameter("idLokasi"));
+            response.sendRedirect("edit_lokasi.jsp?kd_lokasi="+request.getParameter("kd_lokasi"));
             return;
         }else if(proses.equals("hapus-lokasi")){
             DAOLokasi dl=new DAOLokasi();
-            dl.setIdLokasi(request.getParameter("idLokasi"));
+            dl.setKdLokasi(request.getParameter("kd_lokasi"));
             dl.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexLokasi.jsp");
         }
     }
 
@@ -50,9 +50,11 @@ public class ControllerLokasi extends HttpServlet {
         if (data != null){
             if(data.equals("lokasi")){
                 DAOLokasi dlok=new DAOLokasi();
-                dlok.setIdLokasi(request.getParameter("idLokasi"));
+                dlok.setKdLokasi(request.getParameter("kd_lokasi"));
                 dlok.setNamaLokasi(request.getParameter("nama_lokasi"));
                 dlok.setAlamat(request.getParameter("alamat"));
+                dlok.setId_kota(request.getParameter("id_kota"));
+                dlok.setId_provinsi(request.getParameter("id_provinsi"));
                 if (proses.equals("input-lokasi")){
                     dlok.simpan();
                 }else if (proses.equals("update-lokasi")){
@@ -60,7 +62,7 @@ public class ControllerLokasi extends HttpServlet {
                 } else if(proses.equals("hapus-lokasi")){
                     dlok.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexLokasi.jsp");
             }
         }
     }

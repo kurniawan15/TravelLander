@@ -1,31 +1,31 @@
-<%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOProvinsi"%>
+<%@page import="model.Provinsi"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Database.KoneksiDB"%>
-<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Travellender</title>
+        <title>provinsi</title>
     </head>
     <body>
     <center><h1>DAFTAR LOKASI</h1></center>
     <center>
-        <a class="tambah" href="location?proses=input-lokasi">Tambah</a>
+        <a class="tambah" href="provinsi?proses=input-provinsi">Tambah</a>
     </center>
         <table style="margin:20px auto;" border="1">
               <tr>
                   <th>No</th>
-                  <th>Kode Kota</th>
-                  <th>Nama</th>
-                  <th>Alamat</th>
-                  <th>Action</th>
+                  <th>Id Provinsi</th>
+                  <th>Nama Provinsi</th>
+                  <th>Ibu kota</th>
+ 
               </tr>
               <%
-                  DAOLokasi km = new DAOLokasi();
-                  List<Lokasi> data = new ArrayList<Lokasi>();
+                  DAOProvinsi km = new DAOProvinsi();
+                  List<Provinsi> data = new ArrayList<Provinsi>();
                   String ket = request.getParameter("ket");
                   if (ket == null) {
                       data = km.tampil();
@@ -34,12 +34,13 @@
               %>
                <tr>
                   <td><%=x + 1%></td>
-                  <td><%=data.get(x).getIdLokasi()%></td>
-                  <td><%=data.get(x).getNamaLokasi()%></td>
-                  <td><%=data.get(x).getAlamat()%></td>
+                  <td><%=data.get(x).getIdProvinsi()%></td>
+                  <td><%=data.get(x).getIbuKota()%></td>
+                  <td><%=data.get(x).getNamaProvinsi()%></td>
+ 
                   <td>
-                      <a href="location?proses=edit-lokasi&idLokasi=<%=data.get(x).getIdLokasi()%>">Edit</a>
-                      <a href="location?proses=hapus-lokasi&idLokasi=<%=data.get(x).getIdLokasi()%>">Hapus</a>
+                      <a href="provinsi?proses=edit-provinsi&id_provinsi=<%=data.get(x).getIdProvinsi()%>">Edit</a>
+                      <a href="provinsi?proses=hapus-provinsi&id_provinsi=<%=data.get(x).getIdProvinsi()%>">Hapus</a>
                   </td>
               </tr>
               <% 

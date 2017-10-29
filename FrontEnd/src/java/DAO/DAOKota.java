@@ -22,10 +22,10 @@ public class DAOKota extends Kota {
     KoneksiDB db = null;
 
 
-public DAOKota(){
+    public DAOKota(){
 
-     db = new KoneksiDB();
-}
+        db = new KoneksiDB();
+    }
 
     public void simpan(){
         String sql = "INSERT into kota( id_kota, nama_kota, idprovinsi) values ('" + idKota + "','" + namaKota + "','" + idProvinsi + "')";
@@ -88,15 +88,15 @@ public DAOKota(){
             String kdKota = "KT000";
             
             int cnt = 0;
-            String sql = "SELECT MAX(id_kota) FROM kota"; 
+            String sql = "SELECT MAX(id_kota) FROM kota";   // mengambil maksimal id kota
             
             ResultSet resultSet = db.ambilData(sql);
 
-            while (resultSet.next()) {
-                kdKota = resultSet.getString(1);
+            while (resultSet.next()) {                      // selama masih ada isinya diambil
+                kdKota = resultSet.getString(1);            // yang diambil 1=kd kota
             } 
             
-            cnt = Integer.parseInt(kdKota.substring(2));
+            cnt = Integer.parseInt(kdKota.substring(2));    // mengambil dari index ke 2 (mulai dri 0)
             cnt++;
             if(cnt >= 100){
                 kdKota = "KT" + String.valueOf(cnt);

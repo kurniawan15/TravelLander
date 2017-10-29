@@ -7,6 +7,7 @@ package DAO;
 
 import Database.KoneksiDB;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.TransportasiPribadi;
@@ -80,5 +81,30 @@ public class DAOTransportasiPribadi extends TransportasiPribadi{
         }
         return data;
 
+    }
+        
+    public String getNewId() throws SQLException{
+            
+            String kdTansportasiPribadi = "KMP00";
+            
+            int cnt = 0;
+            String sql = "SELECT MAX(Kd_Transportasi_Pribadi) FROM transportasi_pribadi";   // mengambil maksimal ddari kd_moda
+            
+            ResultSet resultSet = db.ambilData(sql);
+
+            while (resultSet.next()) {                      // selama masih ada isinya diambil
+                kdTansportasiPribadi = resultSet.getString(1);            // yang diambil 1=kd kota
+            } 
+            
+            cnt = Integer.parseInt(kdTansportasiPribadi.substring(3));    // mengambil dari index ke 3 (mulai dri 0)
+            cnt++;
+            if(cnt >= 10){
+                kdTansportasiPribadi = "KMP" + String.valueOf(cnt);
+            }
+            else{
+               kdTansportasiPribadi = "KMP" + "0" + String.valueOf(cnt);
+            }
+            db.diskonek(resultSet);
+            return kdTansportasiPribadi;
     }
 }

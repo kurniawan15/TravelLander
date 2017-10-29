@@ -31,7 +31,7 @@ public class DAOProvinsi extends Provinsi{
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET id_provinsi='" + idProvinsi + "',nama_provinsi='" + namaProvinsi + "', ibu_kota ='" + ibuKota + "' WHERE idProvinsi ='" + idProvinsi + "'";
+        String sql="UPDATE lokasi SET nama_provinsi='" + namaProvinsi + "', ibu_kota ='" + ibuKota + "' WHERE id_provinsi ='" + idProvinsi + "'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -45,13 +45,13 @@ public class DAOProvinsi extends Provinsi{
         ResultSet rs = null;
 
         try {
-            String sql = "select * from provinsi order by idProvinsi asc";
+            String sql = "select * from provinsi order by id_provinsi asc";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Provinsi um = new Provinsi();
-                um.setIdProvinsi(rs.getString("Id_Provinsi"));
-                um.setNamaProvinsi(rs.getString("Nama_Provinsi"));
-                um.setIbuKota(rs.getString("Ibu_Kota"));
+                um.setIdProvinsi(rs.getString("id_provinsi"));
+                um.setNamaProvinsi(rs.getString("nama_provinsi"));
+                um.setIbuKota(rs.getString("ibu_kota"));
                 data.add(um);
    }
             db.diskonek(rs);
@@ -65,13 +65,13 @@ public class DAOProvinsi extends Provinsi{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM provinsi WHERE Id_Provinsi = '" + getIdProvinsi() + "'";
+            String sql = "SELECT * FROM provinsi WHERE id_provinsi = '" + getIdProvinsi() + "'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Provinsi m = new Provinsi();
-                m.setIdProvinsi(rs.getString("Id_Provinsi"));
-                m.setNamaProvinsi(rs.getString("Nama_Provinsi"));
-                m.setIbuKota(rs.getString("Ibu_Kota"));
+                m.setIdProvinsi(rs.getString("id_provinsi"));
+                m.setNamaProvinsi(rs.getString("nama_provinsi"));
+                m.setIbuKota(rs.getString("ibu_kota"));
                 data.add(m);
 
             }
@@ -87,13 +87,13 @@ public class DAOProvinsi extends Provinsi{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM jarak WHERE Id_Provinsi = '" + idProvinsi + "'";
+            String sql = "SELECT * FROM jarak WHERE id_provinsi = '" + idProvinsi + "'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Provinsi m = new Provinsi();
-                m.setIdProvinsi(rs.getString("Id_Provinsi"));
-                m.setNamaProvinsi(rs.getString("Nama_Provinsi"));
-                m.setIbuKota(rs.getString("Ibu_Kota"));
+                m.setIdProvinsi(rs.getString("id_provinsi"));
+                m.setNamaProvinsi(rs.getString("nama_provinsi"));
+                m.setIbuKota(rs.getString("ibu_kota"));
                 data.add(m);
             }
             db.diskonek(rs);
