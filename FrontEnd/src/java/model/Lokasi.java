@@ -18,6 +18,7 @@ import Database.KoneksiDB;
  */
 public class Lokasi {
     
+    
     public String idLokasi;
     public String namaLokasi;
     public String alamat;

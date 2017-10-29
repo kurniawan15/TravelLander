@@ -95,10 +95,10 @@ public class DAOModaTransportasi extends ModaTransportasi {
             cnt = Integer.parseInt(kdModa.substring(3));    // mengambil dari index ke 3 (mulai dri 0)
             cnt++;
             if(cnt >= 10){
-                kdModa = "KT" + String.valueOf(cnt);
+                kdModa = "KMT" + String.valueOf(cnt);
             }
             else{
-               kdModa = "KT" + "0" + String.valueOf(cnt);
+               kdModa = "KMT" + "0" + String.valueOf(cnt);
             }
             db.diskonek(resultSet);
             return kdModa;
