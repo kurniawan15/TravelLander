@@ -22,10 +22,10 @@ public class DAOKota extends Kota {
     KoneksiDB db = null;
 
 
-public DAOKota(){
+    public DAOKota(){
 
-     db = new KoneksiDB();
-}
+        db = new KoneksiDB();
+    }
 
     public void simpan(){
         String sql = "INSERT into kota( id_kota, nama_kota, idprovinsi) values ('" + idKota + "','" + namaKota + "','" + idProvinsi + "')";

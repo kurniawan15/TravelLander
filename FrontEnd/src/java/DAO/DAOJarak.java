@@ -32,7 +32,7 @@ public class DAOJarak extends Jarak{
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET Kd_jarak='"+kdJarak+"',Kd_Lokasi_Awal='"+kdLokasiAwal+"', Kd_Lokasi_Akhir='"+kdLokasiAkhir+"', Jarak ='"+jarak+"' WHERE kdJarak ='"+kdJarak+"'";
+        String sql="UPDATE jarak SET Kd_jarak='"+kdJarak+"',Kd_Lokasi_Awal='"+kdLokasiAwal+"', Kd_Lokasi_Akhir='"+kdLokasiAkhir+"', Jarak ='"+jarak+"' WHERE kdJarak ='"+kdJarak+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
