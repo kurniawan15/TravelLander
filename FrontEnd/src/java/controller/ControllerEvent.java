@@ -11,18 +11,14 @@ package controller;
  */
 import DAO.DAOEvent;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Kota;
-import Database.KoneksiDB;
-import DAO.DAOKota;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -47,38 +43,45 @@ public class ControllerEvent extends HttpServlet {
             DAOEvent ev=new DAOEvent();
             ev.setIdEvent(request.getParameter("id_event"));
             ev.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexEvent.jsp");
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)                 //dopost: mengambil
             throws ServletException, IOException {
+        
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-        
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
         if (data != null){
             if(data.equals("event")){
                 DAOEvent ev = new DAOEvent();
+                
                 ev.setIdEvent(request.getParameter("id_event"));
                 ev.setNameEvent(request.getParameter("nama_event"));
-//                ev.setStartTime(request.getParameter("waktu_mulai"));
-//                ev.setEndTime(request.getParameter("waktu_selesai"));
+                try {
+                    ev.setStartTime(format.parse(request.getParameter("waktu_mulai")));
+                    ev.setEndTime(format.parse(request.getParameter("waktu_selesai")));
+                } catch (ParseException ex) {
+                    response.sendRedirect("");
+                }
                 ev.setKdTraveller(request.getParameter("kd_traveller"));
                 ev.setIdPerjalanan(request.getParameter("id_perjalanan"));
                 ev.setKeterangan(request.getParameter("keterangan"));
-                if (proses.equals("input-kota")){
+                
+                if (proses.equals("input-event")){
                     try {
                         ev.setIdEvent(ev.getNewId());
                         ev.simpan();
                     } catch (SQLException ex) {
-                        Logger.getLogger(ControllerEvent.class.getName()).log(Level.SEVERE, null, ex);
+                      response.sendRedirect("tambah_event.jsp");
                     }
-                }else if (proses.equals("update-kota")){
+                }else if (proses.equals("update-event")){
                     ev.update();
-                } else if(proses.equals("hapus-kota")){
+                } else if(proses.equals("hapus-event")){
                     ev.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexEvent.jsp");
             }
         }
     }
