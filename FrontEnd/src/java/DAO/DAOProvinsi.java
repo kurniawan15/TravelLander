@@ -31,7 +31,7 @@ public class DAOProvinsi extends Provinsi{
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET nama_provinsi='" + namaProvinsi + "', ibu_kota ='" + ibuKota + "' WHERE id_provinsi ='" + idProvinsi + "'";
+        String sql="UPDATE provinsi SET nama_provinsi='" + namaProvinsi + "', ibu_kota ='" + ibuKota + "' WHERE id_provinsi ='" + idProvinsi + "'";
         db.simpanData(sql);
         System.out.println(sql);
     }
