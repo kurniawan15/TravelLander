@@ -14,11 +14,9 @@
         <group>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/Database/KoneksiDB.java</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/DAO/DAOLokasi.java</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/model/Test.java</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/model/Lokasi.java</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/controller/NewControllerLokasi.java</file>
+            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/src/java/Database/Test.java</file>
+            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/edit_lokasi.jsp</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/index.jsp</file>
-            <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/Login/Admin/DataPlace.jsp</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/FrontEnd/web/tambah_lokasi.jsp</file>
         </group>
     </open-files>

@@ -35,9 +35,9 @@ public class NewControllerLokasi extends HttpServlet {
             response.sendRedirect("edit_lokasi.jsp?idLokasi="+request.getParameter("idLokasi"));
             return;
         }else if(proses.equals("hapus-lokasi")){
-            DAOLokasi hm=new DAOLokasi();
-            hm.setIdLokasi(request.getParameter("idLokasi"));
-            hm.hapus();
+            DAOLokasi dl=new DAOLokasi();
+            dl.setIdLokasi(request.getParameter("idLokasi"));
+            dl.hapus();
             response.sendRedirect("");
         }
     }
@@ -49,16 +49,16 @@ public class NewControllerLokasi extends HttpServlet {
         
         if (data != null){
             if(data.equals("lokasi")){
-                DAOLokasi um=new DAOLokasi();
-                um.setIdLokasi(request.getParameter("idLokasi"));
-                um.setNamaLokasi(request.getParameter("nama_lokasi"));
-                um.setAlamat(request.getParameter("alamat"));
+                DAOLokasi dlok=new DAOLokasi();
+                dlok.setIdLokasi(request.getParameter("idLokasi"));
+                dlok.setNamaLokasi(request.getParameter("nama_lokasi"));
+                dlok.setAlamat(request.getParameter("alamat"));
                 if (proses.equals("input-lokasi")){
-                    um.simpan();
+                    dlok.simpan();
                 }else if (proses.equals("update-lokasi")){
-                    um.update();
+                    dlok.update();
                 } else if(proses.equals("hapus-lokasi")){
-                    um.hapus();
+                    dlok.hapus();
                 }
                 response.sendRedirect("");
             }
