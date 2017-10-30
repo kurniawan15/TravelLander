@@ -15,8 +15,8 @@ import java.util.Date;
  */
 public class Event {
     public String kdTraveller;
-    public String idEvent;
-    public String idPerjalanan;
+    public String kdEvent;
+    public String kdPerjalanan;
     public Date startTime;
     public Date endTime;
     public String nameEvent;
@@ -27,15 +27,15 @@ public class Event {
     }
     
     public Event(String kdTraveller,
-    String idEvent,
-    String idPerjalanan,
+    String kdEvent,
+    String kdPerjalanan,
     Date startTime,
     Date endTime,
     String nameEvent,
     String keterangan) {
        this.kdTraveller = kdTraveller;
-    this.idEvent = idEvent;
-    this.idPerjalanan = idPerjalanan;
+    this.kdEvent = kdEvent;
+    this.kdPerjalanan = kdPerjalanan;
     this.startTime = startTime;
     this.endTime = endTime;
     this.nameEvent = nameEvent;
@@ -59,29 +59,29 @@ public class Event {
     /**
      * @return the idEvent
      */
-    public String getIdEvent() {
-        return idEvent;
+    public String getKdEvent() {
+        return kdEvent;
     }
 
     /**
      * @param idEvent the idEvent to set
      */
-    public void setIdEvent(String idEvent) {
-        this.idEvent = idEvent;
+    public void setKdEvent(String kdEvent) {
+        this.kdEvent = kdEvent;
     }
 
     /**
      * @return the idPerjalanan
      */
-    public String getIdPerjalanan() {
-        return idPerjalanan;
+    public String getKdPerjalanan() {
+        return kdPerjalanan;
     }
 
     /**
      * @param idPerjalanan the idPerjalanan to set
      */
-    public void setIdPerjalanan(String idPerjalanan) {
-        this.idPerjalanan = idPerjalanan;
+    public void setKdPerjalanan(String kdPerjalanan) {
+        this.kdPerjalanan = kdPerjalanan;
     }
 
     /**

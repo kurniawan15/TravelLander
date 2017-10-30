@@ -27,28 +27,29 @@ import model.Lokasi;
 public class DAOEvent extends Event implements DAO{
     
    static  KoneksiDB db = null;
-    
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     public DAOEvent() {
        db = new KoneksiDB();
     }
  
 
     public void simpan(){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String sql = "INSERT into event(id_event,id_pejalanan,kd_traveller,nama_event,waktu_mulai,waktu_selesai,keterangan) values('"+idEvent+"','"+idPerjalanan+"','"+kdTraveller+"','"+nameEvent+"','"+format.format(startTime)+"','"+format.format(endTime)+"','"+keterangan+"')";
+        
+        String sql = "INSERT into event(kd_event,kd_perjalanan,kd_traveller,nama_event,waktu_mulai,waktu_selesai,keterangan) values('"+kdEvent+"','"+kdPerjalanan+"','"+kdTraveller+"','"+nameEvent+"','"+format.format(startTime)+"','"+format.format(endTime)+"','"+keterangan+"')";
         db.simpanData(sql);
         System.out.println(sql);
     }
 
     @Override
     public void update() {
-       String sql = "UPDATE event set id_pejalanan = '"+idPerjalanan+"',name_event = '"+nameEvent+"',waktu_mulai = '"+startTime+"', waktu_selesai= '"+endTime+"',keterangan = '"+keterangan+"' where id_event = '"+idEvent+"' and kd_traveler = '"+kdTraveller+"'";
+       String sql = "UPDATE event set kd_perjalanan = '"+kdPerjalanan+"',nama_event = '"+nameEvent+"',waktu_mulai = '"+format.format(startTime)+"', waktu_selesai= '"+format.format(endTime)+"',keterangan = '"+keterangan+"' where kd_event = '"+kdEvent+"' and kd_traveller = '"+kdTraveller+"'";
        db.simpanData(sql);
+       System.out.println(sql);
     }
 
     @Override
     public void hapus() {
-        String sql ="DELETE FROM Event WHERE id_Event = '"+idEvent+"'";
+        String sql ="DELETE FROM Event WHERE kd_Event = '"+kdEvent+"'";
         db.simpanData(sql);
     }
 
@@ -59,11 +60,12 @@ public class DAOEvent extends Event implements DAO{
         try{
             String sql = "SELECT * FROM event";
             rs = db.ambilData(sql);
+            System.out.println(sql);
             while(rs.next()){
                 Event ev = new Event();
-                ev.setIdEvent(rs.getString("id_event"));
+                ev.setKdEvent(rs.getString("kd_event"));
                 ev.setNameEvent(rs.getString("nama_event"));
-                ev.setIdPerjalanan(rs.getString("id_pejalanan"));
+                ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
                 ev.setKeterangan(rs.getString("keterangan"));
                 ev.setStartTime(rs.getDate("waktu_mulai"));
                 ev.setEndTime(rs.getDate("waktu_selesai"));
@@ -84,16 +86,16 @@ public class DAOEvent extends Event implements DAO{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM event WHERE id_event='"+idEvent+"'";
+            String sql = "SELECT * FROM event WHERE kd_event='"+kdEvent+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Event ev = new Event();
-                ev.setIdEvent(rs.getString("id_event"));
+                ev.setKdEvent(rs.getString("kd_event"));
                 ev.setNameEvent(rs.getString("nama_event"));
                 ev.setStartTime(rs.getDate("waktu_mulai"));
                 ev.setEndTime(rs.getDate("waktu_selesai"));
                 ev.setKdTraveller(rs.getString("kd_traveller"));
-                ev.setIdPerjalanan(rs.getString("id_Pejalanan"));
+                ev.setKdPerjalanan(rs.getString("kd_Perjalanan"));
                 ev.setKeterangan(rs.getString("keterangan"));
                 
                 listEvent.add(ev);
@@ -109,7 +111,7 @@ public class DAOEvent extends Event implements DAO{
             
             //EV230917TR000101
             SimpleDateFormat format = new SimpleDateFormat("ddMMyy");    
-            String date = format.format(new Date());
+            String date = format.format(startTime);
             String idEvent = "EV" + date;
             String kdTraveller = "TR0001";
             
@@ -117,7 +119,7 @@ public class DAOEvent extends Event implements DAO{
             idEvent = idEvent + "00";
             
             int cnt = 0;
-            String sql = "SELECT MAX(id_event) FROM event WHERE substring(id_event,1,14) = substring('"+idEvent+"',1,14)"; 
+            String sql = "SELECT MAX(kd_event) FROM event WHERE substring(kd_event,1,14) = substring('"+idEvent+"',1,14)"; 
             
             ResultSet resultSet = db.ambilData(sql);
 
@@ -152,7 +154,7 @@ public class DAOEvent extends Event implements DAO{
        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
        try{
             System.out.println(dao.getNewId());
-            dao.setIdEvent(dao.getNewId());
+            dao.setKdEvent(dao.getNewId());
        }catch(Exception ex){
            ex.printStackTrace();
        }
@@ -165,7 +167,7 @@ public class DAOEvent extends Event implements DAO{
        } catch (ParseException ex) {
            Logger.getLogger(DAOEvent.class.getName()).log(Level.SEVERE, null, ex);
        }
-        dao.setIdPerjalanan("IDP0006");
+        dao.setKdPerjalanan("IDP0006");
         dao.setKeterangan("Bayar masing masing");
         dao.setKdTraveller("TR0001");
         
