@@ -47,6 +47,7 @@ public class DAOTransportasiPribadi extends TransportasiPribadi{
         try {
             String sql = "select * from transportasi_pribadi order by Kd_Transportasi_Pribadi asc";
             rs = db.ambilData(sql);
+            System.out.println(sql);
             while (rs.next()) {
                 TransportasiPribadi um = new TransportasiPribadi();
                 um.setKdTansportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));

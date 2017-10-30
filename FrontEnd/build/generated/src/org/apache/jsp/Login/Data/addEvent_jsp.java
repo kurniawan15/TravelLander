@@ -48,7 +48,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\r\n");
       out.write("<head>\r\n");
       out.write("    <!--____________________________Call Css Page Input____________________________-->\r\n");
-      out.write("    <link rel=\"stylesheet\" href=\"css/style2.css\">\r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"css/Createschedule.css\">\r\n");
       out.write("    <!--____________________________Title Website____________________________-->\r\n");
       out.write("    <title>Travelendar - Input Schedule</title>\r\n");
       out.write("</head>\r\n");
