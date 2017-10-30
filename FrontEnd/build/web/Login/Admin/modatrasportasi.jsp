@@ -37,11 +37,14 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Data Kota</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a class="selected" href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
@@ -78,11 +81,12 @@
             
 	</div>
     <div class="widget">
-        <div class="title">Tambah Kota</div>
+        <div class="title">Tambah Moda</div>
         <div class="imput">
             <form action="../../kota?data=kota&proses=input-kota" method="post">
                 Nama Moda
-                <input type="text" placeholder="Masukan Nama Kota" name="nama_kota" required>
+
+                <input type="text" placeholder="Masukan Nama Moda" name="nama_kota" required>
                 <button type="submit" name="Tambah">Update Data</button>  
             </form>
         </div>

@@ -4,8 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.text.SimpleDateFormat;
-import model.Jarak;
-import DAO.DAOJarak;
+import model.TransportasiPublik;
+import DAO.DAOTransportasiPublik;
 import model.Lokasi;
 import DAO.DAOLokasi;
 import model.ModaTransportasi;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.ArrayList;
 import Database.KoneksiDB;
 
-public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class transpublik_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -90,32 +90,36 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a class=\"selected\" href=\"#\">Jarak</a>                                                                                   \r\n");
+      out.write("    <a href=\"#\">Jarak</a>                                                                                   \r\n");
       out.write("    <a href=\"#\">Kota</a>\r\n");
       out.write("    <a href=\"#\" >Lokasi</a>\r\n");
       out.write("    <a href=\"#\" >Provinsi</a>\r\n");
       out.write("    <a href=\"#\" >Perjalanan</a>\r\n");
       out.write("    <a href=\"#\" >Moda Trasportasi</a>\r\n");
-      out.write("    <a href=\"#\" >Transportasi Pribadi</a>\r\n");
+      out.write("    <a class=\"selected\" href=\"#\" >Transportasi Pribadi</a>\r\n");
       out.write("    <a href=\"#\" >Transportasi Umum</a>\r\n");
       out.write("  </div>\r\n");
       out.write("<div class=\"main-content\">\r\n");
       out.write("    <div id=\"main\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n");
       out.write("\t<div class=\"widget\">\r\n");
-      out.write("            <div class=\"title\">Data Jarak</div>\r\n");
+      out.write("            <div class=\"title\">Data Transportasi Publik</div>\r\n");
       out.write("                <table class=\"table\">\r\n");
       out.write("                    <tr>\r\n");
       out.write("                        <th>NO</th>\r\n");
-      out.write("                        <th>Kode Jarak</th>\r\n");
-      out.write("                        <th>Kode Lokasi Awal</th>\r\n");
-      out.write("                        <th>Kode Lokasi Akhir</th>\r\n");
-      out.write("                        <th>Jarak (KM)</th>\r\n");
+      out.write("                        <th>Kode Transportasi Publik</th>\r\n");
+      out.write("                        <th>Lokasi Keberangkatan</th>\r\n");
+      out.write("                        <th>Lokasi Kedatangan</th>\r\n");
+      out.write("                        <th>Moda Transportasi</th>\r\n");
+      out.write("                        <th>Nama Transportasi Publik</th>\r\n");
+      out.write("                        <th>Waktu Berangkat</th>\r\n");
+      out.write("                        <th>Waktu Kedatangan</th>\r\n");
       out.write("                        <th>Keterangan</th>\r\n");
       out.write("                    </tr>\r\n");
       out.write("                    ");
 
-                      DAOJarak dtp = new DAOJarak();
-                      List<Jarak> data = new ArrayList<Jarak>();
+                      DAOTransportasiPublik dtp = new DAOTransportasiPublik();
+                      SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH.mm");
+                      List<TransportasiPublik> data = new ArrayList<TransportasiPublik>();
                       String ket = request.getParameter("ket");
                       
                           data = dtp.tampil();
@@ -128,36 +132,45 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(x + 1);
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getKdJarak());
+      out.print(data.get(x).getKdTransportasiPublik());
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getKdLokasiAwal());
+      out.print(data.get(x).getKdLokasiKeberangkatan());
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getKdLokasiAkhir());
+      out.print(data.get(x).getKdLokasiKedatangan());
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getJarak());
+      out.print(data.get(x).getKdModa());
       out.write("</td>\r\n");
-      out.write("         \r\n");
-      out.write("                        <td> <a href=\"\"><input type=\"submit\" class=\"button1\" value=\"Edit\"></a>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getNamaTransportasiPublik());
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(format.format(data.get(x).getWaktuBerangkat()));
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(format.format(data.get(x).getWaktuDatang()));
+      out.write("</td>\r\n");
+      out.write("                        <td> \r\n");
+      out.write("                            <a href=\"\"><input type=\"submit\" class=\"button1\" value=\"Edit\"></a>\r\n");
       out.write("                            <input type=\"submit\" class=\"button2\" onClick=\"opena()\" value=\"Hapus\" ></a>\r\n");
       out.write("                        </td>\r\n");
       out.write("                    </tr>\r\n");
-      out.write("                    ");
+      out.write("                        ");
  
-                }   
-              
+                       }
+                    
       out.write("\r\n");
       out.write("                </table>\r\n");
       out.write("            \r\n");
       out.write("\t</div>\r\n");
       out.write("        <div class=\"widget\">\r\n");
-      out.write("            <div class=\"title\">Tambah data Jarak</div>\r\n");
+      out.write("            <div class=\"title\">Tambah Perjalanan </div>  \r\n");
+      out.write("        <div class=\"imput_publik\">\r\n");
       out.write("            <form action=\"../../provinsi?data=provinsi&proses=input-provinsi\" method=\"post\">\r\n");
-      out.write("             <div class=\"imput\">\r\n");
-      out.write("                Kode Lokasi Awal \r\n");
-      out.write("          <select class=\"pilih_kota\">\r\n");
+      out.write("                Lokasi Keberangkatan\r\n");
+      out.write("                <select class=\"pilih_kota\">\r\n");
       out.write("                ");
 
                     DAOLokasi dLok = new DAOLokasi();
@@ -178,8 +191,8 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
                 
       out.write("\r\n");
       out.write("                </select>\r\n");
-      out.write("                 Kode Lokasi Akhir\r\n");
-      out.write("    <select class=\"pilih_kota\">\r\n");
+      out.write("                 Lokasi Kedatangan\r\n");
+      out.write("                 <select class=\"pilih_kota\">\r\n");
       out.write("                ");
 
                     DAOLokasi dked = new DAOLokasi();
@@ -200,15 +213,39 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
                 
       out.write("\r\n");
       out.write("                 </select>\r\n");
-      out.write("                Jarak (KM)\r\n");
-      out.write("                <input type=\"text\" placeholder=\"Masukan Id erjalanan\" name=\"#i\" required>\r\n");
+      out.write("                Moda Transportasi\r\n");
+      out.write("                <select class=\"pilih_kota\">\r\n");
+      out.write("                ");
+
+                    DAOModaTransportasi dmod = new DAOModaTransportasi();
+                    List<ModaTransportasi> mod = new ArrayList<ModaTransportasi>();
+                    mod = dmod.tampil();
+                    for (ModaTransportasi m : mod) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(m.getKdModa());
+      out.write('"');
+      out.write('>');
+      out.print(m.getTipeModa());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                       }
+                
+      out.write("\r\n");
+      out.write("                </select>\r\n");
+      out.write("                \r\n");
+      out.write("                Waktu Keberangkatan\r\n");
+      out.write("                 <input type=\"time\" name=\"bdaytime\">\r\n");
+      out.write("                Waktu Kedatangan\r\n");
+      out.write("                <input type=\"time\" name=\"bdaytime\">\r\n");
       out.write("                <button type=\"submit\" name=\"Tambah\">Update Data</button>\r\n");
-      out.write("             </div>\r\n");
+      out.write("                \r\n");
       out.write("            </form>\r\n");
       out.write("        </div>\r\n");
-      out.write("\r\n");
+      out.write("        </div>\r\n");
       out.write("<script>\r\n");
-      out.write("\r\n");
       out.write("/*----------------------------edit buat mav----------------------------------------------*/\r\n");
       out.write("    function openSlideMenu(){\r\n");
       out.write("      document.getElementById('side-menu').style.width = '250px';\r\n");
@@ -219,13 +256,8 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      document.getElementById('side-menu').style.width = '0';\r\n");
       out.write("      document.getElementById('main').style.marginLeft = '0';\r\n");
       out.write("    }\r\n");
-      out.write("\r\n");
       out.write("\t\r\n");
       out.write("/*-------------------------Membuat modal Pop Up-----------------------------------------*/\r\n");
-      out.write("\r\n");
-      out.write("    \r\n");
-      out.write("    /*-------------------------Membuat modal Pop Up-----------------------------------------*/\r\n");
-      out.write("\r\n");
       out.write("\r\n");
       out.write("\tfunction openo()\r\n");
       out.write("\t{\r\n");
@@ -234,9 +266,6 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\tfunction opena()\r\n");
       out.write("\t{\r\n");
       out.write("\t\tdocument.getElementById(\"ask\").style.display = \"block\"\r\n");
-      out.write("\r\n");
-      out.write("                document.setUserData(\"\");\r\n");
-      out.write("\r\n");
       out.write("\t}\r\n");
       out.write("\tfunction tutup()\r\n");
       out.write("\t{\r\n");
@@ -251,9 +280,7 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("  </script>\r\n");
-      out.write("</html>\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

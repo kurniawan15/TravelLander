@@ -22,10 +22,7 @@
 <div id="header">
    	<div class="logo"><a href="#">Travel<span>Calendar</span></a></div>
 	<ul id="dropdown">
-        <%
-            String nama = session.getAttribute("id_Admin").toString();
-        //    out.println("Selamat Datang " + nama +"<br> Anda berhasil Login");
-            %>
+        
             <li><a href="../logout.jsp">Log Out</a></li>
 	</ul>
 </div>

@@ -41,11 +41,14 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Data Kota</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a class="selected" href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
@@ -122,7 +125,9 @@
              </div>
             </form>
         </div>
-                <script>
+
+<script>
+
 /*----------------------------edit buat mav----------------------------------------------*/
     function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
@@ -133,8 +138,13 @@
       document.getElementById('side-menu').style.width = '0';
       document.getElementById('main').style.marginLeft = '0';
     }
+
 	
 /*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+    
+    /*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
 
 	function openo()
 	{
@@ -143,6 +153,9 @@
 	function opena()
 	{
 		document.getElementById("ask").style.display = "block"
+
+                document.setUserData("");
+
 	}
 	function tutup()
 	{
@@ -158,3 +171,5 @@
 
   </script>
 </html>
+
+
