@@ -62,6 +62,7 @@
       }
     </script>
   </nav>
+<form action="../../addEvent?data=event&proses=input-event" method="post">
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a href="#">Dashboard</a>
@@ -76,6 +77,7 @@
     <div class="widget">
     <div class="title">Create Schedule</div>
     
+
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="namaevent">
       <h1 class="hnamaevent">Event Name :</h1>
@@ -143,6 +145,7 @@
       <script type="text/javascript">
         function openCity(evt, cityName) {
           var i, tabcontent, tablinks; //deklarasi variabel
+          //
           //mengambil element yang ada di class tabcontent dan menyembunyikan class 
           tabcontent = document.getElementsByClassName("tabcontent");
           for (i = 0; i < tabcontent.length; i++) {
@@ -157,7 +160,7 @@
           //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
-          }
+                    }
       </script>
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
@@ -168,7 +171,7 @@
                 listTP = dTransP.tampil();
                 for(TransportasiPublik tp : listTP){
             %>
-                <option value="<%=tp.getKdTansportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
+                <option value=" <%=tp.getKdTransportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
             <%
                 }
             %>
@@ -193,14 +196,17 @@
 
       <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
-        <input type="submit" value="Create Schedule">
+        
+            <input type="submit" value="Create Schedule">
+        
         <input type="submit" value="Cancel" style="background-color: red;">
       </div><br> 
+      
 
       </div>
       </div>
     </div>
-
+</form>  
     <!--____________________________Footer Page____________________________--> 
     <div class="footer">
       <div class="footkiri">

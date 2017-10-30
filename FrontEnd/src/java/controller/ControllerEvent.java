@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
  * @author Fadhil-PC
  */
 
+//@WebServlet("/addEvent")
 @WebServlet("/addEvent")
 public class ControllerEvent extends HttpServlet {
     
@@ -34,7 +35,7 @@ public class ControllerEvent extends HttpServlet {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-event")){
-            response.sendRedirect("tambah_event.jsp");
+            response.sendRedirect("/Login/Data/addEvent.jsp");
             return;
         }else if(proses.equals("edit-event")){
             response.sendRedirect("edit_event.jsp?kd_event="+request.getParameter("kd_event"));
@@ -52,7 +53,9 @@ public class ControllerEvent extends HttpServlet {
         
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+//        System.out.println("JENIS MODA : " + request.getAttribute("jenis_moda").toString());
+        //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
         if (data != null){
             if(data.equals("event")){
                 DAOEvent ev = new DAOEvent();
