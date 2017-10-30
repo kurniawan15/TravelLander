@@ -11,7 +11,7 @@
         <center><h1>Input Event</h1></center>
         <form action="addEvent?data=event&proses=input-event" method="post">
             <table style="margin:20px auto;">
-                <input type="hidden" name="id_event"  value="" />
+                
                 <input type="hidden" name="kd_traveller" value="TR0001" />
                 
 		<tr>
@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
                     <td>Id pejalanan</td>
-                    <td><input type="text" name="id_pejalanan"></td>
+                    <td><input type="text" name="id_perjalanan"></td>
 		</tr>
                
                 <tr>

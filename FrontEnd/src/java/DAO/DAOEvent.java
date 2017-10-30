@@ -37,6 +37,7 @@ public class DAOEvent extends Event implements DAO{
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String sql = "INSERT into event(id_event,id_pejalanan,kd_traveller,nama_event,waktu_mulai,waktu_selesai,keterangan) values('"+idEvent+"','"+idPerjalanan+"','"+kdTraveller+"','"+nameEvent+"','"+format.format(startTime)+"','"+format.format(endTime)+"','"+keterangan+"')";
         db.simpanData(sql);
+        System.out.println(sql);
     }
 
     @Override
@@ -114,16 +115,24 @@ public class DAOEvent extends Event implements DAO{
             
             idEvent+=kdTraveller;
             idEvent = idEvent + "00";
+            
             int cnt = 0;
             String sql = "SELECT MAX(id_event) FROM event WHERE substring(id_event,1,14) = substring('"+idEvent+"',1,14)"; 
             
             ResultSet resultSet = db.ambilData(sql);
 
             while (resultSet.next()) {
-                idEvent = resultSet.getString(1);
+                   idEvent = resultSet.getString(1);
+               
             } 
             
-            cnt = Integer.parseInt(idEvent.substring(14));
+            if(idEvent == null){
+                idEvent = "EV" + date + kdTraveller + "01";
+            }
+            else{
+                cnt = Integer.parseInt(idEvent.substring(14));
+            }
+            
             
             cnt++;
             if(cnt < 10){
