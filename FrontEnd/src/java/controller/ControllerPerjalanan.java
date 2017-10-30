@@ -5,7 +5,7 @@
  */
 package controller;
 
-import DAO.DAOTransportasiPribadi;
+import DAO.DAOPerjalanan;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -45,7 +45,7 @@ public class ControllerPerjalanan extends HttpServlet{
         if (data != null){
             if(data.equals("perjalanan")){
                 DAOPerjalanan um=new DAOPerjalanan();
-                um.setIdPerjaanan(request.getParameter("id_perjalanan"));
+                um.setIdPerjalanan(request.getParameter("id_perjalanan"));
                 um.setkdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
                 um.setkdJarak(request.getParameter("Kd_Jarak"));
                 um.setkdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));

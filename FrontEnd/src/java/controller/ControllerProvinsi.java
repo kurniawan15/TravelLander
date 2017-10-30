@@ -38,7 +38,7 @@ public class ControllerProvinsi extends HttpServlet {
             DAOProvinsi dl=new DAOProvinsi();
             dl.setIdProvinsi(request.getParameter("id_provinsi"));
             dl.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexProvinsi.jsp");
         }
     }
 
@@ -61,7 +61,7 @@ public class ControllerProvinsi extends HttpServlet {
                 } else if(proses.equals("hapus-provinsi")){
                     dprov.hapus();
                 }
-            response.sendRedirect("");
+            response.sendRedirect("indexProvinsi.jsp");
             }
         }
     }

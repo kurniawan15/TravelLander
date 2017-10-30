@@ -28,11 +28,11 @@ public class DAOKota extends Kota {
     }
 
     public void simpan(){
-        String sql = "INSERT into kota( id_kota, nama_kota, idprovinsi) values ('" + idKota + "','" + namaKota + "','" + idProvinsi + "')";
+        String sql = "INSERT into kota( id_kota, nama_kota, id_provinsi) values ('" + idKota + "','" + namaKota + "','" + idProvinsi + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE kota SET nama_kota='"+namaKota+"' WHERE id_kota='"+idKota+"' and id_provinsi='"+idProvinsi+"'";
+        String sql="UPDATE kota SET nama_kota='"+namaKota+"',id_provinsi='"+idProvinsi+"' WHERE id_kota='"+idKota+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
