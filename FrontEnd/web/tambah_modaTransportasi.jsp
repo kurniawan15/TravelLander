@@ -12,7 +12,7 @@
         <title>input</title>
     </head>
     <body>
-        <h1>Input Moda Transportasi!</h1></center>
+    <center><h1>Input Moda Transportasi!</h1></center>
         <form action="moda_transportasi?data=moda_transportasi&proses=input-moda" method="post">
             <table style="margin:20px auto;">
                 <tr>
