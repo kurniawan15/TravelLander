@@ -3,6 +3,14 @@ package org.apache.jsp.Login.Data;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.TransportasiPribadi;
+import DAO.DAOTransportasiPribadi;
+import model.TransportasiPublik;
+import DAO.DAOTransportasiPublik;
+import model.Lokasi;
+import java.util.ArrayList;
+import java.util.List;
+import DAO.DAOLokasi;
 
 public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +49,14 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -128,11 +144,26 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"LokasiAwal\">\r\n");
       out.write("      <h1 class=\"hlokasiawal\">Start Location :</h1>\r\n");
       out.write("      <select id=\"LokasiAwal\" name=\"kd_lokasi_awal\">\r\n");
-      out.write("        <option value=\"Lokasi1\">Lokasi 1</option>\r\n");
-      out.write("        <option value=\"Lokasi2\">Lokasi 2</option>\r\n");
-      out.write("        <option value=\"Lokasi3\">Lokasi 3</option>\r\n");
-      out.write("        <option value=\"Lokasi4\">Lokasi 4</option>\r\n");
-      out.write("        <option value=\"Lokasi5\">Lokasi 5</option>\r\n");
+      out.write("         ");
+
+             DAOLokasi dLok = new DAOLokasi();
+             List<Lokasi> lok = new ArrayList<Lokasi>();
+             lok = dLok.tampil();
+             
+             for(Lokasi l:lok){
+         
+      out.write("\r\n");
+      out.write("        <option value=\"");
+      out.print(l.getKdLokasi());
+      out.write('"');
+      out.write('>');
+      out.print(l.getNamaLokasi());
+      out.write("</option>\r\n");
+      out.write("        ");
+
+            }
+        
+      out.write("\r\n");
       out.write("      </select>     \r\n");
       out.write("    </div>\r\n");
       out.write("    \r\n");
@@ -140,18 +171,29 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"LokasiAkhir\">\r\n");
       out.write("      <h1 class=\"hlokasiakhir\">End Location :</h1>\r\n");
       out.write("      <select id=\"LokasiAkhir\" name=\"kd_lokasi_akhir\">\r\n");
-      out.write("        <option value=\"Lokasi1\">Lokasi 1</option>\r\n");
-      out.write("        <option value=\"Lokasi2\">Lokasi 2</option>\r\n");
-      out.write("        <option value=\"Lokasi3\">Lokasi 3</option>\r\n");
-      out.write("        <option value=\"Lokasi4\">Lokasi 4</option>\r\n");
-      out.write("        <option value=\"Lokasi5\">Lokasi 5</option>\r\n");
+      out.write("        ");
+
+             for(Lokasi l:lok){
+         
+      out.write("\r\n");
+      out.write("        <option value=\"");
+      out.print(l.getKdLokasi());
+      out.write('"');
+      out.write('>');
+      out.print(l.getNamaLokasi());
+      out.write("</option>\r\n");
+      out.write("        ");
+
+            }
+        
+      out.write("\r\n");
       out.write("      </select>     \r\n");
       out.write("    </div>\r\n");
       out.write("    \r\n");
       out.write("    <!--____________________________Form Inputan Nama Event____________________________-->\r\n");
       out.write("    <div class=\"keteranganevent\">\r\n");
       out.write("      <h1 class=\"hketevent\">Event Description :</h1>\r\n");
-      out.write("      <input type=\"text\" id=\"fname\" name=\"nama_event\" placeholder=\"Input Event Description\">\r\n");
+      out.write("      <input type=\"text\" id=\"fname\" name=\"keterangan\" placeholder=\"Input Event Description\">\r\n");
       out.write("    </div>\r\n");
       out.write("\r\n");
       out.write("    <!--____________________________Form Inputan Transportasi____________________________-->   \r\n");
@@ -162,6 +204,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <button class=\"tablinks\" onclick=\"openCity(event, 'Pribadi')\">Pribadi</button>\r\n");
       out.write("      </div>\r\n");
       out.write("      <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   \r\n");
+      out.write("      \r\n");
       out.write("      <script type=\"text/javascript\">\r\n");
       out.write("        function openCity(evt, cityName) {\r\n");
       out.write("          var i, tabcontent, tablinks; //deklarasi variabel\r\n");
@@ -175,6 +218,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          for (i = 0; i < tablinks.length; i++) {\r\n");
       out.write("              tablinks[i].className = tablinks[i].className.replace(\" active\", \"\");\r\n");
       out.write("          }\r\n");
+      out.write("          \r\n");
       out.write("          //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb\r\n");
       out.write("          document.getElementById(cityName).style.display = \"block\";\r\n");
       out.write("          evt.currentTarget.className += \" active\";\r\n");
@@ -182,19 +226,48 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      </script>\r\n");
       out.write("        <!--____________________________isi option di kendaraan umum____________________________-->      \r\n");
       out.write("        <div id=\"Umum\" class=\"tabcontent\">\r\n");
-      out.write("        <select id=\"UmumModa\" name=\"kd_moda\">\r\n");
-      out.write("          <option value=\"Taksi\">Taksi</option>\r\n");
-      out.write("          <option value=\"Bus\">Bus</option>\r\n");
-      out.write("          <option value=\"Kereta\">Kereta</option>\r\n");
-      out.write("          <option value=\"Pesawat\">Pesawat</option>\r\n");
+      out.write("        <select id=\"UmumModa\" name=\"kd_transportasi_publik\">\r\n");
+      out.write("            ");
+
+                DAOTransportasiPublik dTransP = new DAOTransportasiPublik();
+                List<TransportasiPublik> listTP = new ArrayList<TransportasiPublik>();
+                
+                for(TransportasiPublik tp : listTP){
+            
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(tp.getKdTansportasiPublik());
+      out.write("\"> ");
+      out.print(tp.getNamaTransportasiPublik());
+      out.write("</option>\r\n");
+      out.write("            ");
+
+                }
+            
+      out.write("\r\n");
       out.write("        </select>     \r\n");
       out.write("        </div>\r\n");
       out.write("        <!--____________________________isi option di kendaraan pribadi____________________________--> \r\n");
       out.write("        <div id=\"Pribadi\" class=\"tabcontent\">\r\n");
-      out.write("        <select id=\"PribadiModa\" name=\"kd_transport_pribadi\">\r\n");
-      out.write("          <option value=\"Sepeda\">Sepeda</option>\r\n");
-      out.write("          <option value=\"Motor\">Motor</option>\r\n");
-      out.write("          <option value=\"Mobil\">Mobil</option>\r\n");
+      out.write("        <select id=\"PribadiModa\" name=\"kd_transportasi_pribadi\">\r\n");
+      out.write("          ");
+
+                DAOTransportasiPribadi dTransPr = new DAOTransportasiPribadi();
+                List<TransportasiPribadi> listTPr = new ArrayList<TransportasiPribadi>();
+                
+                for(int x = 0; x < listTPr.size(); x++){
+            
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(listTPr.get(x).getKdTansportasiPribadi());
+      out.write("\"> ");
+      out.print(listTPr.get(x).getNamaTransportasiPribadi());
+      out.write("</option>\r\n");
+      out.write("            ");
+
+                }
+            
+      out.write("\r\n");
       out.write("        </select>      \r\n");
       out.write("        </div>\r\n");
       out.write("      </div><br>\r\n");

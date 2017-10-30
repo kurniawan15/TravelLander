@@ -122,7 +122,7 @@
         <%
             }
         %>
-      </select>     
+      </select> 
     </div>
     
     <!--____________________________Form Inputan Nama Event____________________________-->
@@ -165,7 +165,7 @@
             <%
                 DAOTransportasiPublik dTransP = new DAOTransportasiPublik();
                 List<TransportasiPublik> listTP = new ArrayList<TransportasiPublik>();
-                
+                listTP = dTransP.tampil();
                 for(TransportasiPublik tp : listTP){
             %>
                 <option value="<%=tp.getKdTansportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
@@ -180,7 +180,7 @@
           <%
                 DAOTransportasiPribadi dTransPr = new DAOTransportasiPribadi();
                 List<TransportasiPribadi> listTPr = new ArrayList<TransportasiPribadi>();
-                
+                listTPr = dTransPr.tampil();
                 for(int x = 0; x < listTPr.size(); x++){
             %>
                 <option value="<%=listTPr.get(x).getKdTansportasiPribadi()%>"> <%=listTPr.get(x).getNamaTransportasiPribadi()%></option>
