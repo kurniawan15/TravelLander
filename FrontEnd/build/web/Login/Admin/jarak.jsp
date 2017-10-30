@@ -3,7 +3,16 @@
     Created on : Oct 30, 2017, 7:19:47 PM
     Author     : Hari
 --%>
-
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="model.Jarak"%>
+<%@page import="DAO.DAOJarak"%>
+<%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
+<%@page import="model.ModaTransportasi"%>
+<%@page import="DAO.DAOModaTransportasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -52,20 +61,27 @@
                         <th>Keterangan</th>
                     </tr>
                     <%
+                      DAOJarak dtp = new DAOJarak();
+                      List<Jarak> data = new ArrayList<Jarak>();
+                      String ket = request.getParameter("ket");
                       
+                          data = dtp.tampil();
+                     
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdJarak()%></td>
+                        <td><%=data.get(x).getKdLokasiAwal()%></td>
+                        <td><%=data.get(x).getKdLokasiAkhir()%></td>
+                        <td><%=data.get(x).getJarak()%></td>
+         
                         <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
-                   
+                }   
               %>
                 </table>
             
@@ -75,22 +91,70 @@
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
              <div class="imput">
                 Kode Lokasi Awal 
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+          <select class="pilih_kota">
+                <%
+                    DAOLokasi dLok = new DAOLokasi();
+                    List<Lokasi> lok = new ArrayList<Lokasi>();
+                    lok = dLok.tampil();
+                    for (Lokasi l : lok) {
+                    %>
+                <option value="<%=l.getKdLokasi()%>"><%=l.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
                 </select>
                  Kode Lokasi Akhir
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
+    <select class="pilih_kota">
+                <%
+                    DAOLokasi dked = new DAOLokasi();
+                    List<Lokasi> ked = new ArrayList<Lokasi>();
+                    ked = dLok.tampil();
+                    for (Lokasi k : ked) {
+                    %>
+                <option value="<%=k.getKdLokasi()%>"><%=k.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
+                 </select>
                 Jarak (KM)
                 <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>
                 <button type="submit" name="Tambah">Update Data</button>
              </div>
             </form>
         </div>
+                <script>
+/*----------------------------edit buat mav----------------------------------------------*/
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+	
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+	function openo()
+	{
+		document.getElementById("confirm").style.display = "block"
+	}
+	function opena()
+	{
+		document.getElementById("ask").style.display = "block"
+	}
+	function tutup()
+	{
+		document.getElementById("confirm").style.display = "none"
+	}
+	function tutup2()
+	{
+		document.getElementById("ask").style.display = "none"
+	}
+	 
+	
+
+
+  </script>
+</html>
