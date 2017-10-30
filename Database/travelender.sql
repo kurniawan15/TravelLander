@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Okt 2017 pada 11.24
+-- Generation Time: 30 Okt 2017 pada 05.02
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `event` (
   `Kd_Event` varchar(16) NOT NULL,
-  `Id_Pejalanan` varchar(7) NOT NULL,
+  `Kd_Perjalanan` varchar(7) NOT NULL,
   `Kd_Traveller` varchar(6) NOT NULL,
   `Nama_Event` varchar(50) NOT NULL,
   `Waktu_Mulai` datetime NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `jarak` (
   `Kd_jarak` varchar(14) NOT NULL,
   `Kd_lokasi_awal` varchar(7) NOT NULL,
   `Kd_lokasi_akhir` varchar(7) NOT NULL,
-  `Jarak` int(11) DEFAULT NULL
+  `Jarak` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -54,36 +54,17 @@ CREATE TABLE `jarak` (
 --
 
 INSERT INTO `jarak` (`Kd_jarak`, `Kd_lokasi_awal`, `Kd_lokasi_akhir`, `Jarak`) VALUES
-('JPL0001', 'KL00002', 'KL00003', 5),
-('JPL0002', 'KL00002', 'KL00003', 4),
-('JPL0003', 'KL00011', 'KL00012', 30),
-('JPL0004', 'KL00011', 'KL00012', 31),
-('JPL0005', 'KL00003', 'KL00001', 2),
-('JPL0006', 'KL00003', 'KL00001', 2),
-('JPL0007', 'KL00003', 'KL00001', 2),
-('JPL0008', 'KL00033', 'KL00034', 63),
-('JPL0009', 'KL00034', 'KL00036', 1),
-('JPL0010', 'KL00036', 'KL00035', 3),
-('JPL0011', 'KL00035', 'KL00034', 4),
-('JPL0012', 'KL00034', 'KL00037', 2),
-('JPL0013', 'KL00037', 'KL00038', 4),
-('JPL0014', 'KL00038', 'KL00034', 4),
-('JPL0015', 'KL00034', 'KL00039', 68),
-('JPL0016', 'KL00039', 'KL00033', 8),
-('JPL0017', 'KL00033', 'KL00018', 63),
-('JPL0018', 'KL00018', 'KL00041', 573),
-('JPL0019', 'KL00041', 'KL00042', 19),
-('JPL0020', 'KL00042', 'KL00043', 12),
-('JPL0021', 'KL00043', 'KL00044', 14),
-('JPL0022', 'KL00044', 'KL00045', 4),
-('JPL0023', 'KL00045', 'KL00004', 2),
-('JPL0024', 'KL00004', 'KL00046', 90),
-('JPL0025', 'KL00046', 'KL00047', 1),
-('JPL0026', 'KL00047', 'KL00048', 5),
-('JPL0027', 'KL00048', 'KL00049', 5),
-('JPL0028', 'KL00049', 'KL00050', 3),
-('JPL0029', 'KL00050', 'KL00047', 4),
-('JPL0030', 'KL00047', 'KL00007', 12);
+('JPL00001', 'KL00033', 'KL00034', 70),
+('JPL00002', 'KL00034', 'KL00036', 1),
+('JPL00003', 'KL00036', 'KL00035', 1),
+('JPL00004', 'KL00035', 'KL00034', 1),
+('JPL00005', 'KL00034', 'KL00018', 1),
+('JPL00006', 'KL00018', 'KL00041', 578),
+('JPL00007', 'KL00041', 'KL00043', 11),
+('JPL00008', 'KL00043', 'KL00044', 14),
+('JPL00009', 'KL00044', 'KL00051', 1),
+('JPL00010', 'KL00051', 'KL00041', 30),
+('JPL00011', 'KL00018', 'KL00039', 68);
 
 -- --------------------------------------------------------
 
@@ -270,7 +251,8 @@ INSERT INTO `lokasi` (`kd_lokasi`, `nama_lokasi`, `alamat`, `id_kota`, `id_provi
 ('KL00047', 'Hotel Gajahmada Graha', 'Jalan Doktor Cipto No.17, Rampal Celaket, Klojen, Rampal Celaket, Klojen, Kota Malang, Jawa Timur 65111', 'KT046', NULL),
 ('KL00048', 'SMPN 12 Malang', 'Bandungrejosari, Sukun, Kota Malang, Jawa Timur 65148', 'KT046', NULL),
 ('KL00049', 'Bakso Bakar Pak Man', 'Jl. Diponegoro No.19, Klojen, Kota Malang, Jawa Timur 65111', 'KT046', NULL),
-('KL00050', 'Taman Kunang Kunang ', 'Jl. Jakarta, Oro-oro Dowo, Klojen, Kota Malang, Jawa Timur 65113', 'KT046', NULL);
+('KL00050', 'Taman Kunang Kunang ', 'Jl. Jakarta, Oro-oro Dowo, Klojen, Kota Malang, Jawa Timur 65113', 'KT046', NULL),
+('KL00051', 'Hotel Acardia By Horison Surabaya', 'Jl. Rajawali No.9-11 Krembangan, Surabaya\r\n', 'KT046', NULL);
 
 -- --------------------------------------------------------
 
@@ -293,7 +275,8 @@ INSERT INTO `moda_transportasi` (`Id_Moda`, `Tipe_Moda`) VALUES
 ('KMT03', 'Mobil'),
 ('KMT04', 'Bus'),
 ('KMT05', 'Motor'),
-('KMT06', 'Sepeda');
+('KMT06', 'Sepeda'),
+('KMT07', 'Jalan Kaki');
 
 -- --------------------------------------------------------
 
@@ -308,42 +291,6 @@ CREATE TABLE `perjalanan` (
   `Kd_jarak` varchar(14) NOT NULL,
   `Waktu_Tempuh` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `perjalanan`
---
-
-INSERT INTO `perjalanan` (`Kd_Perjalanan`, `Kd_Transportasi_Publik`, `Kd_Transportasi_Pribadi`, `Kd_jarak`, `Waktu_Tempuh`) VALUES
-('IDP0001', NULL, NULL, 'JPL0001', 19),
-('IDP0002', NULL, NULL, 'JPL0002', 13),
-('IDP0003', NULL, NULL, 'JPL0003', 67),
-('IDP0004', NULL, NULL, 'JPL0004', 50),
-('IDP0005', NULL, NULL, 'JPL0005', 15),
-('IDP0006', NULL, NULL, 'JPL0006', 5),
-('IDP0007', NULL, NULL, 'JPL0007', 12),
-('IDP0008', NULL, NULL, 'JPL0008', 99),
-('IDP0009', NULL, NULL, 'JPL0009', 3),
-('IDP0010', NULL, NULL, 'JPL0010', 7),
-('IDP0011', NULL, NULL, 'JPL0011', 10),
-('IDP0012', NULL, NULL, 'JPL0012', 5),
-('IDP0013', NULL, NULL, 'JPL0013', 9),
-('IDP0014', NULL, NULL, 'JPL0014', 10),
-('IDP0015', NULL, NULL, 'JPL0015', 95),
-('IDP0016', NULL, NULL, 'JPL0016', 11),
-('IDP0017', NULL, NULL, 'JPL0017', 133),
-('IDP0018', NULL, NULL, 'JPL0018', 90),
-('IDP0019', NULL, NULL, 'JPL0019', 40),
-('IDP0020', NULL, NULL, 'JPL0020', 30),
-('IDP0021', NULL, NULL, 'JPL0021', 34),
-('IDP0022', NULL, NULL, 'JPL0022', 25),
-('IDP0023', NULL, NULL, 'JPL0023', 15),
-('IDP0024', NULL, NULL, 'JPL0024', 168),
-('IDP0025', NULL, NULL, 'JPL0025', 3),
-('IDP0026', NULL, NULL, 'JPL0026', 18),
-('IDP0027', NULL, NULL, 'JPL0027', 18),
-('IDP0028', NULL, NULL, 'JPL0028', 9),
-('IDP0029', NULL, NULL, 'JPL0029', 10),
-('IDP0030', NULL, NULL, 'JPL0030', 25);
 
 -- --------------------------------------------------------
 
@@ -406,7 +353,7 @@ INSERT INTO `provinsi` (`id_provinsi`, `nama_provinsi`, `ibu_kota`) VALUES
 CREATE TABLE `transportasi_pribadi` (
   `Kd_Transportasi_Pribadi` varchar(6) NOT NULL,
   `Kd_Moda` varchar(6) NOT NULL,
-  `Nama_Transportasi_Pribadi` varchar(50) NOT NULL
+  `Nama_Transportasi_Pribadi` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -418,9 +365,9 @@ CREATE TABLE `transportasi_pribadi` (
 CREATE TABLE `transportasi_publik` (
   `Kd_Transportasi_Publik` varchar(6) NOT NULL,
   `Kd_Moda` varchar(6) NOT NULL,
-  `Nama_Transportasi_Publik` varchar(50) NOT NULL,
-  `Kd_lokasi_keberangkatan` varchar(7) NOT NULL,
-  `Kd_lokasi_kedatangan` varchar(7) NOT NULL,
+  `Nama_Transportasi_Publik` varchar(50) DEFAULT NULL,
+  `Kd_lokasi_keberangkatan` varchar(7) DEFAULT NULL,
+  `Kd_lokasi_kedatangan` varchar(7) DEFAULT NULL,
   `Waktu_Berangkat` datetime DEFAULT NULL,
   `Waktu_Datang` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -444,8 +391,7 @@ CREATE TABLE `traveller` (
 --
 
 INSERT INTO `traveller` (`Kd_Traveller`, `Nama_Traveller`, `Username`, `Password`, `Email`) VALUES
-('TR0001', 'Kanto', 'kanto1', 'kanto123', 'kanto1@gmail.com'),
-('TR0002', 'Rizky Fa', 'rizky', 'krawna', 'rizky@gmail.com');
+('TR0001', 'Kanto', 'kanto1', 'kanto123', 'kanto1@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -457,7 +403,7 @@ INSERT INTO `traveller` (`Kd_Traveller`, `Nama_Traveller`, `Username`, `Password
 ALTER TABLE `event`
   ADD PRIMARY KEY (`Kd_Event`),
   ADD KEY `Kd_Traveller` (`Kd_Traveller`),
-  ADD KEY `Id_Pejalanan` (`Id_Pejalanan`);
+  ADD KEY `Id_Pejalanan` (`Kd_Perjalanan`);
 
 --
 -- Indexes for table `jarak`
@@ -534,7 +480,7 @@ ALTER TABLE `traveller`
 --
 ALTER TABLE `event`
   ADD CONSTRAINT `event_ibfk_1` FOREIGN KEY (`Kd_Traveller`) REFERENCES `traveller` (`Kd_Traveller`),
-  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`Id_Pejalanan`) REFERENCES `perjalanan` (`Kd_Perjalanan`);
+  ADD CONSTRAINT `event_ibfk_2` FOREIGN KEY (`Kd_Perjalanan`) REFERENCES `perjalanan` (`Kd_Perjalanan`);
 
 --
 -- Ketidakleluasaan untuk tabel `jarak`
