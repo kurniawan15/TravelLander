@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Super Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+/*-------------------------Konfigurasi Body eksternal---------------------------------------*/
+  body
+  {
+      /* Location of the image */
+      background-image: url(img/2.jpg);
+  
+      /* Background image is centered vertically and horizontally at all times */
+      background-position: center center;
+  
+      /* Background image doesn't tile */
+      background-repeat: no-repeat;
+  
+      /* Background image is fixed in the viewport so that it doesn't move when 
+         the content's height is greater than the image's height */
+      background-attachment: fixed;
+  
+      /* This is what makes the background image rescale based
+         on the container's size */
+      background-size: cover;
+
+  }
+
+  #calendar 
+  {
+    width: 50%;
+    height: 20%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+  }
+
+  .footer
+  {
+    background-color: #2980b9;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+  }
+  </style>
+
+
+  <script>
+/*----------------------------edit buat mav----------------------------------------------*/
+    function openSlideMenu(){
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+
+  function openo()
+  {
+    document.getElementById("confirm").style.display = "block"
+  }
+  function opena()
+  {
+    document.getElementById("ask").style.display = "block"
+  }
+  function tutup()
+  {
+    document.getElementById("confirm").style.display = "none"
+  }
+  function tutup2()
+  {
+    document.getElementById("ask").style.display = "none"
+  }
+  </script>
+
+
+
+
+<meta charset='utf-8' />
+<link href='../fullcalendar.min.css' rel='stylesheet' />
+<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.min.js'></script>
+<script>
+/*------------------List Calendar----------------------------*/
+
+  $(document).ready(function() 
+  {
+    
+    $('#calendar').fullCalendar(
+    {
+
+
+
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2017-10-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: 
+      [
+
+        {
+          title: 'Rapat',
+          start: '2017-10-07T06:30:00',
+          end: '2017-10-07T07:30:00'
+        },
+        
+
+      ]
+    });
+    
+  });
+
+</script>
+</head>
+<body>
+
+
+
+<!--Hover Menu SIDE-->
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" onclick="openSlideMenu()">
+        <svg width="30" height="30">
+            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+        </svg>
+      </a>
+    </span>
+    <ul id="dropdown">
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  <div class="logo">
+    <img src="img/L21.png" style="width: 200px;">
+  </div>
+  </nav>
+
+<!--MENU SIDE-->
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a href="#">Dashboard</a>                                                                  
+    <a href="#">Create Schedule</a>
+    <a href="#">Finished Task</a>
+    <a href="#">Event List</a>
+  </div>
+
+<div class="main-content">
+    <div id="main">                                         
+      <div class="widget">
+        <div class="title"><center>My Calendar</center></div>
+
+        <div id='calendar'></div>
+      </div>
+        
+    </div>
+</div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<div class="footer">
+    <p>© Copyright Kelompok B2 | October 2017</p>
+</div>
+
+  
+</body>
+</html> 
