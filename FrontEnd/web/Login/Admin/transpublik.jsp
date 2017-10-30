@@ -5,10 +5,14 @@
 --%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.TransportasiPublik"%>
+<%@page import="DAO.DAOTransportasiPublik"%>
+<%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
+<%@page import="model.ModaTransportasi"%>
+<%@page import="DAO.DAOModaTransportasi"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Database.KoneksiDB"%>
-<%@page import="DAO.DAOTransportasiPublik"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -93,35 +97,46 @@
             <div class="title">Tambah Perjalanan </div>  
         <div class="imput_publik">
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
-            <%
-            for (int x = 0; x < data.size(); x++) {
-                    %>
                 Lokasi Keberangkatan
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-                 Lokasi Kedatangan
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-                Moda Transportasi
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
+                <%
+                    DAOLokasi dLok = new DAOLokasi();
+                    List<Lokasi> lok = new ArrayList<Lokasi>();
+                    lok = dLok.tampil();
+                    for (Lokasi l : lok) {
+                    %>
+                <option value="<%=l.getKdLokasi()%>"><%=l.getNamaLokasi()%></option>
                 <% 
                        }
                 %>
-                Nama Trasportasi
-                <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>
+                </select>
+                 Lokasi Kedatangan
+                 <select class="pilih_kota">
+                <%
+                    DAOLokasi dked = new DAOLokasi();
+                    List<Lokasi> ked = new ArrayList<Lokasi>();
+                    ked = dLok.tampil();
+                    for (Lokasi k : ked) {
+                    %>
+                <option value="<%=k.getKdLokasi()%>"><%=k.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
+                 </select>
+                Moda Transportasi
+                <select class="pilih_kota">
+                <%
+                    DAOModaTransportasi dmod = new DAOModaTransportasi();
+                    List<ModaTransportasi> mod = new ArrayList<ModaTransportasi>();
+                    mod = dmod.tampil();
+                    for (ModaTransportasi m : mod) {
+                    %>
+                <option value="<%=m.getKdModa()%>"><%=m.getTipeModa()%></option>
+                <% 
+                       }
+                %>
+                </select>
+                
                 Waktu Keberangkatan
                  <input type="time" name="bdaytime">
                 Waktu Kedatangan

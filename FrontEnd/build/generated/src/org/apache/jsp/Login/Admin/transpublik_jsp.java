@@ -5,10 +5,14 @@ import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.text.SimpleDateFormat;
 import model.TransportasiPublik;
+import DAO.DAOTransportasiPublik;
+import model.Lokasi;
+import DAO.DAOLokasi;
+import model.ModaTransportasi;
+import DAO.DAOModaTransportasi;
 import java.util.List;
 import java.util.ArrayList;
 import Database.KoneksiDB;
-import DAO.DAOTransportasiPublik;
 
 public final class transpublik_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -47,6 +51,10 @@ public final class transpublik_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -160,27 +168,71 @@ public final class transpublik_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <form action=\"../../provinsi?data=provinsi&proses=input-provinsi\" method=\"post\">\r\n");
       out.write("                Lokasi Keberangkatan\r\n");
       out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
+      out.write("                ");
+
+                    DAOLokasi dLok = new DAOLokasi();
+                    List<Lokasi> lok = new ArrayList<Lokasi>();
+                    lok = dLok.tampil();
+                    for (Lokasi l : lok) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(l.getKdLokasi());
+      out.write('"');
+      out.write('>');
+      out.print(l.getNamaLokasi());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                       }
+                
+      out.write("\r\n");
       out.write("                </select>\r\n");
       out.write("                 Lokasi Kedatangan\r\n");
-      out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
-      out.write("                </select>\r\n");
+      out.write("                 <select class=\"pilih_kota\">\r\n");
+      out.write("                ");
+
+                    DAOLokasi dked = new DAOLokasi();
+                    List<Lokasi> ked = new ArrayList<Lokasi>();
+                    ked = dLok.tampil();
+                    for (Lokasi k : ked) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(k.getKdLokasi());
+      out.write('"');
+      out.write('>');
+      out.print(k.getNamaLokasi());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                       }
+                
+      out.write("\r\n");
+      out.write("                 </select>\r\n");
       out.write("                Moda Transportasi\r\n");
       out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
+      out.write("                ");
+
+                    DAOModaTransportasi dmod = new DAOModaTransportasi();
+                    List<ModaTransportasi> mod = new ArrayList<ModaTransportasi>();
+                    mod = dmod.tampil();
+                    for (ModaTransportasi m : mod) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(m.getKdModa());
+      out.write('"');
+      out.write('>');
+      out.print(m.getTipeModa());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                       }
+                
+      out.write("\r\n");
       out.write("                </select>\r\n");
-      out.write("                Nama Trasportasi\r\n");
-      out.write("                <input type=\"text\" placeholder=\"Masukan Id erjalanan\" name=\"#i\" required>\r\n");
+      out.write("                \r\n");
       out.write("                Waktu Keberangkatan\r\n");
       out.write("                 <input type=\"time\" name=\"bdaytime\">\r\n");
       out.write("                Waktu Kedatangan\r\n");

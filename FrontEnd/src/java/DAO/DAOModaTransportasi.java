@@ -25,16 +25,16 @@ public class DAOModaTransportasi extends ModaTransportasi {
     }
 
     public void simpan(){
-        String sql = "INSERT into moda_transportasi( Kd_Moda, Tipe_Moda) values ('" + kdModa + "','" + tipeModa + "')";
+        String sql = "INSERT into moda_transportasi( Id_Moda, Tipe_Moda) values ('" + kdModa + "','" + tipeModa + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE moda_transportasi SET Tipe_Moda='"+tipeModa+"' WHERE Kd_Moda='"+kdModa+"'";
+        String sql="UPDATE moda_transportasi SET Tipe_Moda='"+tipeModa+"' WHERE Id_Moda='"+kdModa+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM moda_transportasi WHERE Kd_Moda='"+kdModa+"'";
+        String sql="DELETE FROM moda_transportasi WHERE Id_Moda='"+kdModa+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -43,12 +43,12 @@ public class DAOModaTransportasi extends ModaTransportasi {
         ResultSet rs = null;
 
         try {
-            String sql = "select * from moda_transportasi order by Kd_Moda asc";
+            String sql = "select * from moda_transportasi order by Id_Moda asc";
             rs = db.ambilData(sql);
             System.out.print(sql);
             while (rs.next()) {
                 ModaTransportasi um = new ModaTransportasi();
-                um.setKdModa(rs.getString("Kd_Moda"));
+                um.setKdModa(rs.getString("Id_Moda"));
                 um.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(um);
    }
@@ -68,7 +68,7 @@ public class DAOModaTransportasi extends ModaTransportasi {
             rs = db.ambilData(sql);
             while (rs.next()) {
                 ModaTransportasi m = new ModaTransportasi();
-                m.setKdModa(rs.getString("Kd_Moda"));
+                m.setKdModa(rs.getString("Id_Moda"));
                 m.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(m);
 
@@ -86,7 +86,7 @@ public class DAOModaTransportasi extends ModaTransportasi {
             String kdModa = "KMT00";
             
             int cnt = 0;
-            String sql = "SELECT MAX(Kd_Moda) FROM moda_transportasi";   // mengambil maksimal ddari kd_moda
+            String sql = "SELECT MAX(Id_Moda) FROM moda_transportasi";   // mengambil maksimal ddari kd_moda
             
             ResultSet resultSet = db.ambilData(sql);
 

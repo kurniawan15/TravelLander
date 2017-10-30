@@ -3,7 +3,11 @@
     Created on : Oct 30, 2017, 9:14:53 PM
     Author     : Hari
 --%>
-
+<%@page import="model.ModaTransportasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
+<%@page import="DAO.DAOModaTransportasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -46,21 +50,29 @@
                 <table class="table">
                     <tr>
                         <th>NO</th>
+                        <th>Kode Noda</th>
                         <th>Tipe Noda</th>
                         <th>Keterangan</th>
                     </tr>
                     <%
-                      
+                      DAOModaTransportasi dmt = new DAOModaTransportasi();
+                      List<ModaTransportasi> data = new ArrayList<ModaTransportasi>();
+                      String ket = request.getParameter("ket");
+                      if (ket == null) {
+                          data = dmt.tampil();
+                      } 
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdModa()%></td>
+                        <td><%=data.get(x).getTipeModa()%></td>
                         <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
-                   
+                   }
               %>
                 </table>
             
@@ -69,14 +81,7 @@
         <div class="title">Tambah Kota</div>
         <div class="imput">
             <form action="../../kota?data=kota&proses=input-kota" method="post">
-                Kode Provinsi
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-                Nama Kota
+                Nama Moda
                 <input type="text" placeholder="Masukan Nama Kota" name="nama_kota" required>
                 <button type="submit" name="Tambah">Update Data</button>  
             </form>
