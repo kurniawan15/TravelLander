@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Lokasi;
 import Database.KoneksiDB;
+import java.sql.SQLException;
 
 /**
  *
@@ -108,4 +109,33 @@ public class DAOLokasi extends Lokasi {
         }
         return data;
     }
+
+        public String getNewId() throws SQLException{
+            
+            String kdLokasi = "KL000";
+            
+            int cnt = 0;
+            String sql = "SELECT MAX(kd_lokasi) FROM lokasi";   // mengambil maksimal id kota
+            
+            ResultSet resultSet = db.ambilData(sql);
+            System.out.println(sql);
+
+            while (resultSet.next()) {                      // selama masih ada isinya diambil
+                kdLokasi = resultSet.getString(1);            // yang diambil 1=kd kota
+            } 
+            
+            cnt = Integer.parseInt(kdLokasi.substring(2));    // mengambil dari index ke 2 (mulai dri 0)
+            cnt++;
+            if(cnt >= 100){
+                kdLokasi = "KL" + String.valueOf(cnt);
+            }
+            else if(cnt < 100 && cnt >= 10){
+               kdLokasi = "KL" + "000" + String.valueOf(cnt);
+            }
+            else{
+               kdLokasi = "KL" + "00000" + String.valueOf(cnt);
+            }
+            db.diskonek(resultSet);
+            return kdLokasi;
+         }
 }

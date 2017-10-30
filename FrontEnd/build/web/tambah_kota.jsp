@@ -15,10 +15,6 @@
         <center><h1>Input Kota</h1></center>
         <form action="kota?data=kota&proses=input-kota" method="post">
             <table style="margin:20px auto;">
-                <tr>
-                    <td>KdKota</td>
-                    <td><input type="text" name="id_kota"></td>
-		</tr>
 		<tr>
                     <td>Nama Kota</td>
                     <td><input type="text" name="nama_kota"></td>

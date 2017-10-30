@@ -11,10 +11,6 @@
         <center><h1>Input lokasi</h1></center>
         <form action="location?data=lokasi&proses=input-lokasi" method="post">
             <table style="margin:20px auto;">
-                <tr>
-                    <td>KdLokasi</td>
-                    <td><input type="text" name="kd_lokasi"></td>
-		</tr>
 		<tr>
                     <td>Nama Lokasi</td>
                     <td><input type="text" name="nama_lokasi"></td>
