@@ -3,7 +3,11 @@
     Created on : Oct 30, 2017, 9:14:53 PM
     Author     : Hari
 --%>
-
+<%@page import="model.ModaTransportasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
+<%@page import="DAO.DAOModaTransportasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -33,11 +37,14 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Data Kota</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a class="selected" href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
@@ -46,38 +53,40 @@
                 <table class="table">
                     <tr>
                         <th>NO</th>
+                        <th>Kode Noda</th>
                         <th>Tipe Noda</th>
                         <th>Keterangan</th>
                     </tr>
                     <%
-                      
+                      DAOModaTransportasi dmt = new DAOModaTransportasi();
+                      List<ModaTransportasi> data = new ArrayList<ModaTransportasi>();
+                      String ket = request.getParameter("ket");
+                      if (ket == null) {
+                          data = dmt.tampil();
+                      } 
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdModa()%></td>
+                        <td><%=data.get(x).getTipeModa()%></td>
                         <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
-                   
+                   }
               %>
                 </table>
             
 	</div>
     <div class="widget">
-        <div class="title">Tambah Kota</div>
+        <div class="title">Tambah Moda</div>
         <div class="imput">
             <form action="../../kota?data=kota&proses=input-kota" method="post">
-                Kode Provinsi
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
-                Nama Kota
-                <input type="text" placeholder="Masukan Nama Kota" name="nama_kota" required>
+                Nama Moda
+
+                <input type="text" placeholder="Masukan Nama Moda" name="nama_kota" required>
                 <button type="submit" name="Tambah">Update Data</button>  
             </form>
         </div>

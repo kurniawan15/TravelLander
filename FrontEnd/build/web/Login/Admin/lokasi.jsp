@@ -38,16 +38,19 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Manage Place</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a class="selected" href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
 	<div class="widget">
-            <div class="title">Data Provinsi</div>
+            <div class="title">Data Lokasi</div>
                 <table class="table">
                     <tr>
                         <th>NO</th>
@@ -82,11 +85,9 @@
                     <% 
                     }
                     %>
-                </table>
-               
+                </table>       
 	</div>
-    </div>
-</div>
+
 
 <div class="widget">
     <div class="title">Tambah Lokasi </div>  
@@ -115,6 +116,7 @@
             </form>
         </div>
 </div>
+
 <!------------------------------------------------------------bagian modal dalet-------------------------------------->   
 <script>
 /*----------------------------edit buat mav----------------------------------------------*/
@@ -149,5 +151,5 @@
 	}
 	 
 </script>	
-
+</body>
 </html>
