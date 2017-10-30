@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DAO.DAOLokasi;
+import java.sql.SQLException;
 
 /**
  *
@@ -53,7 +54,12 @@ public class ControllerLokasi extends HttpServlet {
                 dlok.setId_kota(request.getParameter("id_kota"));
                 dlok.setId_provinsi(request.getParameter("id_provinsi"));
                 if (proses.equals("input-lokasi")){
-                    dlok.simpan();
+                     try {
+                        dlok.setKdLokasi(dlok.getNewId());
+                        dlok.simpan();
+                    } catch (SQLException ex) {
+                      response.sendRedirect("tambah_lokasi.jsp");
+                    }
                 }else if (proses.equals("update-lokasi")){
                     dlok.update();
                 } else if(proses.equals("hapus-lokasi")){

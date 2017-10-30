@@ -8,6 +8,7 @@ package controller;
 import DAO.DAOTransportasiPribadi;
 import DAO.DAOTransportasiPublik;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
@@ -48,22 +49,27 @@ public class ControllerTransportasiPublik extends HttpServlet{
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
         if (data != null){
             if(data.equals("transportasi_publik")){
-                DAOTransportasiPublik um=new DAOTransportasiPublik();
-                um.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
-                um.setKdModa(request.getParameter("Kd_Moda"));
-                um.setNamaTransportasiPublik(request.getParameter("Nama_Transportasi_Publik"));
+                DAOTransportasiPublik tp=new DAOTransportasiPublik();
+                tp.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
+                tp.setKdModa(request.getParameter("Kd_Moda"));
+                tp.setNamaTransportasiPublik(request.getParameter("Nama_Transportasi_Publik"));
                 try{
-                    um.setWaktuBerangkat(format.parse(request.getParameter("Waktu_Berangkat")));
-                    um.setWaktuDatang(format.parse(request.getParameter("Waktu_Datang")));
+                    tp.setWaktuBerangkat(format.parse(request.getParameter("Waktu_Berangkat")));
+                    tp.setWaktuDatang(format.parse(request.getParameter("Waktu_Datang")));
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
                 if (proses.equals("input-moda-publik")){
-                    um.simpan();
+                      try {
+                        tp.setKdTansportasiPublik(tp.getNewId());
+                        tp.simpan();
+                    } catch (SQLException ex) {
+                      response.sendRedirect("tambah_lokasi.jsp");
+                    }
                 }else if (proses.equals("update-moda-publik")){
-                    um.update();
+                    tp.update();
                 } else if(proses.equals("hapus-moda-publik")){
-                    um.hapus();
+                    tp.hapus();
                 }
                 response.sendRedirect("");
             }

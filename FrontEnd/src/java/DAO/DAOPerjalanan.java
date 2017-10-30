@@ -27,16 +27,16 @@ public class DAOPerjalanan extends Perjalanan{
     }
 
     public void simpan(){
-        String sql = "INSERT into perjalanan( id_Perjalanan, Kd_Transportasi_Publik,Kd_Jarak, Kd_Transportasi_Pribadi, Waktu_tempuh) values ('" + idPerjalanan + "','" + kdTransportasiPublik + "','" + kdJarak + "',,'" + kdTransportasiPribadi + "',,'" + waktuTempuh + "')";
+        String sql = "INSERT into perjalanan( id_perjalanan, Kd_Transportasi_Publik,Kd_Jarak, Kd_Transportasi_Pribadi, Waktu_tempuh) values ('" + idPerjalanan + "','" + kdTransportasiPublik + "','" + kdJarak + "',,'" + kdTransportasiPribadi + "',,'" + waktuTempuh + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE perjalanan SET Kd_Transportasi_Publik='"+kdTransportasiPublik+"',Kd_Jarak='"+kdJarak+"', Kd_Transportasi_Pribadi='"+kdTransportasiPribadi+"', Waktu_tempuh='"+waktuTempuh+"' WHERE id_Perjalanan='"+idPerjalanan+"' ";
+        String sql="UPDATE perjalanan SET Kd_Transportasi_Publik='"+kdTransportasiPublik+"',Kd_Jarak='"+kdJarak+"', Kd_Transportasi_Pribadi='"+kdTransportasiPribadi+"', Waktu_tempuh='"+waktuTempuh+"' WHERE id_perjalanan='"+idPerjalanan+"' ";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM kota WHERE id_Perjalanan='"+idPerjalanan+"'";
+        String sql="DELETE FROM kota WHERE id_perjalanan='"+idPerjalanan+"'";
         db.simpanData(sql);
         System.out.println("");
     }
@@ -45,15 +45,16 @@ public class DAOPerjalanan extends Perjalanan{
         ResultSet rs = null;
 
         try {
-            String sql = "select * from perjalanan order by id_Perjalanan asc";
+            String sql = "select * from perjalanan order by id_perjalanan asc";
             rs = db.ambilData(sql);
+            System.out.print(sql);
             while (rs.next()) {
                 Perjalanan um = new Perjalanan();
-                um.setIdPerjalanan(rs.getString("id_Perjalanan"));
-                um.setkdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
-                um.setkdJarak(rs.getString("Kd_Jarak"));
-                um.setkdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
-                um.setwaktuTempuh(rs.getString("Waktu_tempuh"));
+                um.setIdPerjalanan(rs.getString("id_perjalanan"));
+                um.setKdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
+                um.setKdJarak(rs.getString("Kd_Jarak"));
+                um.setKdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
+                um.setWaktuTempuh(rs.getInt("Waktu_tempuh"));
                 data.add(um);
    }
             db.diskonek(rs);
@@ -67,15 +68,15 @@ public class DAOPerjalanan extends Perjalanan{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM perjalanan WHERE id_Perjalanan='"+idPerjalanan+"'";
+            String sql = "SELECT * FROM perjalanan WHERE id_perjalanan='"+idPerjalanan+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Perjalanan m = new Perjalanan();
-                m.setIdPerjalanan(rs.getString("id_Perjalanan"));
-                m.setkdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
-                m.setkdJarak(rs.getString("Kd_Jarak"));
-                m.setkdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
-                m.setwaktuTempuh(rs.getString("Waktu_tempuh"));
+                m.setIdPerjalanan(rs.getString("id_perjalanan"));
+                m.setKdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
+                m.setKdJarak(rs.getString("Kd_Jarak"));
+                m.setKdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
+                m.setWaktuTempuh(rs.getInt("Waktu_tempuh"));
                 data.add(m);
 
             }
@@ -91,7 +92,7 @@ public class DAOPerjalanan extends Perjalanan{
             String idPerjalanan = "IDP0000";
             
             int cnt = 0;
-            String sql = "SELECT MAX(Id_Perjalanan) FROM Perjalanan";   // mengambil maksimal id kota
+            String sql = "SELECT MAX(id_perjalanan) FROM Perjalanan";   // mengambil maksimal id kota
             
             ResultSet resultSet = db.ambilData(sql);
 

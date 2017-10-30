@@ -7,6 +7,9 @@ package controller;
 
 import DAO.DAOPerjalanan;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,12 +49,17 @@ public class ControllerPerjalanan extends HttpServlet{
             if(data.equals("perjalanan")){
                 DAOPerjalanan um=new DAOPerjalanan();
                 um.setIdPerjalanan(request.getParameter("id_perjalanan"));
-                um.setkdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
-                um.setkdJarak(request.getParameter("Kd_Jarak"));
-                um.setkdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
-                um.setwaktuTempuh(request.getParameter("Waktu_tempuh"));
+                um.setKdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
+                um.setKdJarak(request.getParameter("Kd_Jarak"));
+                um.setKdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
+                um.setWaktuTempuh(Integer.parseInt(request.getParameter("Waktu_tempuh")));
                 if (proses.equals("input-perjalanan")){
-                    um.simpan();
+                    try{
+                        um.setIdPerjalanan(um.getNewId());
+                        um.simpan();
+                    }catch (SQLException ex) {
+                        Logger.getLogger(ControllerPerjalanan.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else if (proses.equals("update-perjalanan")){
                     um.update();
                 } else if(proses.equals("hapus-perjalanan")){

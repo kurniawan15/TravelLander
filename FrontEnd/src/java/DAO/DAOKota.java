@@ -91,6 +91,7 @@ public class DAOKota extends Kota {
             String sql = "SELECT MAX(id_kota) FROM kota";   // mengambil maksimal id kota
             
             ResultSet resultSet = db.ambilData(sql);
+            System.out.println(sql);
 
             while (resultSet.next()) {                      // selama masih ada isinya diambil
                 kdKota = resultSet.getString(1);            // yang diambil 1=kd kota

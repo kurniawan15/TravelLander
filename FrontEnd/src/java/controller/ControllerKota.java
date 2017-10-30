@@ -6,15 +6,15 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Kota;
-import Database.KoneksiDB;
+import java.sql.SQLException;
 import DAO.DAOKota;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,9 +35,9 @@ public class ControllerKota extends HttpServlet {
             response.sendRedirect("edit_kota.jsp?id_kota="+request.getParameter("id_kota"));
             return;
         }else if(proses.equals("hapus-kota")){
-            DAOKota hm=new DAOKota();
-            hm.setIdKota(request.getParameter("id_kota"));
-            hm.hapus();
+            DAOKota dkt=new DAOKota();
+            dkt.setIdKota(request.getParameter("id_kota"));
+            dkt.hapus();
             response.sendRedirect("indexKota.jsp");
         }
     }
@@ -49,16 +49,22 @@ public class ControllerKota extends HttpServlet {
         
         if (data != null){
             if(data.equals("kota")){
-                DAOKota um=new DAOKota();
-                um.setIdKota(request.getParameter("id_kota"));
-                um.setNamaKota(request.getParameter("nama_kota"));
-                um.setIdProvinsi(request.getParameter("id_provinsi"));
+                DAOKota kt=new DAOKota();
+                kt.setIdKota(request.getParameter("id_kota"));
+                kt.setNamaKota(request.getParameter("nama_kota"));
+                kt.setIdProvinsi(request.getParameter("id_provinsi"));
+                
                 if (proses.equals("input-kota")){
-                    um.simpan();
+                    try {
+                        kt.setIdKota(kt.getNewId());
+                        kt.simpan();
+                    } catch (SQLException ex) {
+                        response.sendRedirect("tambah_kota.jsp");
+                    }
                 }else if (proses.equals("update-kota")){
-                    um.update();
+                    kt.update();
                 } else if(proses.equals("hapus-kota")){
-                    um.hapus();
+                    kt.hapus();
                 }
                 response.sendRedirect("indexKota.jsp");
             }
