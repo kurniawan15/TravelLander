@@ -49,9 +49,9 @@ public class DAOTransportasiPribadi extends TransportasiPribadi{
             rs = db.ambilData(sql);
             while (rs.next()) {
                 TransportasiPribadi um = new TransportasiPribadi();
-                um.setkdTansportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
-                um.setkdModa(rs.getString("Kd_Moda"));
-                um.setnamaTransportasiPribadi(rs.getString("Nama_Transportasi_Pribadi"));
+                um.setKdTansportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
+                um.setKdModa(rs.getString("Kd_Moda"));
+                um.setNamaTransportasiPribadi(rs.getString("Nama_Transportasi_Pribadi"));
                 data.add(um);
    }
             db.diskonek(rs);
@@ -69,9 +69,9 @@ public class DAOTransportasiPribadi extends TransportasiPribadi{
             rs = db.ambilData(sql);
             while (rs.next()) {
                 TransportasiPribadi m = new TransportasiPribadi();
-                m.setkdTansportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
-                m.setkdModa(rs.getString("Kd_Moda"));
-                m.setnamaTransportasiPribadi(rs.getString("Nama_Transportasi_Pribadi"));
+                m.setKdTansportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
+                m.setKdModa(rs.getString("Kd_Moda"));
+                m.setNamaTransportasiPribadi(rs.getString("Nama_Transportasi_Pribadi"));
                 data.add(m);
 
             }

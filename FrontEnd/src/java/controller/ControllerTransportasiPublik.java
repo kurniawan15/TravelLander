@@ -8,6 +8,8 @@ package controller;
 import DAO.DAOTransportasiPribadi;
 import DAO.DAOTransportasiPublik;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +35,7 @@ public class ControllerTransportasiPublik extends HttpServlet{
             return;
         }else if(proses.equals("hapus-moda-transport")){
             DAOTransportasiPublik hm=new DAOTransportasiPublik();
-            hm.setkdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
+            hm.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
             hm.hapus();
             response.sendRedirect("");
         }
@@ -43,15 +45,19 @@ public class ControllerTransportasiPublik extends HttpServlet{
             throws ServletException, IOException {
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-        
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
         if (data != null){
             if(data.equals("transportasi_publik")){
                 DAOTransportasiPublik um=new DAOTransportasiPublik();
-                um.setkdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
-                um.setkdModa(request.getParameter("Kd_Moda"));
-                um.setnamaTransportasiPublik(request.getParameter("Nama_Transportasi_Publik"));
-                um.setwaktuBerangkat(request.getParameter("Waktu_Berangkat"));
-                um.setwaktuDatang(request.getParameter("Waktu_Datang"));
+                um.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
+                um.setKdModa(request.getParameter("Kd_Moda"));
+                um.setNamaTransportasiPublik(request.getParameter("Nama_Transportasi_Publik"));
+                try{
+                    um.setWaktuBerangkat(format.parse(request.getParameter("Waktu_Berangkat")));
+                    um.setWaktuDatang(format.parse(request.getParameter("Waktu_Datang")));
+                } catch (ParseException ex) {
+                    response.sendRedirect("");
+                }
                 if (proses.equals("input-moda-publik")){
                     um.simpan();
                 }else if (proses.equals("update-moda-publik")){

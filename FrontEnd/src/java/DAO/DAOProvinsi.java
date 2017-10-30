@@ -9,8 +9,6 @@ import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import model.Jarak;
-import model.Lokasi;
 import model.Provinsi;
 
 /**

@@ -40,13 +40,4 @@ public class ModaTransportasi {
     public void setTipeModa(String tipeModa) {
         this.tipeModa = tipeModa;
     }
-
-    public void setkdModa(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void settipeModa(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

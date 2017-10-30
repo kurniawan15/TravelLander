@@ -24,12 +24,12 @@ public class DAOTransportasiPublik extends TransportasiPublik{
     }
     
     public void simpan(){
-        String sql = "INSERT into transportasi_publik ( Kd_Transportasi_Publik, Kd_Moda, Nama_Transportasi_Publik, Waktu_Berangkat, Waktu_Datang) values ('" + kdTansportasiPublik+ "','" + kdModa + "','" + namaTransportasiPublik + "','" + waktuBerangkat + "','" + waktuDatang + "')";
+        String sql = "INSERT into transportasi_publik ( Kd_Transportasi_Publik, Kd_Lokasi_Keberangkatan,Kd_Lokasi_Kedatangan,Kd_Moda, Nama_Transportasi_Publik, Waktu_Berangkat, Waktu_Datang) values ('" + kdTansportasiPublik+ "','" + kdLokasiKeberangkatan+ "','" + kdLokasiKedatangan+ "','" + kdModa + "','" + namaTransportasiPublik + "','" + waktuBerangkat + "','" + waktuDatang + "')";
         db.simpanData(sql);
     }
     
     public void update(){
-        String sql="UPDATE transportasi_publik SET Kd_Moda='"+kdModa+"', Nama_Transportasi_publik='"+namaTransportasiPublik+"',Waktu_Berangkat='"+waktuBerangkat+"',Waktu_Datang='"+waktuDatang+"' WHERE Kd_Transportasi_Publik= '" + kdTansportasiPublik+ "'";
+        String sql="UPDATE transportasi_publik SET Kd_Lokasi_Keberangkatan='"+kdLokasiKeberangkatan+"',Kd_Lokasi_Kedatangan='"+kdLokasiKedatangan+"',Kd_Moda='"+kdModa+"', Nama_Transportasi_publik='"+namaTransportasiPublik+"',Waktu_Berangkat='"+waktuBerangkat+"',Waktu_Datang='"+waktuDatang+"' WHERE Kd_Transportasi_Publik= '" + kdTansportasiPublik+ "'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -48,11 +48,13 @@ public class DAOTransportasiPublik extends TransportasiPublik{
             rs = db.ambilData(sql);
             while (rs.next()) {
                 TransportasiPublik um = new TransportasiPublik();
-                um.setkdTansportasiPublik(rs.getString("Kd_Transportasi_Publik"));
-                um.setkdModa(rs.getString("Kd_Moda"));
-                um.setnamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
-                um.setwaktuBerangkat(rs.getString("Waktu_Berangkat"));
-                um.setwaktuDatang(rs.getString("Waktu_Datang"));
+                um.setKdTansportasiPublik(rs.getString("Kd_Transportasi_Publik"));
+                um.setKdLokasiKeberangkatan(rs.getString("Kd_Lokasi_Keberangkatan"));
+                um.setKdLokasiKedatangan(rs.getString("Kd_Lokasi_Kedatangan"));
+                um.setKdModa(rs.getString("Kd_Moda"));
+                um.setNamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
+                um.setWaktuBerangkat(rs.getDate("Waktu_Berangkat"));
+                um.setWaktuDatang(rs.getDate("Waktu_Datang"));
                 data.add(um);
    }
             db.diskonek(rs);
@@ -70,11 +72,13 @@ public class DAOTransportasiPublik extends TransportasiPublik{
             rs = db.ambilData(sql);
             while (rs.next()) {
                 TransportasiPublik m = new TransportasiPublik();
-                m.setkdTansportasiPublik(rs.getString("Kd_Transportasi_Publik"));
-                m.setkdModa(rs.getString("Kd_Moda"));
-                m.setnamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
-                m.setwaktuBerangkat(rs.getString("Waktu_Berangkat"));
-                m.setwaktuDatang(rs.getString("Waktu_Datang"));
+                m.setKdTansportasiPublik(rs.getString("Kd_Transportasi_Publik"));
+                m.setKdLokasiKeberangkatan(rs.getString("Kd_Lokasi_Keberangkatan"));
+                m.setKdLokasiKedatangan(rs.getString("Kd_Lokasi_Kedatangan"));
+                m.setKdModa(rs.getString("Kd_Moda"));
+                m.setNamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
+                m.setWaktuBerangkat(rs.getDate("Waktu_Berangkat"));
+                m.setWaktuDatang(rs.getDate("Waktu_Datang"));
                 data.add(m);
 
             }

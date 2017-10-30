@@ -13,6 +13,8 @@ import java.util.Date;
  */
 public class TransportasiPublik {
     public String kdTansportasiPublik;
+    public String kdLokasiKeberangkatan;
+    public String kdLokasiKedatangan;
     public String kdModa;
     public String namaTransportasiPublik;
     public Date waktuBerangkat;
@@ -88,23 +90,31 @@ public class TransportasiPublik {
         this.waktuDatang = waktuDatang;
     }
 
-    public void setkdTansportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the kdLokasiKeberangk
+     */
+    public String getKdLokasiKeberangkatan() {
+        return kdLokasiKeberangkatan;
     }
 
-    public void setkdModa(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param kdLokasiKeberangkatan the kdLokasiKeberangk to set
+     */
+    public void setKdLokasiKeberangkatan(String kdLokasiKeberangkatan) {
+        this.kdLokasiKeberangkatan = kdLokasiKeberangkatan;
     }
 
-    public void setnamaTransportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @return the kdLokasiKedatangan
+     */
+    public String getKdLokasiKedatangan() {
+        return kdLokasiKedatangan;
     }
 
-    public void setwaktuDatang(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setwaktuBerangkat(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * @param kdLokasiKedatangan the kdLokasiKedatangan to set
+     */
+    public void setKdLokasiKedatangan(String kdLokasiKedatangan) {
+        this.kdLokasiKedatangan = kdLokasiKedatangan;
     }
 }
