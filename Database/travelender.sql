@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Okt 2017 pada 05.02
+-- Generation Time: 30 Okt 2017 pada 14.56
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -36,6 +36,32 @@ CREATE TABLE `event` (
   `Keterangan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `event`
+--
+
+INSERT INTO `event` (`Kd_Event`, `Kd_Perjalanan`, `Kd_Traveller`, `Nama_Event`, `Waktu_Mulai`, `Waktu_Selesai`, `Keterangan`) VALUES
+('EV061117TR000101', 'KDP0001', 'TR0001', 'Cek In Hotel Pengawas', '2017-11-06 18:30:00', '2017-11-06 18:50:00', ''),
+('EV061117TR000102', 'KDP0001', 'TR0001', 'Pertemuan Pengawas', '2017-11-06 19:00:00', '2017-11-06 21:30:00', ''),
+('EV061117TR000103', 'KDP0001', 'TR0001', 'Istirahat', '2017-11-06 22:00:00', '2017-11-07 06:00:00', ''),
+('EV071117TR000101', 'KDP0002', 'TR0001', 'Pengawasan dan Pelatihan', '2017-11-07 07:00:00', '2017-11-07 13:00:00', ''),
+('EV071117TR000102', 'KDP0002', 'TR0001', 'ISHOMA', '2017-11-07 13:15:00', '2017-11-07 15:00:00', ''),
+('EV071117TR000103', 'KDP0003', 'TR0001', 'Laporan dan Evaluasi', '2017-11-07 16:00:00', '2017-11-07 18:00:00', ''),
+('EV071117TR000104', 'KDP0003', 'TR0001', 'Makan - makan(ISHOMA)', '2017-11-07 18:10:00', '2017-11-07 19:00:00', ''),
+('EV071117TR000105', 'KDP0004', 'TR0001', 'Istirahat', '2017-11-07 21:00:00', '2017-11-08 04:00:00', ''),
+('EV081117TR000101', 'KDP0004', 'TR0001', 'Cek out Hotel/Kepergian', '2017-11-08 04:00:00', '2017-11-08 04:30:00', ''),
+('EV081117TR000102', 'KDP0005', 'TR0001', 'Cek In(KTP,TIKET,KLARIFIKASI)', '2017-11-08 05:20:00', '2017-11-08 05:40:00', ''),
+('EV081117TR000103', 'KDP0006', 'TR0001', 'Pengambilan Barang bawaan', '2017-11-08 07:20:00', '2017-11-08 07:30:00', ''),
+('EV081117TR000104', 'KDP0007', 'TR0001', 'Pengawasan dan Pelatihan', '2017-11-08 08:00:00', '2017-11-08 13:00:00', ''),
+('EV081117TR000105', 'KDP0007', 'TR0001', 'ISHOMA', '2017-11-08 13:00:00', '2017-11-08 15:00:00', ''),
+('EV081117TR000106', 'KDP0008', 'TR0001', 'Laporan dan Evaluasi', '2017-11-08 16:00:00', '2017-11-08 18:20:00', ''),
+('EV081117TR000107', 'KDP0008', 'TR0001', 'Makan - makan(ISHOMA)', '2017-11-08 18:20:00', '2017-11-08 19:00:00', ''),
+('EV081117TR000108', 'KDP0009', 'TR0001', 'Cek In Hotel', '2017-11-08 19:30:00', '2017-11-08 19:35:00', ''),
+('EV081117TR000109', 'KDP0009', 'TR0001', 'Istirahat', '2017-11-08 21:00:00', '2017-11-09 06:00:00', ''),
+('EV091117TR000101', 'KDP0010', 'TR0001', 'Cek In(KTP,TIKET,KLARIFIKASI)', '2017-11-09 07:20:00', '2017-11-09 07:45:00', ''),
+('EV091117TR000102', 'KDP0011', 'TR0001', 'Pengambilan Barang bawaan', '2017-11-09 09:20:00', '2017-11-09 09:30:00', ''),
+('EV091117TR000103', 'KDP0012', 'TR0001', 'Penyerahan Laporan', '2017-11-09 13:00:00', '2017-11-09 14:40:00', '');
+
 -- --------------------------------------------------------
 
 --
@@ -64,7 +90,8 @@ INSERT INTO `jarak` (`Kd_jarak`, `Kd_lokasi_awal`, `Kd_lokasi_akhir`, `Jarak`) V
 ('JPL00008', 'KL00043', 'KL00044', 14),
 ('JPL00009', 'KL00044', 'KL00051', 1),
 ('JPL00010', 'KL00051', 'KL00041', 30),
-('JPL00011', 'KL00018', 'KL00039', 68);
+('JPL00011', 'KL00041', 'KL00018', 578),
+('JPL00012', 'KL00018', 'KL00039', 68);
 
 -- --------------------------------------------------------
 
@@ -292,6 +319,24 @@ CREATE TABLE `perjalanan` (
   `Waktu_Tempuh` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `perjalanan`
+--
+
+INSERT INTO `perjalanan` (`Kd_Perjalanan`, `Kd_Transportasi_Publik`, `Kd_Transportasi_Pribadi`, `Kd_jarak`, `Waktu_Tempuh`) VALUES
+('KDP0001', NULL, 'TP0001', 'JPL00001', 125),
+('KDP0002', 'TU0002', NULL, 'JPL00002', 5),
+('KDP0003', NULL, 'TP0002', 'JPL00003', 1),
+('KDP0004', NULL, 'TP0002', 'JPL00004', 2),
+('KDP0005', 'TU0005', NULL, 'JPL00005', 25),
+('KDP0006', 'TU0003', NULL, 'JPL00006', 75),
+('KDP0007', 'TU0005', NULL, 'JPL00007', 25),
+('KDP0008', 'TU0001', NULL, 'JPL00008', 28),
+('KDP0009', 'TU0002', NULL, 'JPL00009', 2),
+('KDP0010', 'TU0005', NULL, 'JPL00010', 38),
+('KDP0011', 'TU0004', NULL, 'JPL00011', 75),
+('KDP0012', NULL, 'TP0001', 'JPL00012', 129);
+
 -- --------------------------------------------------------
 
 --
@@ -356,6 +401,14 @@ CREATE TABLE `transportasi_pribadi` (
   `Nama_Transportasi_Pribadi` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `transportasi_pribadi`
+--
+
+INSERT INTO `transportasi_pribadi` (`Kd_Transportasi_Pribadi`, `Kd_Moda`, `Nama_Transportasi_Pribadi`) VALUES
+('TP0001', 'KMT03', 'Mobil Dinas'),
+('TP0002', 'KMT07', 'Jalan Kaki');
+
 -- --------------------------------------------------------
 
 --
@@ -371,6 +424,17 @@ CREATE TABLE `transportasi_publik` (
   `Waktu_Berangkat` datetime DEFAULT NULL,
   `Waktu_Datang` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transportasi_publik`
+--
+
+INSERT INTO `transportasi_publik` (`Kd_Transportasi_Publik`, `Kd_Moda`, `Nama_Transportasi_Publik`, `Kd_lokasi_keberangkatan`, `Kd_lokasi_kedatangan`, `Waktu_Berangkat`, `Waktu_Datang`) VALUES
+('TU0001', 'KMT03', 'Agkot', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+('TU0002', 'KMT06', 'Gojek', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+('TU0003', 'KMT02', 'Pesawat IN 377 (Boeing 737-500)', 'KL00018', 'KL00041', '2016-09-08 06:00:00', '2016-09-08 07:15:00'),
+('TU0004', 'KMT02', 'Pesawat JT 911 (Boeing 737-800)', 'KL00041', 'KL00018', '2016-09-09 08:05:00', '2016-09-09 09:20:00'),
+('TU0005', 'KMT03', 'Taxi Blue Bird', NULL, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

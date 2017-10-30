@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.Event"%>
 <%@page import="DAO.DAOEvent"%>
 <%@page import="model.Lokasi"%>
@@ -32,6 +33,7 @@
               </tr>
               <%
                   DAOEvent ev = new DAOEvent();
+                  SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
                   List<Event> data = new ArrayList<Event>();
                   String ket = request.getParameter("ket");
 //                  if (ket == null) {
@@ -41,14 +43,14 @@
               %>
                <tr>
                   <td><%=x + 1%></td>
-                  <td><%=data.get(x).getIdEvent()%></td>
+                  <td><%=data.get(x).getKdEvent()%></td>
                   <td><%=data.get(x).getNameEvent()%></td>
-                  <td><%=data.get(x).getStartTime()%></td>
-                  <td><%=data.get(x).getEndTime()%></td>
+                  <td><%=format.format(data.get(x).getStartTime())%></td>
+                  <td><%=format.format(data.get(x).getEndTime())%></td>
                   <td><%=data.get(x).getKeterangan()%></td>
                   <td>
-                      <a href="addEvent?proses=edit-event&id_event=<%=data.get(x).getIdEvent()%>">Edit</a>
-                      <a href="addEvent?proses=hapus-event&id_event=<%=data.get(x).getIdEvent()%>">Hapus</a>
+                      <a href="addEvent?proses=edit-event&kd_event=<%=data.get(x).getKdEvent()%>">Edit</a>
+                      <a href="addEvent?proses=hapus-event&kd_event=<%=data.get(x).getKdEvent()%>">Hapus</a>
                   </td>               
               </tr>
               <% 

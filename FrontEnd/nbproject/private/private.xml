@@ -3,20 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/FrontEnd/src/java/DAO/DAOTransportasiPublik.java</file>
-=======
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/indexEvent.jsp</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/model/Event.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/controller/ControllerPerjalanan.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/DAO/DAOLokasi.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/edit_event.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/Database/KoneksiDB.java</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/edit_lokasi.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/tambah_event.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/controller/ControllerEvent.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/model/Event.java</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/DAO/DAOLokasi.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/controller/ControllerKota.java</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/src/java/DAO/DAOEvent.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/tambah_traveller.jsp</file>
             <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/tambah_lokasi.jsp</file>
-            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/FrontEnd/web/edit_event.jsp</file>
->>>>>>> c66c47e92511e518c4dd5f98a9de1219fafc18c7
         </group>
     </open-files>
 </project-private>

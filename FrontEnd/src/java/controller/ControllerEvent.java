@@ -37,11 +37,11 @@ public class ControllerEvent extends HttpServlet {
             response.sendRedirect("tambah_event.jsp");
             return;
         }else if(proses.equals("edit-event")){
-            response.sendRedirect("edit_event.jsp?id_event="+request.getParameter("id_event"));
+            response.sendRedirect("edit_event.jsp?kd_event="+request.getParameter("kd_event"));
             return;
         }else if(proses.equals("hapus-event")){
             DAOEvent ev=new DAOEvent();
-            ev.setIdEvent(request.getParameter("id_event"));
+            ev.setKdEvent(request.getParameter("kd_event"));
             ev.hapus();
             response.sendRedirect("indexEvent.jsp");
         }
@@ -57,7 +57,7 @@ public class ControllerEvent extends HttpServlet {
             if(data.equals("event")){
                 DAOEvent ev = new DAOEvent();
                 
-                ev.setIdEvent(request.getParameter("id_event"));
+                ev.setKdEvent(request.getParameter("kd_event"));
                 ev.setNameEvent(request.getParameter("nama_event"));
                 try {
                     ev.setStartTime(format.parse(request.getParameter("waktu_mulai")));
@@ -66,12 +66,12 @@ public class ControllerEvent extends HttpServlet {
                     response.sendRedirect("");
                 }
                 ev.setKdTraveller(request.getParameter("kd_traveller"));
-                ev.setIdPerjalanan(request.getParameter("id_perjalanan"));
+                ev.setKdPerjalanan(request.getParameter("kd_perjalanan"));
                 ev.setKeterangan(request.getParameter("keterangan"));
                 
                 if (proses.equals("input-event")){
                     try {
-                        ev.setIdEvent(ev.getNewId());
+                        ev.setKdEvent(ev.getNewId());
                         ev.simpan();
                     } catch (SQLException ex) {
                       response.sendRedirect("tambah_event.jsp");
