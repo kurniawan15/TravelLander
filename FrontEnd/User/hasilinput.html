@@ -1,40 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Super Admin</title>
-  <link rel="stylesheet" href="css/style.css">
+  <!--____________________________Call Css Page Input____________________________-->
+    <link rel="stylesheet" href="css/List.css">
+    <!--____________________________Title Website____________________________-->
+    <title>Travelendar - List Schedule</title>
 </head>
-<body>
 <style>
 body{
- /* Location of the image */
-  background-image: url(img/2.jpg);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
-}
-.footer{
-    background-color: #2980b9;
-    color: #ffffff;
-    text-align: center;
-    font-size: 12px;
-    padding: 15px;
-}
+    background-image: url(img/2.jpg);/*call image*/
+    background-position: center center;/*set posisi background agar ditengah*/
+    background-repeat: no-repeat;/*set gambar biar gaberulang*/
+    background-attachment: fixed;/*set gambar agar ketika discroll tidak ikut bergerak*/
+    background-size: cover;/*set ukuran gambar sesuai ukuran layar*/
+    }
 </style>
+<body>
   <nav class="navbar">
     <span class="open-slide">
       <a href="#" onclick="openSlideMenu()">
@@ -48,9 +29,6 @@ body{
     <ul id="dropdown">
       <li><a href="#">Log Out</a></li>
     </ul>
-  <div class="logo">
-    <img src="img/L21.png" style="width: 200px;">
-  </div>
   </nav>
 
   <div id="side-menu" class="side-nav">
@@ -171,15 +149,18 @@ body{
     </div>
         
     </div>
-</div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-<div class="footer">
-    <p>© Copyright Kelompok B2 | October 2017</p>
-</div>
+</div><br><br><br><br><br>
+<!--____________________________Footer Page____________________________--> 
+    <div class="footer">
+      <div class="footkiri">
+        <img class="logoweb" src="img/L21.png">
+      </div>
+      <div class="footkanan">
+        <p class="pfooter">  
+        ©Copyright Kelompok B1 [<i><b>Brave Heart-Group</b></i>] | Front-End [Made With Love] | October 2017</p>
+      </div>
+    </div>
+    
 <div id="confirm" class="confirm2">
   <div class="confirm-content">
     <span onClick="tutup()" class="exit" >&times;</span>
@@ -203,20 +184,19 @@ body{
         </div> 
     </div>
 </div>
-  <script>
-/*----------------------------edit buat mav----------------------------------------------*/
-    function openSlideMenu(){
-      document.getElementById('side-menu').style.width = '250px';
-      document.getElementById('main').style.marginLeft = '250px';
-    }
+  
+<script>
+  function openSlideMenu(){
+    document.getElementById('side-menu').style.width = '250px';
+    document.getElementById('main').style.marginLeft = '250px';
+  }
 
-    function closeSlideMenu(){
-      document.getElementById('side-menu').style.width = '0';
-      document.getElementById('main').style.marginLeft = '0';
-    }
+  function closeSlideMenu(){
+    document.getElementById('side-menu').style.width = '0';
+    document.getElementById('main').style.marginLeft = '0';
+  }
   
 /*-------------------------Membuat modal Pop Up-----------------------------------------*/
-
   function openo()
   {
     document.getElementById("confirm").style.display = "block"
@@ -233,6 +213,6 @@ body{
   {
     document.getElementById("ask").style.display = "none"
   }
-  </script>
+</script>
 </body>
 </html> 

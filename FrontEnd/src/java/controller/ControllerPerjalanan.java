@@ -7,6 +7,9 @@ package controller;
 
 import DAO.DAOPerjalanan;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,13 +30,13 @@ public class ControllerPerjalanan extends HttpServlet{
             response.sendRedirect("tambah_moda_pribadi.jsp");
             return;
         }else if(proses.equals("edit-perjalanan")){
-            response.sendRedirect("edit_pejalanan.jsp?id_perjalanan="+request.getParameter("id_perjalanan"));
+            response.sendRedirect("edit_pejalanan.jsp?Kd_Perjalanan="+request.getParameter("Kd_Perjalanan"));
             return;
         }else if(proses.equals("hapus-perjalanan")){
             DAOPerjalanan hm=new DAOPerjalanan();
-            hm.setIdPerjalanan(request.getParameter("id_perjalanan"));
+            hm.setKdPerjalanan(request.getParameter("Kd_Perjalanan"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexPerjalanan.jsp");
         }
     }
 
@@ -45,19 +48,24 @@ public class ControllerPerjalanan extends HttpServlet{
         if (data != null){
             if(data.equals("perjalanan")){
                 DAOPerjalanan um=new DAOPerjalanan();
-                um.setIdPerjalanan(request.getParameter("id_perjalanan"));
-                um.setkdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
-                um.setkdJarak(request.getParameter("Kd_Jarak"));
-                um.setkdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
-                um.setwaktuTempuh(request.getParameter("Waktu_tempuh"));
+                um.setKdPerjalanan(request.getParameter("Kd_Perjalanan"));
+                um.setKdTransportasiPublik(request.getParameter("Kd_Transport_Publik"));
+                um.setKdJarak(request.getParameter("Kd_Jarak"));
+                um.setKdTransportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
+                um.setWaktuTempuh(Integer.parseInt(request.getParameter("Waktu_tempuh")));
                 if (proses.equals("input-perjalanan")){
-                    um.simpan();
+                    try{
+                        um.setKdPerjalanan(um.getNewId());
+                        um.simpan();
+                    }catch (SQLException ex) {
+                        Logger.getLogger(ControllerPerjalanan.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else if (proses.equals("update-perjalanan")){
                     um.update();
                 } else if(proses.equals("hapus-perjalanan")){
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexPerjalanan.jsp");
             }
         }
     }

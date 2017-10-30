@@ -4,6 +4,14 @@
     Author     : Pega Kurniawan
 --%>
 
+<%@page import="model.TransportasiPribadi"%>
+<%@page import="DAO.DAOTransportasiPribadi"%>
+<%@page import="model.TransportasiPublik"%>
+<%@page import="DAO.DAOTransportasiPublik"%>
+<%@page import="model.Lokasi"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -89,11 +97,17 @@
     <div class="LokasiAwal">
       <h1 class="hlokasiawal">Start Location :</h1>
       <select id="LokasiAwal" name="kd_lokasi_awal">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
+         <%
+             DAOLokasi dLok = new DAOLokasi();
+             List<Lokasi> lok = new ArrayList<Lokasi>();
+             lok = dLok.tampil();
+             
+             for(Lokasi l:lok){
+         %>
+        <option value="<%=l.getKdLokasi()%>"><%=l.getNamaLokasi()%></option>
+        <%
+            }
+        %>
       </select>     
     </div>
     
@@ -101,18 +115,20 @@
     <div class="LokasiAkhir">
       <h1 class="hlokasiakhir">End Location :</h1>
       <select id="LokasiAkhir" name="kd_lokasi_akhir">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
-      </select>     
+        <%
+             for(Lokasi l:lok){
+         %>
+        <option value="<%=l.getKdLokasi()%>"><%=l.getNamaLokasi()%></option>
+        <%
+            }
+        %>
+      </select> 
     </div>
     
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="keteranganevent">
       <h1 class="hketevent">Event Description :</h1>
-      <input type="text" id="fname" name="nama_event" placeholder="Input Event Description">
+      <input type="text" id="fname" name="keterangan" placeholder="Input Event Description">
     </div>
 
     <!--____________________________Form Inputan Transportasi____________________________-->   
@@ -123,6 +139,7 @@
         <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
       </div>
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
+      
       <script type="text/javascript">
         function openCity(evt, cityName) {
           var i, tabcontent, tablinks; //deklarasi variabel
@@ -136,6 +153,7 @@
           for (i = 0; i < tablinks.length; i++) {
               tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
+          
           //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
@@ -143,19 +161,32 @@
       </script>
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
-        <select id="UmumModa" name="kd_moda">
-          <option value="Taksi">Taksi</option>
-          <option value="Bus">Bus</option>
-          <option value="Kereta">Kereta</option>
-          <option value="Pesawat">Pesawat</option>
+        <select id="UmumModa" name="kd_transportasi_publik">
+            <%
+                DAOTransportasiPublik dTransP = new DAOTransportasiPublik();
+                List<TransportasiPublik> listTP = new ArrayList<TransportasiPublik>();
+                listTP = dTransP.tampil();
+                for(TransportasiPublik tp : listTP){
+            %>
+                <option value="<%=tp.getKdTansportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
+            <%
+                }
+            %>
         </select>     
         </div>
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
         <div id="Pribadi" class="tabcontent">
-        <select id="PribadiModa" name="kd_transport_pribadi">
-          <option value="Sepeda">Sepeda</option>
-          <option value="Motor">Motor</option>
-          <option value="Mobil">Mobil</option>
+        <select id="PribadiModa" name="kd_transportasi_pribadi">
+          <%
+                DAOTransportasiPribadi dTransPr = new DAOTransportasiPribadi();
+                List<TransportasiPribadi> listTPr = new ArrayList<TransportasiPribadi>();
+                listTPr = dTransPr.tampil();
+                for(int x = 0; x < listTPr.size(); x++){
+            %>
+                <option value="<%=listTPr.get(x).getKdTansportasiPribadi()%>"> <%=listTPr.get(x).getNamaTransportasiPribadi()%></option>
+            <%
+                }
+            %>
         </select>      
         </div>
       </div><br>

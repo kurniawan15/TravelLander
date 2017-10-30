@@ -5,7 +5,6 @@
  */
 package controller;
 
-import DAO.DAOTransportasiPribadi;
 import DAO.DAOTransportasiPublik;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -35,9 +34,9 @@ public class ControllerTransportasiPublik extends HttpServlet{
             response.sendRedirect("edit_moda_publik.jsp?Kd_Transportasi_Publik="+request.getParameter("Kd_Transportasi_Publik"));
             return;
         }else if(proses.equals("hapus-moda-transport")){
-            DAOTransportasiPublik hm=new DAOTransportasiPublik();
-            hm.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
-            hm.hapus();
+            DAOTransportasiPublik tp=new DAOTransportasiPublik();
+            tp.setKdTransportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
+            tp.hapus();
             response.sendRedirect("");
         }
     }
@@ -50,21 +49,27 @@ public class ControllerTransportasiPublik extends HttpServlet{
         if (data != null){
             if(data.equals("transportasi_publik")){
                 DAOTransportasiPublik tp=new DAOTransportasiPublik();
-                tp.setKdTansportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
+                
+                tp.setKdTransportasiPublik(request.getParameter("Kd_Transportasi_Publik"));
                 tp.setKdModa(request.getParameter("Kd_Moda"));
                 tp.setNamaTransportasiPublik(request.getParameter("Nama_Transportasi_Publik"));
+                
                 try{
                     tp.setWaktuBerangkat(format.parse(request.getParameter("Waktu_Berangkat")));
                     tp.setWaktuDatang(format.parse(request.getParameter("Waktu_Datang")));
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
+               
+                tp.setKdLokasiKeberangkatan(request.getParameter("Kd_lokasi_keberangkatan"));
+                tp.setKdLokasiKedatangan(request.getParameter("Kd_lokasi_kedatangan"));
+                
                 if (proses.equals("input-moda-publik")){
                       try {
-                        tp.setKdTansportasiPublik(tp.getNewId());
+                        tp.setKdTransportasiPublik(tp.getNewId());
                         tp.simpan();
                     } catch (SQLException ex) {
-                      response.sendRedirect("tambah_lokasi.jsp");
+                      response.sendRedirect("tambah_moda_publik.jsp");
                     }
                 }else if (proses.equals("update-moda-publik")){
                     tp.update();

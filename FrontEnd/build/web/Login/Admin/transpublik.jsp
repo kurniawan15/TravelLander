@@ -3,7 +3,16 @@
     Created on : Oct 30, 2017, 9:30:45 PM
     Author     : Hari
 --%>
-
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="model.TransportasiPublik"%>
+<%@page import="DAO.DAOTransportasiPublik"%>
+<%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
+<%@page import="model.ModaTransportasi"%>
+<%@page import="DAO.DAOModaTransportasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -58,24 +67,32 @@
                         <th>Keterangan</th>
                     </tr>
                     <%
+                      DAOTransportasiPublik dtp = new DAOTransportasiPublik();
+                      SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH.mm");
+                      List<TransportasiPublik> data = new ArrayList<TransportasiPublik>();
+                      String ket = request.getParameter("ket");
                       
+                          data = dtp.tampil();
+                     
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
+                        <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdTransportasiPublik()%></td>
+                        <td><%=data.get(x).getKdLokasiKeberangkatan()%></td>
+                        <td><%=data.get(x).getKdLokasiKedatangan()%></td>
+                        <td><%=data.get(x).getKdModa()%></td>
+                        <td><%=data.get(x).getNamaTransportasiPublik()%></td>
+                        <td><%=format.format(data.get(x).getWaktuBerangkat())%></td>
+                        <td><%=format.format(data.get(x).getWaktuDatang())%></td>
+                        <td> 
+                            <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
-                    <% 
-                   
-              %>
+                        <% 
+                       }
+                    %>
                 </table>
             
 	</div>
@@ -84,6 +101,7 @@
         <div class="imput_publik">
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
                 Lokasi Keberangkatan
+<<<<<<< HEAD
                 <select class="pilih_kota" style="width: 23%">
                     <option value="volvo">Volv33o</option>
                     <option value="saab">Saab</option>
@@ -97,15 +115,47 @@
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
+=======
+                <select class="pilih_kota">
+                <%
+                    DAOLokasi dLok = new DAOLokasi();
+                    List<Lokasi> lok = new ArrayList<Lokasi>();
+                    lok = dLok.tampil();
+                    for (Lokasi l : lok) {
+                    %>
+                <option value="<%=l.getKdLokasi()%>"><%=l.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
+                </select>
+                 Lokasi Kedatangan
+                 <select class="pilih_kota">
+                <%
+                    DAOLokasi dked = new DAOLokasi();
+                    List<Lokasi> ked = new ArrayList<Lokasi>();
+                    ked = dLok.tampil();
+                    for (Lokasi k : ked) {
+                    %>
+                <option value="<%=k.getKdLokasi()%>"><%=k.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
+                 </select>
+>>>>>>> 9cb6b6af4339056f9e80a469830d740b0a65e1be
                 Moda Transportasi
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <%
+                    DAOModaTransportasi dmod = new DAOModaTransportasi();
+                    List<ModaTransportasi> mod = new ArrayList<ModaTransportasi>();
+                    mod = dmod.tampil();
+                    for (ModaTransportasi m : mod) {
+                    %>
+                <option value="<%=m.getKdModa()%>"><%=m.getTipeModa()%></option>
+                <% 
+                       }
+                %>
                 </select>
-                Nama Trasportasi
-                <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>
+                
                 Waktu Keberangkatan
                  <input type="time" name="bdaytime">
                 Waktu Kedatangan

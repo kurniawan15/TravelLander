@@ -3,7 +3,12 @@
     Created on : Oct 30, 2017, 10:39:01 PM
     Author     : Hari
 --%>
-
+<%@page import="model.TransportasiPribadi"%>
+<%@page import="DAO.DAOTransportasiPribadi"%>
+<%@page import="model.ModaTransportasi"%>
+<%@page import="DAO.DAOModaTransportasi"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -54,19 +59,26 @@
                         <th>Keterangan</th>
                     </tr>
                     <%
-                      
+                        DAOTransportasiPribadi kt = new DAOTransportasiPribadi();
+                        List<TransportasiPribadi> data = new ArrayList<TransportasiPribadi>();
+                        String ket = request.getParameter("ket");
+                        if (ket == null) {
+                        data = kt.tampil();
+                  } 
+                  for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
+                        <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdTansportasiPribadi()%></td>
+                        <td><%=data.get(x).getKdModa()%></td>
+                        <td><%=data.get(x).getNamaTransportasiPribadi()%></td>
+                        <td> 
+                            <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
-                   
+                 }  
               %>
                 </table>
             
@@ -75,12 +87,18 @@
             <div class="title">Tambah Perjalanan </div>  
         <div class="imput_publik">
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
-                Moda Transportasi
+Moda Transportasi
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <%
+                    DAOModaTransportasi dmod = new DAOModaTransportasi();
+                    List<ModaTransportasi> mod = new ArrayList<ModaTransportasi>();
+                    mod = dmod.tampil();
+                    for (ModaTransportasi m : mod) {
+                    %>
+                <option value="<%=m.getKdModa()%>"><%=m.getTipeModa()%></option>
+                <% 
+                       }
+                %>
                 </select>
                 Nama Trasportasi
                 <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>

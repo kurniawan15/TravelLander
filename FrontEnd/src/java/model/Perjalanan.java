@@ -10,7 +10,7 @@ package model;
  * @author Dewi Roaza
  */
 public class Perjalanan {
-    public String idPerjalanan;
+    public String kdPerjalanan;
     public String kdTransportasiPublik;
     public String kdJarak;
     public String kdTransportasiPribadi;
@@ -20,15 +20,15 @@ public class Perjalanan {
     /**
      * @return the idLookup
      */
-    public String getIdPerjalanan() {
-        return idPerjalanan;
+    public String getKdPerjalanan() {
+        return kdPerjalanan;
     }
 
     /**
      * @param idLookup the idLookup to set
      */
-    public void setIdPerjalanan(String idPerjalanan) {
-        this.idPerjalanan = idPerjalanan;
+    public void setKdPerjalanan(String kdPerjalanan) {
+        this.kdPerjalanan = kdPerjalanan;
     }
 
     /**
@@ -85,21 +85,5 @@ public class Perjalanan {
      */
     public void setWaktuTempuh(int waktuTempuh) {
         this.waktuTempuh = waktuTempuh;
-    }
-
-    public void setkdTransportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdJarak(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdTransportasiPribadi(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setwaktuTempuh(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
