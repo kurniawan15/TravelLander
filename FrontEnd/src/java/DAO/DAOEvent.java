@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import Database.DAODB;
 import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
