@@ -20,7 +20,7 @@
         <form action="perjalanan?data=perjalanan&proses=update-perjalanan" method="post">
             <table style="margin:20px auto;">
             <%
-                String idPerjalanan = request.getParameter("id_perjalanan");
+                String idPerjalanan = request.getParameter("Kd_Perjalanan");
                 DAOPerjalanan kt = new DAOPerjalanan();
                 kt.setKdJarak(idPerjalanan);
                 List<Perjalanan> data = new ArrayList<Perjalanan>();
@@ -30,7 +30,7 @@
             %>
 		<tr>
                     <td>Id Perjalanan</td>
-                    <td><input type="text" name="id_perjalanan" value="<%=data.get(0).getIdPerjalanan()%>"></td>
+                    <td><input type="text" name="Kd_Perjalanan" value="<%=data.get(0).getKdPerjalanan()%>"></td>
 		</tr>
 		<tr>
                     <td>Kode Transpotasi Publik</td>

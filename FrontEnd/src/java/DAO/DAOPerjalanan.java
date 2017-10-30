@@ -27,30 +27,30 @@ public class DAOPerjalanan extends Perjalanan{
     }
 
     public void simpan(){
-        String sql = "INSERT into perjalanan( id_perjalanan, Kd_Transportasi_Publik,Kd_Jarak, Kd_Transportasi_Pribadi, Waktu_tempuh) values ('" + idPerjalanan + "','" + kdTransportasiPublik + "','" + kdJarak + "',,'" + kdTransportasiPribadi + "',,'" + waktuTempuh + "')";
+        String sql = "INSERT into perjalanan( Kd_Perjalanan, Kd_Transportasi_Publik,Kd_Jarak, Kd_Transportasi_Pribadi, Waktu_tempuh) values ('" + kdPerjalanan + "','" + kdTransportasiPublik + "','" + kdJarak + "',,'" + kdTransportasiPribadi + "',,'" + waktuTempuh + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE perjalanan SET Kd_Transportasi_Publik='"+kdTransportasiPublik+"',Kd_Jarak='"+kdJarak+"', Kd_Transportasi_Pribadi='"+kdTransportasiPribadi+"', Waktu_tempuh='"+waktuTempuh+"' WHERE id_perjalanan='"+idPerjalanan+"' ";
+        String sql="UPDATE perjalanan SET Kd_Transportasi_Publik='"+kdTransportasiPublik+"',Kd_Jarak='"+kdJarak+"', Kd_Transportasi_Pribadi='"+kdTransportasiPribadi+"', Waktu_tempuh='"+waktuTempuh+"' WHERE Kd_Perjalanan='"+kdPerjalanan+"' ";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM kota WHERE id_perjalanan='"+idPerjalanan+"'";
+        String sql="DELETE FROM kota WHERE Kd_Perjalanan='"+kdPerjalanan+"'";
         db.simpanData(sql);
-        System.out.println("");
+        System.out.println(sql);
     }
     public List tampil() {
         List<Perjalanan> data = new ArrayList<Perjalanan>();
         ResultSet rs = null;
 
         try {
-            String sql = "select * from perjalanan order by id_perjalanan asc";
+            String sql = "select * from perjalanan order by Kd_Perjalanan asc";
             rs = db.ambilData(sql);
             System.out.print(sql);
             while (rs.next()) {
                 Perjalanan um = new Perjalanan();
-                um.setIdPerjalanan(rs.getString("id_perjalanan"));
+                um.setKdPerjalanan(rs.getString("Kd_Perjalanan"));
                 um.setKdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
                 um.setKdJarak(rs.getString("Kd_Jarak"));
                 um.setKdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
@@ -68,11 +68,11 @@ public class DAOPerjalanan extends Perjalanan{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM perjalanan WHERE id_perjalanan='"+idPerjalanan+"'";
+            String sql = "SELECT * FROM perjalanan WHERE Kd_Perjalanan='"+kdPerjalanan+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Perjalanan m = new Perjalanan();
-                m.setIdPerjalanan(rs.getString("id_perjalanan"));
+                m.setKdPerjalanan(rs.getString("Kd_Perjalanan"));
                 m.setKdTransportasiPublik(rs.getString("Kd_Transportasi_Publik"));
                 m.setKdJarak(rs.getString("Kd_Jarak"));
                 m.setKdTransportasiPribadi(rs.getString("Kd_Transportasi_Pribadi"));
@@ -89,32 +89,32 @@ public class DAOPerjalanan extends Perjalanan{
     }
     public String getNewId() throws SQLException{
             
-            String idPerjalanan = "IDP0000";
+            String kdPerjalanan = "IDP0000";
             
             int cnt = 0;
-            String sql = "SELECT MAX(id_perjalanan) FROM Perjalanan";   // mengambil maksimal id kota
+            String sql = "SELECT MAX(Kd_Perjalanan) FROM Perjalanan";   // mengambil maksimal id kota
             
             ResultSet resultSet = db.ambilData(sql);
 
             while (resultSet.next()) {                      // selama masih ada isinya diambil
-                idPerjalanan = resultSet.getString(1);            // yang diambil 1=kd kota
+                kdPerjalanan = resultSet.getString(1);            // yang diambil 1=kd kota
             } 
             
-            cnt = Integer.parseInt(idPerjalanan.substring(3));    // mengambil dari index ke 3 (mulai dri 0)
+            cnt = Integer.parseInt(kdPerjalanan.substring(3));    // mengambil dari index ke 3 (mulai dri 0)
             cnt++;
             if(cnt >= 1000){
-                idPerjalanan = "IDP" + String.valueOf(cnt);
+                kdPerjalanan = "IDP" + String.valueOf(cnt);
             }
             else if(cnt < 1000 && cnt >= 100){
-               idPerjalanan = "IDP" + "0" + String.valueOf(cnt);
+               kdPerjalanan = "IDP" + "0" + String.valueOf(cnt);
             }
             else if(cnt < 100 && cnt >= 10){
-               idPerjalanan = "IDP" + "00" + String.valueOf(cnt);
+               kdPerjalanan = "IDP" + "00" + String.valueOf(cnt);
             }
             else{
-               idPerjalanan = "IDP" + "000" + String.valueOf(cnt);
+               kdPerjalanan = "IDP" + "000" + String.valueOf(cnt);
             }
             db.diskonek(resultSet);
-            return idPerjalanan;
+            return kdPerjalanan;
     }
 }

@@ -88,7 +88,7 @@ public final class indexPerjalanan_jsp extends org.apache.jasper.runtime.HttpJsp
       out.print(x + 1);
       out.write("</td>\n");
       out.write("                  <td>");
-      out.print(data.get(x).getIdPerjalanan());
+      out.print(data.get(x).getKdPerjalanan());
       out.write("</td>\n");
       out.write("                  <td>");
       out.print(data.get(x).getKdTransportasiPublik());
@@ -105,10 +105,10 @@ public final class indexPerjalanan_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                  \n");
       out.write("                  <td>\n");
       out.write("                      <a href=\"perjalanan?proses=edit-perjalanan&Kd_Perjalanan=");
-      out.print(data.get(x).getIdPerjalanan());
+      out.print(data.get(x).getKdPerjalanan());
       out.write("\">Edit</a>\n");
       out.write("                      <a href=\"perjalanan?proses=hapus-perjalanan&Kd_Perjalanan=");
-      out.print(data.get(x).getIdPerjalanan());
+      out.print(data.get(x).getKdPerjalanan());
       out.write("\">Hapus</a>\n");
       out.write("                  </td>\n");
       out.write("              </tr>\n");
