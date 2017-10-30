@@ -8,126 +8,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Input Schedule</title>
-  <link rel="stylesheet" href="css/index.css">
+    <!--____________________________Call Css Page Input____________________________-->
+    <link rel="stylesheet" href="css/Createschedule.css">
+    <!--____________________________Title Website____________________________-->
+    <title>Travelendar - Input Schedule</title>
 </head>
-<body>
+<!--____________________________Background page____________________________-->
 <style>
-body{
- /* Location of the image */
-  background-image: url(img/2.jpg);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
-}
+  body{
+    background-image: url(img/2.jpg);/*call image*/
+    background-position: center center;/*set posisi background agar ditengah*/
+    background-repeat: no-repeat;/*set gambar biar gaberulang*/
+    background-attachment: fixed;/*set gambar agar ketika discroll tidak ikut bergerak*/
+    background-size: cover;/*set ukuran gambar sesuai ukuran layar*/
+    }
 </style>
+<body>
+  <!--____________________________Header-Menu____________________________-->
   <nav class="navbar">
     <span class="open-slide">
       <a href="#" onclick="openSlideMenu()">
-        <svg width="30" height="30">
-            <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
-            <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-            <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-        </svg>
+      <svg width="30" height="30">
+      <path d="M0,5 30,5" stroke="#fff"stroke-width="5"/>
+      <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+      <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+      </svg>
       </a>
     </span>
+    <!--____________________________Tombol-Logout____________________________-->
     <ul id="dropdown">
-    	<li><a href="#">Log Out</a></li>
+      <li><a href="#">Log Out</a></li>
     </ul>
-  </nav>
+    <!--____________________________Script Fungsi Slide Menu____________________________-->
+    <script>
+      function openSlideMenu(){
+        //ukuran menu ketika ditampilkan
+        document.getElementById('side-menu').style.width = '250px';
+        document.getElementById('main').style.marginLeft = '250px';
+      }
 
+      function closeSlideMenu(){
+        //ukuran menu ketika dihide
+        document.getElementById('side-menu').style.width = '0';
+        document.getElementById('main').style.marginLeft = '0';
+      }
+    </script>
+  </nav>
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Calendar</a>                                                                                   
-    <a href="#">Manage Place</a>
-    <a href="#">Manage Distance</a>
-    <a href="#">Manage Time</a>
-    <a href="#">Manage Transpotation</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Create Schedule</a>
+    <a href="#">Finished Task</a>
+    <a href="#">Event List</a>
   </div>
-<div class="main-content">
-	  <div id="main">																					
-		<div class="widget">
-			<div class="title">Create Schedule</div>
-          <div class="col-12">
-              <div class="col-5 namaevent">
-              <h1 style="font-size: 15px; padding-top: 2%; padding-left: 1%;">Event Name :</h1>
-              <input type="text" id="fname" name="namaevent" placeholder="Input Event Name">
-              </div>
-              <div class="col-5 waktu">
-              <h1 style="font-size: 15px; padding-left: 1%; padding-bottom: 1%;">Event Time :</h1>
-              <input type="datetime-local" style="width: 230px; border-radius:5px;
-    box-sizing: border-box; width: 100%; padding-top: 2%; padding-bottom: 2%; padding-left:4%; opacity: 0.8;" name="waktu_mulai" placeholder="start time">     
-              </div>
-          </div>
-              <div class="col-5 LokasiAwal">
-                <h1 style="font-size: 15px; padding-left: 1%; padding-top: 2%; opacity: 1;">Start Location :</h1>
-               <select id="LokasiAwal" name="LokasiAwal">
-                  <option value="Lokasi1">Lokasi 1</option>
-                  <option value="Lokasi2">Lokasi 2</option>
-                  <option value="Lokasi3">Lokasi 3</option>
-                  <option value="Lokasi4">Lokasi 4</option>
-                  <option value="Lokasi5">Lokasi 5</option>
-                </select>     
-              </div>
-              <div class="col-5 LokasiAkhir">
-                <h1 style="font-size: 15px; padding-left: 1%; padding-top: 1%;">End Location :</h1>
-              <input type="text" id="fname" name="Username" placeholder="Lokasi Akhir">  
-              </div>
-              <div class="col-5 create">
-                <input type="submit" value="Create Schedule">
-            </div>   
-            <br> 
-		</div>
-	  </div>
-</div>
 
-  <script>
-/*----------------------------edit buat mav----------------------------------------------*/
-    function openSlideMenu(){
-      document.getElementById('side-menu').style.width = '250px';
-      document.getElementById('main').style.marginLeft = '250px';
-    }
+  <!--____________________________Isi Content Tabel Inputan____________________________-->
+  <div class="main-content">
+    <div id="main">                                         
+    <div class="widget">
+    <div class="title">Create Schedule</div>
+    
+    <!--____________________________Form Inputan Nama Event____________________________-->
+    <div class="namaevent">
+      <h1 class="hnamaevent">Event Name :</h1>
+      <input type="text" id="fname" name="nama_event" placeholder="Input Event Name">
+    </div>
+    
+    <!--____________________________Form Inputan Waktu Event____________________________-->
+    <div class="waktu">
+      <h1 class="hwaktu">Event Time :</h1>
+      <!--____________________________Form input waktu awal____________________________-->
+      <input type="datetime-local" style="width: 230px; border-radius:5px;
+      box-sizing: border-box; width: 45.6%; padding-top: 2%; padding-bottom: 2%; padding-left:4%; opacity: 0.8;" name="waktu_mulai" placeholder="start time"> <i>&nbsp;until&nbsp;</i>
+      <!--____________________________Form input waktu akhir--> 
+      <input type="datetime-local" style="width: 230px; border-radius:5px;
+      box-sizing: border-box; width: 45.6%; padding-top: 2%; padding-bottom: 2%; padding-left:4%; opacity: 0.8;" name="waktu_selesai" placeholder="End time">   
+    </div>
+    
+    <!--____________________________Form Inputan Lokasi Awal____________________________-->
+    <div class="LokasiAwal">
+      <h1 class="hlokasiawal">Start Location :</h1>
+      <select id="LokasiAwal" name="kd_lokasi_awal">
+        <option value="Lokasi1">Lokasi 1</option>
+        <option value="Lokasi2">Lokasi 2</option>
+        <option value="Lokasi3">Lokasi 3</option>
+        <option value="Lokasi4">Lokasi 4</option>
+        <option value="Lokasi5">Lokasi 5</option>
+      </select>     
+    </div>
+    
+    <!--____________________________Form Inputan Lokasi Akhir____________________________-->   
+    <div class="LokasiAkhir">
+      <h1 class="hlokasiakhir">End Location :</h1>
+      <select id="LokasiAkhir" name="kd_lokasi_akhir">
+        <option value="Lokasi1">Lokasi 1</option>
+        <option value="Lokasi2">Lokasi 2</option>
+        <option value="Lokasi3">Lokasi 3</option>
+        <option value="Lokasi4">Lokasi 4</option>
+        <option value="Lokasi5">Lokasi 5</option>
+      </select>     
+    </div>
+    
+    <!--____________________________Form Inputan Nama Event____________________________-->
+    <div class="keteranganevent">
+      <h1 class="hketevent">Event Description :</h1>
+      <input type="text" id="fname" name="nama_event" placeholder="Input Event Description">
+    </div>
 
-    function closeSlideMenu(){
-      document.getElementById('side-menu').style.width = '0';
-      document.getElementById('main').style.marginLeft = '0';
-    }
-	
-/*-------------------------Membuat modal Pop Up-----------------------------------------*/
+    <!--____________________________Form Inputan Transportasi____________________________-->   
+    <div class="Transportasi">
+      <h1 class="htransportasi">Transportation :</h1>
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
+        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
+      </div>
+      <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
+      <script type="text/javascript">
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks; //deklarasi variabel
+          //mengambil element yang ada di class tabcontent dan menyembunyikan class 
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          //mengambil element yang ada di class tablinks dan menghapus yg aktif di display
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+          }
+      </script>
+        <!--____________________________isi option di kendaraan umum____________________________-->      
+        <div id="Umum" class="tabcontent">
+        <select id="UmumModa" name="kd_moda">
+          <option value="Taksi">Taksi</option>
+          <option value="Bus">Bus</option>
+          <option value="Kereta">Kereta</option>
+          <option value="Pesawat">Pesawat</option>
+        </select>     
+        </div>
+        <!--____________________________isi option di kendaraan pribadi____________________________--> 
+        <div id="Pribadi" class="tabcontent">
+        <select id="PribadiModa" name="kd_transport_pribadi">
+          <option value="Sepeda">Sepeda</option>
+          <option value="Motor">Motor</option>
+          <option value="Mobil">Mobil</option>
+        </select>      
+        </div>
+      </div><br>
 
-	function openo()
-	{
-		document.getElementById("confirm").style.display = "block"
-	}
-	function opena()
-	{
-		document.getElementById("ask").style.display = "block"
-	}
-	function tutup()
-	{
-		document.getElementById("confirm").style.display = "none"
-	}
-	function tutup2()
-	{
-		document.getElementById("ask").style.display = "none"
-	}
-  </script>
-<div class="footer">
-    <p>© Copyright Kelompok B2 | October 2017</p>
-</div>
+      <!--____________________________Tombol Submit or cancel____________________________--> 
+      <div class="col-12 enter">
+        <input type="submit" value="Create Schedule">
+        <input type="submit" value="Cancel" style="background-color: red;">
+      </div><br> 
+
+      </div>
+      </div>
+    </div>
+
+    <!--____________________________Footer Page____________________________--> 
+    <div class="footer">
+      <div class="footkiri">
+        <img class="logoweb" src="img/L21.png">
+      </div>
+      <div class="footkanan">
+        <p class="pfooter">  
+        ©Copyright Kelompok B1 [<i><b>Brave Heart-Group</b></i>] | Front-End [Made With Love] | October 2017</p>
+      </div>
+    </div>
 </body>
 </html>
