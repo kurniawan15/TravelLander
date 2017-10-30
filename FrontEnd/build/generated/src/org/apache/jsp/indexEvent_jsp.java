@@ -111,10 +111,10 @@ public final class indexEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(data.get(x).getKeterangan());
       out.write("</td>\n");
       out.write("                  <td>\n");
-      out.write("                      <a href=\"addEvent?proses=edit-event&idEvent=");
+      out.write("                      <a href=\"addEvent?proses=edit-event&id_event=");
       out.print(data.get(x).getIdEvent());
       out.write("\">Edit</a>\n");
-      out.write("                      <a href=\"addEvent?proses=hapus-event&idEvent=");
+      out.write("                      <a href=\"addEvent?proses=hapus-event&id_event=");
       out.print(data.get(x).getIdEvent());
       out.write("\">Hapus</a>\n");
       out.write("                  </td>               \n");

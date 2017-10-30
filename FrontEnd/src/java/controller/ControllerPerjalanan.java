@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Fajar Panca
  */
-@WebServlet("/kota")
+@WebServlet("/perjalanan")
 public class ControllerPerjalanan extends HttpServlet{
      protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
             throws ServletException, IOException {
