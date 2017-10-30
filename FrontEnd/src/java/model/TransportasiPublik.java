@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Dewi Roaza
  */
 public class TransportasiPublik {
-    public String kdTansportasiPublik;
+    public String kdTransportasiPublik;
     public String kdLokasiKeberangkatan;
     public String kdLokasiKedatangan;
     public String kdModa;
@@ -23,15 +23,15 @@ public class TransportasiPublik {
     /**
      * @return the idTansportasiPublik
      */
-    public String getKdTansportasiPublik() {
-        return kdTansportasiPublik;
+    public String getKdTransportasiPublik() {
+        return kdTransportasiPublik;
     }
 
     /**
      * @param kdTansportasiPublik the idTansportasiPublik to set
      */
-    public void setKdTansportasiPublik(String kdTansportasiPublik) {
-        this.kdTansportasiPublik = kdTansportasiPublik;
+    public void setKdTransportasiPublik(String kdTansportasiPublik) {
+        this.kdTransportasiPublik = kdTansportasiPublik;
     }
 
     /**
