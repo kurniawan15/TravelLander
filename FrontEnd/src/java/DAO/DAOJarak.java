@@ -28,32 +28,34 @@ public class DAOJarak extends Jarak{
     }
 
     public void simpan(){
-        String sql = "INSERT into jarak( Kd_jarak, Kd_Lokasi_Awal, Kd_Lokasi_Akhir, Jarak) values ('" + kdJarak + "','" + kdLokasiAwal + "','" + kdLokasiAkhir + "','" + jarak + "')";
+        String sql = "INSERT into jarak( Kd_Jarak, Kd_Lokasi_Awal, Kd_Lokasi_Akhir, Jarak) values ('" + kdJarak + "','" + kdLokasiAwal + "','" + kdLokasiAkhir + "','" + jarak + "')";
         db.simpanData(sql);
+        System.out.print(sql);
     }
     public void update(){
-        String sql="UPDATE jarak SET Kd_jarak='"+kdJarak+"',Kd_Lokasi_Awal='"+kdLokasiAwal+"', Kd_Lokasi_Akhir='"+kdLokasiAkhir+"', Jarak ='"+jarak+"' WHERE kdJarak ='"+kdJarak+"'";
+        String sql="UPDATE jarak SET Kd_Lokasi_Awal='"+kdLokasiAwal+"', Kd_Lokasi_Akhir='"+kdLokasiAkhir+"', Jarak ='"+jarak+"' WHERE Kd_Jarak ='"+kdJarak+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM jarak WHERE Kd_jarak='"+kdJarak+"'";
+        String sql="DELETE FROM jarak WHERE Kd_Jarak='"+kdJarak+"'";
         db.simpanData(sql);
-        System.out.println("");
+        System.out.println(sql);
     }
     public List tampil() {
         List<Jarak> data = new ArrayList<Jarak>();
         ResultSet rs = null;
 
         try {
-            String sql = "select * from jarak order by kdJarak asc";
+            String sql = "select * from jarak order by Kd_Jarak asc";
             rs = db.ambilData(sql);
+            System.out.print(sql);
             while (rs.next()) {
                 Jarak um = new Jarak();
-                um.setkdJarak(rs.getString("Kd_jarak"));
-                um.setkdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
-                um.setkdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
-                um.setjarak(rs.getString("Jarak"));
+                um.setKdJarak(rs.getString("Kd_Jarak"));
+                um.setKdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
+                um.setKdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
+                um.setJarak(rs.getInt("Jarak"));
                 data.add(um);
    }
             db.diskonek(rs);
@@ -67,14 +69,14 @@ public class DAOJarak extends Jarak{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM jarak WHERE Kd_jarak='"+kdJarak+"'";
+            String sql = "SELECT * FROM jarak WHERE Kd_Jarak='"+kdJarak+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Jarak m = new Jarak();
-                m.setkdJarak(rs.getString("Kd_jarak"));
-                m.setkdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
-                m.setkdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
-                m.setjarak(rs.getString("Jarak"));
+                m.setKdJarak(rs.getString("Kd_Jarak"));
+                m.setKdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
+                m.setKdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
+                m.setJarak(rs.getInt("Jarak"));
                 data.add(m);
 
             }
@@ -94,10 +96,10 @@ public class DAOJarak extends Jarak{
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Jarak m = new Jarak();
-                m.setkdJarak(rs.getString("Kd_jarak"));
-                m.setkdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
-                m.setkdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
-                m.setjarak(rs.getString("Jarak"));
+                m.setKdJarak(rs.getString("Kd_Jarak"));
+                m.setKdLokasiAwal(rs.getString("Kd_Lokasi_Awal"));
+                m.setKdLokasiAkhir(rs.getString("Kd_Lokasi_Akhir"));
+                m.setJarak(rs.getInt("Jarak"));
                 data.add(m);
 
             }
@@ -112,7 +114,7 @@ public class DAOJarak extends Jarak{
             String kdJarak = "JPL0000";
             
             int cnt = 0;
-            String sql = "SELECT MAX(Kd_jarak) FROM jarak";   // mengambil maksimal id kota
+            String sql = "SELECT MAX(Kd_Jarak) FROM jarak";   // mengambil maksimal id kota
             
             ResultSet resultSet = db.ambilData(sql);
 

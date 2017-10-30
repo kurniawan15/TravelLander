@@ -8,6 +8,9 @@ package controller;
 import DAO.DAOJarak;
 import DAO.DAOLokasi;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,13 +32,13 @@ public class ControllerJarak extends HttpServlet{
             response.sendRedirect("tambah_jarak.jsp");
             return;
         }else if(proses.equals("edit-jarak")){
-            response.sendRedirect("edit_jarak.jsp?kdJarak="+request.getParameter("kdJarak"));
+            response.sendRedirect("edit_jarak.jsp?Kd_Jarak="+request.getParameter("Kd_Jarak"));
             return;
         }else if(proses.equals("hapus-jarak")){
             DAOJarak hm=new DAOJarak();
-            hm.setkdJarak(request.getParameter("kdJarak"));
+            hm.setKdJarak(request.getParameter("Kd_Jarak"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexJarak.jsp");
         }
     }
 
@@ -47,18 +50,24 @@ public class ControllerJarak extends HttpServlet{
         if (data != null){
             if(data.equals("jarak")){
                 DAOJarak um=new DAOJarak();
-                um.setkdJarak(request.getParameter("Kd_jarak"));
-                um.setkdLokasiAwal(request.getParameter("Kd_Lokasi_Awal"));
-                um.setkdLokasiAkhir(request.getParameter("Kd_Lokasi_Akhir"));
-                um.setjarak(request.getParameter("Jarak"));
+                um.setKdJarak(request.getParameter("Kd_Jarak"));
+                um.setKdLokasiAwal(request.getParameter("Kd_Lokasi_Awal"));
+                um.setKdLokasiAkhir(request.getParameter("Kd_Lokasi_Akhir"));
+                um.setJarak(Integer.parseInt(request.getParameter("Jarak")));
                 if (proses.equals("input-jarak")){
-                    um.simpan();
+                    try {
+                        um.setKdJarak(um.getNewId());
+                        um.simpan();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ControllerJarak.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else if (proses.equals("update-jarak")){
                     um.update();
                 } else if(proses.equals("hapus-jarak")){
+                    um.setKdJarak(request.getParameter("Kd_Jarak"));
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexJarak.jsp");
             }
         }
     }
