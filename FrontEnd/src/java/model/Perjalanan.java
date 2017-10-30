@@ -86,20 +86,4 @@ public class Perjalanan {
     public void setWaktuTempuh(int waktuTempuh) {
         this.waktuTempuh = waktuTempuh;
     }
-
-    public void setkdTransportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdJarak(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdTransportasiPribadi(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setwaktuTempuh(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
