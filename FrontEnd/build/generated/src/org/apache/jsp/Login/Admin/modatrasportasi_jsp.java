@@ -81,7 +81,7 @@ public final class modatrasportasi_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("<div class=\"main-content\">\n");
       out.write("    <div id=\"main\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
       out.write("\t<div class=\"widget\">\n");
-      out.write("            <div class=\"title\">Data Perjalanan</div>\n");
+      out.write("            <div class=\"title\">Data Moda Trasportasi</div>\n");
       out.write("                <table class=\"table\">\n");
       out.write("                    <tr>\n");
       out.write("                        <th>NO</th>\n");

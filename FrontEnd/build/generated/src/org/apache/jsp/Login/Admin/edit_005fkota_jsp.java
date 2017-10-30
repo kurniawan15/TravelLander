@@ -63,24 +63,24 @@ public final class edit_005fkota_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("  <link rel=\"stylesheet\" href=\"css/style.css\">\n");
       out.write("</head>\n");
       out.write("<div class=\"widget\">\n");
-      out.write("    <div class=\"title\">Tambah Provinsi </div>  \n");
+      out.write("    <div class=\"title\">Edit Kota </div>  \n");
       out.write("        <div class=\"imput\">\n");
       out.write("            <form action=\"../../provinsi?data=provinsi&proses=update-provinsi\" method=\"post\">\n");
       out.write("\n");
-      out.write("                Id Provinsi\n");
+      out.write("                Kode Kota\n");
       out.write("                <input type=\"text\" placeholder=\"");
 //=data.get(0).getIdProvinsi()
       out.write("\" name=\"id_provinsi\" required>\n");
-      out.write("                Nama Provinsi\n");
+      out.write("                Id Provinsi Provinsi\n");
       out.write("                <input type=\"text\" placeholder=\"");
 //=data.get(0).getNamaProvinsi()
       out.write("\" name=\"nama_provinsi\" required>\n");
-      out.write("                Ibukota\n");
+      out.write("                Nama Kota\n");
       out.write("                <input type=\"text\" placeholder=\"");
 //=data.get(0).getIbuKota()
       out.write("\" name=\"ibu_kota\" required>\n");
       out.write("               \n");
-      out.write("                <<input type=\"submit\" value=\"Update\">\n");
+      out.write("               <button type=\"submit\" name=\"Tambah\">Update Data</button>\n");
       out.write("                ");
 //}
       out.write("\n");

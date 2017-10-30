@@ -32,11 +32,14 @@
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Data Kota</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a href="#" >Moda Trasportasi</a>
+    <a class="selected" href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
@@ -81,14 +84,14 @@
         <div class="imput_publik">
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
                 Lokasi Keberangkatan
-                <select class="pilih_kota">
+                <select class="pilih_kota" style="width: 23%">
                     <option value="volvo">Volv33o</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>
                     <option value="audi">Audi</option>
                 </select>
                  Lokasi Kedatangan
-                <select class="pilih_kota">
+                <select class="pilih_kota"style="width: 23%">
                     <option value="volvo">Volv33o</option>
                     <option value="saab">Saab</option>
                     <option value="opel">Opel</option>

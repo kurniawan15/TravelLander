@@ -132,20 +132,6 @@ public final class provinsi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <input type=\"submit\" class=\"button2\" onClick=\"opena()\" value=\"Hapus\" ></a>\n");
       out.write("                        </td>\n");
       out.write("                    </tr>\n");
-      out.write("<div id=\"ask\" class=\"confirm2\">\n");
-      out.write("\t<div class=\"ask-content\">\n");
-      out.write("    \t<span onClick=\"tutup2()\" class=\"exit\" >&times;</span>\n");
-      out.write("        <div class=\"ask\">\n");
-      out.write("            <label style=\"font-weight:bold\">\n");
-      out.write("                <a> &nbsp &nbsp Anda yakin Ingin Menghapus Data? </a> <br>\n");
-      out.write("            </label>\n");
-      out.write("            <button onClick=\"tutup2()\" class=\"b1\" type=\"submit\" name=\"#\">Tidak</button> \n");
-      out.write("            <a href=\"../../provinsi?proses=hapus-provinsi&id_provinsi=\" ");
-      out.print(data.get(x).getIdProvinsi());
-      out.write("\"> <input type=\"submit\" class=\"b2\" value=\"Iya\"> </a>\n");
-      out.write("        </div> \n");
-      out.write("    </div>\n");
-      out.write("</div>\n");
       out.write("                    ");
  
                     }
@@ -155,12 +141,14 @@ public final class provinsi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("               \n");
       out.write("\t</div>\n");
       out.write("    </div>\n");
-      out.write("</div>\n");
-      out.write("\n");
-      out.write("<div class=\"widget\">\n");
+      out.write("    <div class=\"widget\">\n");
       out.write("    <div class=\"title\">Tambah data Provinsi</div>\n");
       out.write("         <a href=\"../../provinsi?proses=input-provinsi\" > <input type=\"submit\" class=\"button3\" value=\"Edit\"> </a>\n");
       out.write("    </div>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!------------------------------------------------------------bagian modal dalet-------------------------------------->   \n");
       out.write("<script>\n");
       out.write("/*----------------------------edit buat mav----------------------------------------------*/\n");
@@ -195,7 +183,7 @@ public final class provinsi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t}\n");
       out.write("\t \n");
       out.write("</script>\t\n");
-      out.write("\n");
+      out.write("</body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

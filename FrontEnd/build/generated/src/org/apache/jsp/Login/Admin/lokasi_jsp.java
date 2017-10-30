@@ -82,11 +82,14 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\n");
-      out.write("    <a href=\"calender.jsp\">Calendar</a>                                                                                   \n");
-      out.write("    <a class=\"selected\" href=\"#\">Manage Place</a>\n");
-      out.write("    <a href=\"distance.jsp\">Manage Distance</a>\n");
-      out.write("    <a href=\"time.jsp\">Manage Time</a>\n");
-      out.write("    <a href=\"transportation.jsp\" >Manage Transpotation</a>\n");
+      out.write("    <a href=\"#\">Jarak</a>                                                                                   \n");
+      out.write("    <a class=\"selected\" href=\"#\">Kota</a>\n");
+      out.write("    <a href=\"#\" >Lokasi</a>\n");
+      out.write("    <a href=\"#\" >Provinsi</a>\n");
+      out.write("    <a href=\"#\" >Perjalanan</a>\n");
+      out.write("    <a href=\"#\" >Moda Trasportasi</a>\n");
+      out.write("    <a href=\"#\" >Transportasi Pribadi</a>\n");
+      out.write("    <a href=\"#\" >Transportasi Umum</a>\n");
       out.write("  </div>\n");
       out.write("<div class=\"main-content\">\n");
       out.write("    <div id=\"main\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n");
@@ -156,8 +159,6 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"title\">Tambah Lokasi </div>  \n");
       out.write("        <div class=\"imput\">\n");
       out.write("            <form action=\"../../provinsi?data=provinsi&proses=input-provinsi\" method=\"post\">\n");
-      out.write("                Kode Lokasi\n");
-      out.write("                <input type=\"text\" placeholder=\"Masukan kode Lokasi\" name=\"#i\" required>\n");
       out.write("                Nama Lokasi\n");
       out.write("                <input type=\"text\" placeholder=\"Masukan Nama Lokasi\" name=\"#\" required>\n");
       out.write("                Alamat\n");
