@@ -9,6 +9,7 @@ import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import model.Lokasi;
 public class DAOEvent extends Event implements DAO{
     
    static  KoneksiDB db = null;
-    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public DAOEvent() {
        db = new KoneksiDB();
     }
@@ -66,8 +67,8 @@ public class DAOEvent extends Event implements DAO{
                 ev.setNameEvent(rs.getString("nama_event"));
                 ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
                 ev.setKeterangan(rs.getString("keterangan"));
-                ev.setStartTime(format.format(rs.getDate("waktu_mulai")));
-                ev.setEndTime(rs.getDate("waktu_selesai"));
+                ev.setEndTime(new Date(rs.getTimestamp("waktu_selesai").getTime()));
+                ev.setStartTime(new Date(rs.getTimestamp("waktu_mulai").getTime()));
                 ev.setKdTraveller(rs.getString("kd_traveller"));
                 
                 listEvent.add(ev);
@@ -86,15 +87,16 @@ public class DAOEvent extends Event implements DAO{
         try {
             String sql = "SELECT * FROM event WHERE kd_event='"+kdEvent+"'";
             rs = db.ambilData(sql);
+            System.out.println(sql);
             while (rs.next()) {
                 Event ev = new Event();
                 ev.setKdEvent(rs.getString("kd_event"));
                 ev.setNameEvent(rs.getString("nama_event"));
-                ev.setStartTime(rs.getDate("waktu_mulai"));
-                ev.setEndTime(rs.getDate("waktu_selesai"));
-                ev.setKdTraveller(rs.getString("kd_traveller"));
-                ev.setKdPerjalanan(rs.getString("kd_Perjalanan"));
+                ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
+                 ev.setEndTime(new Date(rs.getTimestamp("waktu_selesai").getTime()));
+                ev.setStartTime(new Date(rs.getTimestamp("waktu_mulai").getTime()));
                 ev.setKeterangan(rs.getString("keterangan"));
+                ev.setKdTraveller(rs.getString("kd_traveller"));
                 
                 listEvent.add(ev);
             }

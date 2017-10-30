@@ -33,7 +33,7 @@
               </tr>
               <%
                   DAOEvent ev = new DAOEvent();
-                  SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+                  SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH.mm");
                   List<Event> data = new ArrayList<Event>();
                   String ket = request.getParameter("ket");
 //                  if (ket == null) {

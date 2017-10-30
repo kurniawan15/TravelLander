@@ -23,7 +23,7 @@
         <form action="addEvent?data=event&proses=update-event" method="post">
             <table style="margin:20px auto;">
             <%
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH.mm");
                 String idEvent = request.getParameter("kd_event");
                 DAOEvent ev = new DAOEvent();
                 ev.setKdEvent(idEvent);
