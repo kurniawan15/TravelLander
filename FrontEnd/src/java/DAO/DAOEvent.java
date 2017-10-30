@@ -33,7 +33,7 @@ public class DAOEvent extends Event implements DAO{
  
 
     public void simpan(){
-        
+        //
         String sql = "INSERT into event(kd_event,kd_perjalanan,kd_traveller,nama_event,waktu_mulai,waktu_selesai,keterangan) values('"+kdEvent+"','"+kdPerjalanan+"','"+kdTraveller+"','"+nameEvent+"','"+format.format(startTime)+"','"+format.format(endTime)+"','"+keterangan+"')";
         db.simpanData(sql);
         System.out.println(sql);
@@ -66,7 +66,7 @@ public class DAOEvent extends Event implements DAO{
                 ev.setNameEvent(rs.getString("nama_event"));
                 ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
                 ev.setKeterangan(rs.getString("keterangan"));
-                ev.setStartTime(rs.getDate("waktu_mulai"));
+                ev.setStartTime(format.format(rs.getDate("waktu_mulai")));
                 ev.setEndTime(rs.getDate("waktu_selesai"));
                 ev.setKdTraveller(rs.getString("kd_traveller"));
                 
@@ -79,7 +79,6 @@ public class DAOEvent extends Event implements DAO{
        return listEvent;
      }
 
-    
     public List cariID() {
         List<Event> listEvent = new ArrayList<Event>();
         ResultSet rs = null;
