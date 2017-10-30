@@ -55,24 +55,4 @@ public class TransportasiPribadi {
     public void setNamaTransportasiPribadi(String namaTransportasiPribadi) {
         this.namaTransportasiPribadi = namaTransportasiPribadi;
     }
-
-    public void setkdTansportasiPribadi(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdModa(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setnamaTransportasiPribadi(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setkdTansportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setnamaTransportasiPublik(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

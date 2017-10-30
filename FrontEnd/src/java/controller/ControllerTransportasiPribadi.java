@@ -31,9 +31,9 @@ public class ControllerTransportasiPribadi extends HttpServlet{
             return;
         }else if(proses.equals("hapus-moda-transport")){
             DAOTransportasiPribadi hm=new DAOTransportasiPribadi();
-            hm.setkdTansportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
+            hm.setKdTansportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexTransportasiPribadi.jsp");
         }
     }
 
@@ -45,9 +45,9 @@ public class ControllerTransportasiPribadi extends HttpServlet{
         if (data != null){
             if(data.equals("transportasi_pribadi")){
                 DAOTransportasiPribadi um=new DAOTransportasiPribadi();
-                um.setkdTansportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
-                um.setkdModa(request.getParameter("Kd_Moda"));
-                um.setnamaTransportasiPribadi(request.getParameter("Nama_Transportasi_Pribadi"));
+                um.setKdTansportasiPribadi(request.getParameter("Kd_Transportasi_Pribadi"));
+                um.setKdModa(request.getParameter("Kd_Moda"));
+                um.setNamaTransportasiPribadi(request.getParameter("Nama_Transportasi_Pribadi"));
                 if (proses.equals("input-moda-pribadi")){
                     um.simpan();
                 }else if (proses.equals("update-moda-pribadi")){
@@ -55,7 +55,7 @@ public class ControllerTransportasiPribadi extends HttpServlet{
                 } else if(proses.equals("hapus-moda-pribadi")){
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexTransportasiPribadi.jsp");
             }
         }
     }

@@ -36,7 +36,7 @@ public class DAOModaTransportasi extends ModaTransportasi {
     public void hapus(){
         String sql="DELETE FROM moda_transportasi WHERE Kd_Moda='"+kdModa+"'";
         db.simpanData(sql);
-        System.out.println("");
+        System.out.println(sql);
     }
     public List tampil() {
         List<ModaTransportasi> data = new ArrayList<ModaTransportasi>();
@@ -45,15 +45,17 @@ public class DAOModaTransportasi extends ModaTransportasi {
         try {
             String sql = "select * from moda_transportasi order by Kd_Moda asc";
             rs = db.ambilData(sql);
+            System.out.print(sql);
             while (rs.next()) {
                 ModaTransportasi um = new ModaTransportasi();
-                um.setkdModa(rs.getString("Kd_Moda"));
-                um.settipeModa(rs.getString("Tipe_Moda"));
+                um.setKdModa(rs.getString("Kd_Moda"));
+                um.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(um);
    }
             db.diskonek(rs);
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalahan Saat menampilkan data User" + ex);
+            ex.printStackTrace();
         }
         return data;
     }
@@ -66,8 +68,8 @@ public class DAOModaTransportasi extends ModaTransportasi {
             rs = db.ambilData(sql);
             while (rs.next()) {
                 ModaTransportasi m = new ModaTransportasi();
-                m.setkdModa(rs.getString("Kd_Moda"));
-                m.settipeModa(rs.getString("Tipe_Moda"));
+                m.setKdModa(rs.getString("Kd_Moda"));
+                m.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(m);
 
             }

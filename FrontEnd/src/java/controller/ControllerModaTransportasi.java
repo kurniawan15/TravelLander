@@ -25,16 +25,16 @@ public class ControllerModaTransportasi extends HttpServlet{
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-moda")){
-            response.sendRedirect("tambah_moda.jsp");
+            response.sendRedirect("tambah_modaTransportasi.jsp");
             return;
         }else if(proses.equals("edit-moda")){
             response.sendRedirect("edit_moda.jsp?Kd_Moda="+request.getParameter("Kd_Moda"));
             return;
         }else if(proses.equals("hapus-moda")){
             DAOModaTransportasi hm=new DAOModaTransportasi();
-            hm.setkdModa(request.getParameter("Kd_Moda"));
+            hm.setKdModa(request.getParameter("Kd_Moda"));
             hm.hapus();
-            response.sendRedirect("");
+            response.sendRedirect("indexModaTransportasi.jsp");
         }
     }
 
@@ -46,8 +46,8 @@ public class ControllerModaTransportasi extends HttpServlet{
         if (data != null){
             if(data.equals("moda_transportasi")){
                 DAOModaTransportasi um=new DAOModaTransportasi();
-                um.setkdModa(request.getParameter("Kd_Moda"));
-                um.settipeModa(request.getParameter("Tipe_Moda"));
+                um.setKdModa(request.getParameter("Kd_Moda"));
+                um.setTipeModa(request.getParameter("Tipe_Moda"));
                 if (proses.equals("input-moda")){
                     um.simpan();
                 }else if (proses.equals("update-moda")){
@@ -55,7 +55,7 @@ public class ControllerModaTransportasi extends HttpServlet{
                 } else if(proses.equals("hapus-moda")){
                     um.hapus();
                 }
-                response.sendRedirect("");
+                response.sendRedirect("indexModaTransportasi.jsp");
             }
         }
     }
