@@ -58,6 +58,7 @@ public class DAOTransportasiPribadi extends TransportasiPribadi{
             db.diskonek(rs);
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalahan Saat menampilkan data User" + ex);
+            ex.printStackTrace();
         }
         return data;
     }

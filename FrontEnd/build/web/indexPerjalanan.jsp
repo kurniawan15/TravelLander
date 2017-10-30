@@ -40,15 +40,15 @@
               %>
                <tr>
                   <td><%=x + 1%></td>
-                  <td><%=data.get(x).getIdPerjalanan()%></td>
+                  <td><%=data.get(x).getKdPerjalanan()%></td>
                   <td><%=data.get(x).getKdTransportasiPublik()%></td>
                   <td><%=data.get(x).getKdJarak()%></td>
                   <td><%=data.get(x).getKdTransportasiPribadi()%></td>
                   <td><%=data.get(x).getWaktuTempuh()%></td>
                   
                   <td>
-                      <a href="perjalanan?proses=edit-perjalanan&Kd_Perjalanan=<%=data.get(x).getIdPerjalanan()%>">Edit</a>
-                      <a href="perjalanan?proses=hapus-perjalanan&Kd_Perjalanan=<%=data.get(x).getIdPerjalanan()%>">Hapus</a>
+                      <a href="perjalanan?proses=edit-perjalanan&Kd_Perjalanan=<%=data.get(x).getKdPerjalanan()%>">Edit</a>
+                      <a href="perjalanan?proses=hapus-perjalanan&Kd_Perjalanan=<%=data.get(x).getKdPerjalanan()%>">Hapus</a>
                   </td>
               </tr>
               <% 
