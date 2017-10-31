@@ -19,7 +19,7 @@ import java.sql.SQLException;
  * @author Pegasus Cyber
  */
 
-@WebServlet("/location")
+@WebServlet("/lokasi")
 public class ControllerLokasi extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
@@ -27,7 +27,7 @@ public class ControllerLokasi extends HttpServlet {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-lokasi")){
-            response.sendRedirect("tambah_lokasi.jsp");
+          //  response.sendRedirect("tambah_lokasi.jsp");
             return;
         }else if(proses.equals("edit-lokasi")){
             response.sendRedirect("edit_lokasi.jsp?kd_lokasi="+request.getParameter("kd_lokasi"));
@@ -58,14 +58,14 @@ public class ControllerLokasi extends HttpServlet {
                         dlok.setKdLokasi(dlok.getNewId());
                         dlok.simpan();
                     } catch (SQLException ex) {
-                      response.sendRedirect("tambah_lokasi.jsp");
+                      response.sendRedirect("Login/Admin/lokasi.jsp");
                     }
                 }else if (proses.equals("update-lokasi")){
                     dlok.update();
                 } else if(proses.equals("hapus-lokasi")){
                     dlok.hapus();
                 }
-                response.sendRedirect("indexLokasi.jsp");
+                response.sendRedirect("Login/Admin/lokasi.jsp");
             }
         }
     }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Okt 2017 pada 14.56
+-- Generation Time: 30 Okt 2017 pada 19.37
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -209,6 +209,47 @@ INSERT INTO `kota` (`id_kota`, `nama_kota`, `id_provinsi`) VALUES
 ('KT097', 'Tual', 'MA'),
 ('KT098', 'Yogyakarta', 'YO'),
 ('KT099', 'Cianjur', 'JB');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `list_event`
+--
+CREATE TABLE `list_event` (
+`Kd_Event` varchar(16)
+,`Nama_Event` varchar(50)
+,`Waktu_Mulai` datetime
+,`Waktu_Selesai` datetime
+,`Nama_Transportasi_Pribadi` varchar(50)
+,`Nama_Transportasi_Publik` varchar(50)
+,`Lokasi` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `list_jarak`
+--
+CREATE TABLE `list_jarak` (
+`Kd_Jarak` varchar(14)
+,`Lokasi_Awal` varchar(50)
+,`Lokasi_Akhir` varchar(50)
+,`jarak` float
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `list_perjalanan`
+--
+CREATE TABLE `list_perjalanan` (
+`KODE_PERJALANAN` varchar(7)
+,`NAMA_TRANSPORTASI_PRIBADI` varchar(50)
+,`NAMA_TRANSPORTASI_PUBLIC` varchar(50)
+,`LOKASI_AWAL` varchar(50)
+,`LOKASI_AKHIR` varchar(50)
+,`ESTIMASI_WAKTU` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -456,6 +497,33 @@ CREATE TABLE `traveller` (
 
 INSERT INTO `traveller` (`Kd_Traveller`, `Nama_Traveller`, `Username`, `Password`, `Email`) VALUES
 ('TR0001', 'Kanto', 'kanto1', 'kanto123', 'kanto1@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `list_event`
+--
+DROP TABLE IF EXISTS `list_event`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `list_event`  AS  select `a`.`Kd_Event` AS `Kd_Event`,`a`.`Nama_Event` AS `Nama_Event`,`a`.`Waktu_Mulai` AS `Waktu_Mulai`,`a`.`Waktu_Selesai` AS `Waktu_Selesai`,`c`.`Nama_Transportasi_Pribadi` AS `Nama_Transportasi_Pribadi`,`d`.`Nama_Transportasi_Publik` AS `Nama_Transportasi_Publik`,`f`.`nama_lokasi` AS `Lokasi` from ((`event` `a` join ((`perjalanan` `b` left join `transportasi_pribadi` `c` on((`b`.`Kd_Transportasi_Pribadi` = `c`.`Kd_Transportasi_Pribadi`))) left join `transportasi_publik` `d` on((`b`.`Kd_Transportasi_Publik` = `d`.`Kd_Transportasi_Publik`)))) join (`jarak` `e` left join `lokasi` `f` on((`e`.`Kd_lokasi_akhir` = `f`.`kd_lokasi`)))) where (((`c`.`Kd_Transportasi_Pribadi` is not null) or (`d`.`Kd_Transportasi_Publik` is not null)) and (`a`.`Kd_Perjalanan` = `b`.`Kd_Perjalanan`) and (`b`.`Kd_jarak` = `e`.`Kd_jarak`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `list_jarak`
+--
+DROP TABLE IF EXISTS `list_jarak`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `list_jarak`  AS  select `a`.`Kd_jarak` AS `Kd_Jarak`,`b`.`nama_lokasi` AS `Lokasi_Awal`,`c`.`nama_lokasi` AS `Lokasi_Akhir`,`a`.`Jarak` AS `jarak` from ((`jarak` `a` join `lokasi` `b`) join `lokasi` `c`) where ((`b`.`kd_lokasi` = `a`.`Kd_lokasi_awal`) and (`c`.`kd_lokasi` = `a`.`Kd_lokasi_akhir`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `list_perjalanan`
+--
+DROP TABLE IF EXISTS `list_perjalanan`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `list_perjalanan`  AS  select `a`.`Kd_Perjalanan` AS `KODE_PERJALANAN`,`b`.`Nama_Transportasi_Pribadi` AS `NAMA_TRANSPORTASI_PRIBADI`,`c`.`Nama_Transportasi_Publik` AS `NAMA_TRANSPORTASI_PUBLIC`,`e`.`nama_lokasi` AS `LOKASI_AWAL`,`f`.`nama_lokasi` AS `LOKASI_AKHIR`,`a`.`Waktu_Tempuh` AS `ESTIMASI_WAKTU` from (((`jarak` `d` left join `lokasi` `e` on((`d`.`Kd_lokasi_awal` = `e`.`kd_lokasi`))) left join `lokasi` `f` on((`d`.`Kd_lokasi_akhir` = `f`.`kd_lokasi`))) join ((`perjalanan` `a` left join `transportasi_pribadi` `b` on((`a`.`Kd_Transportasi_Pribadi` = `b`.`Kd_Transportasi_Pribadi`))) left join `transportasi_publik` `c` on((`a`.`Kd_Transportasi_Publik` = `c`.`Kd_Transportasi_Publik`)))) where (((`b`.`Kd_Transportasi_Pribadi` is not null) or (`c`.`Kd_Transportasi_Publik` is not null)) and (`a`.`Kd_jarak` = `d`.`Kd_jarak`)) ;
 
 --
 -- Indexes for dumped tables

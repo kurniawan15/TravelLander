@@ -1,16 +1,19 @@
 <%-- 
-    Document   : lokasi
-    Created on : Oct 30, 2017, 3:35:57 PM
-    Author     : Hari
+    Document   : Data Place
+    Created on : Sep 25, 2017, 8:51:22 PM
+    Author     : Cyber Pegasus
 --%>
 <%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
+<%@page import="model.Kota"%>
+<%@page import="DAO.DAOKota"%>
+<%@page import="model.Provinsi"%>
+<%@page import="DAO.DAOProvinsi"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Database.KoneksiDB"%>
-<%@page import="DAO.DAOLokasi"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<!doctype html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,78 +48,99 @@
     <a href="transportation.jsp" >Manage Transpotation</a>
   </div>
 <div class="main-content">
-    <div id="main">																					
+<div id="main">																					
 	<div class="widget">
-            <div class="title">Data Provinsi</div>
+            <div class="title">Data Lokasi</div>
                 <table class="table">
-                    <tr>
-                        <th>NO</th>
-                        <th>Kode Kota</th>
-                        <th>Nama Lokasi</th>
-                        <th>Alamat</th>
-                        <th>Kota</th>
-                        <th>Provinsi</th>
-                        <th>ket</th>
-                    </tr>
-                    <%
-                        DAOLokasi km = new DAOLokasi();
-                        List<Lokasi> data = new ArrayList<Lokasi>();
-                        String ket = request.getParameter("ket");
-                        if (ket == null) {
-                        data = km.tampil();
-                  } 
-                  for (int x = 0; x < data.size(); x++) {
+            <tr>
+                <th>NO</th>
+                <th>Kode Lokasi</th>
+                <th>Nama tempat</th>
+                <th>Alamat</th>
+                <th>Kode Provinsi</th>
+                <th>Kode Kota</th>
+                <th>Keterangan</th>
+            </tr>
+          <%
+                      DAOLokasi dlok = new DAOLokasi();
+                      List<Lokasi> data = new ArrayList<Lokasi>();
+                      
+                      DAOProvinsi dpro = new DAOProvinsi();
+                        List<Provinsi> pro = new ArrayList<Provinsi>();
+                        
+                      DAOKota dkot = new DAOKota();
+                        List<Kota> kot = new ArrayList<Kota>();  
+                      String ket = request.getParameter("ket");
+                      
+                      if (ket == null) {
+                          data = dlok.tampil();
+                          pro = dpro.tampil();
+                          kot = dkot.tampil();
+                      } 
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
                         <td><%=x + 1%></td>
                         <td><%=data.get(x).getKdLokasi()%></td>
                         <td><%=data.get(x).getNamaLokasi()%></td>
                         <td><%=data.get(x).getAlamat()%></td>
-                        <td><%=data.get(x).getId_kota()%></td>
                         <td><%=data.get(x).getId_provinsi()%></td>
+                        <td><%=data.get(x).getId_kota()%></td>
                         <td>
-                            <a href="location?proses=edit-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button1" value="Edit"></a></a>
-                            <a href="location?proses=hapus-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
+                            <a href="../../lokasi?proses=edit-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button1" value="Edit"></a>
+                            <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
                     }
-                    %>
+              %>
                 </table>
-               
-	</div>
-    </div>
-</div>
-
-<div class="widget">
-    <div class="title">Tambah Lokasi </div>  
-        <div class="imput">
-            <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
-                Nama Lokasi
-                <input type="text" placeholder="Masukan Nama Lokasi" name="#" required>
+            
+<div class="tex">
+           <p></p>
+            </div>
+		</div>
+            <form action="../../lokasi?data=lokasi&proses=input-lokasi" method="post">
+        <div class="widget">
+        	<div class="title"> 
+            	Inmput Lokasi 
+            </div>
+            <div class="imput">
+            	Nama Lokasi 
+                <input type="text" placeholder="Enter New Place" name="nama_lokasi" required>
                 Alamat
-                <input type="text" placeholder="Masukan Alamat" name="#" required>
-                Kota
+                <textarea class="address"  rows="4" cols="50" name="alamat" form="lokasi" placeholder="Enter Imput Address In here...">
+                    
+                </textarea>
+                Kode Provinsi
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                 <%
+                    
+                    for (Provinsi p : pro) {
+                    %>
+                <option value="<%=p.getIdProvinsi()%>"><%=p.getNamaProvinsi()%></option>
+                <% 
+                       }
+                %>
                 </select>
-                Provinsi
+                Nama Kota
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                 <%
+                     
+                    for (Kota k : kot) {
+                    %>
+                <option value="<%=k.getIdKota()%>"><%=k.getNamaKota()%></option>
+                <% 
+                       }
+                %>
                 </select>
-                <button type="submit" name="Tambah">Update Data</button>
-                
+                <button type="submit" name="Tambah">Update Data</button>  
             </form>
         </div>
-</div>
-<!------------------------------------------------------------bagian modal dalet-------------------------------------->   
-<script>
+        </div>
+       
+        
+  <script>
 /*----------------------------edit buat mav----------------------------------------------*/
     function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
@@ -127,8 +151,8 @@
       document.getElementById('side-menu').style.width = '0';
       document.getElementById('main').style.marginLeft = '0';
     }
-    
-    /*-------------------------Membuat modal Pop Up-----------------------------------------*/
+	
+/*-------------------------Membuat modal Pop Up-----------------------------------------*/
 
 	function openo()
 	{
@@ -137,7 +161,6 @@
 	function opena()
 	{
 		document.getElementById("ask").style.display = "block"
-                document.setUserData("");
 	}
 	function tutup()
 	{
@@ -148,6 +171,9 @@
 		document.getElementById("ask").style.display = "none"
 	}
 	 
-</script>	
+	
 
+
+  </script>
+</body>
 </html>

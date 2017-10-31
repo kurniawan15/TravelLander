@@ -4,6 +4,8 @@
     Author     : Fajar Panca
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -41,10 +43,10 @@ body{
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Dashboard</a>                                                                  
-    <a href="#">Create Schedule</a>
+    <a href="dashboardCreateSchedule.jsp">Dashboard</a>                                                                  
+    <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
-    <a href="#">Event List</a>
+    <a href="lisData.jsp">Event List</a>
   </div>
 
 <div class="main-content">
@@ -59,97 +61,26 @@ body{
                 <th>Time</th>
                 <th>Edit</th>
             </tr>
+            <%
+                 KoneksiDB db = new KoneksiDB();
+                 db.koneksi();
+                 int i = 1;
+                 String sql = "SELECT * FROM list_event";   
+                 ResultSet rs = db.ambilData(sql);
+                 
+                 while(rs.next()){
+            %>
             <tr>
-                <td title="NOEVENT" style="font-size: 18px;">1</td>
-                <td title="EventName" style="font-size: 18px;">Rapat dengan Client</td>
-                <td title="EventLocation" style="font-size: 18px;">Surabaya</td> 
-                <td title="Date" style="font-size: 18px;">Date, Time</td>
+                <td title="NOEVENT" style="font-size: 18px;"><%=i%></td>
+                <td title="EventName" style="font-size: 18px;"><%=rs.getString("nama_event")%></td>
+                <td title="EventLocation" style="font-size: 18px;"><%=rs.getString("lokasi")%></td> 
+                <td title="Date" style="font-size: 18px;"><%=rs.getDate("waktu_mulai")%></td>
                 <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
             </tr>
-              <tr>
-               <td title="NOEVENT" style="font-size: 18px;">2</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NOEVENT" style="font-size: 18px;">3</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-              <tr>
-                <td title="NOEVENT" style="font-size: 18px;">4</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">5</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">6</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">7</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">8</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">9</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">10</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">11</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">12</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
-            <tr>
-                <td title="NOEVENT" style="font-size: 18px;">13</td>
-                <td title="EventName" style="font-size: 18px;">-</td>
-                <td title="EventLocation" style="font-size: 18px;">-</td> 
-                <td title="Date" style="font-size: 18px;">-</td>
-                <td title="EditEvent" style="font-size: 18px;"><input type="submit" onClick="openo()" class="button1" name="" value=" Edit ">&nbsp <input type="submit" onClick="opena()" class="button2" name="" value=" Delete"></td>
-            </tr>
+            <%
+                i++;
+                }
+            %>
             </table>
       <div class="tex">
            <p></p>

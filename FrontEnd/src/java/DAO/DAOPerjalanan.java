@@ -117,4 +117,29 @@ public class DAOPerjalanan extends Perjalanan{
             db.diskonek(resultSet);
             return kdPerjalanan;
     }
+    
+    public String getKdPerjalanan(String kdLokasiAwal,String kdLokasiAkhir,String kdTransportasiPublik,String kdTransportasiPribadi){
+       String kdPerjalanan = "KDP0000";
+       ResultSet rs;
+       try {
+           String sql;
+           if(kdTransportasiPublik != null){
+               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak = (Select Kd_Jarak from jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik = '"+kdTransportasiPublik+"' and kd_transportasi_pribadi IS NULL)";
+           }
+           else{
+               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak = (Select Kd_jarak from jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik IS NULL and kd_transportasi_pribadi = '"+kdTransportasiPribadi+"')";
+           }
+            
+            rs = db.ambilData(sql);
+            System.out.println(sql);
+            while (rs.next()) {
+                kdPerjalanan = rs.getString(1);
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
+        }
+       
+        return kdPerjalanan;
+    }
 }

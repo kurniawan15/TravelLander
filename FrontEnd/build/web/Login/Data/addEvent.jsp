@@ -62,12 +62,13 @@
       }
     </script>
   </nav>
+<form action="../../addEvent?data=event&proses=input-event" method="post">
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Dashboard</a>
-    <a href="#">Create Schedule</a>
+    <a href="dashboardCreateSchedule.jsp">Dashboard</a>                                                                  
+    <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
-    <a href="#">Event List</a>
+    <a href="lisData.jsp">Event List</a>
   </div>
 
   <!--____________________________Isi Content Tabel Inputan____________________________-->
@@ -76,6 +77,7 @@
     <div class="widget">
     <div class="title">Create Schedule</div>
     
+
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="namaevent">
       <h1 class="hnamaevent">Event Name :</h1>
@@ -135,14 +137,16 @@
     <div class="Transportasi">
       <h1 class="htransportasi">Transportation :</h1>
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
-        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
+         <input type="hidden" name="jenis_moda" id="jenis_moda">
+        <button type="button" class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
+        <button type="button" class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
       </div>
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
       
       <script type="text/javascript">
         function openCity(evt, cityName) {
           var i, tabcontent, tablinks; //deklarasi variabel
+          //
           //mengambil element yang ada di class tabcontent dan menyembunyikan class 
           tabcontent = document.getElementsByClassName("tabcontent");
           for (i = 0; i < tabcontent.length; i++) {
@@ -157,8 +161,11 @@
           //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
-          }
+          
+           document.getElementById("jenis_moda").value = cityName;
+                    }
       </script>
+     
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
         <select id="UmumModa" name="kd_transportasi_publik">
@@ -168,7 +175,7 @@
                 listTP = dTransP.tampil();
                 for(TransportasiPublik tp : listTP){
             %>
-                <option value="<%=tp.getKdTansportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
+                <option value=" <%=tp.getKdTransportasiPublik()%>"> <%=tp.getNamaTransportasiPublik()%></option>
             <%
                 }
             %>
@@ -193,16 +200,20 @@
 
       <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
-        <input type="submit" value="Create Schedule">
-        <input type="submit" value="Cancel" style="background-color: red;">
+        
+            <input type="submit" value="Create Schedule">
+        
+            <input type="submit" value="Cancel" style="background-color: red;">
       </div><br> 
+      
 
       </div>
       </div>
     </div>
-
+</form>  
     <!--____________________________Footer Page____________________________--> 
     <div class="footer">
+        <a href="addEvent.jsp"></a>
       <div class="footkiri">
         <img class="logoweb" src="img/L21.png">
       </div>

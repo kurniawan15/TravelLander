@@ -10,6 +10,7 @@ package controller;
  * @author Lenovo
  */
 import DAO.DAOEvent;
+import DAO.DAOPerjalanan;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +26,7 @@ import java.text.SimpleDateFormat;
  * @author Fadhil-PC
  */
 
+//@WebServlet("/addEvent")
 @WebServlet("/addEvent")
 public class ControllerEvent extends HttpServlet {
     
@@ -34,7 +36,7 @@ public class ControllerEvent extends HttpServlet {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-event")){
-            response.sendRedirect("tambah_event.jsp");
+            response.sendRedirect("/Login/Data/addEvent.jsp");
             return;
         }else if(proses.equals("edit-event")){
             response.sendRedirect("edit_event.jsp?kd_event="+request.getParameter("kd_event"));
@@ -52,7 +54,30 @@ public class ControllerEvent extends HttpServlet {
         
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+        
+        //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        
+        //===================================
+        //    GET KODE TRANSPORTASI
+        //===================================
+        String kdTransportasiPublik,kdTransportasiPribadi;
+        
+        if(request.getParameter("jenis_moda").equalsIgnoreCase("umum")){
+            kdTransportasiPribadi = null;
+            kdTransportasiPublik  = request.getParameter("kd_tranportasi_publik");
+        }
+        else{
+            kdTransportasiPublik  = null;
+            kdTransportasiPribadi = request.getParameter("kd_transportasi_pribadi");
+            
+        }
+        //===================================
+        //    GET KODE PERJALANAN
+        //===================================
+        DAOPerjalanan dPj = new DAOPerjalanan();
+        
+        String kdPerjalanan = dPj.getKdPerjalanan(request.getParameter("kd_lokasi_awal"),request.getParameter("kd_lokasi_akhir"),kdTransportasiPublik,kdTransportasiPribadi);
         if (data != null){
             if(data.equals("event")){
                 DAOEvent ev = new DAOEvent();
@@ -65,8 +90,10 @@ public class ControllerEvent extends HttpServlet {
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
-                ev.setKdTraveller(request.getParameter("kd_traveller"));
-                ev.setKdPerjalanan(request.getParameter("kd_perjalanan"));
+                
+                System.out.println("WM : " + request.getParameter("waktu_mulai"));
+                ev.setKdTraveller("TR0001");
+                ev.setKdPerjalanan(kdPerjalanan);
                 ev.setKeterangan(request.getParameter("keterangan"));
                 
                 if (proses.equals("input-event")){
@@ -81,7 +108,7 @@ public class ControllerEvent extends HttpServlet {
                 } else if(proses.equals("hapus-event")){
                     ev.hapus();
                 }
-                response.sendRedirect("indexEvent.jsp");
+                response.sendRedirect("Login/Data/listData.jsp");
             }
         }
     }

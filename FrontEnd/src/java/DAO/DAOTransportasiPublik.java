@@ -8,6 +8,7 @@ package DAO;
 import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,7 @@ import model.TransportasiPublik;
  */
 public class DAOTransportasiPublik extends TransportasiPublik{
     KoneksiDB db = null;
-    
+    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     public DAOTransportasiPublik (){
         db = new KoneksiDB ();
     }
@@ -55,8 +56,18 @@ public class DAOTransportasiPublik extends TransportasiPublik{
                 tp.setKdLokasiKedatangan(rs.getString("Kd_lokasi_kedatangan"));
                 tp.setKdModa(rs.getString("Kd_Moda"));
                 tp.setNamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
-                tp.setWaktuBerangkat(new Date (rs.getTimestamp("Waktu_Berangkat").getTime()));
-                tp.setWaktuDatang(new Date (rs.getTimestamp("Waktu_Datang").getTime()));
+                if(rs.getString("Waktu_Berangkat").equals("0000-00-00 00:00:00")){
+                    tp.setWaktuBerangkat(format.parse("1970-01-01 01:00:00"));
+                }
+                else{
+                    tp.setWaktuBerangkat(new Date (rs.getTimestamp("Waktu_Berangkat").getTime()));
+                }
+                if(rs.getString("Waktu_Datang").equals("0000-00-00 00:00:00")){
+                    tp.setWaktuBerangkat(format.parse("1970-01-01 01:00:00"));
+                }
+                else{
+                    tp.setWaktuBerangkat(new Date (rs.getTimestamp("Waktu_Datang").getTime()));
+                }
                 data.add(tp);
                 }
             db.diskonek(rs);

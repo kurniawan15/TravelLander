@@ -109,6 +109,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      }\r\n");
       out.write("    </script>\r\n");
       out.write("  </nav>\r\n");
+      out.write("<form action=\"../../addEvent?data=event&proses=input-event\" method=\"post\">\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
       out.write("    <a href=\"#\">Dashboard</a>\r\n");
@@ -123,6 +124,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"widget\">\r\n");
       out.write("    <div class=\"title\">Create Schedule</div>\r\n");
       out.write("    \r\n");
+      out.write("\r\n");
       out.write("    <!--____________________________Form Inputan Nama Event____________________________-->\r\n");
       out.write("    <div class=\"namaevent\">\r\n");
       out.write("      <h1 class=\"hnamaevent\">Event Name :</h1>\r\n");
@@ -187,7 +189,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
             }
         
       out.write("\r\n");
-      out.write("      </select>     \r\n");
+      out.write("      </select> \r\n");
       out.write("    </div>\r\n");
       out.write("    \r\n");
       out.write("    <!--____________________________Form Inputan Nama Event____________________________-->\r\n");
@@ -200,14 +202,16 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <div class=\"Transportasi\">\r\n");
       out.write("      <h1 class=\"htransportasi\">Transportation :</h1>\r\n");
       out.write("      <div class=\"tab\">\r\n");
-      out.write("        <button class=\"tablinks\" onclick=\"openCity(event, 'Umum')\" id=\"defaultOpen\">Umum</button>\r\n");
-      out.write("        <button class=\"tablinks\" onclick=\"openCity(event, 'Pribadi')\">Pribadi</button>\r\n");
+      out.write("         <input type=\"hidden\" name=\"jenis_moda\" id=\"jenis_moda\">\r\n");
+      out.write("        <button type=\"button\" class=\"tablinks\" onclick=\"openCity(event, 'Umum')\" id=\"defaultOpen\">Umum</button>\r\n");
+      out.write("        <button type=\"button\" class=\"tablinks\" onclick=\"openCity(event, 'Pribadi')\">Pribadi</button>\r\n");
       out.write("      </div>\r\n");
       out.write("      <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   \r\n");
       out.write("      \r\n");
       out.write("      <script type=\"text/javascript\">\r\n");
       out.write("        function openCity(evt, cityName) {\r\n");
       out.write("          var i, tabcontent, tablinks; //deklarasi variabel\r\n");
+      out.write("          //\r\n");
       out.write("          //mengambil element yang ada di class tabcontent dan menyembunyikan class \r\n");
       out.write("          tabcontent = document.getElementsByClassName(\"tabcontent\");\r\n");
       out.write("          for (i = 0; i < tabcontent.length; i++) {\r\n");
@@ -222,8 +226,11 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb\r\n");
       out.write("          document.getElementById(cityName).style.display = \"block\";\r\n");
       out.write("          evt.currentTarget.className += \" active\";\r\n");
-      out.write("          }\r\n");
+      out.write("          \r\n");
+      out.write("           document.getElementById(\"jenis_moda\").value = cityName;\r\n");
+      out.write("                    }\r\n");
       out.write("      </script>\r\n");
+      out.write("     \r\n");
       out.write("        <!--____________________________isi option di kendaraan umum____________________________-->      \r\n");
       out.write("        <div id=\"Umum\" class=\"tabcontent\">\r\n");
       out.write("        <select id=\"UmumModa\" name=\"kd_transportasi_publik\">\r\n");
@@ -231,12 +238,12 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
 
                 DAOTransportasiPublik dTransP = new DAOTransportasiPublik();
                 List<TransportasiPublik> listTP = new ArrayList<TransportasiPublik>();
-                
+                listTP = dTransP.tampil();
                 for(TransportasiPublik tp : listTP){
             
       out.write("\r\n");
-      out.write("                <option value=\"");
-      out.print(tp.getKdTansportasiPublik());
+      out.write("                <option value=\" ");
+      out.print(tp.getKdTransportasiPublik());
       out.write("\"> ");
       out.print(tp.getNamaTransportasiPublik());
       out.write("</option>\r\n");
@@ -254,7 +261,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
 
                 DAOTransportasiPribadi dTransPr = new DAOTransportasiPribadi();
                 List<TransportasiPribadi> listTPr = new ArrayList<TransportasiPribadi>();
-                
+                listTPr = dTransPr.tampil();
                 for(int x = 0; x < listTPr.size(); x++){
             
       out.write("\r\n");
@@ -274,16 +281,20 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("      <!--____________________________Tombol Submit or cancel____________________________--> \r\n");
       out.write("      <div class=\"col-12 enter\">\r\n");
-      out.write("        <input type=\"submit\" value=\"Create Schedule\">\r\n");
-      out.write("        <input type=\"submit\" value=\"Cancel\" style=\"background-color: red;\">\r\n");
+      out.write("        \r\n");
+      out.write("            <input type=\"submit\" value=\"Create Schedule\">\r\n");
+      out.write("        \r\n");
+      out.write("            <input type=\"submit\" value=\"Cancel\" style=\"background-color: red;\">\r\n");
       out.write("      </div><br> \r\n");
+      out.write("      \r\n");
       out.write("\r\n");
       out.write("      </div>\r\n");
       out.write("      </div>\r\n");
       out.write("    </div>\r\n");
-      out.write("\r\n");
+      out.write("</form>  \r\n");
       out.write("    <!--____________________________Footer Page____________________________--> \r\n");
       out.write("    <div class=\"footer\">\r\n");
+      out.write("        <a href=\"addEvent.jsp\"></a>\r\n");
       out.write("      <div class=\"footkiri\">\r\n");
       out.write("        <img class=\"logoweb\" src=\"img/L21.png\">\r\n");
       out.write("      </div>\r\n");

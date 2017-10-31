@@ -38,12 +38,14 @@
   </nav>
 
   <div id="side-menu" class="side-nav">
-    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Manage Place</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+    <a href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a class="selected" href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
@@ -82,13 +84,22 @@
                 </table>
                
 	</div>
-    </div>
-</div>
 
-<div class="widget">
-    <div class="title">Tambah data Provinsi</div>
-         <a href="../../provinsi?proses=input-provinsi" > <input type="submit" class="button3" value="Edit"> </a>
-    </div>
+     <div class="widget">
+        <div class="title">Tambah Kota</div>
+        <div class="imput">
+            <form action="../../kota?data=kota&proses=input-kota" method="post">
+                Nama Provinsi
+                <input type="text" placeholder="Masukan Nama Provinsi" name="nama_kota" required>
+                Nama Ibu Kota
+                <input type="text" placeholder="Masukan Nama Ibu Kota" name="nama_kota" required>
+                <button type="submit" name="Tambah">Update Data</button>  
+            </form>
+        </div>
+        </div>
+
+
+
 <!------------------------------------------------------------bagian modal dalet-------------------------------------->   
 <script>
 /*----------------------------edit buat mav----------------------------------------------*/
@@ -123,5 +134,5 @@
 	}
 	 
 </script>	
-
+</body>
 </html>
