@@ -119,15 +119,15 @@ public class DAOPerjalanan extends Perjalanan{
     }
     
     public String getKdPerjalanan(String kdLokasiAwal,String kdLokasiAkhir,String kdTransportasiPublik,String kdTransportasiPribadi){
-       String kdPerjalanan = "KDP000";
+       String kdPerjalanan = "KDP0000";
        ResultSet rs;
        try {
            String sql;
-           if(kdTransportasiPribadi == null){
-               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak= (Select Kd_Jarak form jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik = '"+kdTransportasiPublik+"' and kd_transportasi_pribadi = "+kdTransportasiPribadi+")";
+           if(kdTransportasiPublik != null){
+               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak = (Select Kd_Jarak from jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik = '"+kdTransportasiPublik+"' and kd_transportasi_pribadi IS NULL)";
            }
            else{
-               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak= (Select Kd_Jarak form jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik = "+kdTransportasiPublik+" and kd_transportasi_pribadi = '"+kdTransportasiPribadi+"')";
+               sql = "SELECT Kd_Perjalanan FROM perjalanan WHERE Kd_Jarak = (Select Kd_jarak from jarak where kd_lokasi_awal = '"+kdLokasiAwal+"' and kd_lokasi_akhir = '"+kdLokasiAkhir+"' and kd_transportasi_publik IS NULL and kd_transportasi_pribadi = '"+kdTransportasiPribadi+"')";
            }
             
             rs = db.ambilData(sql);

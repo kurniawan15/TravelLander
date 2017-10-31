@@ -43,10 +43,10 @@ body{
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Dashboard</a>                                                                  
-    <a href="#">Create Schedule</a>
+    <a href="dashboardCreateSchedule.jsp">Dashboard</a>                                                                  
+    <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
-    <a href="#">Event List</a>
+    <a href="lisData.jsp">Event List</a>
   </div>
 
 <div class="main-content">

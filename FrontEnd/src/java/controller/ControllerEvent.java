@@ -56,19 +56,20 @@ public class ControllerEvent extends HttpServlet {
         String proses = request.getParameter("proses");
         
         //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
         
         //===================================
         //    GET KODE TRANSPORTASI
         //===================================
         String kdTransportasiPublik,kdTransportasiPribadi;
+        
         if(request.getParameter("jenis_moda").equalsIgnoreCase("umum")){
             kdTransportasiPribadi = null;
-            kdTransportasiPublik = request.getParameter("kd_tranportasi_publik");
+            kdTransportasiPublik  = request.getParameter("kd_tranportasi_publik");
         }
         else{
-            kdTransportasiPublik = null;
-            kdTransportasiPribadi = request.getParameter("kd_tranportasi_pribadi");
+            kdTransportasiPublik  = null;
+            kdTransportasiPribadi = request.getParameter("kd_transportasi_pribadi");
             
         }
         //===================================
@@ -89,6 +90,8 @@ public class ControllerEvent extends HttpServlet {
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
+                
+                System.out.println("WM : " + request.getParameter("waktu_mulai"));
                 ev.setKdTraveller("TR0001");
                 ev.setKdPerjalanan(kdPerjalanan);
                 ev.setKeterangan(request.getParameter("keterangan"));
@@ -105,7 +108,7 @@ public class ControllerEvent extends HttpServlet {
                 } else if(proses.equals("hapus-event")){
                     ev.hapus();
                 }
-                response.sendRedirect("indexEvent.jsp");
+                response.sendRedirect("Login/Data/listData.jsp");
             }
         }
     }
