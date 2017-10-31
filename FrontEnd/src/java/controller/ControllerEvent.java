@@ -10,6 +10,7 @@ package controller;
  * @author Lenovo
  */
 import DAO.DAOEvent;
+import DAO.DAOPerjalanan;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,9 +54,29 @@ public class ControllerEvent extends HttpServlet {
         
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-//        System.out.println("JENIS MODA : " + request.getAttribute("jenis_moda").toString());
+        
         //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+        
+        //===================================
+        //    GET KODE TRANSPORTASI
+        //===================================
+        String kdTransportasiPublik,kdTransportasiPribadi;
+        if(request.getParameter("jenis_moda").equalsIgnoreCase("umum")){
+            kdTransportasiPribadi = null;
+            kdTransportasiPublik = request.getParameter("kd_tranportasi_publik");
+        }
+        else{
+            kdTransportasiPublik = null;
+            kdTransportasiPribadi = request.getParameter("kd_tranportasi_pribadi");
+            
+        }
+        //===================================
+        //    GET KODE PERJALANAN
+        //===================================
+        DAOPerjalanan dPj = new DAOPerjalanan();
+        
+        String kdPerjalanan = dPj.getKdPerjalanan(request.getParameter("kd_lokasi_awal"),request.getParameter("kd_lokasi_akhir"),kdTransportasiPublik,kdTransportasiPribadi);
         if (data != null){
             if(data.equals("event")){
                 DAOEvent ev = new DAOEvent();
@@ -68,8 +89,8 @@ public class ControllerEvent extends HttpServlet {
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
-                ev.setKdTraveller(request.getParameter("kd_traveller"));
-                ev.setKdPerjalanan(request.getParameter("kd_perjalanan"));
+                ev.setKdTraveller("TR0001");
+                ev.setKdPerjalanan(kdPerjalanan);
                 ev.setKeterangan(request.getParameter("keterangan"));
                 
                 if (proses.equals("input-event")){

@@ -55,8 +55,11 @@ public class DAOTransportasiPublik extends TransportasiPublik{
                 tp.setKdLokasiKedatangan(rs.getString("Kd_lokasi_kedatangan"));
                 tp.setKdModa(rs.getString("Kd_Moda"));
                 tp.setNamaTransportasiPublik(rs.getString("Nama_Transportasi_Publik"));
-                tp.setWaktuBerangkat(new Date (rs.getTimestamp("Waktu_Berangkat").getTime()));
-                tp.setWaktuDatang(new Date (rs.getTimestamp("Waktu_Datang").getTime()));
+                if(rs.getString("Waktu_Berangkat") != null || rs.getString("Datang") != null){
+                    tp.setWaktuBerangkat(new Date (rs.getTimestamp("Waktu_Berangkat").getTime()));
+                    tp.setWaktuDatang(new Date (rs.getTimestamp("Waktu_Datang").getTime()));
+                }    
+                
                 data.add(tp);
                 }
             db.diskonek(rs);

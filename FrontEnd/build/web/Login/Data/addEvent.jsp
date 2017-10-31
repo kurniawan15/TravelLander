@@ -137,8 +137,9 @@
     <div class="Transportasi">
       <h1 class="htransportasi">Transportation :</h1>
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
-        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
+         <input type="hidden" name="jenis_moda" id="jenis_moda">
+        <button type="button" class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
+        <button type="button" class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
       </div>
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
       
@@ -160,8 +161,11 @@
           //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
+          
+           document.getElementById("jenis_moda").value = cityName;
                     }
       </script>
+     
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
         <select id="UmumModa" name="kd_transportasi_publik">
@@ -199,7 +203,7 @@
         
             <input type="submit" value="Create Schedule">
         
-        <input type="submit" value="Cancel" style="background-color: red;">
+            <input type="submit" value="Cancel" style="background-color: red;">
       </div><br> 
       
 
@@ -209,6 +213,7 @@
 </form>  
     <!--____________________________Footer Page____________________________--> 
     <div class="footer">
+        <a href="addEvent.jsp"></a>
       <div class="footkiri">
         <img class="logoweb" src="img/L21.png">
       </div>
