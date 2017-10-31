@@ -88,7 +88,7 @@
                         <td><%=data.get(x).getId_kota()%></td>
                         <td>
                             <a href="../../lokasi?proses=edit-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button1" value="Edit"></a>
-                            <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
+                            <a href="../../lokasi?proses=hapus-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button2" value="Hapus"></a>
                         </td>
                     </tr>
                     <% 
@@ -109,11 +109,11 @@
             	Nama Lokasi 
                 <input type="text" placeholder="Enter New Place" name="nama_lokasi" required>
                 Alamat
-                <textarea class="address"  rows="4" cols="50" name="alamat" form="lokasi" placeholder="Enter Imput Address In here...">
-                    
-                </textarea>
+               
+                 <input type="text" placeholder="Enter New Adress" name="alamat" required>   
+               
                 Kode Provinsi
-                <select class="pilih_kota">
+                <select class="pilih_kota" name="id_provinsi"">
                  <%
                     
                     for (Provinsi p : pro) {
@@ -124,7 +124,7 @@
                 %>
                 </select>
                 Nama Kota
-                <select class="pilih_kota">
+                <select class="pilih_kota" name="id_kota"">
                  <%
                      
                     for (Kota k : kot) {

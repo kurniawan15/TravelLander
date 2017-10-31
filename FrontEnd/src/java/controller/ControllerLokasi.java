@@ -30,13 +30,13 @@ public class ControllerLokasi extends HttpServlet {
           //  response.sendRedirect("tambah_lokasi.jsp");
             return;
         }else if(proses.equals("edit-lokasi")){
-            response.sendRedirect("edit_lokasi.jsp?kd_lokasi="+request.getParameter("kd_lokasi"));
+            response.sendRedirect("Login/Admin/edit_lokasi.jsp?kd_lokasi="+request.getParameter("kd_lokasi"));
             return;
         }else if(proses.equals("hapus-lokasi")){
             DAOLokasi dl=new DAOLokasi();
             dl.setKdLokasi(request.getParameter("kd_lokasi"));
             dl.hapus();
-            response.sendRedirect("indexLokasi.jsp");
+            response.sendRedirect("Login/Admin/lokasi.jsp");
         }
     }
 
