@@ -16,7 +16,7 @@ import java.sql.SQLException;
  *
  * @author Cyber Pegasus
  */
-public class DAOLokasi extends Lokasi {
+public class DAOLokasi extends Lokasi implements DAO {
     
     KoneksiDB db = null;
 

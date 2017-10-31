@@ -15,7 +15,7 @@ import model.Provinsi;
  *
  * @author Fauzan Akmal
  */
-public class DAOProvinsi extends Provinsi{
+public class DAOProvinsi extends Provinsi implements DAO{
     
     KoneksiDB db = null;
     

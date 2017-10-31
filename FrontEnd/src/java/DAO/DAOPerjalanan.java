@@ -17,7 +17,7 @@ import model.Perjalanan;
  *
  * @author Dewi Roaza
  */
-public class DAOPerjalanan extends Perjalanan{
+public class DAOPerjalanan extends Perjalanan implements DAO{
     KoneksiDB db = null;
 
 

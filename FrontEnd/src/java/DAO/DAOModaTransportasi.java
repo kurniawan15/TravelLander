@@ -16,7 +16,7 @@ import model.ModaTransportasi;
  *
  * @author Dewi Roaza
  */
-public class DAOModaTransportasi extends ModaTransportasi {
+public class DAOModaTransportasi extends ModaTransportasi implements DAO{
     
     KoneksiDB db = null;
 
