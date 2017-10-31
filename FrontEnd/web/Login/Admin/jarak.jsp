@@ -43,7 +43,7 @@
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a class="selected" href="#">Jarak</a>                                                                                   
     <a href="#">Kota</a>
-    <a href="#" >Lokasi</a>
+    <a href="lokasi.jsp" >Lokasi</a>
     <a href="#" >Provinsi</a>
     <a href="#" >Perjalanan</a>
     <a href="#" >Moda Trasportasi</a>
@@ -74,6 +74,7 @@
                     %>
                     <tr>
                         <td><%=x + 1%></td>
+                        
                         <td><%=data.get(x).getKdJarak()%></td>
                         <td><%=data.get(x).getKdLokasiAwal()%></td>
                         <td><%=data.get(x).getKdLokasiAkhir()%></td>
@@ -91,7 +92,7 @@
 	</div>
         <div class="widget">
             <div class="title">Tambah data Jarak</div>
-            <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
+            <form action="../../jarak?data=jarak&proses=input-jarak" method="post">
              <div class="imput">
                 Kode Lokasi Awal 
           <select class="pilih_kota">
@@ -120,8 +121,8 @@
                 %>
                  </select>
                 Jarak (KM)
-                <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>
-                <button type="submit" name="Tambah">Update Data</button>
+                <input type="text" placeholder="Masukan Jarak" name="Jarak" required>
+                <button type="submit" name="Update">Update Data</button>
              </div>
             </form>
         </div>

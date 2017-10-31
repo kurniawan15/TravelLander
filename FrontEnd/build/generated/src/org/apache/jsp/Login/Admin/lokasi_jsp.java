@@ -88,12 +88,15 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  </nav>\r\n");
       out.write("\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
-      out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a href=\"calender.jsp\">Calendar</a>                                                                                   \r\n");
-      out.write("    <a class=\"selected\" href=\"#\">Manage Place</a>\r\n");
-      out.write("    <a href=\"distance.jsp\">Manage Distance</a>\r\n");
-      out.write("    <a href=\"time.jsp\">Manage Time</a>\r\n");
-      out.write("    <a href=\"transportation.jsp\" >Manage Transpotation</a>\r\n");
+      out.write("<a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
+      out.write("    <a class=\"selected\" href=\"#\">Jarak</a>                                                                                   \r\n");
+      out.write("    <a href=\"#\">Kota</a>\r\n");
+      out.write("    <a href=\"#\" >Lokasi</a>\r\n");
+      out.write("    <a href=\"#\" >Provinsi</a>\r\n");
+      out.write("    <a href=\"#\" >Perjalanan</a>\r\n");
+      out.write("    <a href=\"#\" >Moda Trasportasi</a>\r\n");
+      out.write("    <a href=\"#\" >Transportasi Pribadi</a>\r\n");
+      out.write("    <a href=\"#\" >Transportasi Umum</a>\r\n");
       out.write("  </div>\r\n");
       out.write("<div class=\"main-content\">\r\n");
       out.write("<div id=\"main\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n");
@@ -105,8 +108,8 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <th>Kode Lokasi</th>\r\n");
       out.write("                <th>Nama tempat</th>\r\n");
       out.write("                <th>Alamat</th>\r\n");
-      out.write("                <th>Kode Provinsi</th>\r\n");
-      out.write("                <th>Kode Kota</th>\r\n");
+      out.write("                <th>Kota</th>\r\n");
+      out.write("                <th>Provinsi</th>\r\n");
       out.write("                <th>Keterangan</th>\r\n");
       out.write("            </tr>\r\n");
       out.write("          ");
@@ -143,10 +146,10 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(data.get(x).getAlamat());
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getId_provinsi());
+      out.print(data.get(x).getNamaKota());
       out.write("</td>\r\n");
       out.write("                        <td>");
-      out.print(data.get(x).getId_kota());
+      out.print(data.get(x).getNamaProvinsi());
       out.write("</td>\r\n");
       out.write("                        <td>\r\n");
       out.write("                            <a href=\"../../lokasi?proses=edit-lokasi&kd_lokasi=");
@@ -180,26 +183,6 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("               \r\n");
       out.write("                 <input type=\"text\" placeholder=\"Enter New Adress\" name=\"alamat\" required>   \r\n");
       out.write("               \r\n");
-      out.write("                Kode Provinsi\r\n");
-      out.write("                <select class=\"pilih_kota\" name=\"id_provinsi\"\">\r\n");
-      out.write("                 ");
-
-                    
-                    for (Provinsi p : pro) {
-                    
-      out.write("\r\n");
-      out.write("                <option value=\"");
-      out.print(p.getIdProvinsi());
-      out.write('"');
-      out.write('>');
-      out.print(p.getNamaProvinsi());
-      out.write("</option>\r\n");
-      out.write("                ");
- 
-                       }
-                
-      out.write("\r\n");
-      out.write("                </select>\r\n");
       out.write("                Nama Kota\r\n");
       out.write("                <select class=\"pilih_kota\" name=\"id_kota\"\">\r\n");
       out.write("                 ");

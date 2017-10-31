@@ -29,7 +29,7 @@ public class ControllerJarak extends HttpServlet{
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-jarak")){
-            response.sendRedirect("tambah_jarak.jsp");
+           // response.sendRedirect("tambah_jarak.jsp");
             return;
         }else if(proses.equals("edit-jarak")){
             response.sendRedirect("edit_jarak.jsp?Kd_Jarak="+request.getParameter("Kd_Jarak"));
@@ -38,7 +38,7 @@ public class ControllerJarak extends HttpServlet{
             DAOJarak hm=new DAOJarak();
             hm.setKdJarak(request.getParameter("Kd_Jarak"));
             hm.hapus();
-            response.sendRedirect("indexJarak.jsp");
+            response.sendRedirect("Login/Admin/jarak.jsp");
         }
     }
 
@@ -67,7 +67,7 @@ public class ControllerJarak extends HttpServlet{
                     um.setKdJarak(request.getParameter("Kd_Jarak"));
                     um.hapus();
                 }
-                response.sendRedirect("indexJarak.jsp");
+                response.sendRedirect("Login/Admin/jarak.jsp");
             }
         }
     }

@@ -54,26 +54,13 @@
                        }
                 %>
                 </select>
-                Provinsi
-                <select class="pilih_provinsi"  name="id_provinsi"">
-                  <%
-                    DAOProvinsi dpro = new DAOProvinsi();
-                    List<Provinsi> pro = new ArrayList<Provinsi>();
-                    pro = dpro.tampil();
-                    for (Provinsi p : pro) {
-                    %>
-                <option value="<%=p.getIdProvinsi()%>"><%=p.getNamaProvinsi()%></option>
-                <% 
-                       }
-                %>
-                </select>
                 
                 <button type="submit" name="Update">Update Data</button>
                 <td><input type="hidden" name="kd_lokasi" value="<%=data.get(0).getKdLokasi()%>"></td>
                  <%}%>
-                <button href="Login/Admin/lokasi.jsp">cencel</button>
                 
             </form>
+                 <a href="Lokasi.jsp"><button >cencel</button></a>
                 
         </div>
         </div>

@@ -45,7 +45,11 @@ public class DAOLokasi extends Lokasi implements DAO {
         ResultSet rs = null;
 
         try {
-            String sql = "select * from lokasi order by kd_lokasi asc";
+            /*String sql = "SELECT lokasi.kd_lokasi, lokasi.nama_lokasi, lokasi.alamat, lokasi.id_kota, kota.nama_kota, kota.id_provinsi,"
+                    + " provinsi.nama_provinsi FROM lokasi INNER JOIN kota ON lokasi.id_kota = kota.id_kota "
+                    + "INNER JOIN provinsi ON kota.id_provinsi = provinsi.id_provinsi";
+            */
+            String sql = "SELECT * FROM list_lokasi";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Lokasi dlok = new Lokasi();
@@ -54,6 +58,8 @@ public class DAOLokasi extends Lokasi implements DAO {
                 dlok.setAlamat(rs.getString("alamat"));
                 dlok.setId_kota(rs.getString("id_kota"));
                 dlok.setId_provinsi(rs.getString("id_provinsi"));
+                dlok.setNamaKota(rs.getString("nama_kota"));
+                dlok.setNamaProvinsi(rs.getString("nama_provinsi"));
                 data.add(dlok);
    }
             db.diskonek(rs);

@@ -17,13 +17,42 @@ import Database.KoneksiDB;
  * @author Mohridwan
  */
 public class Lokasi {
+
+    /**
+     * @return the namaKota
+     */
+    public String getNamaKota() {
+        return namaKota;
+    }
+
+    /**
+     * @param namaKota the namaKota to set
+     */
+    public void setNamaKota(String namaKota) {
+        this.namaKota = namaKota;
+    }
+
+    /**
+     * @return the namaProvinsi
+     */
+    public String getNamaProvinsi() {
+        return namaProvinsi;
+    }
+
+    /**
+     * @param namaProvinsi the namaProvinsi to set
+     */
+    public void setNamaProvinsi(String namaProvinsi) {
+        this.namaProvinsi = namaProvinsi;
+    }
     
     public String kd_lokasi;
     public String namaLokasi;
     public String alamat;
     public String id_kota;
     public String id_provinsi;
-    
+    private String namaKota;
+    private String namaProvinsi;
     
     public Lokasi(){
        

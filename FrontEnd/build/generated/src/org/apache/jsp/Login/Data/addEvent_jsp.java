@@ -112,10 +112,11 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<form action=\"../../addEvent?data=event&proses=input-event\" method=\"post\">\r\n");
       out.write("  <div id=\"side-menu\" class=\"side-nav\">\r\n");
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
-      out.write("    <a href=\"#\">Dashboard</a>\r\n");
-      out.write("    <a href=\"#\">Create Schedule</a>\r\n");
+      out.write("    <a href=\"dashboardCreateSchedule.jsp\">Dashboard</a>                                                                  \r\n");
+      out.write("    <a href=\"addEvent.jsp\">Create Schedule</a>\r\n");
       out.write("    <a href=\"#\">Finished Task</a>\r\n");
-      out.write("    <a href=\"#\">Event List</a>\r\n");
+      out.write("    <a href=\"lisData.jsp\">Event List</a>\r\n");
+      out.write("    <a href=\"lisData.jsp\">Manage</a>\r\n");
       out.write("  </div>\r\n");
       out.write("\r\n");
       out.write("  <!--____________________________Isi Content Tabel Inputan____________________________-->\r\n");

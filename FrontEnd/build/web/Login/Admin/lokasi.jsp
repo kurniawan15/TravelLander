@@ -40,12 +40,15 @@
   </nav>
 
   <div id="side-menu" class="side-nav">
-    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="calender.jsp">Calendar</a>                                                                                   
-    <a class="selected" href="#">Manage Place</a>
-    <a href="distance.jsp">Manage Distance</a>
-    <a href="time.jsp">Manage Time</a>
-    <a href="transportation.jsp" >Manage Transpotation</a>
+<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+    <a class="selected" href="#">Jarak</a>                                                                                   
+    <a href="#">Kota</a>
+    <a href="#" >Lokasi</a>
+    <a href="#" >Provinsi</a>
+    <a href="#" >Perjalanan</a>
+    <a href="#" >Moda Trasportasi</a>
+    <a href="#" >Transportasi Pribadi</a>
+    <a href="#" >Transportasi Umum</a>
   </div>
 <div class="main-content">
 <div id="main">																					
@@ -57,8 +60,8 @@
                 <th>Kode Lokasi</th>
                 <th>Nama tempat</th>
                 <th>Alamat</th>
-                <th>Kode Provinsi</th>
-                <th>Kode Kota</th>
+                <th>Kota</th>
+                <th>Provinsi</th>
                 <th>Keterangan</th>
             </tr>
           <%
@@ -84,8 +87,8 @@
                         <td><%=data.get(x).getKdLokasi()%></td>
                         <td><%=data.get(x).getNamaLokasi()%></td>
                         <td><%=data.get(x).getAlamat()%></td>
-                        <td><%=data.get(x).getId_provinsi()%></td>
-                        <td><%=data.get(x).getId_kota()%></td>
+                        <td><%=data.get(x).getNamaKota()%></td>
+                        <td><%=data.get(x).getNamaProvinsi()%></td>
                         <td>
                             <a href="../../lokasi?proses=edit-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button1" value="Edit"></a>
                             <a href="../../lokasi?proses=hapus-lokasi&kd_lokasi=<%=data.get(x).getKdLokasi()%>"><input type="submit" class="button2" value="Hapus"></a>
@@ -112,17 +115,6 @@
                
                  <input type="text" placeholder="Enter New Adress" name="alamat" required>   
                
-                Kode Provinsi
-                <select class="pilih_kota" name="id_provinsi"">
-                 <%
-                    
-                    for (Provinsi p : pro) {
-                    %>
-                <option value="<%=p.getIdProvinsi()%>"><%=p.getNamaProvinsi()%></option>
-                <% 
-                       }
-                %>
-                </select>
                 Nama Kota
                 <select class="pilih_kota" name="id_kota"">
                  <%

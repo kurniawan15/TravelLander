@@ -92,7 +92,7 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <a href=\"#\" class=\"btn-close\" onclick=\"closeSlideMenu()\">&times;</a>\r\n");
       out.write("    <a class=\"selected\" href=\"#\">Jarak</a>                                                                                   \r\n");
       out.write("    <a href=\"#\">Kota</a>\r\n");
-      out.write("    <a href=\"#\" >Lokasi</a>\r\n");
+      out.write("    <a href=\"lokasi.jsp\" >Lokasi</a>\r\n");
       out.write("    <a href=\"#\" >Provinsi</a>\r\n");
       out.write("    <a href=\"#\" >Perjalanan</a>\r\n");
       out.write("    <a href=\"#\" >Moda Trasportasi</a>\r\n");
@@ -127,6 +127,7 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <td>");
       out.print(x + 1);
       out.write("</td>\r\n");
+      out.write("                        \r\n");
       out.write("                        <td>");
       out.print(data.get(x).getKdJarak());
       out.write("</td>\r\n");
@@ -154,7 +155,7 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t</div>\r\n");
       out.write("        <div class=\"widget\">\r\n");
       out.write("            <div class=\"title\">Tambah data Jarak</div>\r\n");
-      out.write("            <form action=\"../../provinsi?data=provinsi&proses=input-provinsi\" method=\"post\">\r\n");
+      out.write("            <form action=\"../../jarak?data=jarak&proses=input-jarak\" method=\"post\">\r\n");
       out.write("             <div class=\"imput\">\r\n");
       out.write("                Kode Lokasi Awal \r\n");
       out.write("          <select class=\"pilih_kota\">\r\n");
@@ -201,8 +202,8 @@ public final class jarak_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                 </select>\r\n");
       out.write("                Jarak (KM)\r\n");
-      out.write("                <input type=\"text\" placeholder=\"Masukan Id erjalanan\" name=\"#i\" required>\r\n");
-      out.write("                <button type=\"submit\" name=\"Tambah\">Update Data</button>\r\n");
+      out.write("                <input type=\"text\" placeholder=\"Masukan Jarak\" name=\"Jarak\" required>\r\n");
+      out.write("                <button type=\"submit\" name=\"Update\">Update Data</button>\r\n");
       out.write("             </div>\r\n");
       out.write("            </form>\r\n");
       out.write("        </div>\r\n");

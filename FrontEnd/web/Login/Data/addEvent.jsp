@@ -69,6 +69,7 @@
     <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
     <a href="lisData.jsp">Event List</a>
+    <a href="../Admin/jarak.jsp">Manage</a>
   </div>
 
   <!--____________________________Isi Content Tabel Inputan____________________________-->
