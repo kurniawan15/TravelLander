@@ -17,7 +17,7 @@ import java.sql.SQLException;
  *
  * @author Fadhil-PC
  */
-public class DAOKota extends Kota {
+public class DAOKota extends Kota implements DAO {
     
     KoneksiDB db = null;
 

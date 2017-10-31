@@ -17,7 +17,7 @@ import model.Lokasi;
  *
  * @author Dewi Roaza
  */
-public class DAOJarak extends Jarak{
+public class DAOJarak extends Jarak implements DAO{
     
     KoneksiDB db = null;
 

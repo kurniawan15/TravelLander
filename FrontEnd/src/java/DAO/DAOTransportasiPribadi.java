@@ -16,7 +16,7 @@ import model.TransportasiPribadi;
  *
  * @author Dewi Roaza
  */
-public class DAOTransportasiPribadi extends TransportasiPribadi{ 
+public class DAOTransportasiPribadi extends TransportasiPribadi implements DAO{ 
     
     KoneksiDB db = null;
     

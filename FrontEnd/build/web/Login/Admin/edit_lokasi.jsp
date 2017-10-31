@@ -3,7 +3,14 @@
     Created on : Oct 30, 2017, 6:14:44 PM
     Author     : Hari
 --%>
-
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Lokasi"%>
+<%@page import="DAO.DAOLokasi"%>
+<%@page import="model.Provinsi"%>
+<%@page import="DAO.DAOProvinsi"%>
+<%@page import="model.Kota"%>
+<%@page import="DAO.DAOKota"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,31 +24,58 @@
 <div class="widget">
     <div class="title">Edit Lokasi </div>  
         <div class="imput">
-            <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
-                Kode Lokasi
-                <input type="text" placeholder="Masukan kode Lokasi" name="#i" required>
+            <form action="../../lokasi?data=lokasi&proses=update-lokasi" method="post">
+    <%
+                String kd_lokasi = request.getParameter("kd_lokasi");
+                DAOLokasi km = new DAOLokasi();
+                km.setKdLokasi(kd_lokasi);
+                List<Lokasi> data = new ArrayList<Lokasi>();
+                data = km.cariID();
+                        
+             
+                if (data.size() > 0) {
+
+            %>
                 Nama Lokasi
-                <input type="text" placeholder="Masukan Nama Lokasi" name="#" required>
+                <input type="text" placeholder="Masukan kode Lokasi" name="nama_lokasi" required  value="<%=data.get(0).getNamaLokasi()%>"></td>
                 Alamat
-                <input type="text" placeholder="Masukan Alamat" name="#" required>
+                <input type="text" placeholder="Masukan Nama Lokasi" name="alamat" required value="<%=data.get(0).getAlamat()%>"></td>
+              
                 Kota
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <select class="pilih_kota" name="id_kota"">
+                 <%
+                     DAOKota dkot = new DAOKota();
+                        List<Kota> kot = new ArrayList<Kota>();
+                        kot = dkot.tampil();
+                      for (Kota k : kot) {
+                    %>
+                <option value="<%=k.getIdKota()%>"><%=k.getNamaKota()%></option>
+                <% 
+                       }
+                %>
                 </select>
                 Provinsi
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <select class="pilih_provinsi"  name="id_provinsi"">
+                  <%
+                    DAOProvinsi dpro = new DAOProvinsi();
+                    List<Provinsi> pro = new ArrayList<Provinsi>();
+                    pro = dpro.tampil();
+                    for (Provinsi p : pro) {
+                    %>
+                <option value="<%=p.getIdProvinsi()%>"><%=p.getNamaProvinsi()%></option>
+                <% 
+                       }
+                %>
                 </select>
-                <button type="submit" name="Tambah">Update Data</button>
+                
+                <button type="submit" name="Update">Update Data</button>
+                <td><input type="hidden" name="kd_lokasi" value="<%=data.get(0).getKdLokasi()%>"></td>
+                 <%}%>
+                <button href="Login/Admin/lokasi.jsp">cencel</button>
                 
             </form>
+                
+        </div>
         </div>
 </div>
 </html>
-

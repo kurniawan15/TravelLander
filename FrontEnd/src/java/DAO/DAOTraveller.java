@@ -17,7 +17,7 @@ import java.sql.SQLException;
  *
  * @author Fadhil-PC
  */
-public class DAOTraveller extends Traveller {
+public class DAOTraveller extends Traveller implements DAO {
     
     KoneksiDB db = null;
 

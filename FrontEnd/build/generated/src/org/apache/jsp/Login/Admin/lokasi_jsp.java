@@ -152,7 +152,9 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <a href=\"../../lokasi?proses=edit-lokasi&kd_lokasi=");
       out.print(data.get(x).getKdLokasi());
       out.write("\"><input type=\"submit\" class=\"button1\" value=\"Edit\"></a>\r\n");
-      out.write("                            <input type=\"submit\" class=\"button2\" onClick=\"opena()\" value=\"Hapus\" ></a>\r\n");
+      out.write("                            <a href=\"../../lokasi?proses=hapus-lokasi&kd_lokasi=");
+      out.print(data.get(x).getKdLokasi());
+      out.write("\"><input type=\"submit\" class=\"button2\" value=\"Hapus\"></a>\r\n");
       out.write("                        </td>\r\n");
       out.write("                    </tr>\r\n");
       out.write("                    ");
@@ -175,11 +177,11 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            \tNama Lokasi \r\n");
       out.write("                <input type=\"text\" placeholder=\"Enter New Place\" name=\"nama_lokasi\" required>\r\n");
       out.write("                Alamat\r\n");
-      out.write("                <textarea class=\"address\"  rows=\"4\" cols=\"50\" name=\"alamat\" form=\"lokasi\" placeholder=\"Enter Imput Address In here...\">\r\n");
-      out.write("                    \r\n");
-      out.write("                </textarea>\r\n");
+      out.write("               \r\n");
+      out.write("                 <input type=\"text\" placeholder=\"Enter New Adress\" name=\"alamat\" required>   \r\n");
+      out.write("               \r\n");
       out.write("                Kode Provinsi\r\n");
-      out.write("                <select class=\"pilih_kota\">\r\n");
+      out.write("                <select class=\"pilih_kota\" name=\"id_provinsi\"\">\r\n");
       out.write("                 ");
 
                     
@@ -199,7 +201,7 @@ public final class lokasi_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                </select>\r\n");
       out.write("                Nama Kota\r\n");
-      out.write("                <select class=\"pilih_kota\">\r\n");
+      out.write("                <select class=\"pilih_kota\" name=\"id_kota\"\">\r\n");
       out.write("                 ");
 
                      

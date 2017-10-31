@@ -18,7 +18,7 @@ import model.TransportasiPublik;
  *
  * @author Pega Kurniawan
  */
-public class DAOTransportasiPublik extends TransportasiPublik{
+public class DAOTransportasiPublik extends TransportasiPublik implements DAO{
     KoneksiDB db = null;
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     public DAOTransportasiPublik (){
