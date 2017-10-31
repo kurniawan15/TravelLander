@@ -3,11 +3,13 @@
     Created on : Oct 29, 2017, 10:54:46 PM
     Author     : Hari
 --%>
+<%@page import="DAO.DAOKota"%>
 <%@page import="model.Kota"%>
+<%@page import="DAO.DAOProvinsi"%>
+<%@page import="model.Provinsi"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Database.KoneksiDB"%>
-<%@page import="DAO.DAOKota"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,7 +73,7 @@
                         <td><%=data.get(x).getIdKota()%></td>
                         <td><%=data.get(x).getIdProvinsi()%></td>
                         <td><%=data.get(x).getNamaKota()%></td>
-                        <td> <a href="../../provinsi?proses=edit-provinsi&id_provinsi=<%=data.get(x).getIdProvinsi()%>"><input type="submit" class="button1" value="Edit"></a>
+                        <td> <a href="../../kota?proses=edit-kota&kd_kota=<%=data.get(x).getIdProvinsi()%>"><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
@@ -87,10 +89,16 @@
             <form action="../../kota?data=kota&proses=input-kota" method="post">
                 Kode Provinsi
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                 <%
+                    DAOProvinsi dpro = new DAOProvinsi();
+                    List<Provinsi> pro = new ArrayList<Provinsi>();
+                    pro = dpro.tampil();
+                    for (Provinsi p : pro) {
+                    %>
+                <option value="<%=p.getIdProvinsi()%>"><%=p.getNamaProvinsi()%></option>
+                <% 
+                       }
+                %>
                 </select>
                 Nama Kota
                 <input type="text" placeholder="Masukan Nama Kota" name="nama_kota" required>
