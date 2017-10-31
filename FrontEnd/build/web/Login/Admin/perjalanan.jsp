@@ -3,7 +3,20 @@
     Created on : Oct 30, 2017, 6:45:17 PM
     Author     : Hari
 --%>
-
+<%@page import="javax.mail.Transport"%>
+<%@page import="model.Perjalanan"%>
+<%@page import="DAO.DAOPerjalanan"%>
+<%@page import="model.Provinsi"%>
+<%@page import="DAO.DAOProvinsi"%>
+<%@page import="model.Jarak"%>
+<%@page import="DAO.DAOJarak"%>
+<%@page import="model.TransportasiPublik"%>
+<%@page import="DAO.DAOTransportasiPublik"%>
+<%@page import="model.TransportasiPribadi"%>
+<%@page import="DAO.DAOTransportasiPribadi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -56,21 +69,29 @@
                         <th>Keterangan</th>
                     </tr>
                     <%
-                      
+                      DAOPerjalanan jl = new DAOPerjalanan();
+                      List<Perjalanan> data = new ArrayList<Perjalanan>();
+                      String ket = request.getParameter("ket");
+                      if (ket == null) {
+                          data = jl.tampil();
+                      } 
+                      for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td> <a href=""><input type="submit" class="button1" value="Edit"></a>
+                       <td><%=x + 1%></td>
+                        <td><%=data.get(x).getKdPerjalanan()%></td>
+                        <td><%=data.get(x).getKdTransportasiPublik()%></td>
+                        <td><%=data.get(x).getKdJarak()%></td>
+                        <td><%=data.get(x).getKdTransportasiPribadi()%></td>
+                        <td><%=data.get(x).getWaktuTempuh()%></td>
+
+                        <td> 
+                            <a href=""><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
                     </tr>
                     <% 
-                   
+                   }
               %>
                 </table>
             
@@ -81,24 +102,42 @@
             <form action="../../provinsi?data=provinsi&proses=input-provinsi" method="post">
                 Kode Trasportasi Pulik
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                  <%
+                    DAOTransportasiPublik dpub = new DAOTransportasiPublik();
+                    List<TransportasiPublik> pub = new ArrayList<TransportasiPublik>();
+                    pub = dpub.tampil();
+                    for (TransportasiPublik tp : pub) {
+                    %>
+                <option value="<%=tp.getKdTransportasiPublik()%>"><%=tp.getNamaTransportasiPublik()%></option>
+                <% 
+                       }
+                %>
                 </select>
                  Kode Trasportasi Pribadi
-                <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
-                </select>
+                 <select class="pilih_kota">
+        <%
+                    DAOTransportasiPribadi dpri = new DAOTransportasiPribadi();
+                    List<TransportasiPribadi> pri = new ArrayList<TransportasiPribadi>();
+                    pri = dpri.tampil();
+                    for (TransportasiPribadi tpr : pri) {
+                    %>
+                <option value="<%=tpr.getKdTansportasiPribadi()%>"><%=tpr.getNamaTransportasiPribadi()%></option>
+                <% 
+                }       
+                %>
+                  </select>
                 Kode Jarak
                 <select class="pilih_kota">
-                    <option value="volvo">Volv33o</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                   <%
+                    DAOJarak djar = new DAOJarak();
+                    List<Jarak> jar = new ArrayList<Jarak>();
+                    jar = djar.tampil();
+                    for (Jarak j : jar) {
+                    %>
+                <option value="<%=j.getKdJarak()%>"><%=j.getJarak()%></option>
+                <% 
+                }       
+                %>
                 </select>
                 Waktu Tepuh (Menit)
                 <input type="text" placeholder="Masukan Id erjalanan" name="#i" required>

@@ -3,6 +3,20 @@ package org.apache.jsp.Login.Admin;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import javax.mail.Transport;
+import model.Perjalanan;
+import DAO.DAOPerjalanan;
+import model.Provinsi;
+import DAO.DAOProvinsi;
+import model.Jarak;
+import DAO.DAOJarak;
+import model.TransportasiPublik;
+import DAO.DAOTransportasiPublik;
+import model.TransportasiPribadi;
+import DAO.DAOTransportasiPribadi;
+import java.util.List;
+import java.util.ArrayList;
+import Database.KoneksiDB;
 
 public final class perjalanan_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +55,19 @@ public final class perjalanan_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -96,23 +123,43 @@ public final class perjalanan_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </tr>\r\n");
       out.write("                    ");
 
-                      
+                      DAOPerjalanan jl = new DAOPerjalanan();
+                      List<Perjalanan> data = new ArrayList<Perjalanan>();
+                      String ket = request.getParameter("ket");
+                      if (ket == null) {
+                          data = jl.tampil();
+                      } 
+                      for (int x = 0; x < data.size(); x++) {
                     
       out.write("\r\n");
       out.write("                    <tr>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td></td>\r\n");
-      out.write("                        <td> <a href=\"\"><input type=\"submit\" class=\"button1\" value=\"Edit\"></a>\r\n");
+      out.write("                       <td>");
+      out.print(x + 1);
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getKdPerjalanan());
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getKdTransportasiPublik());
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getKdJarak());
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getKdTransportasiPribadi());
+      out.write("</td>\r\n");
+      out.write("                        <td>");
+      out.print(data.get(x).getWaktuTempuh());
+      out.write("</td>\r\n");
+      out.write("\r\n");
+      out.write("                        <td> \r\n");
+      out.write("                            <a href=\"\"><input type=\"submit\" class=\"button1\" value=\"Edit\"></a>\r\n");
       out.write("                            <input type=\"submit\" class=\"button2\" onClick=\"opena()\" value=\"Hapus\" ></a>\r\n");
       out.write("                        </td>\r\n");
       out.write("                    </tr>\r\n");
       out.write("                    ");
  
-                   
+                   }
               
       out.write("\r\n");
       out.write("                </table>\r\n");
@@ -124,24 +171,69 @@ public final class perjalanan_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <form action=\"../../provinsi?data=provinsi&proses=input-provinsi\" method=\"post\">\r\n");
       out.write("                Kode Trasportasi Pulik\r\n");
       out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
+      out.write("                  ");
+
+                    DAOTransportasiPublik dpub = new DAOTransportasiPublik();
+                    List<TransportasiPublik> pub = new ArrayList<TransportasiPublik>();
+                    pub = dpub.tampil();
+                    for (TransportasiPublik tp : pub) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(tp.getKdTransportasiPublik());
+      out.write('"');
+      out.write('>');
+      out.print(tp.getNamaTransportasiPublik());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                       }
+                
+      out.write("\r\n");
       out.write("                </select>\r\n");
       out.write("                 Kode Trasportasi Pribadi\r\n");
-      out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
-      out.write("                </select>\r\n");
+      out.write("                 <select class=\"pilih_kota\">\r\n");
+      out.write("        ");
+
+                    DAOTransportasiPribadi dpri = new DAOTransportasiPribadi();
+                    List<TransportasiPribadi> pri = new ArrayList<TransportasiPribadi>();
+                    pri = dpri.tampil();
+                    for (TransportasiPribadi tpr : pri) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(tpr.getKdTansportasiPribadi());
+      out.write('"');
+      out.write('>');
+      out.print(tpr.getNamaTransportasiPribadi());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                }       
+                
+      out.write("\r\n");
+      out.write("                  </select>\r\n");
       out.write("                Kode Jarak\r\n");
       out.write("                <select class=\"pilih_kota\">\r\n");
-      out.write("                    <option value=\"volvo\">Volv33o</option>\r\n");
-      out.write("                    <option value=\"saab\">Saab</option>\r\n");
-      out.write("                    <option value=\"opel\">Opel</option>\r\n");
-      out.write("                    <option value=\"audi\">Audi</option>\r\n");
+      out.write("                   ");
+
+                    DAOJarak djar = new DAOJarak();
+                    List<Jarak> jar = new ArrayList<Jarak>();
+                    jar = djar.tampil();
+                    for (Jarak j : jar) {
+                    
+      out.write("\r\n");
+      out.write("                <option value=\"");
+      out.print(j.getKdJarak());
+      out.write('"');
+      out.write('>');
+      out.print(j.getJarak());
+      out.write("</option>\r\n");
+      out.write("                ");
+ 
+                }       
+                
+      out.write("\r\n");
       out.write("                </select>\r\n");
       out.write("                Waktu Tepuh (Menit)\r\n");
       out.write("                <input type=\"text\" placeholder=\"Masukan Id erjalanan\" name=\"#i\" required>\r\n");

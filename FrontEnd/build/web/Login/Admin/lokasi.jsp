@@ -100,7 +100,7 @@
            <p></p>
             </div>
 		</div>
-            <form method="post" action="lokasiController.jsp" name="lokasi" id="lokasi">    
+            <form action="../../lokasi?data=lokasi&proses=input-lokasi" method="post">
         <div class="widget">
         	<div class="title"> 
             	Inmput Lokasi 
