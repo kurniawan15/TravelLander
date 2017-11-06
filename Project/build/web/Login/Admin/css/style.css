@@ -473,6 +473,18 @@ select
 		margin: 0 auto;
 	}
 
+/*------------------------------------Filter------------------------------------*/
+#Filter {
+    background-image: url('../pic/search.svg'); 
+    background-size: 12px;
+    background-position: 8px; 
+    background-repeat: no-repeat; 
+    width: 15%;
+    font-size: 12px; 
+    padding: 5px 14px 5px 30px; 
+    margin-left: 30px;
+
+}
 @media screen and (max-width:500px)
 {
 /*------------------------tabel phone------------------------------------------------------------------------*/

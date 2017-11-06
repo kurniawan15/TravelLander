@@ -38,6 +38,7 @@
   </nav>
 
   <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a href="#">Jarak</a>                                                                                   
     <a href="#">Kota</a>
     <a href="#" >Lokasi</a>
@@ -51,8 +52,9 @@
     <div id="main">																					
 	<div class="widget">
             <div class="title">Data Provinsi</div>
+            <input type="text" id="Filter" onkeyup="FungsiFilter()" placeholder="Filter Berdasarkan Provinsi">
             <div class="batas-tabel">
-                <table class="table">
+                <table class="table" id="TabelFilter">
                     <tr>
                         <th>NO</th>
                         <th>Id Provinsi</th>
@@ -108,7 +110,7 @@
 
 <!------------------------------------------------------------bagian modal dalet-------------------------------------->   
 <script>
-/*----------------------------edit buat mav----------------------------------------------*/
+/*----------------------------edit buat mav------------------------------------*/
     function openSlideMenu(){
       document.getElementById('side-menu').style.width = '250px';
       document.getElementById('main').style.marginLeft = '250px';
@@ -119,7 +121,7 @@
       document.getElementById('main').style.marginLeft = '0';
     }
     
-    /*-------------------------Membuat modal Pop Up-----------------------------------------*/
+    /*-------------------------Membuat modal Pop Up----------------------------*/
 
 	function openo()
 	{
@@ -138,7 +140,27 @@
 	{
 		document.getElementById("ask").style.display = "none"
 	}
-	 
+        
+    /*------------------------------Fungsi Filter------------------------------*/    
+	function FungsiFilter() {
+        
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("Filter");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("TabelFilter");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[2];
+          if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          } 
+        }
+      } 
 </script>	
 </body>
 </html>
