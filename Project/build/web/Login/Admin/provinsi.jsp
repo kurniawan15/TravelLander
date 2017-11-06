@@ -51,6 +51,7 @@
     <div id="main">																					
 	<div class="widget">
             <div class="title">Data Provinsi</div>
+            <div class="batas-tabel">
                 <table class="table">
                     <tr>
                         <th>NO</th>
@@ -58,7 +59,7 @@
                         <th>Nama  Provinsi</th>
                         <th>Ibu Kota</th>
                         <th>ket</th>
-                    </tr>
+                    </tr>                  
                     <%
                       DAOProvinsi kt = new DAOProvinsi();
                       List<Provinsi> data = new ArrayList<Provinsi>();
@@ -82,21 +83,27 @@
                     }
               %>
                 </table>
-               
+            </div>   
 	</div>
 
      <div class="widget">
         <div class="title">Tambah Kota</div>
         <div class="imput">
             <form action="../../kota?data=kota&proses=input-kota" method="post">
-                Nama Provinsi
-                <input type="text" placeholder="Masukan Nama Provinsi" name="nama_kota" required>
-                Nama Ibu Kota
-                <input type="text" placeholder="Masukan Nama Ibu Kota" name="nama_kota" required>
-                <button type="submit" name="Tambah">Update Data</button>  
+                <div class="form-group" id="form-group-1">
+                    <div class="form-control">
+                        <label>Nama Provinsi</label>
+                        <input style="width: 20%" type="text" placeholder="Masukan Nama Provinsi" name="nama_kota" required>
+                    </div>
+                    <div class="form-group" id="form-group-1">
+                        <label>Nama Provinsi</label>
+                        <input style="width: 20%" type="text" placeholder="Masukan Nama Ibu Kota" name="nama_kota" required>
+                    </div>
+                    <button type="submit" name="Tambah">Update Data</button> 
+                </div>
             </form>
         </div>
-        </div>
+    </div>
 
 
 
