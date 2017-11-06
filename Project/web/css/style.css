@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-bottom: 20px;
+}
+
+
+/*Layer Bagian Atas */
+.sect {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+}
+
+
+
+/* Button Login Atas */
+.sect button{
+
+    background-color: #396bbc; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin-bottom: 80%;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    height: 10%;
+    border-radius:  10px;
+    box-shadow: 1px;
+}
+
+/* Tulisan di Layer Atas */
+.sect p{
+
+    margin-top: 20%;
+    margin-bottom: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 70px;
+    text-align: center;
+    color: black;
+
+}
+
+
+/*Layer Bagian Bawah */
+.tesc {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+
+/* Button Login Bawah */
+.tesc button{
+     background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin-top: 2%;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    height: 10%;
+    border-radius:  10px;
+    box-shadow: 1px;
+}
+
+/* Tulisan di Layer Bawah */
+.tesc p{
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 70px;
+    text-align: center;
+    color: gray;
+
+}
+
+
+/* Latar Sebelum Background */
+.subSection {
+    height: 50%;
+    background-color: white;
+
+}
+
+/* Anchor Point Untuk tag */
+.subSection h3{
+
+    font-size: 0px;
+
+}
+
+/* Judul Tagline */
+.subSection h2{
+
+    font-size: 48px;
+    font-weight: 300;
+    color: #404040;
+    margin: 10px 0;
+    margin-left: 50%;
+    margin-top: 5%;
+    margin-bottom: 0%;
+
+}
+
+/*Image logo di Tagline */
+.subSection img{
+    margin-top: -10%;
+    margin-left: 0%
+
+
+}
+
+
+/* Keterangan di samping Image Logo */
+.subSection p{
+    margin-top: -10%;
+    margin-left: 50%;
+    margin-bottom: 60%;
+
+}
+
+
+/* Background Layer Atas */
+.sectOne {
+    background-image:url(../images/mag3.jpg);
+    background-position: center;
+
+}
+
+/* Background Layer Bawah */
+.sectTwo {
+    background-image:url(../images/mag2.jpg);
+    background-position: center;
+}
+
+
+
+
+#head{
+    width:auto;
+    height:auto;
+    background-color: red;
+    font-size: 20px;
+    font-family: "Century Gothic";
+    color: white;
+}
+
+#line{
+    width: 100%;
+    height: 1%;
+    margin-top: 10%
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0,0,0,.5);
+    text-align: right;
+ }
+
+nav img{
+    margin-right: 90%;
+}
+
+nav ul ul {
+    display: none;
+    text-align: right;
+}
+
+    nav ul li:hover > ul {
+        display: block;
+    }
+
+
+nav ul {
+    background-color: rgba(0,0,0,0);
+    padding: 0 ;
+
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    text-align: center;
+}
+
+
+    nav ul:after {
+        content: ""; clear: both; display: block;
+    }
+
+    nav ul li {
+        float: left;
+    }
+        nav ul li:hover {
+            background: white;
+        }
+            nav ul li:hover a {
+                color: blue;
+            }
+
+        nav ul li a {
+            display: block; padding: 25px 40px;
+            color: white; text-decoration: none;
+        }
+
+
+
+
+nav ul ul {
+    background: black; border-radius: 0px; padding: 0;
+    position: absolute; top: 100%;
+    }
+    nav ul ul li {
+        float: none;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white; position: relative;
+    }
+        nav ul ul li a {
+            padding: 15px 40px;
+            color: red;
+            font-size: 100%;
+        }
+            nav ul ul li a:hover {
+                background: #999966;
+                font-size: 100%;
+            }
+
+    nav ul ul ul {
+        position: absolute; right: 100%; top:0;
+    }
+
+
+
+@media screen and (max-width: 600px)
+{
+
+    /*-----------------Untuk Mobile----------------------*/
+
+
+    .sect button
+    {
+        background-color: #396bbc;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin-bottom: 0%;
+        margin-left: 40%;
+        margin-right: 40%;
+        width: 30%;
+        height: 15%;
+        border-radius:  10px;
+        box-shadow: 1px;
+    }
+
+    .sect p
+    {
+
+        margin-top: 45%;
+        margin-bottom: 2%;
+        margin-left: 15%;
+        margin-right: 15%;
+        font-size: 50px;
+        text-align: center;
+        color: gray;
+
+    }
+
+
+    .tesc button
+    {
+
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin-top: 2%;
+        margin-left: 40%;
+        margin-right: 40%;
+        width: 30%;
+        height: 15%;
+        border-radius:  10px;
+        box-shadow: 1px;
+    }
+
+    .tesc p
+    {
+        margin-top: 20%;
+        margin-left: 20%;
+        margin-right: 20%;
+        font-size: 50px;
+        text-align: center;
+        color: gray;
+    }
+
+    .subSection
+    {
+        height: 40%;
+        background-color: white;
+    }
+
+
+    .subSection h3
+    {
+        font-size: 0px;
+    }
+
+    .subSection h2
+    {
+        font-size: 24px;
+        font-weight: 300;
+        color: #404040;
+        margin: 10px 0;
+        margin-left: 50%;
+        margin-top: 5%;
+        margin-bottom: 0%;
+
+    }
+
+    .subSection img
+    {
+        margin-top: -5%;
+        margin-left: 20%
+
+    }
+
+    .subSection p
+    {
+        margin-top: -5%;
+        margin-left: 50%;
+        margin-bottom: 60%;
+
+    }
+    nav
+    {
+        position: fixed;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(0,0,0,.5);
+        text-align: right;
+    }
+
+
+    nav img
+    {
+        margin-right: 90%;
+    }
+
+    nav ul ul
+    {
+        display: none;
+        text-align: right;
+    }
+
+        nav ul li:hover > ul
+        {
+            display: block;
+        }
+
+    nav ul
+    {
+        background-color: rgba(0,0,0,0);
+        padding: 0 ;
+
+        list-style: none;
+        position: relative;
+        display: inline-table;
+        text-align: center;
+    }
+
+
+    nav ul:after
+    {
+        content: ""; clear: both; display: block;
+    }
+
+    nav ul li
+    {
+        float: left;
+    }
+        nav ul li:hover
+        {
+            background: white;
+        }
+            nav ul li:hover a
+            {
+                color: blue;
+                font-size: 20px;
+            }
+
+        nav ul li a
+        {
+            display: block; padding: 25px 20px;
+            color: white; text-decoration: none;
+            font-size: 100%;
+        }
+
+
+        nav ul ul
+        {
+            background: black; border-radius: 0px; padding: 0;
+            position: absolute; top: 100%;
+        }
+        nav ul ul li
+        {
+            float: none;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white; position: relative;
+        }
+
+        nav ul ul li a
+        {
+            padding: 15px 40px;
+            color: red;
+        }
+            nav ul ul li a:hover
+            {
+                background: #999966;
+            }
+
+        nav ul ul ul
+        {
+            position: absolute; left: 100%; top:0;
+        }
+
+
+
+}
