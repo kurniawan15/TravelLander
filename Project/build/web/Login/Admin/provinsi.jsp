@@ -70,11 +70,11 @@
                       for (int x = 0; x < data.size(); x++) {
                     %>
                     <tr>
-                        <td><%=x + 1%></td>
-                        <td><%=data.get(x).getIdProvinsi()%></td>
-                        <td><%=data.get(x).getNamaProvinsi()%></td>
-                        <td><%=data.get(x).getIbuKota()%></td>
-                        <td> 
+                        <td title="NO"><%=x + 1%></td>
+                        <td title="Id Provinsi"><%=data.get(x).getIdProvinsi()%></td>
+                        <td title="Nama Provinsi"><%=data.get(x).getNamaProvinsi()%></td>
+                        <td title="Ibu Kota"><%=data.get(x).getIbuKota()%></td>
+                        <td title="KET"> 
                             <a href="../../provinsi?proses=edit-provinsi&id_provinsi=<%=data.get(x).getIdProvinsi()%>"><input type="submit" class="button1" value="Edit"></a>
                             <input type="submit" class="button2" onClick="opena()" value="Hapus" ></a>
                         </td>
@@ -90,20 +90,19 @@
         <div class="title">Tambah Kota</div>
         <div class="imput">
             <form action="../../kota?data=kota&proses=input-kota" method="post">
-                <div class="form-group" id="form-group-1">
-                    <div class="form-control">
-                        <label>Nama Provinsi</label>
-                        <input style="width: 20%" type="text" placeholder="Masukan Nama Provinsi" name="nama_kota" required>
-                    </div>
-                    <div class="form-group" id="form-group-1">
-                        <label>Nama Provinsi</label>
-                        <input style="width: 20%" type="text" placeholder="Masukan Nama Ibu Kota" name="nama_kota" required>
-                    </div>
-                    <button type="submit" name="Tambah">Update Data</button> 
+                <div class="formkiri">
+                    Nama Provinsi
+                    <input   type="text" placeholder="Masukan Nama Provinsi" name="nama_kota" required>
                 </div>
+                <div class="formkanan">
+                    Nama Ibukota <br>
+                    <input type="text" placeholder="Masukan Nama Ibu Kota" name="nama_kota" required>
+                </div> <br> <br> <br> <br> <br>
+                <button type="submit" name="Tambah">Update Data</button> 
+               
             </form>
         </div>
-    </div>
+        </div>
 
 
 

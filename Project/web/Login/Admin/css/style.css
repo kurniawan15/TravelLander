@@ -114,7 +114,7 @@ ul#dropdown li a:hover
 .batas-tabel
 {
     width: 100%;
-    height: 250px;
+    height: 290px;
     overflow-x: hidden;
     overflow: auto;
 }
@@ -283,13 +283,33 @@ tr:nth-child(odd){background-color: #f2f2f2}
 
 
 /*-----------------------imput data tempat dan beberapa yang lain------------------------ */
+.form 
+{
+	padding:2% 5%;
+	margin-top:5%;
+	border-radius:5px;
+    border: 3px solid #f4f4f4;
+}
+
+.formkanan
+{
+    width: 260px;
+    float:left;
+    margin-left: 8px;
+}
+.formkiri
+{
+    width: 260px;
+    float:left; 
+    margin-left: 8px;
+}
 
 input[type=text]
 {
     width: 100%;
     padding: 8px 10px;
     margin: 8px 0;
-    font-size:10px;
+    font-size:18px;
     border-radius:5px;
     box-sizing: border-box;
 }
@@ -310,7 +330,7 @@ button {
     border: none;
     border-radius:5px;
     cursor: pointer;
-    width: 100%;
+    width: 250px;
 }
 button:hover {
     background-color:#F8A200;
@@ -424,9 +444,8 @@ select
 {
 	font-weight:bold;
 	color:#6F6F6F;
-	font-size:100%;
-	width:50%;
-	padding:1%;
+	font-size:100%;	
+        padding:1%;
 }
 .imput_publik
 {
@@ -566,5 +585,26 @@ select
             border-radius:5px;
             box-sizing: border-box;
         }
-	
+        button {
+        background-color: #27ae60;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius:5px;
+        cursor: pointer;
+        width: 100%;
+        }
+	.formkanan
+        {
+        width: 90%;
+        float:left;
+        margin-left: 8px;
+        }
+        .formkiri
+        {
+        width: 90%;
+        float:left; 
+        margin-left: 8px;
+        }
 }
