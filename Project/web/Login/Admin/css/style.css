@@ -479,11 +479,10 @@ select
     background-size: 12px;
     background-position: 8px; 
     background-repeat: no-repeat; 
-    width: 15%;
+    width: 210px;
     font-size: 12px; 
     padding: 5px 14px 5px 30px; 
     margin-left: 30px;
-
 }
 @media screen and (max-width:500px)
 {
@@ -518,6 +517,17 @@ select
         padding: 15px 0; 
     }
 	tr:nth-child(odd){background-color: #F4f4f4}
+/*------------------------------------Filter------------------------------------*/
+#Filter {
+    background-image: url('../pic/search.svg'); 
+    background-size: 12px;
+    background-position: 8px; 
+    background-repeat: no-repeat; 
+    width: 88%;
+    font-size: 12px; 
+    padding: 5px 14px 5px 30px; 
+    margin-left: 20px;
+}
 	
 /*---------------Keterangan edit data----------------------------*/
 
