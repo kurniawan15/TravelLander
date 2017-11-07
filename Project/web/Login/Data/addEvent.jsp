@@ -80,8 +80,8 @@
     function initialize() {
         var initialLat = $('.search_latitude').val();
         var initialLong = $('.search_longitude').val();
-        initialLat = initialLat?initialLat:36.169648;
-        initialLong = initialLong?initialLong:-115.141000;
+        initialLat = initialLat?initialLat:-6.8712;
+        initialLong = initialLong?initialLong:107.5738;
 
         var latlng = new google.maps.LatLng(initialLat, initialLong);
         var options = {
