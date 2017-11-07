@@ -42,13 +42,13 @@
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a class="selected" href="#">Jarak</a>                                                                                   
-    <a href="#">Kota</a>
+    <a href="kota.jsp">Kota</a>
     <a href="lokasi.jsp" >Lokasi</a>
-    <a href="#" >Provinsi</a>
-    <a href="#" >Perjalanan</a>
-    <a href="#" >Moda Trasportasi</a>
-    <a href="#" >Transportasi Pribadi</a>
-    <a href="#" >Transportasi Umum</a>
+    <a href="provinsi.jsp" >Provinsi</a>
+    <a href="perjalanan.jsp" >Perjalanan</a>
+    <a href="modatrasportasi.jsp" >Moda Trasportasi</a>
+    <a href="transpribadi.jsp" >Transportasi Pribadi</a>
+    <a href="transpublik.jsp" >Transportasi Umum</a>
   </div>
 <div class="main-content">
     <div id="main">																					
