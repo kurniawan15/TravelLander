@@ -1,7 +1,11 @@
-#geomap{
-    width: 100%;
-    height: 400px;
-}
+    #DivMap
+    {
+        border: 1px solid Black;
+        width: 500px;
+        height: 400px;
+        margin-top: 30px;
+        margin-left: 32%;
+    }
 
 /*-------------------------Body----------------------------*/
 body{

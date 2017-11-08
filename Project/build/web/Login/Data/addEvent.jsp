@@ -344,12 +344,16 @@
     <input type="text" id="search_location" class="form-control" placeholder="Search location">
     <div class="input-group-btn">
         <button class="btn btn-default get_map" type="submit">
-            Locate
+            Loioiiiikhjhlkhkjhkjkjkjkjkjkjkjkjkjkjkjkjkjkjiuiiiiiiiiiiiiiiiklklkcate
         </button>
     </div>
 </div>
 </form>
 <div id="geomap"></div>
+<h4>Location Details</h4>
+<p>Address: <input type="text" class="search_addr" size="45"></p>
+<p>Latitude: <input type="text" class="search_latitude" size="30"></p>
+<p>Longitude: <input type="text" class="search_longitude" size="30"></p>
     </div>
     <!--____________________________Footer Page____________________________--> 
     <div class="footer">
