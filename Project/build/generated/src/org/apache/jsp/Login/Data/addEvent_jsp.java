@@ -431,6 +431,10 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</div>\r\n");
       out.write("</form>\r\n");
       out.write("<div id=\"geomap\"></div>\r\n");
+      out.write("<h4>Location Details</h4>\r\n");
+      out.write("<p>Address: <input type=\"text\" class=\"search_addr\" size=\"45\"></p>\r\n");
+      out.write("<p>Latitude: <input type=\"text\" class=\"search_latitude\" size=\"30\"></p>\r\n");
+      out.write("<p>Longitude: <input type=\"text\" class=\"search_longitude\" size=\"30\"></p>\r\n");
       out.write("    </div>\r\n");
       out.write("    <!--____________________________Footer Page____________________________--> \r\n");
       out.write("    <div class=\"footer\">\r\n");
