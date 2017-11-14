@@ -32,7 +32,7 @@ public class ControllerModaTransportasi extends HttpServlet{
             return;
         }else if(proses.equals("hapus-moda")){
             DAOModaTransportasi hm=new DAOModaTransportasi();
-            hm.setKdModa(request.getParameter("Kd_Moda"));
+            hm.setIdModa(request.getParameter("Kd_Moda"));
             hm.hapus();
             response.sendRedirect("indexModaTransportasi.jsp");
         }
@@ -46,7 +46,7 @@ public class ControllerModaTransportasi extends HttpServlet{
         if (data != null){
             if(data.equals("moda_transportasi")){
                 DAOModaTransportasi um=new DAOModaTransportasi();
-                um.setKdModa(request.getParameter("Id_Moda"));
+                um.setIdModa(request.getParameter("Id_Moda"));
                 um.setTipeModa(request.getParameter("Tipe_Moda"));
                 if (proses.equals("input-moda")){
                     um.simpan();

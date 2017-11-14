@@ -10,24 +10,12 @@ package model;
  * @author Dewi Roaza
  */
 public class NewLokasi {
-    private String idLokasi;
     private String namaLokasi;
     private String latitude;
     private String longitute;
+    private String alamat;
+    private String ket;
 
-    /**
-     * @return the idLokasi
-     */
-    public String getIdLokasi() {
-        return idLokasi;
-    }
-
-    /**
-     * @param idLokasi the idLokasi to set
-     */
-    public void setIdLokasi(String idLokasi) {
-        this.idLokasi = idLokasi;
-    }
 
     /**
      * @return the namaLokasi
@@ -69,5 +57,33 @@ public class NewLokasi {
      */
     public void setLongitute(String longitute) {
         this.longitute = longitute;
+    }
+
+    /**
+     * @return the alamat
+     */
+    public String getAlamat() {
+        return alamat;
+    }
+
+    /**
+     * @param alamat the alamat to set
+     */
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    /**
+     * @return the ket
+     */
+    public String getKet() {
+        return ket;
+    }
+
+    /**
+     * @param ket the ket to set
+     */
+    public void setKet(String ket) {
+        this.ket = ket;
     }
 }

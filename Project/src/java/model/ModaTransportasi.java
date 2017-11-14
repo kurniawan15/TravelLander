@@ -10,21 +10,21 @@ package model;
  * @author Dewi Roaza
  */
 public class ModaTransportasi {
-    public String kdModa;
+    public String idModa;
     public String tipeModa;
 
     /**
      * @return the idTransport
      */
-    public String getKdModa() {
-        return kdModa;
+    public String getIdModa() {
+        return idModa;
     }
 
     /**
-     * @param kdModa the idTransport to set
+     * @param idModa the idTransport to set
      */
-    public void setKdModa(String kdModa) {
-        this.kdModa = kdModa;
+    public void setIdModa(String idModa) {
+        this.idModa = idModa;
     }
 
     /**
