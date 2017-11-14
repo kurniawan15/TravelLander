@@ -13,6 +13,8 @@ import java.util.Date;
  */
 public class NewEvent {
     private String kdEvent;
+    private String kdPerjalanan;
+    private String kdTraveller;
     private String namaEvent;
     private Date waktuMulai;
     private Date waktuSelesai;
@@ -86,6 +88,34 @@ public class NewEvent {
      */
     public void setKet(String ket) {
         this.ket = ket;
+    }
+
+    /**
+     * @return the kdPerjalanan
+     */
+    public String getKdPerjalanan() {
+        return kdPerjalanan;
+    }
+
+    /**
+     * @param kdPerjalanan the kdPerjalanan to set
+     */
+    public void setKdPerjalanan(String kdPerjalanan) {
+        this.kdPerjalanan = kdPerjalanan;
+    }
+
+    /**
+     * @return the kdTraveller
+     */
+    public String getKdTraveller() {
+        return kdTraveller;
+    }
+
+    /**
+     * @param kdTraveller the kdTraveller to set
+     */
+    public void setKdTraveller(String kdTraveller) {
+        this.kdTraveller = kdTraveller;
     }
     
 }
