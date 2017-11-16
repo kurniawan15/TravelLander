@@ -10,82 +10,81 @@ package model;
  */
 public class Traveller {
     
-    public String Kd_Traveller;
-    public String Nama_Traveller;
-    public String Username;
-    public String Password; 
-    public String Email;
+    public String kd_Traveller;
+    public String nama_Traveller;
+    public String username;
+    public String password; 
+    public String email;
 
     /**
      * @return the Kd_Traveller
      */
     public String getKd_Traveller() {
-        return Kd_Traveller;
+        return kd_Traveller;
     }
 
     /**
-     * @param Kd_Traveller the Kd_Traveller to set
+     * @param kd_Traveller the Kd_Traveller to set
      */
-    public void setKd_Traveller(String Kd_Traveller) {
-        this.Kd_Traveller = Kd_Traveller;
+    public void setKd_Traveller(String kd_Traveller) {
+        this.kd_Traveller = kd_Traveller;
     }
 
     /**
      * @return the Nama_Traveller
      */
     public String getNama_Traveller() {
-        return Nama_Traveller;
+        return nama_Traveller;
     }
 
     /**
-     * @param Nama_Traveller the Nama_Traveller to set
+     * @param nama_Traveller the Nama_Traveller to set
      */
-    public void setNama_Traveller(String Nama_Traveller) {
-        this.Nama_Traveller = Nama_Traveller;
+    public void setNama_Traveller(String nama_Traveller) {
+        this.nama_Traveller = nama_Traveller;
     }
 
     /**
-     * @return the Username
+     * @return the username
      */
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     /**
-     * @param Username the Username to set
+     * @param username the username to set
      */
-    public void setUsername(String Username) {
-        this.Username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**
-     * @return the Password
+     * @return the password
      */
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     /**
-     * @param Password the Password to set
+     * @param password the password to set
      */
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
-     * @return the Email
+     * @return the email
      */
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     /**
-     * @param Email the Email to set
+     * @param email the email to set
      */
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    
 }
 

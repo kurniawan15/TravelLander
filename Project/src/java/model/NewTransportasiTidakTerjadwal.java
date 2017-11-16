@@ -10,8 +10,9 @@ package model;
  * @author Dewi Roaza
  */
 public class NewTransportasiTidakTerjadwal {
-    private String kdTransportasiTidakTerjadwal;
-    private String namaTransportasiTidakTerjadwal;
+    public String kdTransportasiTidakTerjadwal;
+    public String kdModa;
+    public String namaTransportasiTidakTerjadwal;
 
     /**
      * @return the kdTransportasiTidakTerjadwal
@@ -39,5 +40,19 @@ public class NewTransportasiTidakTerjadwal {
      */
     public void setNamaTransportasiTidakTerjadwal(String namaTransportasiTidakTerjadwal) {
         this.namaTransportasiTidakTerjadwal = namaTransportasiTidakTerjadwal;
+    }
+
+    /**
+     * @return the kdModa
+     */
+    public String getKdModa() {
+        return kdModa;
+    }
+
+    /**
+     * @param kdModa the kdModa to set
+     */
+    public void setKdModa(String kdModa) {
+        this.kdModa = kdModa;
     }
 }

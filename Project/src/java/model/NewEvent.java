@@ -12,25 +12,14 @@ import java.util.Date;
  * @author Dewi Roaza
  */
 public class NewEvent {
-    private String kdEvent;
-    private String namaEvent;
-    private Date waktuMulai;
-    private Date waktuSelesai;
-    private String ket;
-
-    /**
-     * @return the kdEvent
-     */
-    public String getKdEvent() {
-        return kdEvent;
-    }
-
-    /**
-     * @param kdEvent the kdEvent to set
-     */
-    public void setKdEvent(String kdEvent) {
-        this.kdEvent = kdEvent;
-    }
+    public String idEvent;
+    public String kdTraveller;
+    public String kdTransportasiTidakTerjadwal;
+    public String kdTransportasiTerjadwal;
+    public String namaEvent;
+    public Date waktuMulai;
+    public Date waktuSelesai;
+    public String ket;
 
     /**
      * @return the namaEvent
@@ -86,6 +75,62 @@ public class NewEvent {
      */
     public void setKet(String ket) {
         this.ket = ket;
+    }
+
+    /**
+     * @return the idEvent
+     */
+    public String getIdEvent() {
+        return idEvent;
+    }
+
+    /**
+     * @param idEvent the idEvent to set
+     */
+    public void setIdEvent(String idEvent) {
+        this.idEvent = idEvent;
+    }
+
+    /**
+     * @return the kdTraveller
+     */
+    public String getKdTraveller() {
+        return kdTraveller;
+    }
+
+    /**
+     * @param kdTraveller the kdTraveller to set
+     */
+    public void setKdTraveller(String kdTraveller) {
+        this.kdTraveller = kdTraveller;
+    }
+
+    /**
+     * @return the kdTransportasiTidakTerjadwal
+     */
+    public String getKdTransportasiTidakTerjadwal() {
+        return kdTransportasiTidakTerjadwal;
+    }
+
+    /**
+     * @param kdTransportasiTidakTerjadwal the kdTransportasiTidakTerjadwal to set
+     */
+    public void setKdTransportasiTidakTerjadwal(String kdTransportasiTidakTerjadwal) {
+        this.kdTransportasiTidakTerjadwal = kdTransportasiTidakTerjadwal;
+    }
+
+    /**
+     * @return the kdTransportasiTerjadwal
+     */
+    public String getKdTransportasiTerjadwal() {
+        return kdTransportasiTerjadwal;
+    }
+
+    /**
+     * @param kdTransportasiTerjadwal the kdTransportasiTerjadwal to set
+     */
+    public void setKdTransportasiTerjadwal(String kdTransportasiTerjadwal) {
+        this.kdTransportasiTerjadwal = kdTransportasiTerjadwal;
     }
     
 }

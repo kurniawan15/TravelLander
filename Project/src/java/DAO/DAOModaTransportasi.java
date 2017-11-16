@@ -25,16 +25,16 @@ public class DAOModaTransportasi extends ModaTransportasi implements DAO{
     }
 
     public void simpan(){
-        String sql = "INSERT into moda_transportasi( Id_Moda, Tipe_Moda) values ('" + idModa + "','" + tipeModa + "')";
+        String sql = "INSERT into moda_transportasi( Id_Moda, Tipe_Moda) values ('" + kdModa + "','" + tipeModa + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE moda_transportasi SET Tipe_Moda='"+tipeModa+"' WHERE Id_Moda='"+idModa+"'";
+        String sql="UPDATE moda_transportasi SET Tipe_Moda='"+tipeModa+"' WHERE Id_Moda='"+kdModa+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM moda_transportasi WHERE Id_Moda='"+idModa+"'";
+        String sql="DELETE FROM moda_transportasi WHERE Id_Moda='"+kdModa+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -48,7 +48,7 @@ public class DAOModaTransportasi extends ModaTransportasi implements DAO{
             System.out.print(sql);
             while (rs.next()) {
                 ModaTransportasi um = new ModaTransportasi();
-                um.setIdModa(rs.getString("Id_Moda"));
+                um.setKdModa(rs.getString("Id_Moda"));
                 um.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(um);
    }
@@ -64,11 +64,11 @@ public class DAOModaTransportasi extends ModaTransportasi implements DAO{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM moda_transportasi WHERE Kd_Moda='"+idModa+"'";
+            String sql = "SELECT * FROM moda_transportasi WHERE Kd_Moda='"+kdModa+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 ModaTransportasi m = new ModaTransportasi();
-                m.setIdModa(rs.getString("Id_Moda"));
+                m.setKdModa(rs.getString("Id_Moda"));
                 m.setTipeModa(rs.getString("Tipe_Moda"));
                 data.add(m);
 
