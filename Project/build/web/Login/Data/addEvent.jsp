@@ -328,7 +328,7 @@
       <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
         
-            <input type="submit" value="Create Schedule">
+            <input type="submit" value                                                                                                                                 ="Create Schedule">
         
             <input type="submit" value="Cancel" style="background-color: red;">
       </div><br> 

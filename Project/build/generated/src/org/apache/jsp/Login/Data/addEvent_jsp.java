@@ -409,7 +409,7 @@ public final class addEvent_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("      <!--____________________________Tombol Submit or cancel____________________________--> \r\n");
       out.write("      <div class=\"col-12 enter\">\r\n");
       out.write("        \r\n");
-      out.write("            <input type=\"submit\" value=\"Create Schedule\">\r\n");
+      out.write("            <input type=\"submit\" value                                                                                                                                 =\"Create Schedule\">\r\n");
       out.write("        \r\n");
       out.write("            <input type=\"submit\" value=\"Cancel\" style=\"background-color: red;\">\r\n");
       out.write("      </div><br> \r\n");
