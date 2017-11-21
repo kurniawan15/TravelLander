@@ -12,10 +12,11 @@ import java.util.Date;
  * @author Dewi Roaza
  */
 public class NewTransportasiTerjadwal {
-    private String kdTransportasiTerjadwal;
-    private String namaTransportasiTerjadwal;
-    private Date waktuBerangkat;
-    private Date waktuDatang;
+    public String kdTransportasiTerjadwal;
+    public String kdModa;
+    public String namaTransportasiTerjadwal;
+    public Date waktuBerangkat;
+    public Date waktuDatang;
 
     /**
      * @return the kdTransportasiTerjadwal
@@ -71,5 +72,19 @@ public class NewTransportasiTerjadwal {
      */
     public void setWaktuDatang(Date waktuDatang) {
         this.waktuDatang = waktuDatang;
+    }
+
+    /**
+     * @return the kdModa
+     */
+    public String getKdModa() {
+        return kdModa;
+    }
+
+    /**
+     * @param kdModa the kdModa to set
+     */
+    public void setKdModa(String kdModa) {
+        this.kdModa = kdModa;
     }
 }

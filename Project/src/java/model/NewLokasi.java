@@ -10,11 +10,12 @@ package model;
  * @author Dewi Roaza
  */
 public class NewLokasi {
-    private String namaLokasi;
-    private String latitude;
-    private String longitute;
-    private String alamat;
-    private String ket;
+    public String idEvent;
+    public String namaLokasi;
+    public String latitude;
+    public String longitute;
+    public String alamat;
+    public String ket;
 
 
     /**
@@ -85,5 +86,19 @@ public class NewLokasi {
      */
     public void setKet(String ket) {
         this.ket = ket;
+    }
+
+    /**
+     * @return the idEvent
+     */
+    public String getIdEvent() {
+        return idEvent;
+    }
+
+    /**
+     * @param idEvent the idEvent to set
+     */
+    public void setIdEvent(String idEvent) {
+        this.idEvent = idEvent;
     }
 }
