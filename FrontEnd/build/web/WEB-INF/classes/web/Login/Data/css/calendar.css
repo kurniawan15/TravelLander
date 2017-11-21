@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+#calendar
+{
+	position: absolute;
+	top: 55%;
+	left: 5%;
+	width: 130px;
+	height: 180px;
+	background-color:#F8A200;
+	color: #fff;
+	border-radius:5%;
+	box-shadow: 0 4px 4px 0 rgba(50, 50, 50, 0.4);
+}
+
+#calendar>p
+{
+	font-family: verdana, arial, sans-serif;
+	padding: 10px 0;
+	margin: 0;
+	color: #fff;
+	text-align: center;
+}
+#calendar-day
+{
+	font-size:16px;
+}
+#calendar-month-year
+{
+	font-size:14px;
+}
+#calendar-date
+{
+	font-size:64px;
+	padding-top:10px;
+	padding-bottom:0;
+}
+	
