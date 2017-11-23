@@ -1,0 +1,400 @@
+    #DivMap
+    {
+        border: 1px solid Black;
+        width: 500px;
+        height: 400px;
+        margin-top: 30px;
+        margin-left: 32%;
+    }
+
+/*-------------------------Body----------------------------*/
+body{
+  font-family:"Arial", Serif;           /*set jenis huruf*/
+}
+
+/*-------------------------Set Ukuran lebar suatu class----------------------------*/
+.col-1 {width: 8.33%;}          /*set ukuran lebar class col-1 = 8.33% dari ukuran page*/              
+.col-2 {width: 16.66%;}         /*set ukuran lebar class col-1 = 16.66% dari ukuran page*/
+.col-3 {width: 25%;}            /*set ukuran lebar class col-1 = 25% dari ukuran page*/
+.col-4 {width: 33.33%;}         /*set ukuran lebar class col-1 = 33.33% dari ukuran page*/
+.col-5 {width: 41.66%;}         /*set ukuran lebar class col-1 = 41.66% dari ukuran page*/              
+.col-6 {width: 49.7%;}          /*set ukuran lebar class col-1 = 49.7% dari ukuran page*/
+.col-7 {width: 58.33%;}         /*set ukuran lebar class col-1 = 58.33% dari ukuran page*/
+.col-8 {width: 66.66%;}         /*set ukuran lebar class col-1 = 66.66% dari ukuran page*/
+.col-9 {width: 75%;}            /*set ukuran lebar class col-1 = 75% dari ukuran page*/
+.col-10 {width: 83.33%;}        /*set ukuran lebar class col-1 = 83.33% dari ukuran page*/
+.col-11 {width: 91.66%;}        /*set ukuran lebar class col-1 = 91.66% dari ukuran page*/
+.col-12 {width: 100%;}          /*set ukuran lebar class col-1 = 100% dari ukuran page*/
+
+/*-------------------------tombol navigasi dan list menu----------------------------*/
+.navbar{
+  background-color: #2980b9;    /*set warna background header menjadi biru muda (#2980b9)*/
+  overflow: hidden;             /*membatasi ukuran element yang ada dalam header*/
+  height: 50px;                 /*set tinggi header 50 pixel*/
+}
+.navbar a{
+  float: left;                  /*set posisi menu dikiri*/
+  display: block;               /*set tampilan menu kebawah*/
+  padding: 14px 16px;           /*set jarak atas 14 pixel dan kiri 14 pixel tombol menu*/
+}
+.navbar ul{
+  margin: 0 0 0 0;              /*set jarak margin untuk halaman yang ada dalam navbar atas kiri bawah kanan = 0 pixel*/
+  list-style: none;             /*menghilangkan simbol list*/
+}
+.navbar a:hover{
+  background-color: #F8A200;    /*ketika cursor diarahkan maka warna background header menjadi orange (#F8A200)*/
+}
+.side-nav{
+  background-color: #2c3e50;    /*set warna background menu abu2 tua (#2c3e50)*/
+  margin-top: 8px;              /*set jarak atas 8 pixel*/
+  height: 100%;                 /*set tinggi menu 100% dar ukuran layar*/
+  width: 0;                     /*set lebar 0 sehingga seperti hidden jika tidak di arahkan*/
+  position: fixed;              /*set posisi tetap*/
+  z-index: 1;                   /*set posisi agar dipaling depan layar*/
+  top: 0;                       /*set jarak atas dari menu ke header 0 pixel*/
+  left: 0;                      /*set jarak kiri 0 pixel*/
+  overflow-x: hidden;           /*list menu tidak ditampilkan*/
+  padding-top: 60px;            /*set jarak list atas 60 pixel*/
+  transition: 0.5s;             /*pergerakan delay selama 0.5 detik*/
+}
+.side-nav a{
+  padding: 10px 2px 10px 5px;       /*set jarak atas 10px, kiri 2px, bawah 10px, dan kanan 5px*/
+  text-decoration: none;            /*set text tidak berwana seperti link (biru)*/
+  font-size: 20px;                  /*ukuran font 20 pixel*/
+  color: #fff;                      /*warna font putih*/
+  display: block;                   /*menampilkan list kebawah*/
+  border-bottom: 1px solid #535353; /*memberi border bawah berwarna abu2*/
+ 	-webkit-transition: 0.2s;         /*efek transition*/
+	-moz-transition: 0.2;             /*efek transition*/
+	-o-transition: 0.2;               /*efek transition*/
+}
+.side-nav a.selected
+{
+	background-color: #F8A200;    /*ketika list dipilih maka warna background list menjadi orange (#F8A200)*/
+	color: #fff;                  /*warna font putih*/
+	padding-left: 40px;           /*set jarak kiri 40 pixel*/
+}
+.side-nav a:hover{
+  background-color: #F8A200;    /*ketika cursor diarahkan maka warna background list menjadi orange (#F8A200)*/
+	color: #fff;                  /*warna font putih*/
+	padding-left: 40px;           /*set jarak kiri 40 pixel*/
+}
+.side-nav .btn-close{
+  position: absolute;           /*set posisi absolut*/
+  top: 0;                       /*set jarak atas 0 pixel*/
+  right: 22px;                  /*set jarak kanan 22 pixel*/
+  font-size: 36px;              /*ukuran font 36 pixel*/
+  margin-left: 50px;            /*set jarak button close kiri 50 pixel*/
+}
+ul#dropdown li a
+{
+	float: right;                 /*set posisi di kanan*/
+	background: #27ae60; 
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	height: 50px;
+	width: 80px;
+	text-align: center;
+	padding: 14px 16px;
+}
+ul#dropdown li a:hover
+{
+	background-color:#F8A200;
+	color:#fff;
+}
+/*--------------------Responsive main------------------------*/
+@media screen and (max-width:1500px){         /*untuk ukuran 1500 pixel kebawah(901-1500)*/
+  #main{
+  	flex-flow: row wrap;
+  	height:100%;
+    width: 50%;
+    padding-left: 25%;
+  }
+}
+@media screen and (max-width:900px){          /*untuk ukuran 900 pixel kebawah (701-900*/
+  #main{
+    flex-flow: row wrap;
+    height:100%;
+    width: 75%;
+    padding-left: 12%;
+  }
+}
+@media screen and (max-width:700px){          /*untuk ukuran 700 pixel kebawah(100-700)*/
+  #main{ 
+    flex-flow: row wrap;
+    height:100%;
+    width: 100%;
+    padding-left: 0%;
+  }
+}
+
+/*-------------------------------Form Style----------------------------------*/
+.namaevent{
+  padding-left: 5%;
+  width: 90%;
+}
+.waktu{
+  padding-left: 5%;
+  width: 90%;
+}
+.LokasiAwal{
+  padding-left: 5%;
+  width: 90%;
+  opacity: 0.9;
+}
+.LokasiAkhir{
+  padding-left: 5%;
+  width: 90%;
+  opacity: 0.9;
+}
+.Transportasi{
+  padding-left: 5%;
+  width: 90%;
+  opacity: 0.9;
+}
+.keteranganevent{
+  padding-left: 5%;
+  width: 90%;
+  opacity: 0.9;
+}
+.enter{
+  padding-left: 25%;
+}
+
+/*--------------------------Text Judul Form-------------------------------*/
+.hnamaevent{
+  font-size: 15px; 
+  padding-top: 2%; 
+  padding-left: 1%;
+}
+.hwaktu{
+  font-size: 15px; 
+  padding-left: 1%; 
+  padding-bottom: 1%;
+}
+.hlokasiawal{
+  font-size: 15px; 
+  padding-left: 1%; 
+  padding-top: 2%; 
+  opacity: 1;
+}
+.hlokasiakhir{
+  font-size: 15px; 
+  padding-left: 1%; 
+  padding-top: 1%; 
+  opacity: 1;
+}
+.htransportasi{
+  font-size: 15px; 
+  padding-left: 1%; 
+  padding-top: 1%; 
+  opacity: 1;
+}
+.hketevent{
+  font-size: 15px; 
+  padding-left: 1%; 
+  padding-top: 1%; 
+  opacity: 1;
+}
+/*-------------------------main content---------------------------------*/
+
+.main-content{
+	padding: 40px;
+	margin-top: 0;
+	padding: 0;
+	padding-top: 0px;
+	height: 100%;
+}
+.widget{
+	flex-basis: 300px;
+	flex-grow: 10;
+	height: 100%;
+	margin: 15px;
+	border-radius: 6px;
+	background-color: #fff;
+	position: relative;
+}
+.widget .title{
+	background-color: #eef1f7;
+	border-bottom: 1px solid #dfe4ec;
+	padding: 10px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	color: #617085;
+	font-weight: 600;
+}
+.widget.tex
+{
+	background-color: #eef1f7;
+	border-bottom: 1px solid #dfe4ec;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	font-weight: 600px;
+	padding:10px;
+} 
+/*-------------------------------input data------------------------------ */
+.form 
+{
+	padding:2% 5%;
+	margin-top:5%;
+	border-radius:5px;
+  border: 3px solid #f4f4f4;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+	border-radius:5px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color:#F8A200;
+	color:#fff;
+}
+
+@media screen and (max-width: 1500px){
+  input[type=password], select {
+    width:100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 1;
+  }
+  input[type=text], select {
+    width:100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 1;
+  }
+  input[type=submit] {
+    width: 50%;
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 600px){
+  input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 1;
+  }
+  input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    opacity: 1;
+  }
+  input[type=submit] {
+    width: 50%;
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+input[type=submit]:hover {
+  background-color: #196393;
+  }
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    color: black;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.tablinks{
+  width: 50%;
+}
+
+/*---------------------------Footer-----------------------------*/
+.footer {
+    background-color: #2980b9;
+    color: #ffffff;
+    text-align: right;
+    font-size: 12px;
+    padding: 15px;
+}
+.pfooter{
+  padding-right: 5%;
+  color: lightgrey;
+  padding-top: 1%;
+}
+.logoweb{
+  width: 200px;  
+  padding-right: 4%;
+  float: left;
+  padding-top: 0px;
+  padding-left: 2%;
+}
