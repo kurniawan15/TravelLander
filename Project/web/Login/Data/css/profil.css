@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+body{
+	font-family: 'open sans';
+	background-color: white;
+}
+/*------------------------------------------------------------*/
+.wrapper{
+	padding-right: 0px;
+	padding-left: 0px;
+	z-index: 1;
+}
+.glyphicon-user{
+	font-size: 15px;
+	top: 2px;
+}
+.menubarLog{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.menubarLog ul{
+	list-style: none;
+}
+.menubarLog ul li{
+	background-color: #2c3e50;
+	color: white;
+	height: 50px;
+	width: 140px;
+	line-height: 50px;
+	padding-right: 0px;
+	padding-left: 0px;
+	text-align: right;
+	float: right;
+	position: relative;
+	font-size: 12px;
+}
+.menubarLog ul li:hover{
+	background-color: red;
+	color: white;
+	transition: 0.5s;
+}
+.menubarLog ul ul{
+	padding-top: 1px;
+	display: none;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.menubarLog ul li:hover> ul{
+	display: block;
+	transition: 0.5s;
+}
+.menubarLog ul ul li{
+	background-color: lightgrey;
+	width: 220px;
+	color: black;
+}
+.menubarLog ul ul ul{
+	margin-left: 151px;
+	position: absolute;
+	top: 0px;
+}
+/*----------------------------------------------------*/
+.wrapper{
+	background-color: #2c3e50;
+}
+.menubar{
+	height: 50px;
+	line-height: 50px;
+	font-size: 21px;
+	color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.dashboard{
+	background-color: white;
+	padding-left: 0px;
+	padding-right: 0px; 
+}
+.contentkiri{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.contentkiri{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.contentkiribawah{
+	background-color: black;
+	padding-left: 0px;
+	padding-right: 0px;
+	height: 469px;
+}
+.kiri{
+	font-size: 16px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	color: white;
+	border-bottom: 2px solid #111111;
+}
+.kiripilih{
+	font-size: 16px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	color: white;
+	border-bottom: 2px solid #111111;
+	background-color: maroon;
+}
+.kiri:hover{
+	background-color: red;
+	transition: 0.5s;
+}
+.kirismmd{
+	font-size: 14px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+.kirismmdpilih{
+	font-size: 14px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: white;
+	background-color: maroon;
+	border-right: 2px solid #111111;
+}
+.kirismmd:hover{
+	background-color: red;
+	transition: 0.5s;
+}
+.kirixspilih{
+	padding-top: 3px;
+	font-size: 13px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	text-align: center;
+	color: white;
+	background-color: maroon;
+	border-right: 2px solid #111111;
+}
+.kirixs{
+	padding-top: 3px;
+	font-size: 13px;
+	padding-right: 0px;
+	padding-left: 0px;
+	height: 45px;
+	text-align: center;
+	color: white;
+	border-right: 2px solid #111111;
+}
+
+.kirixs:hover{
+	background-color: red;
+	transition: 0.5s;
+}
+/*-------------------------------------*/
+.contentkanan{
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: white;
+	height: 20px;
+}
+.HeaderJudul{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	background-color: #00cbff;
+	color: black;
+	font-size: 22px;
+}
+.isiprofil{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.fotoprofil{
+	background-color: lightgrey;
+	height: 250px;
+	line-height: 420px;
+	border: 15px solid white;
+}
+.keteranganprofil{
+	padding-top: 35px;
+}
+.usernama{
+	padding-top: 35px;	
+}
+.birthday{
+	padding-top: 35px;
+}
+.email{
+	padding-top: 35px;
+}
+.editprofil{
+	padding-top: 15px;
+	text-align: right;
+}
