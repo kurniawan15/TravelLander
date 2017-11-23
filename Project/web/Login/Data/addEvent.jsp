@@ -191,7 +191,7 @@
 <form action="../../addEvent?data=event&proses=input-event" method="post">
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Dashboard</a>                                                                  
+    <a href="Dashboard.jsp">Dashboard</a>                                                                  
     <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
     <a href="listData.jsp">Event List</a>
