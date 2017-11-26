@@ -76,9 +76,7 @@ public class Event {
         return kdPerjalanan;
     }
 
-    /**
-     * @param idPerjalanan the idPerjalanan to set
-     */
+  
     public void setKdPerjalanan(String kdPerjalanan) {
         this.kdPerjalanan = kdPerjalanan;
     }
