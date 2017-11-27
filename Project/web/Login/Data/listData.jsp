@@ -49,7 +49,7 @@ body{
 
   <div id="side-menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-    <a href="#">Dashboard</a>                                                                  
+    <a href="Dashboard.jsp">Dashboard</a>                                                                  
     <a href="addEvent.jsp">Create Schedule</a>
     <a href="#">Finished Task</a>
     <a href="lisTData.jsp">Event List</a>
