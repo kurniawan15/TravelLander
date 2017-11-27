@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/E:/Fadhil/Materi%202B/Semester%203/Proyek%203/travelendar/Project/web/TestAPI/routev2.jsp</file>
             <file>file:/E:/Fadhil/Materi%202B/Semester%203/Proyek%203/travelendar/Project/web/TestAPI/Route.jsp</file>
+=======
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/web/TestAPI/Route.jsp</file>
+            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/controller/ControllerJarak.java</file>
+>>>>>>> 67f839e66efc134c4ec3a8994c7349f78efe80a4
         </group>
     </open-files>
 </project-private>
