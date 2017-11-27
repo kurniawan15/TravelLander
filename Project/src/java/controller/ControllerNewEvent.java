@@ -29,7 +29,7 @@ public class ControllerNewEvent extends HttpServlet{
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
         if (proses.equals("input-event")){
-            response.sendRedirect("Login/Data/addEvent.jsp");
+            //response.sendRedirect("Login/Data/addEvent.jsp");
             return;
         }else if(proses.equals("edit-event")){
             response.sendRedirect("Login/Data/editEvent.jsp?Id_Event="+request.getParameter("Id_Event"));

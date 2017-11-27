@@ -93,7 +93,7 @@ public class DAOEvent extends Event implements DAO{
                 ev.setKdEvent(rs.getString("kd_event"));
                 ev.setNameEvent(rs.getString("nama_event"));
                 ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
-                 ev.setEndTime(new Date(rs.getTimestamp("waktu_selesai").getTime()));
+                ev.setEndTime(new Date(rs.getTimestamp("waktu_selesai").getTime()));
                 ev.setStartTime(new Date(rs.getTimestamp("waktu_mulai").getTime()));
                 ev.setKeterangan(rs.getString("keterangan"));
                 ev.setKdTraveller(rs.getString("kd_traveller"));
