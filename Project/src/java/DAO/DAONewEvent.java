@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import model.Event;
 import model.NewEvent;
 
 /**
@@ -22,7 +21,6 @@ import model.NewEvent;
 public class DAONewEvent extends NewEvent implements DAO{
     static  KoneksiDB db = null;
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    
     public DAONewEvent() {
        db = new KoneksiDB();
     }
@@ -143,14 +141,4 @@ public class DAONewEvent extends NewEvent implements DAO{
             
             return idEvent;
          }
-    
-    public String getTgl (NewEvent event){
-        SimpleDateFormat tgl = new SimpleDateFormat("yyyy-MM-dd");
-        return tgl.format(event.getWaktuMulai());
-    }
-    
-    public String getJam (NewEvent event){
-        SimpleDateFormat jam = new SimpleDateFormat("HH:mm");
-        return jam.format (event.getWaktuMulai());
-    }
 }

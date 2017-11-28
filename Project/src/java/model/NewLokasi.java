@@ -10,10 +10,10 @@ package model;
  * @author Dewi Roaza
  */
 public class NewLokasi {
-    public String kdEvent;
+    public String idEvent;
     public String namaLokasi;
     public String latitude;
-    public String longitude;
+    public String longitute;
     public String alamat;
     public String ket;
 
@@ -49,15 +49,15 @@ public class NewLokasi {
     /**
      * @return the longitute
      */
-    public String getLongitude() {
-        return longitude;
+    public String getLongitute() {
+        return longitute;
     }
 
     /**
-     * @param longitude the longitute to set
+     * @param longitute the longitute to set
      */
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setLongitute(String longitute) {
+        this.longitute = longitute;
     }
 
     /**
@@ -91,14 +91,14 @@ public class NewLokasi {
     /**
      * @return the idEvent
      */
-    public String getKdEvent() {
-        return kdEvent;
+    public String getIdEvent() {
+        return idEvent;
     }
 
     /**
-     * @param kdEvent the idEvent to set
+     * @param idEvent the idEvent to set
      */
-    public void setKdEvent(String kdEvent) {
-        this.kdEvent = kdEvent;
+    public void setIdEvent(String idEvent) {
+        this.idEvent = idEvent;
     }
 }
