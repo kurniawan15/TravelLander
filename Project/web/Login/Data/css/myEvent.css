@@ -12,6 +12,7 @@ body {
 .container {
 	flex-flow: row wrap;
 	height:100%;
+        position: relative;
         
 }
 /*---------------------------------Header--------------------------------------*/
@@ -44,10 +45,10 @@ svg
 /*-----------------------------Menu yang di kiri------------------------------*/
 
 .side-nav{
-  margin-top:8px;	
-  height:100%;
+  margin-top:0px;	
+  height:83%;
   width:0;
-  position:fixed;
+  position: absolute;
   z-index:1;
   top:0;
   left:0;

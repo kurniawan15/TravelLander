@@ -28,13 +28,10 @@
   <div id="menu" class="side-nav">
     <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
     <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dashboard</li></a>                                                                                  
-    <a href="kota.jsp">Kota</a>
-    <a href="lokasi.jsp" >Lokasi</a>
-    <a class="selected" href="#" >Provinsi</a>
-    <a href="perjalanan.jsp" >Perjalanan</a>
-    <a href="modatrasportasi.jsp" >Moda Trasportasi</a>
-    <a href="transpribadi.jsp" >Transportasi Pribadi</a>
-    <a href="transpublik.jsp" >Transportasi Umum<
+    <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">add</i>Create Schedule</li></a>
+    <a href="pagelist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li>
+    <a href="pageeventlist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
+    <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">build</i>Manage</li></a>
   </div>
     <div class="Walpaper">
         <a href="#" onclick="openSlideMenu()">

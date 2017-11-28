@@ -1,3 +1,11 @@
+<%-- 
+    Document   : myEvent
+    Created on : Nov 20, 2017, 9:14:29 PM
+    Author     : Hari
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,34 +43,26 @@
 </nav>
 
 <article class="article">
-  <div class="contentlist">
+  <div class="contentdetail">
   <div id="main">                                         
   <br><br><br><br><br>
-  <h1 class="judul">Finished Task</h1>
-  <h2 class="ftask">[Completed Event]</h2>
-   <table class="table">
-      <tr>
-          <td style="font-size: 14px;">20 September 2017</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
-      <tr>
-          <td style="font-size: 14px;">21 September 2017</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMpN 14 BANDUNG</td>
-          <td style="font-size: 14px;">Motorcycle</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
-      <tr>
-          <td style="font-size: 14px;">22 September 2017</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 21 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
-      </table>
+  <h1 class="judul">Detail Event</h1>
+  <h2 class="h2detail">Detail</h2>
+    <p class="pdetail">Event Name &nbsp;&nbsp;: Pertemuan Pengawas </p>
+    <p class="pdetail">Event Time &nbsp;&nbsp;: 19.00 07/11/2017 until 21:30 07/11/2017</p>
+  
+  <h2 class="h2detail">Location</h2>
+  <p class="pdetail">Start Point &nbsp;&nbsp;: Hotel Amorossa Bandung</p>
+  <p class="pdetail">End Point &nbsp;&nbsp;: SMAN 20 Bandung</p>
+  <p class="pdetail">Description &nbsp;&nbsp;: Description of Event</p>
+
+  <h2 class="h2detail">Transportation</h2>
+  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
+  <p class="pdetail">Distance &nbsp;&nbsp;: 0.55 KM</p>
+  <p class="pdetail">Estimated &nbsp;&nbsp;: 5 Minutes</p>
+  <p class="pdetail">Departure Time &nbsp;&nbsp;: 06:45</p>
+  <br><br>
+  <a class="back" href="pagelist.html"><p><i class="material-icons" style="font-size:20px;color:black; padding-right: 10px;">reply</i>Back</p></a>
   </div>
   </div>
 </article>
@@ -72,3 +72,4 @@
 
 </body>
 </html>
+
