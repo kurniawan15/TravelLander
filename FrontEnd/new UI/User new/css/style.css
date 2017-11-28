@@ -51,7 +51,7 @@ body{
 
 
 header {
-    background-color: #272727;
+    background-color: #031850;
     clear: left;
 }
 .headbar{
@@ -105,7 +105,7 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
@@ -129,7 +129,7 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
@@ -153,21 +153,21 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
 }
    
 .none:hover{
-    background-color: maroon;
+    background-color: #02174d;
     padding-left: 120px;
     transition: 0.4s;
     cursor: pointer;
 }
 
 .logoweb{
-    width: 200px;
+    width: 150px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
