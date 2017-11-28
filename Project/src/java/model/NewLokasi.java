@@ -13,7 +13,7 @@ public class NewLokasi {
     public String idEvent;
     public String namaLokasi;
     public String latitude;
-    public String longitute;
+    public String longitude;
     public String alamat;
     public String ket;
 
@@ -49,15 +49,15 @@ public class NewLokasi {
     /**
      * @return the longitute
      */
-    public String getLongitute() {
-        return longitute;
+    public String getLongitude() {
+        return longitude;
     }
 
     /**
-     * @param longitute the longitute to set
+     * @param longitude the longitute to set
      */
-    public void setLongitute(String longitute) {
-        this.longitute = longitute;
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
     /**

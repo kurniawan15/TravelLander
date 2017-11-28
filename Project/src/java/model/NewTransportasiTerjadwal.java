@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class NewTransportasiTerjadwal {
     public String kdTransportasiTerjadwal;
-    public String kdModa;
+    public String idModa;
     public String namaTransportasiTerjadwal;
     public Date waktuBerangkat;
     public Date waktuDatang;
@@ -77,14 +77,14 @@ public class NewTransportasiTerjadwal {
     /**
      * @return the kdModa
      */
-    public String getKdModa() {
-        return kdModa;
+    public String getIdModa() {
+        return idModa;
     }
 
     /**
-     * @param kdModa the kdModa to set
+     * @param idModa the kdModa to set
      */
-    public void setKdModa(String kdModa) {
-        this.kdModa = kdModa;
+    public void setIdModa(String idModa) {
+        this.idModa = idModa;
     }
 }

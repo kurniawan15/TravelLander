@@ -11,7 +11,7 @@ package model;
  */
 public class NewTransportasiTidakTerjadwal {
     public String kdTransportasiTidakTerjadwal;
-    public String kdModa;
+    public String idModa;
     public String namaTransportasiTidakTerjadwal;
 
     /**
@@ -45,14 +45,14 @@ public class NewTransportasiTidakTerjadwal {
     /**
      * @return the kdModa
      */
-    public String getKdModa() {
-        return kdModa;
+    public String getIdModa() {
+        return idModa;
     }
 
     /**
-     * @param kdModa the kdModa to set
+     * @param idModa the kdModa to set
      */
-    public void setKdModa(String kdModa) {
-        this.kdModa = kdModa;
+    public void setIdModa(String idModa) {
+        this.idModa = idModa;
     }
 }
