@@ -19,14 +19,14 @@
 <div class="flex-container">
 <div class="headbar">
 <header>
-  <center><img class="logoweb" src="img/L21.png"></center>
+  <img class="logoweb" src="img/L21.png">
 </header>
 </div>
 
 <nav class="nav">
 <ul>
    <br><br><br>
-    <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dashboard</li></a>
+    <a href="desk.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dashboard</li></a>
     <li class="pilih"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">add</i>Create Schedule</li>
     <a href="pagelist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li></a>
     <a href="pageeventlist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
@@ -60,26 +60,15 @@
     <!--____________________________Form Inputan Lokasi Awal____________________________-->
     <div class="LokasiAwal">
       <div class="title"><b><br>Location</b></div>
-      <h1 class="hlokasiawal">Start Location :</h1>
-      <select id="LokasiAwal" name="kd_lokasi_awal">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
-      </select>     
+       <h1 class="hlokasiawal">Start Location :</h1>
+         <input type="text" id="LokasiAwal" name="kd_lokasi_awal" placeholder="Lokasi Awal" style="width: 75%;"><i class="material-icons" style="font-size:20px;color:white; padding-left: 10px;">search</i>
+          <input type="submit" value="Location Now" style="width: 120px; background-color: white; color: black;">
     </div>
     
     <!--____________________________Form Inputan Lokasi Akhir____________________________-->   
     <div class="LokasiAkhir">
       <h1 class="hlokasiakhir">End Location :</h1>
-      <select id="LokasiAkhir" name="kd_lokasi_akhir">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
-      </select>     
+         <input type="text" id="LokasiAkhir" name="kd_lokasi_akhir" placeholder="Lokasi Akhir" style="width: 75%;"><i class="material-icons" style="font-size:20px;color:white; padding-left: 10px;">search</i>
     </div>
     
     <!--____________________________Form Inputan Nama Event____________________________-->
@@ -92,8 +81,8 @@
     <div class="Transportasi">
       <h1 class="htransportasi">Transportation :</h1>
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
-        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
+        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Terjadwal</button>
+        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Tidak Terjadwal</button>
       </div>
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
       <script type="text/javascript">
@@ -116,20 +105,117 @@
       </script>
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
-        <select id="UmumModa" name="kd_moda">
-          <option value="Taksi">Taksi</option>
-          <option value="Bus">Bus</option>
-          <option value="Kereta">Kereta</option>
-          <option value="Pesawat">Pesawat</option>
-        </select>     
+        <table style="width:100%;">
+          <tr>
+            <th>Choose</th>
+            <th>Transportname</th> 
+            <th>Distance (KM)</th>
+            <th>Estimated Time (Minutes)</th>
+            <th>Departure Time</th>
+          </tr>
+          <tr>
+            <td><center></center></td>
+            <td><center>Walk</center></td>
+            <td><center>Route Not Found</center></td>
+            <td><center>-</center></td>
+            <td><center>-</center></td>
+          </tr>
+          <tr>
+            <td><center></center></td>
+            <td><center>Motorcycle</center></td>
+            <td><center>Route Not Found</center></td>
+            <td><center>-</center></td>
+            <td><center>-</center></td>
+          </tr>
+          <tr>
+             <td><center></center></td>
+             <td><center>Car</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center><form>
+            <input type="radio" name="Terjadwal" value="Walk"</center></td>
+             <td><center>Bus</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center>
+            <input type="radio" name="Terjadwal" value="Train"></center></td>
+             <td><center>Train</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center>
+            <input type="radio" name="Terjadwal" value="Aeroplane"></form></center></td>
+             <td><center>Aeroplane</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+        </table>
         </div>
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
         <div id="Pribadi" class="tabcontent">
-        <select id="PribadiModa" name="kd_transport_pribadi">
-          <option value="Sepeda">Sepeda</option>
-          <option value="Motor">Motor</option>
-          <option value="Mobil">Mobil</option>
-        </select>      
+         <table style="width:100%;">
+          <tr>
+            <th>Choose</th>
+            <th>Transportname</th> 
+            <th>Distance (KM)</th>
+            <th>Estimated Time (Minutes)</th>
+            <th>Departure Time</th>
+          </tr>
+          <tr>
+            <td><center>
+            <form>
+            <input type="radio" name="TidakTerjadwal" value="Walk"></center></td>
+            <td><center>Walk</center></td>
+            <td><center>Route Not Found</center></td>
+            <td><center>-</center></td>
+            <td><center>-</center></td>
+          </tr>
+          <tr>
+            <td><center>
+            <input type="radio" name="TidakTerjadwal" value="Motorcycle"></center></td>
+            <td><center>Motorcycle</center></td>
+            <td><center>Route Not Found</center></td>
+            <td><center>-</center></td>
+            <td><center>-</center></td>
+          </tr>
+          <tr>
+             <td><center>
+            <input type="radio" name="TidakTerjadwal" value="Car"></form></center></td>
+             <td><center>Car</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center></center></td>
+             <td><center>Bus</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center></center></td>
+             <td><center>Train</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+           <tr>
+             <td><center><td><center>Aeroplane</center></td>
+             <td><center>Route Not Found</center></td>
+             <td><center>-</center></td>
+             <td><center>-</center></td>
+           </tr>
+        </table>     
         </div>
 
         <!--____________________________Tombol Submit or cancel____________________________--> 

@@ -2,6 +2,9 @@ body{
     margin: 0;
     background-color: #f1f1f1;
 }
+#main{
+    width: 100%;
+}
 .flex-container {
     display: -webkit-flex;
     display: flex;  
@@ -51,11 +54,11 @@ body{
 
 
 header {
-    background-color: #272727;
+    background-color: #031850;
     clear: left;
 }
 .headbar{
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     width: 100%;
 }
@@ -105,7 +108,7 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
@@ -129,7 +132,7 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
@@ -153,21 +156,21 @@ nav ul {
         text-decoration: none;
     }
     .pilih{
-        background-color: #4d0108;
+        background-color: #042374;
         padding-left: 120px;
         color: lightgrey;
     }
 }
    
 .none:hover{
-    background-color: maroon;
+    background-color: #02174d;
     padding-left: 120px;
     transition: 0.4s;
     cursor: pointer;
 }
 
 .logoweb{
-    width: 200px;
+    width: 150px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -220,7 +223,7 @@ nav ul {
     border-radius:5px;
     border: 3px solid #f4f4f4;
 }
-button {
+.button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -230,7 +233,7 @@ button {
     cursor: pointer;
     width: 100%;
 }
-button:hover {
+.button:hover {
     background-color:#F8A200;
     color:#fff;
 }
@@ -444,7 +447,7 @@ div.tab button.active {
     }
 }
 .contentlist{
-    height: 600px;
+    z-index: 0;
 }
 .table{
       margin:0 auto;
