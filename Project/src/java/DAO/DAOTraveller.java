@@ -28,16 +28,16 @@ public DAOTraveller(){
 }
 
     public void simpan(){
-        String sql = "INSERT into traveller( Kd_Traveller, Nama_Traveller, Username, Password, Email) values ('" + kd_Traveller + "','" + nama_Traveller + "','" + username + "','" + password + "','" + email + "')";
+        String sql = "INSERT into traveller( Kd_Traveller, Nama_Traveller, Username, Password, Email) values ('" + kdTraveller + "','" + namaTraveller + "','" + username + "','" + password + "','" + email + "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE traveller SET Nama_Traveller='"+nama_Traveller+"', Username='"+username+"', Password='"+password+"', Email='"+email+"' WHERE Kd_Traveller='"+ kd_Traveller +"' ";
+        String sql="UPDATE traveller SET Nama_Traveller='"+namaTraveller+"', Username='"+username+"', Password='"+password+"', Email='"+email+"' WHERE Kd_Traveller='"+ kdTraveller +"' ";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM traveller WHERE Kd_Traveller='"+kd_Traveller+"'";
+        String sql="DELETE FROM traveller WHERE Kd_Traveller='"+kdTraveller+"'";
         db.simpanData(sql);
         System.out.println("");
     }
@@ -50,8 +50,8 @@ public DAOTraveller(){
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Traveller um = new Traveller();
-                um.setKd_Traveller(rs.getString("Kd_Traveller"));
-                um.setNama_Traveller(rs.getString("Nama_Traveller"));
+                um.setKdTraveller(rs.getString("Kd_Traveller"));
+                um.setNamaTraveller(rs.getString("Nama_Traveller"));
                 um.setUsername(rs.getString("Username"));
                 um.setPassword(rs.getString("Password"));
                 um.setEmail(rs.getString("Email"));
@@ -68,12 +68,12 @@ public DAOTraveller(){
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM traveller WHERE Kd_Traveller='"+kd_Traveller+"'";
+            String sql = "SELECT * FROM traveller WHERE Kd_Traveller='"+kdTraveller+"'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 Traveller m = new Traveller();
-                m.setKd_Traveller(rs.getString("Kd_Traveller"));
-                m.setNama_Traveller(rs.getString("Nama_Traveller"));
+                m.setKdTraveller(rs.getString("Kd_Traveller"));
+                m.setNamaTraveller(rs.getString("Nama_Traveller"));
                 m.setUsername(rs.getString("Username"));
                 m.setPassword(rs.getString("Password"));
                 m.setEmail(rs.getString("Email"));

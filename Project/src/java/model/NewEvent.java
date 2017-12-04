@@ -19,7 +19,7 @@ public class NewEvent {
     public String namaEvent;
     public Date waktuMulai;
     public Date waktuSelesai;
-    public String ket;
+    public String keterangan;
 
     /**
      * @return the namaEvent
@@ -66,15 +66,15 @@ public class NewEvent {
     /**
      * @return the ket
      */
-    public String getKet() {
-        return ket;
+    public String getKeterangan() {
+        return keterangan;
     }
 
     /**
-     * @param ket the ket to set
+     * @param keterangan the ket to set
      */
-    public void setKet(String ket) {
-        this.ket = ket;
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 
     /**

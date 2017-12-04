@@ -10,8 +10,8 @@ package model;
  */
 public class Traveller {
     
-    public String kd_Traveller;
-    public String nama_Traveller;
+    public String kdTraveller;
+    public String namaTraveller;
     public String username;
     public String password; 
     public String email;
@@ -19,29 +19,29 @@ public class Traveller {
     /**
      * @return the Kd_Traveller
      */
-    public String getKd_Traveller() {
-        return kd_Traveller;
+    public String getKdTraveller() {
+        return kdTraveller;
     }
 
     /**
-     * @param kd_Traveller the Kd_Traveller to set
+     * @param kdTraveller the Kd_Traveller to set
      */
-    public void setKd_Traveller(String kd_Traveller) {
-        this.kd_Traveller = kd_Traveller;
+    public void setKdTraveller(String kdTraveller) {
+        this.kdTraveller = kdTraveller;
     }
 
     /**
      * @return the Nama_Traveller
      */
-    public String getNama_Traveller() {
-        return nama_Traveller;
+    public String getNamaTraveller() {
+        return namaTraveller;
     }
 
     /**
-     * @param nama_Traveller the Nama_Traveller to set
+     * @param namaTraveller the Nama_Traveller to set
      */
-    public void setNama_Traveller(String nama_Traveller) {
-        this.nama_Traveller = nama_Traveller;
+    public void setNamaTraveller(String namaTraveller) {
+        this.namaTraveller = namaTraveller;
     }
 
     /**

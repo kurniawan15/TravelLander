@@ -36,7 +36,7 @@ public class ControllerTraveller extends HttpServlet {
             return;
         }else if(proses.equals("hapus-traveller")){
             DAOTraveller hm=new DAOTraveller();
-            hm.setKd_Traveller(request.getParameter("Kd_Traveller"));
+            hm.setKdTraveller(request.getParameter("Kd_Traveller"));
             hm.hapus();
             response.sendRedirect("indexTraveller.jsp");
         }
@@ -50,8 +50,8 @@ public class ControllerTraveller extends HttpServlet {
         if (data != null){
             if(data.equals("traveller")){
                 DAOTraveller um=new DAOTraveller();
-                um.setKd_Traveller(request.getParameter("Kd_Traveller"));
-                um.setNama_Traveller(request.getParameter("Nama_Traveller"));
+                um.setKdTraveller(request.getParameter("Kd_Traveller"));
+                um.setNamaTraveller(request.getParameter("Nama_Traveller"));
                 um.setUsername(request.getParameter("Username"));
                 um.setPassword(request.getParameter("Password"));
                 um.setEmail(request.getParameter("Email"));
