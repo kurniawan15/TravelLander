@@ -28,13 +28,13 @@ public class DAONewEvent extends NewEvent implements DAO{
 
     public void simpan(){
         //
-        String sql = "INSERT into event(Id_Event,Kd_Traveller,Kd_Transportasi_Tidak_Terjadwal,Kd_Transportasi_Terjadwal,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan) values('"+idEvent+"','"+kdTraveller+"','"+kdTransportasiTidakTerjadwal+"','"+kdTransportasiTerjadwal+"','"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+ket+"')";
+        String sql = "INSERT into event(Id_Event,Kd_Traveller,Kd_Transportasi_Tidak_Terjadwal,Kd_Transportasi_Terjadwal,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan) values('"+idEvent+"','"+kdTraveller+"','"+kdTransportasiTidakTerjadwal+"','"+kdTransportasiTerjadwal+"','"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+keterangan+"')";
         db.simpanData(sql);
     }
 
     @Override
     public void update() {
-       String sql = "UPDATE event set Kd_Transportasi_Tidak_Terjadwal = '"+kdTransportasiTidakTerjadwal+"',Kd_Transportasi_Terjadwal = '"+kdTransportasiTerjadwal+"',Nama_Event = '"+namaEvent+"',Waktu_Mulai = '"+format.format(waktuMulai)+"', Waktu_Selesai= '"+format.format(waktuSelesai)+"',Keterangan = '"+ket+"' where Id_Event = '"+idEvent+"' and Kd_Traveller = '"+kdTraveller+"'";
+       String sql = "UPDATE event set Kd_Transportasi_Tidak_Terjadwal = '"+kdTransportasiTidakTerjadwal+"',Kd_Transportasi_Terjadwal = '"+kdTransportasiTerjadwal+"',Nama_Event = '"+namaEvent+"',Waktu_Mulai = '"+format.format(waktuMulai)+"', Waktu_Selesai= '"+format.format(waktuSelesai)+"',Keterangan = '"+keterangan+"' where Id_Event = '"+idEvent+"' and Kd_Traveller = '"+kdTraveller+"'";
        db.simpanData(sql);
        System.out.println(sql);
     }
@@ -62,7 +62,7 @@ public class DAONewEvent extends NewEvent implements DAO{
                 ev.setNamaEvent(rs.getString("Nama_Event"));
                 ev.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
                 ev.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));
-                ev.setKet(rs.getString("Keterangan"));
+                ev.setKeterangan(rs.getString("Keterangan"));
                 listEvent.add(ev);
             }
         }
@@ -89,7 +89,7 @@ public class DAONewEvent extends NewEvent implements DAO{
                 ev.setNamaEvent(rs.getString("Nama_Event"));
                 ev.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
                 ev.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));
-                ev.setKet(rs.getString("Keterangan"));
+                ev.setKeterangan(rs.getString("Keterangan"));
                 
                 listEvent.add(ev);
             }

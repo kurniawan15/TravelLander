@@ -23,12 +23,12 @@ public class DAONewTransportasiTidakTerjadwal extends NewTransportasiTidakTerjad
     }
     
     public void simpan(){
-        String sql = "INSERT into Transportasi_Tidak_Terjadwal ( Kd_Transportasi_Tidak_Terjadwal, Id_Moda, Nama_Transportasi_Tidak_Terjadwal) values ('" + kdTransportasiTidakTerjadwal + "','" + idModa + "','" + namaTransportasiTidakTerjadwal + "')";
+        String sql = "INSERT into Transportasi_Tidak_Terjadwal ( Kd_Transportasi_Tidak_Terjadwal, Id_Moda, Nama_Transportasi_Tidak_Terjadwal) values ('" + kdTransportasiTidakTerjadwal + "','" + kdModa + "','" + namaTransportasiTidakTerjadwal + "')";
         db.simpanData(sql);
     }
     
     public void update(){
-        String sql="UPDATE Transportasi_Tidak_Terjadwal SET Id_Moda='"+idModa+"', Nama_Transportasi_Tidak_Terjadwal='"+namaTransportasiTidakTerjadwal+"' WHERE Kd_Transportasi_Tidak_Terjadwal= '" + kdTransportasiTidakTerjadwal + "'";
+        String sql="UPDATE Transportasi_Tidak_Terjadwal SET Id_Moda='"+kdModa+"', Nama_Transportasi_Tidak_Terjadwal='"+namaTransportasiTidakTerjadwal+"' WHERE Kd_Transportasi_Tidak_Terjadwal= '" + kdTransportasiTidakTerjadwal + "'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -49,7 +49,7 @@ public class DAONewTransportasiTidakTerjadwal extends NewTransportasiTidakTerjad
             while (rs.next()) {
                 NewTransportasiTidakTerjadwal um = new NewTransportasiTidakTerjadwal();
                 um.setKdTransportasiTidakTerjadwal(rs.getString("Kd_Transportasi_Tidak_Terjadwal"));
-                um.setIdModa(rs.getString("Id_Moda"));
+                um.setKdModa(rs.getString("Id_Moda"));
                 um.setNamaTransportasiTidakTerjadwal(rs.getString("Nama_Transportasi_Tidak_Terjadwal"));
                 data.add(um);
    }
@@ -70,7 +70,7 @@ public class DAONewTransportasiTidakTerjadwal extends NewTransportasiTidakTerjad
             while (rs.next()) {
                 NewTransportasiTidakTerjadwal m = new NewTransportasiTidakTerjadwal();
                 m.setKdTransportasiTidakTerjadwal(rs.getString("Kd_Transportasi_Tidak_Terjadwal"));
-                m.setIdModa(rs.getString("Id_Moda"));
+                m.setKdModa(rs.getString("Id_Moda"));
                 m.setNamaTransportasiTidakTerjadwal(rs.getString("Nama_Transportasi_Tidak_Terjadwal"));
                 data.add(m);
 

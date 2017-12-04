@@ -86,14 +86,14 @@ public class ControllerNewEvent extends HttpServlet{
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
-                ev.setKet(request.getParameter("Keterangan"));
+                ev.setKeterangan(request.getParameter("Keterangan"));
                 NewLokasi lokAwal = new NewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
                 lokAwal.setAlamat(request.getParameter("alamat_awal"));
-                lokAwal.setKet("START");
+                lokAwal.setKeterangan("START");
                 
                 NewLokasi lokAkhir = new NewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
@@ -101,7 +101,7 @@ public class ControllerNewEvent extends HttpServlet{
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
                 lokAwal.setAlamat(request.getParameter("alamat_akhir"));
-                lokAwal.setKet("END");
+                lokAwal.setKeterangan("END");
                 if (proses.equals("input-event")){
                     try {
                         ev.setIdEvent(ev.getNewId());

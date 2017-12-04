@@ -25,12 +25,12 @@ public class DAONewTransportasiTerjadwal extends NewTransportasiTerjadwal implem
     }
     
     public void simpan(){
-        String sql = "INSERT into Transportasi_Terjadwal ( Kd_Transportasi_Terjadwal, Id_Moda, Nama_Transportasi_Terjadwal, Waktu_Berangkat, Waktu_Datang) values ('" + kdTransportasiTerjadwal+ "','" + idModa + "','" + namaTransportasiTerjadwal + "','" + waktuBerangkat + "','" + waktuDatang + "')";
+        String sql = "INSERT into Transportasi_Terjadwal ( Kd_Transportasi_Terjadwal, Id_Moda, Nama_Transportasi_Terjadwal, Waktu_Berangkat, Waktu_Datang) values ('" + kdTransportasiTerjadwal+ "','" + kdModa + "','" + namaTransportasiTerjadwal + "','" + waktuBerangkat + "','" + waktuDatang + "')";
         db.simpanData(sql);
     }
     
     public void update(){
-        String sql="UPDATE Transportasi_Terjadwal SET  Id_Moda='"+idModa+"', Nama_Transportasi_Terjadwal='"+namaTransportasiTerjadwal+"', Waktu_Berangkat='"+waktuBerangkat+"', Waktu_Datang='"+waktuDatang+"' WHERE Kd_Transportasi_Terjadwal= '" + kdTransportasiTerjadwal+ "'";
+        String sql="UPDATE Transportasi_Terjadwal SET  Id_Moda='"+kdModa+"', Nama_Transportasi_Terjadwal='"+namaTransportasiTerjadwal+"', Waktu_Berangkat='"+waktuBerangkat+"', Waktu_Datang='"+waktuDatang+"' WHERE Kd_Transportasi_Terjadwal= '" + kdTransportasiTerjadwal+ "'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -51,7 +51,7 @@ public class DAONewTransportasiTerjadwal extends NewTransportasiTerjadwal implem
             while (rs.next()) {
                 NewTransportasiTerjadwal tp = new NewTransportasiTerjadwal();
                 tp.setKdTransportasiTerjadwal(rs.getString("Kd_Transportasi_Terjadwal"));
-                tp.setIdModa(rs.getString("Id_Moda"));
+                tp.setKdModa(rs.getString("Id_Moda"));
                 tp.setNamaTransportasiTerjadwal(rs.getString("Nama_Transportasi_Terjadwal"));
                 if(rs.getString("Waktu_Berangkat").equals("0000-00-00 00:00:00")){
                     tp.setWaktuBerangkat(format.parse("1970-01-01 01:00:00"));
@@ -85,7 +85,7 @@ public class DAONewTransportasiTerjadwal extends NewTransportasiTerjadwal implem
             while (rs.next()) {
                 NewTransportasiTerjadwal tp = new NewTransportasiTerjadwal();
                 tp.setKdTransportasiTerjadwal(rs.getString("Kd_Transportasi_Terjadwal"));
-                tp.setIdModa(rs.getString("Id_Moda"));
+                tp.setKdModa(rs.getString("Id_Moda"));
                 tp.setNamaTransportasiTerjadwal(rs.getString("Nama_Transportasi_Terjadwal"));
                 tp.setWaktuBerangkat(rs.getDate("Waktu_Berangkat"));
                 tp.setWaktuDatang(rs.getDate("Waktu_Datang"));
