@@ -15,7 +15,7 @@ public class NewLokasi {
     public String latitude;
     public String longitude;
     public String alamat;
-    public String ket;
+    public String keterangan;
 
 
     /**
@@ -77,15 +77,15 @@ public class NewLokasi {
     /**
      * @return the ket
      */
-    public String getKet() {
-        return ket;
+    public String getKeterangan() {
+        return keterangan;
     }
 
     /**
-     * @param ket the ket to set
+     * @param keterangan the ket to set
      */
-    public void setKet(String ket) {
-        this.ket = ket;
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 
     /**

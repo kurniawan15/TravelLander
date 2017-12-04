@@ -25,11 +25,11 @@ public class DAONewLokasi extends NewLokasi implements DAO {
     }
 
     public void simpan(){
-        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + idEvent + "','" + namaLokasi + "','" + latitude + "', '" + longitude + "', '"+alamat+ "', '"+ket+ "')";
+        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + idEvent + "','" + namaLokasi + "','" + latitude + "', '" + longitude + "', '"+alamat+ "', '"+keterangan+ "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',latitude='"+latitude+"',longitude='"+longitude+"',alamat='"+alamat+"',keterangan='"+ket+"' WHERE kd_event='"+idEvent+"'";
+        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',latitude='"+latitude+"',longitude='"+longitude+"',alamat='"+alamat+"',keterangan='"+keterangan+"' WHERE kd_event='"+idEvent+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -56,7 +56,7 @@ public class DAONewLokasi extends NewLokasi implements DAO {
                 dlok.setLatitude(rs.getString("latitude"));
                 dlok.setLongitude(rs.getString("langitude"));                
                 dlok.setAlamat(rs.getString("alamat"));
-                dlok.setKet(rs.getString("keterangan"));
+                dlok.setKeterangan(rs.getString("keterangan"));
                 data.add(dlok);
    }
             db.diskonek(rs);
@@ -79,7 +79,7 @@ public class DAONewLokasi extends NewLokasi implements DAO {
                 lok.setLatitude(rs.getString("latitude"));
                 lok.setLongitude(rs.getString("longitude"));
                 lok.setAlamat(rs.getString("alamat"));
-                lok.setKet(rs.getString("keterangan"));
+                lok.setKeterangan(rs.getString("keterangan"));
                 data.add(lok);
 
             }
