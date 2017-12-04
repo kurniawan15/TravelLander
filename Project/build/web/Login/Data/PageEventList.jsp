@@ -1,3 +1,11 @@
+<%-- 
+    Document   : PageEventList
+    Created on : Nov 28, 2017, 12:15:34 PM
+    Author     : Hari
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +36,8 @@
    <br><br><br>
     <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dashboard</li></a>
     <a href="pageinput.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">add</i>Create Schedule</li></a>
-    <li class="pilih"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li>
-    <a href="pageeventlist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
+    <a href="pagelist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li>
+    <li class="pilih"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li>
     <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">build</i>Manage</li></a>
 </ul>
 </nav>
@@ -38,29 +46,35 @@
   <div class="contentlist">
   <div id="main">                                         
   <br><br><br><br><br>
-  <h1 class="judul">Finished Task</h1>
-  <h2 class="ftask">[Completed Event]</h2>
-   <table class="table">
+  <h1 class="judul">Event List</h1>
+   <table class="tableeventlist">
       <tr>
-          <td style="font-size: 14px;">20 September 2017</td>
+          <th>NO</th>
+          <th>Event Name</th>
+          <th>Event Location</th>
+          <th>Date & Time</th>
+          <th>Edit</th>
+      </tr>
+      <tr>
+          <td style="font-size: 14px;">1</td>
           <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
+          <td style="font-size: 14px;">21-09-2017, 17.00</td>
+          <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
       <tr>
-          <td style="font-size: 14px;">21 September 2017</td>
+          <td style="font-size: 14px;">2</td>
           <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMpN 14 BANDUNG</td>
-          <td style="font-size: 14px;">Motorcycle</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
+          <td style="font-size: 14px;">21-09-2017, 07.00</td>
+          <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
       <tr>
-          <td style="font-size: 14px;">22 September 2017</td>
+          <td style="font-size: 14px;">3</td>
           <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMAN 21 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
+          <td style="font-size: 14px;">21-09-2017, 12.00</td>
+          <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
       </table>
   </div>
@@ -72,3 +86,4 @@
 
 </body>
 </html>
+
