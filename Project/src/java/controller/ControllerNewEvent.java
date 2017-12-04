@@ -6,11 +6,7 @@
 package controller;
 
 import DAO.DAONewEvent;
-<<<<<<< HEAD
-import DAO.DAONewLokasi;
 import model.NewLokasi;
-=======
->>>>>>> ad4b32758a55cda9d90dec83b2820e9c2d7da27e
 import java.io.IOException;
 import static java.lang.String.format;
 import java.sql.SQLException;
@@ -91,11 +87,8 @@ public class ControllerNewEvent extends HttpServlet{
                     response.sendRedirect("");
                 }
                 ev.setKet(request.getParameter("Keterangan"));
-                
-<<<<<<< HEAD
-                DAONewLokasi lok = new DAONewLokasi();
                 NewLokasi lokAwal = new NewLokasi();
-                lokAwal.setKdEvent(request.getParameter("Kd_Event"));
+                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
@@ -103,15 +96,12 @@ public class ControllerNewEvent extends HttpServlet{
                 lokAwal.setKet("START");
                 
                 NewLokasi lokAkhir = new NewLokasi();
-                lokAwal.setKdEvent(request.getParameter("Kd_Event"));
+                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
                 lokAwal.setAlamat(request.getParameter("alamat_akhir"));
                 lokAwal.setKet("END");
-                
-=======
->>>>>>> ad4b32758a55cda9d90dec83b2820e9c2d7da27e
                 if (proses.equals("input-event")){
                     try {
                         ev.setIdEvent(ev.getNewId());
