@@ -69,7 +69,7 @@
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                                             <tr>
                             <td>1</td>
@@ -83,53 +83,55 @@
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                                             <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                                             <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                                             <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>Rapat dengan ayah </td>
                             <td>bandung</td>
                             <td>07:00</td>
-                            <td>bubu</td>
+                            <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                     </table>
                 </div>
-                <button class="full-event" type="submit" name="Tambah">Show All List</button> 
+                <div class="row-full-event">
+                    <button class="full-event" type="submit" name="Tambah">Show All List</button> 
+                </div>
             </div>
     </div>
     <footer>Copyright &copy; Kelompok B1 | Front-End [Made With Love] </footer>
