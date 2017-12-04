@@ -76,7 +76,13 @@
                 <h1 class="hlokasiakhir">End Location :</h1>
                 <input type="text" id="to" name="to" required="required" placeholder="lokasi akhir" size="30" />
             </div>
+            
             <input type="submit" value="cari lokasi" />
+            <input type="text" id="latAwal">
+            <input type="text" id="longAwal">
+            <br>
+            <input type="text" id="latAkhir">
+            <input type="text" id="longAkhir">
       </form>
     </div>
      <div id="map"></div>
@@ -91,6 +97,7 @@
 
     <!--____________________________Form Inputan Transportasi____________________________-->   
     <div class="Transportasi">
+        <input type="text" id="tipe_moda" name="tipe_moda">
       <h1 class="htransportasi">Transportation :</h1>
       <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
@@ -100,16 +107,20 @@
       <script type="text/javascript">
         function openCity(evt, cityName) {
           var i, tabcontent, tablinks; //deklarasi variabel
+          
+          document.getElementById("tipe_moda").value = cityName;
           //mengambil element yang ada di class tabcontent dan menyembunyikan class 
           tabcontent = document.getElementsByClassName("tabcontent");
           for (i = 0; i < tabcontent.length; i++) {
               tabcontent[i].style.display = "none";
           }
+          
           //mengambil element yang ada di class tablinks dan menghapus yg aktif di display
           tablinks = document.getElementsByClassName("tablinks");
           for (i = 0; i < tablinks.length; i++) {
               tablinks[i].className = tablinks[i].className.replace(" active", "");
           }
+          
           //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
@@ -132,6 +143,7 @@
           travelMode: google.maps.DirectionsTravelMode.DRIVING,
           unitSystem: google.maps.UnitSystem.METRIC
         };
+        
         directionsService.route(
           directionsRequest,
           function(response, status)
@@ -148,6 +160,37 @@
           }
         );
       }
+      
+      function getLatLongAwal(emb){
+          var address = emb;
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            
+               document.getElementById("latAwal").value = results[0].geometry.location.lat();
+               document.getElementById("longAwal").value = results[0].geometry.location.lng();
+            
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });   
+      }
+      
+      function getLatLongAkhir(des){
+          var address = des;
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            
+               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
+               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
+            
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });   
+      }
+      
       //bagian google API
       $(document).ready(function() {
         // If the browser supports the Geolocation API
@@ -182,6 +225,8 @@
         $("#calculate-route").submit(function(event) {
           event.preventDefault();
           Rute($("#from").val(), $("#to").val());
+          getLatLongAwal($("#from").val());
+          getLatLongAkhir($("#to").val());
         });
       });
           

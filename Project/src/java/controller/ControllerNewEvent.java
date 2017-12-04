@@ -6,6 +6,7 @@
 package controller;
 
 import DAO.DAONewEvent;
+import DAO.DAONewLokasi;
 import model.NewLokasi;
 import java.io.IOException;
 import static java.lang.String.format;
@@ -77,27 +78,34 @@ public class ControllerNewEvent extends HttpServlet{
                 DAONewEvent ev = new DAONewEvent();
                 ev.setIdEvent(request.getParameter("Id_Event"));
                 ev.setKdTraveller(request.getParameter("Kd_Traveller"));
+                
+                
                 ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
                 ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                
+                
                 ev.setNamaEvent(request.getParameter("Nama_Event"));
+                ev.setKet(request.getParameter("Keterangan"));
                 try {
                     ev.setWaktuMulai(format.parse(request.getParameter("Waktu_Mulai")));
                     ev.setWaktuSelesai(format.parse(request.getParameter("Waktu_Selesai")));
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
-                ev.setKet(request.getParameter("Keterangan"));
-                NewLokasi lokAwal = new NewLokasi();
+                
+                
+                
+                DAONewLokasi lokAwal = new DAONewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
-                lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
+                lokAwal.setNamaLokasi(request.getParameter("from"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
                 lokAwal.setAlamat(request.getParameter("alamat_awal"));
                 lokAwal.setKet("START");
                 
-                NewLokasi lokAkhir = new NewLokasi();
+                DAONewLokasi lokAkhir = new DAONewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
-                lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
+                lokAwal.setNamaLokasi(request.getParameter("to"));
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
                 lokAwal.setAlamat(request.getParameter("alamat_akhir"));
