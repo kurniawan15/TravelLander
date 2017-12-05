@@ -10,7 +10,7 @@ package model;
  * @author Dewi Roaza
  */
 public class NewLokasi {
-    public String idEvent;
+    public String kdEvent;
     public String namaLokasi;
     public String latitude;
     public String longitude;
@@ -91,14 +91,14 @@ public class NewLokasi {
     /**
      * @return the idEvent
      */
-    public String getIdEvent() {
-        return idEvent;
+    public String getKdEvent() {
+        return kdEvent;
     }
 
     /**
-     * @param idEvent the idEvent to set
+     * @param kdEvent the idEvent to set
      */
-    public void setIdEvent(String idEvent) {
-        this.idEvent = idEvent;
+    public void setKdEvent(String kdEvent) {
+        this.kdEvent = kdEvent;
     }
 }
