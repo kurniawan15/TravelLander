@@ -84,8 +84,10 @@ public class DAONewEvent extends NewEvent implements DAO{
                 NewEvent ev = new NewEvent();
                 ev.setIdEvent(rs.getString("Id_Event"));
                 ev.setKdTraveller(rs.getString("Kd_Traveller"));
+                
                 ev.setKdTransportasiTidakTerjadwal(rs.getString("Kd_Transportasi_Tidak_Terjadwal"));
                 ev.setKdTransportasiTerjadwal(rs.getString("Kd_Transportasi_Terjadwal"));
+                
                 ev.setNamaEvent(rs.getString("Nama_Event"));
                 ev.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
                 ev.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));

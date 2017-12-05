@@ -77,8 +77,16 @@ public class ControllerNewEvent extends HttpServlet{
                 DAONewEvent ev = new DAONewEvent();
                 ev.setIdEvent(request.getParameter("Id_Event"));
                 ev.setKdTraveller(request.getParameter("Kd_Traveller"));
+                
+                if(request.getParameter("tipe_moda").equals("Umum")){
+                    ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
+                    ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                }else{
+                
+                }
                 ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
                 ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                
                 ev.setNamaEvent(request.getParameter("Nama_Event"));
                 try {
                     ev.setWaktuMulai(format.parse(request.getParameter("Waktu_Mulai")));
@@ -86,7 +94,9 @@ public class ControllerNewEvent extends HttpServlet{
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
-                ev.setKeterangan(request.getParameter("Keterangan"));
+                
+                
+                
                 NewLokasi lokAwal = new NewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
