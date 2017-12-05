@@ -34,10 +34,11 @@
 <nav class="nav">
 <ul>
    <br><br><br>
-    <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dashboard</li></a>
-    <li class="pilih"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">add</i>Create Schedule</li>
-    <a href="pagelist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li></a>
-    <a href="pageeventlist.html"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
+    <a href="myEvent.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dasboard</li></a>
+    <a href="calendar.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">date_range</i>Calendar</li></a>
+    <li class="pilih"><i class="material-icons" style="font-size:20px;color:white">add</i>Create Schedule</li>
+    <a href="listData.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li>
+    <a href="PageEventList.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
     <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">build</i>Manage</li></a>
 </ul>
 </nav>
@@ -47,8 +48,8 @@
   <div id="main">                                         
   <br><br><br><br><br>
   <h1 class="judul">Create Schedule</h1>
-    <div class="widget">
-    <div class="title"><b>Detail</b></div>
+  <div class="widget">
+  <div class="title"><b>Detail</b></div>
     
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="namaevent">
