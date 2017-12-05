@@ -79,13 +79,13 @@ public class ControllerNewEvent extends HttpServlet{
                 ev.setKdTraveller(request.getParameter("Kd_Traveller"));
                 
                 if(request.getParameter("tipe_moda").equals("Umum")){
-                    ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                    ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                    ev.setTravelMode(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
+                    ev.setAvoidtolls(Integer.parseInt(request.getParameter("Kd_Transportasi_Terjadwal")));
                 }else{
                 
                 }
-                ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                ev.setTravelMode(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
+                ev.setAvoidtolls(Integer.parseInt(request.getParameter("Kd_Transportasi_Terjadwal")));
                 
                 ev.setNamaEvent(request.getParameter("Nama_Event"));
                 try {
