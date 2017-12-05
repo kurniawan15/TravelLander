@@ -4,10 +4,13 @@
     Author     : Hari
 --%>
 
-<%@page import="model.Event"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="model.NewLokasi"%>
+<%@page import="DAO.DAONewLokasi"%>
+<%@page import="model.NewEvent"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="DAO.DAOEvent"%>
+<%@page import="DAO.DAONewEvent"%>
 <%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,8 +65,9 @@
           <th>Edit</th>
       </tr>
       <%
-                      DAOEvent namatanggal = new DAOEvent();
-                      List<Event> list = new ArrayList<Event>();
+                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");            
+                      DAONewEvent namatanggal = new DAONewEvent();
+                      List<NewEvent> list = new ArrayList<NewEvent>();
                       String ket = request.getParameter("ket");
                       if (ket == null) {
                           list = namatanggal.tampil();
@@ -72,9 +76,9 @@
                     %>
       <tr>
           <td style="font-size: 14px;"><%=x + 1%></td>
-          <td style="font-size: 14px;"><%=list.get(x).getNameEvent()%></td>
+          <td style="font-size: 14px;"><%=list.get(x).getNamaEvent()%></td>
           <td style="font-size: 14px;"></td>
-          <td style="font-size: 14px;">21-09-2017, 17.00</td>
+          <td style="font-size: 14px;"><%=format.format(list.get(x).getWaktuMulai())%></td>
           <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
       <%
