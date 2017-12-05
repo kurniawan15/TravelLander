@@ -25,16 +25,16 @@ public class DAONewLokasi extends NewLokasi implements DAO {
     }
 
     public void simpan(){
-        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + idEvent + "','" + namaLokasi + "','" + latitude + "', '" + longitude + "', '"+alamat+ "', '"+keterangan+ "')";
+        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + kdEvent + "','" + namaLokasi + "','" + latitude + "', '" + longitude + "', '"+alamat+ "', '"+keterangan+ "')";
         db.simpanData(sql);
     }
     public void update(){
-        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',latitude='"+latitude+"',longitude='"+longitude+"',alamat='"+alamat+"',keterangan='"+keterangan+"' WHERE kd_event='"+idEvent+"'";
+        String sql="UPDATE lokasi SET nama_lokasi='"+namaLokasi+"',latitude='"+latitude+"',longitude='"+longitude+"',alamat='"+alamat+"',keterangan='"+keterangan+"' WHERE kd_event='"+kdEvent+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
     public void hapus(){
-        String sql="DELETE FROM lokasi WHERE kd_event='"+idEvent+"'";
+        String sql="DELETE FROM lokasi WHERE kd_event='"+kdEvent+"'";
         db.simpanData(sql);
         System.out.println("");
     }
@@ -51,7 +51,7 @@ public class DAONewLokasi extends NewLokasi implements DAO {
             rs = db.ambilData(sql);
             while (rs.next()) {
                 NewLokasi dlok = new NewLokasi();
-                dlok.setIdEvent(rs.getString("kd_event"));
+                dlok.setKdEvent(rs.getString("kd_event"));
                 dlok.setNamaLokasi(rs.getString("nama_lokasi"));
                 dlok.setLatitude(rs.getString("latitude"));
                 dlok.setLongitude(rs.getString("langitude"));                
@@ -65,16 +65,16 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         }
         return data;
     }
-        public List cariID() {
+        public List getLokasiAkhir() {
         List<NewLokasi> data = new ArrayList<NewLokasi>();
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM lokasi WHERE kd_event='"+idEvent+"'";
+            String sql = "SELECT * FROM lokasi WHERE kd_event='"+kdEvent+"' and keterangan = 'akhir'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 NewLokasi lok = new NewLokasi();
-                lok.setIdEvent(rs.getString("kd_event"));
+                lok.setKdEvent(rs.getString("kd_event"));
                 lok.setNamaLokasi(rs.getString("nama_lokasi"));
                 lok.setLatitude(rs.getString("latitude"));
                 lok.setLongitude(rs.getString("longitude"));

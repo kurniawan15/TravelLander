@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Dewi Roaza
  */
 public class NewEvent {
-    public String idEvent;
+    public String kdEvent;
     public String kdTraveller;
     public String kdTransportasiTidakTerjadwal;
     public String kdTransportasiTerjadwal;
@@ -80,15 +80,15 @@ public class NewEvent {
     /**
      * @return the idEvent
      */
-    public String getIdEvent() {
-        return idEvent;
+    public String getKdEvent() {
+        return kdEvent;
     }
 
     /**
-     * @param idEvent the idEvent to set
+     * @param kdEvent the idEvent to set
      */
-    public void setIdEvent(String idEvent) {
-        this.idEvent = idEvent;
+    public void setKdEvent(String kdEvent) {
+        this.kdEvent = kdEvent;
     }
 
     /**
