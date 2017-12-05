@@ -1,7 +1,3 @@
-<%@page import="model.Event"%>
-<%@page import="DAO.DAOEvent"%>
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,23 +42,27 @@
   <h1 class="judul">Finished Task</h1>
   <h2 class="ftask">[Completed Event]</h2>
    <table class="table">
-      <%
-          DAOEvent namatanggal = new DAOEvent();
-          List<Event> list = new ArrayList<Event>();
-          
-          list = namatanggal.tampil();
-          for(int i=0 ; i<list.size(); i++){
-      %>
       <tr>
-          <td style="font-size: 14px;"><%=list.get(i).getStartTime()%></td>
-          <td style="font-size: 14px;"><%=list.get(i).getNameEvent()%></td>
+          <td style="font-size: 14px;">20 September 2017</td>
+          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
           <td style="font-size: 14px;">Car</td>
           <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
       </tr>
-      <%
-          }
-       %>
+      <tr>
+          <td style="font-size: 14px;">21 September 2017</td>
+          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
+          <td style="font-size: 14px;">SMpN 14 BANDUNG</td>
+          <td style="font-size: 14px;">Motorcycle</td>
+          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
+      </tr>
+      <tr>
+          <td style="font-size: 14px;">22 September 2017</td>
+          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
+          <td style="font-size: 14px;">SMAN 21 BANDUNG</td>
+          <td style="font-size: 14px;">Car</td>
+          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
+      </tr>
       </table>
   </div>
   </div>
