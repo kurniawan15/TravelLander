@@ -32,7 +32,7 @@ public class Event {
     Date endTime,
     String nameEvent,
     String keterangan) {
-       this.kdTraveller = kdTraveller;
+    this.kdTraveller = kdTraveller;
     this.kdEvent = kdEvent;
     this.kdPerjalanan = kdPerjalanan;
     this.startTime = startTime;
