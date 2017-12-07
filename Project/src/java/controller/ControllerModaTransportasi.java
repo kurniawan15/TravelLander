@@ -5,7 +5,7 @@
  */
 package controller;
 
-import DAO.DAOModaTransportasi;
+import DAO.DAOModaPerjalanan;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,8 +31,8 @@ public class ControllerModaTransportasi extends HttpServlet{
             response.sendRedirect("edit_moda.jsp?Kd_Moda="+request.getParameter("Kd_Moda"));
             return;
         }else if(proses.equals("hapus-moda")){
-            DAOModaTransportasi hm=new DAOModaTransportasi();
-            hm.setKdModa(request.getParameter("Kd_Moda"));
+            DAOModaPerjalanan hm=new DAOModaPerjalanan();
+            hm.setTravelMode(request.getParameter("Kd_Moda"));
             hm.hapus();
             response.sendRedirect("indexModaTransportasi.jsp");
         }
@@ -45,9 +45,9 @@ public class ControllerModaTransportasi extends HttpServlet{
         
         if (data != null){
             if(data.equals("moda_transportasi")){
-                DAOModaTransportasi um=new DAOModaTransportasi();
-                um.setKdModa(request.getParameter("Id_Moda"));
-                um.setTipeModa(request.getParameter("Tipe_Moda"));
+                DAOModaPerjalanan um=new DAOModaPerjalanan();
+                um.setTravelMode(request.getParameter("Id_Moda"));
+                um.setAvoidtolls(Integer.parseInt(request.getParameter("Tipe_Moda")));
                 if (proses.equals("input-moda")){
                     um.simpan();
                 }else if (proses.equals("update-moda")){

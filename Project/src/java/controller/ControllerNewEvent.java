@@ -37,7 +37,7 @@ public class ControllerNewEvent extends HttpServlet{
             return;
         }else if(proses.equals("hapus-event")){
             DAONewEvent ev=new DAONewEvent();
-            ev.setIdEvent(request.getParameter("Id_Event"));
+            ev.setKdEvent(request.getParameter("Id_Event"));
             ev.hapus();
             response.sendRedirect("indexEvent.jsp");
         }
@@ -75,17 +75,17 @@ public class ControllerNewEvent extends HttpServlet{
           if (data != null){
             if(data.equals("event")){
                 DAONewEvent ev = new DAONewEvent();
-                ev.setIdEvent(request.getParameter("Id_Event"));
+                ev.setKdEvent(request.getParameter("Id_Event"));
                 ev.setKdTraveller(request.getParameter("Kd_Traveller"));
                 
                 if(request.getParameter("tipe_moda").equals("Umum")){
-                    ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                    ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                    ev.setTravelMode(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
+                    ev.setAvoidtolls(Integer.parseInt(request.getParameter("Kd_Transportasi_Terjadwal")));
                 }else{
                 
                 }
-                ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
+                ev.setTravelMode(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
+                ev.setAvoidtolls(Integer.parseInt(request.getParameter("Kd_Transportasi_Terjadwal")));
                 
                 ev.setNamaEvent(request.getParameter("Nama_Event"));
                 try {
@@ -98,7 +98,7 @@ public class ControllerNewEvent extends HttpServlet{
                 
                 
                 NewLokasi lokAwal = new NewLokasi();
-                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
+                lokAwal.setKdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
@@ -106,7 +106,7 @@ public class ControllerNewEvent extends HttpServlet{
                 lokAwal.setKeterangan("START");
                 
                 NewLokasi lokAkhir = new NewLokasi();
-                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
+                lokAwal.setKdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
@@ -114,7 +114,7 @@ public class ControllerNewEvent extends HttpServlet{
                 lokAwal.setKeterangan("END");
                 if (proses.equals("input-event")){
                     try {
-                        ev.setIdEvent(ev.getNewId());
+                        ev.setKdEvent(ev.getNewId());
                         ev.simpan();
                     } catch (SQLException ex) {
                       response.sendRedirect("tambah_event.jsp");

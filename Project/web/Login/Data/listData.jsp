@@ -1,3 +1,11 @@
+
+<%@page import="model.Event"%>
+<%@page import="DAO.DAONewEvent"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,27 +50,25 @@
   <h1 class="judul">Finished Task</h1>
   <h2 class="ftask">[Completed Event]</h2>
    <table class="table">
+  <%
+                      DAONewEvent dEvent = new DAONewEvent();
+                      List<Event> data = new ArrayList<Event>();
+                     
+                          data = dEvent.tampil();
+                     
+                      for (int x = 0; x < data.size(); x++) {
+                    %>
       <tr>
-          <td style="font-size: 14px;">20 September 2017</td>
+          <td style="font-size: 14px;"><%=x + 1%></td>
+          <td style="font-size: 14px;"><%=data.get(x).getKdEvent()%></td>
           <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
           <td style="font-size: 14px;">Car</td>
           <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
       </tr>
-      <tr>
-          <td style="font-size: 14px;">21 September 2017</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMpN 14 BANDUNG</td>
-          <td style="font-size: 14px;">Motorcycle</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
-      <tr>
-          <td style="font-size: 14px;">22 September 2017</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 21 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
-          <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
+          <% 
+             }
+              %>
       </table>
   </div>
   </div>

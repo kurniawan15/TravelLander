@@ -4,6 +4,14 @@
     Author     : Hari
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="model.NewLokasi"%>
+<%@page import="DAO.DAONewLokasi"%>
+<%@page import="model.NewEvent"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.DAONewEvent"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -56,27 +64,26 @@
           <th>Date & Time</th>
           <th>Edit</th>
       </tr>
+      <%
+                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");            
+                      DAONewEvent namatanggal = new DAONewEvent();
+                      List<NewEvent> list = new ArrayList<NewEvent>();
+                      String ket = request.getParameter("ket");
+                      if (ket == null) {
+                          list = namatanggal.tampil();
+                      } 
+                      for (int x = 0; x < list.size(); x++) {
+                    %>
       <tr>
-          <td style="font-size: 14px;">1</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
-          <td style="font-size: 14px;">21-09-2017, 17.00</td>
+          <td style="font-size: 14px;"><%=x + 1%></td>
+          <td style="font-size: 14px;"><%=list.get(x).getNamaEvent()%></td>
+          <td style="font-size: 14px;"></td>
+          <td style="font-size: 14px;"><%=format.format(list.get(x).getWaktuMulai())%></td>
           <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
-      <tr>
-          <td style="font-size: 14px;">2</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMpN 14 BANDUNG</td>
-          <td style="font-size: 14px;">21-09-2017, 07.00</td>
-          <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
-      <tr>
-          <td style="font-size: 14px;">3</td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 21 BANDUNG</td>
-          <td style="font-size: 14px;">21-09-2017, 12.00</td>
-          <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
-      </tr>
+      <%
+          }
+       %>
       </table>
   </div>
   </div>

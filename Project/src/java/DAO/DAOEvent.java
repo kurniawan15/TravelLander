@@ -63,7 +63,7 @@ public class DAOEvent extends Event implements DAO{
             System.out.println(sql);
             while(rs.next()){
                 Event ev = new Event();
-                ev.setKdEvent(rs.getString("kd_event"));
+                ev.setKdEvent(rs.getString("id_event"));
                 ev.setNameEvent(rs.getString("nama_event"));
                 ev.setKdPerjalanan(rs.getString("kd_perjalanan"));
                 ev.setKeterangan(rs.getString("keterangan"));
