@@ -6,6 +6,7 @@
 package controller;
 
 import DAO.DAONewEvent;
+import DAO.DAONewLokasi;
 import model.NewLokasi;
 import java.io.IOException;
 import static java.lang.String.format;
@@ -97,21 +98,21 @@ public class ControllerNewEvent extends HttpServlet{
                 
                 
                 
-                NewLokasi lokAwal = new NewLokasi();
+                DAONewLokasi lokAwal = new DAONewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
                 lokAwal.setAlamat(request.getParameter("alamat_awal"));
-                lokAwal.setKeterangan("START");
+                lokAwal.setKeterangan("awal");
                 
-                NewLokasi lokAkhir = new NewLokasi();
+                DAONewLokasilokAkhir = new DAONewLokasi();
                 lokAwal.setIdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
                 lokAwal.setAlamat(request.getParameter("alamat_akhir"));
-                lokAwal.setKeterangan("END");
+                lokAwal.setKeterangan("akhir");
                 if (proses.equals("input-event")){
                     try {
                         ev.setIdEvent(ev.getNewId());
