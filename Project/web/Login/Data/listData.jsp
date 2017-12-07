@@ -1,7 +1,11 @@
+
 <%@page import="model.Event"%>
-<%@page import="DAO.DAOEvent"%>
+<%@page import="DAO.DAONewEvent"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,23 +50,25 @@
   <h1 class="judul">Finished Task</h1>
   <h2 class="ftask">[Completed Event]</h2>
    <table class="table">
-      <%
-          DAOEvent namatanggal = new DAOEvent();
-          List<Event> list = new ArrayList<Event>();
-          
-          list = namatanggal.tampil();
-          for(int i=0 ; i<list.size(); i++){
-      %>
+  <%
+                      DAONewEvent dEvent = new DAONewEvent();
+                      List<Event> data = new ArrayList<Event>();
+                     
+                          data = dEvent.tampil();
+                     
+                      for (int x = 0; x < data.size(); x++) {
+                    %>
       <tr>
-          <td style="font-size: 14px;"><%=list.get(i).getStartTime()%></td>
-          <td style="font-size: 14px;"><%=list.get(i).getNameEvent()%></td>
+          <td style="font-size: 14px;"><%=x + 1%></td>
+          <td style="font-size: 14px;"><%=data.get(x).getKdEvent()%></td>
+          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
           <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
           <td style="font-size: 14px;">Car</td>
           <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
       </tr>
-      <%
-          }
-       %>
+          <% 
+             }
+              %>
       </table>
   </div>
   </div>
