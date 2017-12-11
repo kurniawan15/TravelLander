@@ -116,15 +116,11 @@ public final class PageEventList_jsp extends org.apache.jasper.runtime.HttpJspBa
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");            
                       DAONewEvent namatanggal = new DAONewEvent();
                       List<NewEvent> list = new ArrayList<NewEvent>();
-                      DAONewLokasi lokasi = new DAONewLokasi();
-//                      List<NewLokasi> list1 = new ArrayList<NewLokasi>();
                       String ket = request.getParameter("ket");
                       if (ket == null) {
                           list = namatanggal.tampil();
-//                          list1 = lokasi.tampil();
                       } 
                       for (int x = 0; x < list.size(); x++) {
-                          String kd = list.get(x).getKdEvent();
                     
       out.write("\r\n");
       out.write("      <tr>\r\n");
@@ -134,11 +130,9 @@ public final class PageEventList_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("          <td style=\"font-size: 14px;\">");
       out.print(list.get(x).getNamaEvent());
       out.write("</td>\r\n");
+      out.write("          <td style=\"font-size: 14px;\"></td>\r\n");
       out.write("          <td style=\"font-size: 14px;\">");
-      out.print(lokasi.getLokasiAkhir(kd));
-      out.write("</td>\r\n");
-      out.write("          <td style=\"font-size: 14px;\">");
-      out.print(format.format(list.get(x).getWaktuMulai()));
+      out.print(list.get(x).getWaktuMulai());
       out.write("</td>\r\n");
       out.write("          <td><a href=\"edit.html\"><input type=\"submit\" name=\"\" value=\"EDIT\" style=\"background-color: grey; width: 50%; height: 5px; line-height: 2px;\"></a><a href=\"pageedit.html\"><input type=\"submit\" name=\"\" value=\"DELETE\" style=\"background-color: red; width: 50%; height: 5px; line-height: 2px;\"></a></td>\r\n");
       out.write("      </tr>\r\n");
