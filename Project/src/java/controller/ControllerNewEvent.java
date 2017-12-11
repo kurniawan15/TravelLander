@@ -6,6 +6,7 @@
 package controller;
 
 import DAO.DAONewEvent;
+import DAO.DAONewLokasi;
 import model.NewLokasi;
 import java.io.IOException;
 import static java.lang.String.format;
@@ -50,7 +51,7 @@ public class ControllerNewEvent extends HttpServlet{
         String proses = request.getParameter("proses");
         
         //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T' '|' hh:mm");
         
         //===================================
         //    GET KODE TRANSPORTASI
@@ -78,16 +79,7 @@ public class ControllerNewEvent extends HttpServlet{
                 ev.setKdEvent(request.getParameter("Id_Event"));
                 ev.setKdTraveller(request.getParameter("Kd_Traveller"));
                 
-                if(request.getParameter("tipe_moda").equals("Umum")){
-                    ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                    ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
-                }else{
-                
-                }
-                ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
-                
-                ev.setNamaEvent(request.getParameter("Nama_Event"));
+                     
                 try {
                     ev.setWaktuMulai(format.parse(request.getParameter("Waktu_Mulai")));
                     ev.setWaktuSelesai(format.parse(request.getParameter("Waktu_Selesai")));
@@ -97,21 +89,21 @@ public class ControllerNewEvent extends HttpServlet{
                 
                 
                 
-                NewLokasi lokAwal = new NewLokasi();
+                DAONewLokasi lokAwal = new DAONewLokasi();
                 lokAwal.setKdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("latitude_awal"));
                 lokAwal.setAlamat(request.getParameter("alamat_awal"));
-                lokAwal.setKeterangan("START");
+                lokAwal.setKeterangan("awal");
                 
-                NewLokasi lokAkhir = new NewLokasi();
+                DAONewLokasi lokAkhir = new DAONewLokasi();
                 lokAwal.setKdEvent(request.getParameter("Kd_Event"));
                 lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
                 lokAwal.setLatitude(request.getParameter("latitude_akhir"));
                 lokAwal.setLongitude(request.getParameter("latitude_akhir"));
                 lokAwal.setAlamat(request.getParameter("alamat_akhir"));
-                lokAwal.setKeterangan("END");
+                lokAwal.setKeterangan("akhir");
                 if (proses.equals("input-event")){
                     try {
                         ev.setKdEvent(ev.getNewId());

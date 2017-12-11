@@ -14,8 +14,8 @@ import java.util.Date;
 public class NewEvent {
     public String kdEvent;
     public String kdTraveller;
-    public String kdTransportasiTidakTerjadwal;
-    public String kdTransportasiTerjadwal;
+    public String travelMode;
+    public int avoidtolls;
     public String namaEvent;
     public Date waktuMulai;
     public Date waktuSelesai;
@@ -108,29 +108,29 @@ public class NewEvent {
     /**
      * @return the kdTransportasiTidakTerjadwal
      */
-    public String getKdTransportasiTidakTerjadwal() {
-        return kdTransportasiTidakTerjadwal;
+    public String getTravelMode() {
+        return travelMode;
     }
 
     /**
-     * @param kdTransportasiTidakTerjadwal the kdTransportasiTidakTerjadwal to set
+     * @param travelMode the kdTransportasiTidakTerjadwal to set
      */
-    public void setKdTransportasiTidakTerjadwal(String kdTransportasiTidakTerjadwal) {
-        this.kdTransportasiTidakTerjadwal = kdTransportasiTidakTerjadwal;
+    public void setTravelMode(String travelMode) {
+        this.travelMode = travelMode;
     }
 
     /**
      * @return the kdTransportasiTerjadwal
      */
-    public String getKdTransportasiTerjadwal() {
-        return kdTransportasiTerjadwal;
+    public int getAvoidtolls() {
+        return avoidtolls;
     }
 
     /**
-     * @param kdTransportasiTerjadwal the kdTransportasiTerjadwal to set
+     * @param avoidtolls the kdTransportasiTerjadwal to set
      */
-    public void setKdTransportasiTerjadwal(String kdTransportasiTerjadwal) {
-        this.kdTransportasiTerjadwal = kdTransportasiTerjadwal;
+    public void setAvoidtolls(int avoidtolls) {
+        this.avoidtolls = avoidtolls;
     }
     
 }

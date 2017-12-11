@@ -65,7 +65,7 @@ svg
   font-size:20px;
   color:#fff;
   display:block;
-  border-bottom: 1px solid #535353;
+ 
  	-webkit-transition: 0.2s;
 	-moz-transition: 0.2;
 	-o-transition: 0.2;
@@ -73,13 +73,13 @@ svg
 /* efek */
 .side-nav a.selected
 {
-	background-color:#F8A200;
+	background-color:#4d0108;
 	color:#fff;
 	padding-left: 40px;
 }
 
 .side-nav a:hover{
-  	background-color:#F8A200;
+  	background-color:#4d0108;
 	color:#fff;
 	padding-left: 40px;
 }

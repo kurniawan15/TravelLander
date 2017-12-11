@@ -97,13 +97,7 @@
     </div>
 
     <!--____________________________Form Inputan Transportasi____________________________-->   
-    <div class="Transportasi">
-        <input type="text" id="tipe_moda" name="tipe_moda">
-      <h1 class="htransportasi">Transportation :</h1>
-      <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
-        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
-      </div>
+  
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
       <script type="text/javascript">
         function openCity(evt, cityName) {
@@ -232,23 +226,59 @@
       });
           
       </script>
-        <!--____________________________isi option di kendaraan umum____________________________-->      
-        <div id="Umum" class="tabcontent">
-        <select id="UmumModa" name="kd_moda">
-          <option value="Taksi">Taksi</option>
-          <option value="Bus">Bus</option>
-          <option value="Kereta">Kereta</option>
-          <option value="Pesawat">Pesawat</option>
-        </select>     
-        </div>
+ 
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
-        <div id="Pribadi" class="tabcontent">
-        <select id="PribadiModa" name="kd_transport_pribadi">
-          <option value="Sepeda">Sepeda</option>
-          <option value="Motor">Motor</option>
-          <option value="Mobil">Mobil</option>
-        </select>      
-        </div>
+        <table class="table" id="TabelFilter">
+            <tr>
+                <th>Choose</th>
+                <th>Transport Name</th>
+                <th>Distance (KM) </th>
+                <th>Estimated Time (Minutes)</th>
+                <th>Departure Time</th>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Walk</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Motorcycle</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Car</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Bus</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Train</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Aeroplane</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+        </table>
 
         <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
