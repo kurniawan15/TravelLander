@@ -2,27 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/web/Login/Data/myEvent.jsp</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/web/Login/login.jsp</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/controller/ControllerNewEvent.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/model/NewEvent.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/DAO/DAOLokasi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/model/Traveller.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/model/NewLokasi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/web/Login/Data/listData.jsp</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/DAO/DAONewEvent.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/DAO/DAOModaPerjalanan.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/DAO/DAONewLokasi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/model/NewModaPerjalanan.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/web/Login/Data/Dashboard.jsp</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/controller/ControllerModaTransportasi.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/DAO/DAOTraveller.java</file>
-            <file>file:/E:/Document/A/SEMESTER%203/Proyek%203/Git_Travelender/Project/src/java/controller/ControllerJarak.java</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/Project/web/Login/Admin/css/style.css</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/Project/web/Login/Admin/provinsi.jsp</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/Project/web/Login/Data/Js/myEvent.js</file>
+            <file>file:/D:/nitip/Data%20Kuliah%20SM3_FIX/Proyek3/Phuu_Github/Project/web/Login/Data/myEvent.jsp</file>
         </group>
->>>>>>> 65ce0dcaf7b760f934d52de2404ad867a38e8b5a
     </open-files>
 </project-private>

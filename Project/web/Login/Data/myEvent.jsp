@@ -11,7 +11,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
     <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
     <div class="bottom-view">
             <div class="entry">
                 <div class="batas-tabel">
-                    <table class="table">
+                    <table class="table" id="TabelFilter">
                         <tr>
                             <th>NO</th>
                             <th>Event Name</th>
@@ -97,9 +97,11 @@
                 <div class="row-full-event">
                     <button class="full-event" type="submit" name="Tambah">Show All List</button> 
                 </div>
+                    
+                     <input type="text" id="Filter" onkeyup="FungsiFilter()" placeholder="Filter Berdasarkan Provinsi">
             </div>
     </div>
-    <footer>Copyright &copy; Kelompok B1 | Front-End [Made With Love] </footer>
+    <footer>Copyright &copy; Kelompok B1 | Front-End [Made With Love] <div id="coba1"></div> </footer>
 </div>
     </body>
 </html>

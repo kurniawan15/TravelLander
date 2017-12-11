@@ -50,7 +50,7 @@ public class ControllerNewEvent extends HttpServlet{
         String proses = request.getParameter("proses");
         
         //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T' '|' hh:mm");
         
         //===================================
         //    GET KODE TRANSPORTASI
