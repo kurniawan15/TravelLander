@@ -97,13 +97,7 @@
     </div>
 
     <!--____________________________Form Inputan Transportasi____________________________-->   
-    <div class="Transportasi">
-        <input type="text" id="tipe_moda" name="tipe_moda">
-      <h1 class="htransportasi">Transportation :</h1>
-      <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'Umum')" id="defaultOpen">Umum</button>
-        <button class="tablinks" onclick="openCity(event, 'Pribadi')">Pribadi</button>
-      </div>
+  
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
       <script type="text/javascript">
         function openCity(evt, cityName) {
@@ -232,15 +226,7 @@
       });
           
       </script>
-        <!--____________________________isi option di kendaraan umum____________________________-->      
-        <div id="Umum" class="tabcontent">
-        <select id="UmumModa" name="kd_moda">
-          <option value="Taksi">Taksi</option>
-          <option value="Bus">Bus</option>
-          <option value="Kereta">Kereta</option>
-          <option value="Pesawat">Pesawat</option>
-        </select>     
-        </div>
+ 
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
         <table class="table" id="TabelFilter">
             <tr>
