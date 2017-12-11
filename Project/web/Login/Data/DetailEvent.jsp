@@ -3,7 +3,14 @@
     Created on : Nov 20, 2017, 9:14:29 PM
     Author     : Hari
 --%>
-
+<%@page import="model.NewLokasi"%>
+<%@page import="DAO.DAONewLokasi"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="DAO.DAONewEvent"%>
+<%@page import="model.NewEvent"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -43,16 +50,28 @@
 </nav>
 
 <article class="article">
+    <%
+          String id_event = request.getParameter("Kd_Event");
+          SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");            
+          DAONewEvent newEv = new DAONewEvent();
+          DAONewLokasi nLok= new DAONewLokasi();
+          List<NewEvent> list = new ArrayList<NewEvent>();
+          List<NewLokasi> listLok = new ArrayList<NewLokasi>();
+          list = newEv.cariID();
+        //  listLok = nLok.cariID();
+            if (list.size() > 0){
+        %>
+
   <div class="contentdetail">
   <div id="main">                                         
   <br><br><br><br><br>
   <h1 class="judul">Detail Event</h1>
   <h2 class="h2detail">Detail</h2>
-    <p class="pdetail">Event Name &nbsp;&nbsp;: Pertemuan Pengawas </p>
-    <p class="pdetail">Event Time &nbsp;&nbsp;: 19.00 07/11/2017 until 21:30 07/11/2017</p>
+    <p class="pdetail">Event Name &nbsp;&nbsp;: <%=list.get(0).getKdEvent()%> </p>
+    <p class="pdetail">Event Time &nbsp;&nbsp;: <%=format.format(list.get(0).getWaktuMulai())%> until <%=format.format(list.get(0).getWaktuSelesai())%></p>
   
   <h2 class="h2detail">Location</h2>
-  <p class="pdetail">Start Point &nbsp;&nbsp;: Hotel Amorossa Bandung</p>
+  <p class="pdetail">Start Point &nbsp;&nbsp;: <%=list.get(0).getKdEvent()%></p>
   <p class="pdetail">End Point &nbsp;&nbsp;: SMAN 20 Bandung</p>
   <p class="pdetail">Description &nbsp;&nbsp;: Description of Event</p>
 
@@ -65,6 +84,9 @@
   <a class="back" href="pagelist.html"><p><i class="material-icons" style="font-size:20px;color:black; padding-right: 10px;">reply</i>Back</p></a>
   </div>
   </div>
+                    <%
+          }
+       %>
 </article>
 
 <footer>Copyright &copy; Kelompok B1 | Front-End [Made With Love] </footer>
