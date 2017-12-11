@@ -28,8 +28,9 @@ public class DAONewEvent extends NewEvent implements DAO{
 
     public void simpan(){
         //
-        String sql = "INSERT into event(Kd_Event,Kd_Traveller,Travel_Mode,Avoidtolls,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan) values('"+kdEvent+"','"+kdTraveller+"','"+travelMode+"','"+avoidtolls+"','"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+keterangan+"')";
+        String sql = "INSERT into event(Kd_Event,Kd_Traveller,Travel_Mode,Avoidtolls,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan) values('"+kdEvent+"','"+kdTraveller+"','"+travelMode+"',"+avoidtolls+",'"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+keterangan+"')";
         db.simpanData(sql);
+         System.out.println(sql);
     }
 
     @Override

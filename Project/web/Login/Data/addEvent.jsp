@@ -4,6 +4,7 @@
     Author     : Pega Kurniawan
 --%>
 
+<%@page import="Json.AccessJSON"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,9 @@
   <h1 class="judul">Create Schedule</h1>
   <div class="widget">
   <div class="title"><b>Detail</b></div>
+<form action="../../Event?data=event&proses=input-event" method="post" >  
     
+    <input type="text" id="kd_traveller" name="kd_traveller" hidden value="KDT001">
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="namaevent">
       <h1 class="hnamaevent">Event Name :</h1>
@@ -79,11 +82,11 @@
             </div>
             
             <input type="button" value="cari lokasi" onclick="getMap()">
-            <input type="text" id="latAwal">
-            <input type="text" id="longAwal">
+            <input type="text" id="latAwal" name="latitude_awal">
+            <input type="text" id="longAwal" name="longitude_awal">
             <br>
-            <input type="text" id="latAkhir">
-            <input type="text" id="longAkhir">
+            <input type="text" id="latAkhir" name="latitude_akhir">
+            <input type="text" id="longAkhir" name="longitude_akhir">
       
     </div>
      <div id="map"></div>
@@ -154,6 +157,7 @@
               $("#error").append("Unable to retrieve your route<br />");
           }
         );
+        
       }
       
       function getLatLongAwal(emb){
@@ -246,7 +250,47 @@
           }
         });   
       }
+      
+      function RuteKendaraan(moda) {
+        // initialized kampus tercinta (POLBAN)
+        
+        var myOptions = {
+          zoom: 5,
+          center: new google.maps.LatLng(-6.870458,107.571883),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        
+        var from = document.getElementById("from").value;
+        var to = document.getElementById("to").value;
           
+        // Gambar objec map
+        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRequest = {
+          origin: from,
+          destination: to,
+          travelMode: moda,
+          unitSystem: google.maps.UnitSystem.METRIC
+        };
+        
+        directionsService.route(
+          directionsRequest,
+          function(response, status)
+          {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+              new google.maps.DirectionsRenderer({
+                map: mapObject,
+                directions: response
+              });
+            }
+            else
+              $("#error").append("Unable to retrieve your route<br />");
+          }
+        );
+      }
+      
+      
       </script>
  
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
@@ -259,35 +303,35 @@
                 <th>Departure Time</th>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="transport" value="WALKING;1"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="WALKING;1" onClick="RuteKendaraan('WALKING')"><br></td>
                 <td title="Event Name">Walk</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="transport" value="DRIVING;1"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="DRIVING;1" onClick="RuteKendaraan('DRIVING')"><br></td>
                 <td title="Event Name">Motorcycle</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="transport" value="DRIVING;0"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="DRIVING;0" onClick="RuteKendaraan('DRIVING')"><br></td>
                 <td title="Event Name">Car</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="transport" value="TRANSIT;0"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="TRANSIT;0" onClick="RuteKendaraan('TRANSIT')"><br></td>
                 <td title="Event Name">Bus</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="transport" value="TRANSIT;1"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="TRANSIT;1" onClick="RuteKendaraan('TRANSIT')"><br></td>
                 <td title="Event Name">Train</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
@@ -299,11 +343,15 @@
         <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
         <br>
-        <input type="submit" value="Cancel" style="background-color: red;">
+        <input type="button" value="Cancel" style="background-color: red;">
         <input type="submit" value="Create Schedule">
       </div><br> 
+ </form>
+
       </div>
+
     </div>
+      
   </div>
 </article>
 

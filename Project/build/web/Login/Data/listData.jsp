@@ -1,5 +1,5 @@
 
-<%@page import="model.Event"%>
+<%@page import="model.NewEvent"%>
 <%@page import="DAO.DAONewEvent"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -52,7 +52,7 @@
    <table class="table">
   <%
                       DAONewEvent dEvent = new DAONewEvent();
-                      List<Event> data = new ArrayList<Event>();
+                      List<NewEvent> data = new ArrayList<NewEvent>();
                      
                           data = dEvent.tampil();
                      
