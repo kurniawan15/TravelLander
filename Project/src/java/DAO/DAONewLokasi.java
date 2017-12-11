@@ -65,28 +65,28 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         }
         return data;
     }
-        public List getLokasiAkhir() {
+        public String getLokasiAkhir(String kd) {
         List<NewLokasi> data = new ArrayList<NewLokasi>();
         ResultSet rs = null;
- 
+        NewLokasi lok = new NewLokasi();
         try {
-            String sql = "SELECT * FROM lokasi WHERE kd_event='"+kdEvent+"' and keterangan = 'akhir'";
+            String sql = "SELECT * FROM lokasi WHERE id_event='"+kd+"' and keterangan = 'akhir'";
             rs = db.ambilData(sql);
             while (rs.next()) {
-                NewLokasi lok = new NewLokasi();
-                lok.setKdEvent(rs.getString("kd_event"));
+                
+                lok.setKdEvent(rs.getString("id_event"));
                 lok.setNamaLokasi(rs.getString("nama_lokasi"));
                 lok.setLatitude(rs.getString("latitude"));
                 lok.setLongitude(rs.getString("longitude"));
                 lok.setAlamat(rs.getString("alamat"));
                 lok.setKeterangan(rs.getString("keterangan"));
-                data.add(lok);
+                //data.add(lok);
 
             }
             db.diskonek(rs);
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
         }
-        return data;
+        return lok.getNamaLokasi();
     }
 }
