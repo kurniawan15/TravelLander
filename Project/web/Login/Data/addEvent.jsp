@@ -242,13 +242,57 @@
         </select>     
         </div>
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
-        <div id="Pribadi" class="tabcontent">
-        <select id="PribadiModa" name="kd_transport_pribadi">
-          <option value="Sepeda">Sepeda</option>
-          <option value="Motor">Motor</option>
-          <option value="Mobil">Mobil</option>
-        </select>      
-        </div>
+        <table class="table" id="TabelFilter">
+            <tr>
+                <th>Choose</th>
+                <th>Transport Name</th>
+                <th>Distance (KM) </th>
+                <th>Estimated Time (Minutes)</th>
+                <th>Departure Time</th>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Walk</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Motorcycle</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Car</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Bus</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Train</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+            <tr>
+                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="Event Name">Aeroplane</td>
+                <td title="Location">-</td>
+                <td title="Ibu Kota">-</td>
+                <td title="Ibu Kota">-</td>
+            </tr>
+        </table>
 
         <!--____________________________Tombol Submit or cancel____________________________--> 
       <div class="col-12 enter">
