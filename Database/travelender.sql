@@ -1,75 +1,141 @@
-/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     12/5/2017 3:31:30 PM                         */
-/*==============================================================*/
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: 11 Des 2017 pada 13.47
+-- Versi Server: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-drop table if exists EVENT;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-drop table if exists LOKASI;
+--
+-- Database: `travelender`
+--
 
-drop table if exists MODA_PERJALANAN;
+-- --------------------------------------------------------
 
-drop table if exists TRAVELLER;
+--
+-- Struktur dari tabel `event`
+--
 
-/*==============================================================*/
-/* Table: EVENT                                                 */
-/*==============================================================*/
-create table EVENT
-(
-   KD_EVENT             varchar(16) not null,
-   KD_TRAVELLER         varchar(6) not null,
-   TRAVEL_MODE          varchar(50) not null,
-   AVOIDTOLLS           bool not null,
-   NAMA_EVENT           varchar(50),
-   WAKTU_MULAI          datetime,
-   WAKTU_SELESAI        datetime,
-   KETERANGAN           text,
-   primary key (KD_EVENT)
-);
+CREATE TABLE `event` (
+  `KD_EVENT` varchar(16) NOT NULL,
+  `KD_TRAVELLER` varchar(6) NOT NULL,
+  `TRAVEL_MODE` varchar(50) NOT NULL,
+  `AVOIDTOLLS` tinyint(1) NOT NULL,
+  `NAMA_EVENT` varchar(50) DEFAULT NULL,
+  `WAKTU_MULAI` datetime DEFAULT NULL,
+  `WAKTU_SELESAI` datetime DEFAULT NULL,
+  `KETERANGAN` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*==============================================================*/
-/* Table: LOKASI                                                */
-/*==============================================================*/
-create table LOKASI
-(
-   KD_EVENT             varchar(16) not null,
-   LATITUDE             varchar(30),
-   LONGITUDE            varchar(30),
-   NAMA_LOKASI          varchar(50),
-   ALAMAT               text,
-   KETERANGAN           text
-);
+-- --------------------------------------------------------
 
-/*==============================================================*/
-/* Table: MODA_PERJALANAN                                       */
-/*==============================================================*/
-create table MODA_PERJALANAN
-(
-   TRAVEL_MODE          varchar(50) not null,
-   AVOIDTOLLS           bool not null,
-   primary key (TRAVEL_MODE, AVOIDTOLLS)
-);
+--
+-- Struktur dari tabel `lokasi`
+--
 
-/*==============================================================*/
-/* Table: TRAVELLER                                             */
-/*==============================================================*/
-create table TRAVELLER
-(
-   KD_TRAVELLER         varchar(6) not null,
-   NAMA_TRAVELLER       varchar(50),
-   USERNAME             varchar(16),
-   PASSWORD             varchar(16),
-   EMAIL                varchar(35),
-   primary key (KD_TRAVELLER)
-);
+CREATE TABLE `lokasi` (
+  `KD_EVENT` varchar(16) NOT NULL,
+  `LATITUDE` varchar(30) DEFAULT NULL,
+  `LONGITUDE` varchar(30) DEFAULT NULL,
+  `NAMA_LOKASI` varchar(50) DEFAULT NULL,
+  `ALAMAT` text,
+  `KETERANGAN` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-alter table EVENT add constraint FK_MEMILIKI foreign key (KD_TRAVELLER)
-      references TRAVELLER (KD_TRAVELLER) on delete restrict on update restrict;
+-- --------------------------------------------------------
 
-alter table EVENT add constraint FK_MENGGUNAKAN foreign key (TRAVEL_MODE, AVOIDTOLLS)
-      references MODA_PERJALANAN (TRAVEL_MODE, AVOIDTOLLS) on delete restrict on update restrict;
+--
+-- Struktur dari tabel `moda_perjalanan`
+--
 
-alter table LOKASI add constraint FK_BERTUJUAN foreign key (KD_EVENT)
-      references EVENT (KD_EVENT) on delete restrict on update restrict;
+CREATE TABLE `moda_perjalanan` (
+  `TRAVEL_MODE` varchar(50) NOT NULL,
+  `AVOIDTOLLS` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `moda_perjalanan`
+--
+
+INSERT INTO `moda_perjalanan` (`TRAVEL_MODE`, `AVOIDTOLLS`) VALUES
+('BICYCLING', 1),
+('DRIVING', 0),
+('DRIVING', 1),
+('TRANSIT', 0),
+('TRANSIT', 1),
+('WALKING', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `traveller`
+--
+
+CREATE TABLE `traveller` (
+  `KD_TRAVELLER` varchar(6) NOT NULL,
+  `NAMA_TRAVELLER` varchar(50) DEFAULT NULL,
+  `USERNAME` varchar(16) DEFAULT NULL,
+  `PASSWORD` varchar(16) DEFAULT NULL,
+  `EMAIL` varchar(35) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`KD_EVENT`),
+  ADD KEY `FK_MEMILIKI` (`KD_TRAVELLER`),
+  ADD KEY `FK_MENGGUNAKAN` (`TRAVEL_MODE`,`AVOIDTOLLS`);
+
+--
+-- Indexes for table `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD KEY `FK_BERTUJUAN` (`KD_EVENT`);
+
+--
+-- Indexes for table `moda_perjalanan`
+--
+ALTER TABLE `moda_perjalanan`
+  ADD PRIMARY KEY (`TRAVEL_MODE`,`AVOIDTOLLS`);
+
+--
+-- Indexes for table `traveller`
+--
+ALTER TABLE `traveller`
+  ADD PRIMARY KEY (`KD_TRAVELLER`);
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `event`
+--
+ALTER TABLE `event`
+  ADD CONSTRAINT `FK_MEMILIKI` FOREIGN KEY (`KD_TRAVELLER`) REFERENCES `traveller` (`KD_TRAVELLER`),
+  ADD CONSTRAINT `FK_MENGGUNAKAN` FOREIGN KEY (`TRAVEL_MODE`,`AVOIDTOLLS`) REFERENCES `moda_perjalanan` (`TRAVEL_MODE`, `AVOIDTOLLS`);
+
+--
+-- Ketidakleluasaan untuk tabel `lokasi`
+--
+ALTER TABLE `lokasi`
+  ADD CONSTRAINT `FK_BERTUJUAN` FOREIGN KEY (`KD_EVENT`) REFERENCES `event` (`KD_EVENT`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
