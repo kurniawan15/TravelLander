@@ -81,6 +81,36 @@ footer {background: #272727;color:white;
     text-decoration: none;
 }
 
+.table{
+	margin-top:0px;
+        margin-right: 0px;
+        width:100%;
+        overflow:auto;
+        font-family: helvetica,arial,sans-serif;
+        font-size:14px;
+        color:#000;
+        border-collapse: collapse;
+        text-align: center;
+        border: 1px;
+}
+
+.table th 
+{
+        padding: 8px;
+        color:#fff;
+        background-color: grey;
+}
+.table tr {
+    border-width: 1px;
+    padding: 8px;
+    font-size:15px;
+}
+.table tr td {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
 @media all and (min-width: 768px) {
     .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
     .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}

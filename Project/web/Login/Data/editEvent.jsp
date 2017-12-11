@@ -5,10 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.NewEvent"%>
+<%@page import="DAO.DAONewEvent"%>
+<%@page import="model.NewLokasi"%>
+<%@page import="DAO.DAONewLokasi"%>
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="css/style.css">
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -48,47 +57,62 @@
   <h1 class="judul">Edit Schedule</h1>
     <div class="widget">
     <div class="title"><b>Detail</b></div>
-    
-    <!--____________________________Form Inputan Nama Event____________________________-->
-    <div class="namaevent">
-      <h1 class="hnamaevent">Event Name :</h1>
-      <input type="text" id="fname" name="nama_event" placeholder="Input Event Name">
-    </div>
-    
-    <!--____________________________Form Inputan Waktu Event____________________________-->
-    <div class="waktu">
-      <h1 class="hwaktu">Event Time :</h1>
-      <!--____________________________Form input waktu awal____________________________-->
-      <input type="datetime-local" name="waktu_mulai" placeholder="start time"> <i>&nbsp;until&nbsp;</i>
-      <!--____________________________Form input waktu akhir--> 
-      <input type="datetime-local" name="waktu_selesai" placeholder="End time">   
-    </div>
-    
-    <!--____________________________Form Inputan Lokasi Awal____________________________-->
-    <div class="LokasiAwal">
-      <div class="title"><b><br>Location</b></div>
-      <h1 class="hlokasiawal">Start Location :</h1>
-      <select id="LokasiAwal" name="kd_lokasi_awal">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
-      </select>     
-    </div>
-    
-    <!--____________________________Form Inputan Lokasi Akhir____________________________-->   
-    <div class="LokasiAkhir">
-      <h1 class="hlokasiakhir">End Location :</h1>
-      <select id="LokasiAkhir" name="kd_lokasi_akhir">
-        <option value="Lokasi1">Lokasi 1</option>
-        <option value="Lokasi2">Lokasi 2</option>
-        <option value="Lokasi3">Lokasi 3</option>
-        <option value="Lokasi4">Lokasi 4</option>
-        <option value="Lokasi5">Lokasi 5</option>
-      </select>     
-    </div>
-    
+    <form action="../../provinsi?data=provinsi&proses=update-provinsi" method="post">
+        <%
+            String kode_event = request.getParameter("kode_event");
+            DAONewEvent kt = new DAONewEvent();
+            kt.setKdEvent(kode_event);
+            List<NewEvent> data = new ArrayList<NewEvent>();
+            data = kt.cariID(); 
+            if (data.size() > 0) {
+            %>
+        <!--____________________________Form Inputan Nama Event____________________________-->
+        <div class="namaevent">
+          <h1 class="hnamaevent">Event Name :</h1>
+          <input type="text" id="fname" name="nama_event" placeholder="<%=data.get(0).getNamaEvent()%>">
+        </div>
+
+        <!--____________________________Form Inputan Waktu Event____________________________-->
+        <div class="waktu">
+          <h1 class="hwaktu">Event Time :</h1>
+          <!--____________________________Form input waktu awal____________________________-->
+          <input type="datetime-local" name="waktu_mulai" placeholder="<%=data.get(0).getWaktuMulai()%>"> <i>&nbsp;until&nbsp;</i>
+          <!--____________________________Form input waktu akhir--> 
+          <input type="datetime-local" name="waktu_selesai" placeholder="<%=data.get(0).getWaktuSelesai()%>">   
+        </div>
+
+        <!--____________________________Form Inputan Lokasi Awal____________________________-->
+         <%
+            DAONewLokasi loc = new DAONewLokasi();
+            List<NewLokasi> lokasi = new ArrayList<NewLokasi>();
+            lokasi = loc.tampil();
+            for (NewLokasi k : lokasi) {
+          %>
+          <div class="LokasiAwal">
+          <div class="title"><b><br>Location</b></div>
+                <option value="<%=k.getAlamat()%>"><%=k.getNamaLokasi()%></option>
+                <% 
+                       }
+                %>
+          
+                <h1 class="hlokasiawal">Start Location :</h1>
+                <input type="text" id="from" name="from" required="required" placeholder="<%=data.get(0).getWaktuMulai()%>" size="30" />
+                <a id="from-link" href="#">Posisi sekarang</a>
+                <div class="LokasiAkhir">
+                    <h1 class="hlokasiakhir">End Location :</h1>
+                    <input type="text" id="to" name="to" required="required" placeholder="lokasi akhir" size="30" />
+                </div>
+
+                <input type="submit" value="cari lokasi" />
+                <input type="text" id="latAwal">
+                <input type="text" id="longAwal">
+                <br>
+                <input type="text" id="latAkhir">
+                <input type="text" id="longAkhir">
+          
+        </div>
+         <div id="map"></div>
+    </form>
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="keteranganevent">
       <h1 class="hketevent">Event Description :</h1>
@@ -120,6 +144,110 @@
           document.getElementById(cityName).style.display = "block";
           evt.currentTarget.className += " active";
           }
+          
+          // layer dari rute nya 
+      function Rute (from, to) {
+        // initialized kampus tercinta (POLBAN)
+        var myOptions = {
+          zoom: 5,
+          center: new google.maps.LatLng(-6.870458,107.571883),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // Gambar objec map
+        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRequest = {
+          origin: from,
+          destination: to,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING,
+          unitSystem: google.maps.UnitSystem.METRIC
+        };
+        
+        directionsService.route(
+          directionsRequest,
+          function(response, status)
+          {
+            if (status == google.maps.DirectionsStatus.OK)
+            {
+              new google.maps.DirectionsRenderer({
+                map: mapObject,
+                directions: response
+              });
+            }
+            else
+              $("#error").append("Unable to retrieve your route<br />");
+          }
+        );
+      }
+      
+      function getLatLongAwal(emb){
+          var address = emb;
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            
+               document.getElementById("latAwal").value = results[0].geometry.location.lat();
+               document.getElementById("longAwal").value = results[0].geometry.location.lng();
+            
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });   
+      }
+      
+      function getLatLongAkhir(des){
+          var address = des;
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            
+               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
+               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
+            
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });   
+      }
+      
+      //bagian google API
+      $(document).ready(function() {
+        // If the browser supports the Geolocation API
+        if (typeof navigator.geolocation == "undefined") {
+          $("#error").text("Your browser doesn't support the Geolocation API");
+          return;
+        }
+        $("#from-link, #to-link").click(function(event) {
+          event.preventDefault();
+          var addressId = this.id.substring(0, this.id.indexOf("-"));
+          //penanggilan posisi sekarang
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+              "location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+            },
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK)
+                $("#" + addressId).val(results[0].formatted_address);
+              else
+                $("#error").append("Unable to retrieve your address<br />");
+            });
+          },
+          function(positionError){
+            $("#error").append("Error: " + positionError.message + "<br />");
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 10 * 1000 // 10 seconds
+          });
+        });
+        $("#calculate-route").submit(function(event) {
+          event.preventDefault();
+          Rute($("#from").val(), $("#to").val());
+          getLatLongAwal($("#from").val());
+          getLatLongAkhir($("#to").val());
+        });
+      });
       </script>
         <!--____________________________isi option di kendaraan umum____________________________-->      
         <div id="Umum" class="tabcontent">
