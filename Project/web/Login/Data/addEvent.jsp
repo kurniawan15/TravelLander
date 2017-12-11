@@ -69,7 +69,7 @@
     <!--____________________________Form Inputan Lokasi Awal____________________________-->
     <div class="LokasiAwal">
       <div class="title"><b><br>Location</b></div>
-      <form id="calculate-route" name="calculate-route" action="#" method="get">
+      
             <h1 class="hlokasiawal">Start Location :</h1>
             <input type="text" id="from" name="from" required="required" placeholder="lokasi awal" size="30" />
             <a id="from-link" href="#">Posisi sekarang</a>
@@ -78,13 +78,13 @@
                 <input type="text" id="to" name="to" required="required" placeholder="lokasi akhir" size="30" />
             </div>
             
-            <input type="submit" value="cari lokasi" />
+            <input type="button" value="cari lokasi" onclick="getMap()">
             <input type="text" id="latAwal">
             <input type="text" id="longAwal">
             <br>
             <input type="text" id="latAkhir">
             <input type="text" id="longAkhir">
-      </form>
+      
     </div>
      <div id="map"></div>
     <!--____________________________Form Inputan Lokasi Akhir____________________________-->   
@@ -217,6 +217,7 @@
             timeout: 10 * 1000 // 10 seconds
           });
         });
+        
         $("#calculate-route").submit(function(event) {
           event.preventDefault();
           Rute($("#from").val(), $("#to").val());
@@ -224,6 +225,27 @@
           getLatLongAkhir($("#to").val());
         });
       });
+      
+      function getMap(){
+          var from = document.getElementById("from").value;
+          var to = document.getElementById("to").value;
+          
+          Rute(from,to);
+          getLatLongAwal(from);
+          getLatLongAkhir(to);
+          
+          geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            
+               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
+               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
+            
+           
+            } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });   
+      }
           
       </script>
  
@@ -237,47 +259,41 @@
                 <th>Departure Time</th>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="WALKING;1"><br></td>
                 <td title="Event Name">Walk</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="DRIVING;1"><br></td>
                 <td title="Event Name">Motorcycle</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="DRIVING;0"><br></td>
                 <td title="Event Name">Car</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="TRANSIT;0"><br></td>
                 <td title="Event Name">Bus</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
             <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                <td title="NO"><input type="radio" name="transport" value="TRANSIT;1"><br></td>
                 <td title="Event Name">Train</td>
                 <td title="Location">-</td>
                 <td title="Ibu Kota">-</td>
                 <td title="Ibu Kota">-</td>
             </tr>
-            <tr>
-                <td title="NO"><input type="radio" name="#" value="#"><br></td>
-                <td title="Event Name">Aeroplane</td>
-                <td title="Location">-</td>
-                <td title="Ibu Kota">-</td>
-                <td title="Ibu Kota">-</td>
-            </tr>
+            
         </table>
 
         <!--____________________________Tombol Submit or cancel____________________________--> 
