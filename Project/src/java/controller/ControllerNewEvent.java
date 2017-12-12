@@ -7,9 +7,7 @@ package controller;
 
 import DAO.DAONewEvent;
 import DAO.DAONewLokasi;
-import model.NewLokasi;
 import java.io.IOException;
-import static java.lang.String.format;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +36,7 @@ public class ControllerNewEvent extends HttpServlet{
             return;
         }else if(proses.equals("hapus-event")){
             DAONewEvent ev=new DAONewEvent();
-            ev.setIdEvent(request.getParameter("Id_Event"));
+            ev.setKdEvent(request.getParameter("Id_Event"));
             ev.hapus();
             response.sendRedirect("indexEvent.jsp");
         }
@@ -50,73 +48,53 @@ public class ControllerNewEvent extends HttpServlet{
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
         
-        //SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy hh.mm");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T' '|' hh:mm");
+       
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
         
-        //===================================
-        //    GET KODE TRANSPORTASI
-        //===================================
-//        String kdTransportasiTerjadwal,kdTransportasiTidakTerjadwal;
-//        
-//        if(request.getParameter("Moda_Transportasi").equalsIgnoreCase("umum")){
-//            kdTransportasiTidakTerjadwal = null;
-//            kdTransportasiTerjadwal  = request.getParameter("Kd_Transportasi_Terjadwal");
-//        }
-//        else{
-//            kdTransportasiTerjadwal  = null;
-//            kdTransportasiTidakTerjadwal = request.getParameter("Kd_Transportasi_Tidak_Terjadwal");
-//            
-//        }
-        //===================================
-        //    GET KODE PERJALANAN
-        //===================================
-//        DAOPerjalanan dPj = new DAOPerjalanan();
-//        
-//        String kdPerjalanan = dPj.getKdPerjalanan(request.getParameter("kd_lokasi_awal"),request.getParameter("kd_lokasi_akhir"),kdTransportasiPublik,kdTransportasiPribadi);
-          if (data != null){
+        if (data != null){
             if(data.equals("event")){
                 DAONewEvent ev = new DAONewEvent();
-                ev.setIdEvent(request.getParameter("Id_Event"));
-                ev.setKdTraveller(request.getParameter("Kd_Traveller"));
+                String trans[] = request.getParameter("transport").split(";");
+                String moda = trans[0];
+                String toll = trans[1];
                 
-                if(request.getParameter("tipe_moda").equals("Umum")){
-                    ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                    ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
-                }else{
                 
-                }
-                ev.setKdTransportasiTidakTerjadwal(request.getParameter("Kd_Transportasi_Tidak_Terjadwal"));
-                ev.setKdTransportasiTerjadwal(request.getParameter("Kd_Transportasi_Terjadwal"));
-                
-                ev.setNamaEvent(request.getParameter("Nama_Event"));
+                ev.setKdTraveller(request.getParameter("kd_traveller"));
+                ev.setNamaEvent(request.getParameter("nama_event"));
+                ev.setAvoidtolls(Integer.parseInt(toll));
+                ev.setTravelMode(moda);
+                ev.setKeterangan(request.getParameter("keterangan"));
                 try {
-                    ev.setWaktuMulai(format.parse(request.getParameter("Waktu_Mulai")));
-                    ev.setWaktuSelesai(format.parse(request.getParameter("Waktu_Selesai")));
+                    ev.setWaktuMulai(format.parse(request.getParameter("waktu_mulai")));
+                    ev.setWaktuSelesai(format.parse(request.getParameter("waktu_selesai")));
                 } catch (ParseException ex) {
                     response.sendRedirect("");
                 }
                 
-                
-                
                 DAONewLokasi lokAwal = new DAONewLokasi();
-                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
-                lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_awal"));
+                lokAwal.setNamaLokasi(request.getParameter("from"));
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
-                lokAwal.setLongitude(request.getParameter("latitude_awal"));
-                lokAwal.setAlamat(request.getParameter("alamat_awal"));
+                lokAwal.setLongitude(request.getParameter("longitude_awal"));
+                lokAwal.setAlamat(request.getParameter("from"));
                 lokAwal.setKeterangan("awal");
                 
-                DAONewLokasilokAkhir = new DAONewLokasi();
-                lokAwal.setIdEvent(request.getParameter("Kd_Event"));
-                lokAwal.setNamaLokasi(request.getParameter("nama_lokasi_akhir"));
-                lokAwal.setLatitude(request.getParameter("latitude_akhir"));
-                lokAwal.setLongitude(request.getParameter("latitude_akhir"));
-                lokAwal.setAlamat(request.getParameter("alamat_akhir"));
-                lokAwal.setKeterangan("akhir");
+                DAONewLokasi lokAkhir = new DAONewLokasi();
+                lokAkhir.setNamaLokasi(request.getParameter("to"));
+                lokAkhir.setLatitude(request.getParameter("latitude_akhir"));
+                lokAkhir.setLongitude(request.getParameter("longitude_akhir"));
+                lokAkhir.setAlamat(request.getParameter("to"));
+                lokAkhir.setKeterangan("akhir");
+                
                 if (proses.equals("input-event")){
                     try {
-                        ev.setIdEvent(ev.getNewId());
+                        String kd = ev.getNewId();
+                        ev.setKdEvent(kd);
                         ev.simpan();
+                        lokAwal.setKdEvent(kd);
+                        lokAkhir.setKdEvent(kd);
+                        lokAwal.simpan();
+                        lokAkhir.simpan();
+                        
                     } catch (SQLException ex) {
                       response.sendRedirect("tambah_event.jsp");
                     }
