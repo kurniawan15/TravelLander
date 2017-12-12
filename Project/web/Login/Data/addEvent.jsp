@@ -53,7 +53,7 @@
   <div class="title"><b>Detail</b></div>
 <form action="../../Event?data=event&proses=input-event" method="post" >  
     
-    <input type="text" id="kd_traveller" name="kd_traveller" hidden value="KDT001">
+    <input type="hidden" id="kd_traveller" name="kd_traveller"  value="T001">
     <!--____________________________Form Inputan Nama Event____________________________-->
     <div class="namaevent">
       <h1 class="hnamaevent">Event Name :</h1>
@@ -82,11 +82,11 @@
             </div>
             
             <input type="button" value="cari lokasi" onclick="getMap()">
-            <input type="text" id="latAwal" name="latitude_awal">
-            <input type="text" id="longAwal" name="longitude_awal">
+            <input type="text" id="latAwal" name="latitude_awal" readonly>
+            <input type="text" id="longAwal" name="longitude_awal" readonly>
             <br>
-            <input type="text" id="latAkhir" name="latitude_akhir">
-            <input type="text" id="longAkhir" name="longitude_akhir">
+            <input type="text" id="latAkhir" name="latitude_akhir" readonly>
+            <input type="text" id="longAkhir" name="longitude_akhir" readonly>
       
     </div>
      <div id="map"></div>

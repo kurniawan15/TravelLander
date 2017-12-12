@@ -1,4 +1,5 @@
 
+<%@page import="DAO.DAONewLokasi"%>
 <%@page import="model.NewEvent"%>
 <%@page import="DAO.DAONewEvent"%>
 <%@page import="java.util.List"%>
@@ -53,17 +54,17 @@
   <%
                       DAONewEvent dEvent = new DAONewEvent();
                       List<NewEvent> data = new ArrayList<NewEvent>();
-                     
-                          data = dEvent.tampil();
+                      DAONewLokasi dLok = new DAONewLokasi();
+                      data = dEvent.tampil();
                      
                       for (int x = 0; x < data.size(); x++) {
                     %>
       <tr>
           <td style="font-size: 14px;"><%=x + 1%></td>
           <td style="font-size: 14px;"><%=data.get(x).getKdEvent()%></td>
-          <td style="font-size: 14px;">Pengawasan dan Pelatihan</td>
-          <td style="font-size: 14px;">SMAN 20 BANDUNG</td>
-          <td style="font-size: 14px;">Car</td>
+          <td style="font-size: 14px;"><%=data.get(x).getNamaEvent()%></td>
+          <td style="font-size: 14px;"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
+          <td style="font-size: 14px;"><%=data.get(x).getTravelMode()%></td>
           <td><a href="detailevent.html"><input type="submit" name="" value="detail" style="background-color: grey; width: 100%; height: 5px; line-height: 2px;"></a></td>
       </tr>
           <% 

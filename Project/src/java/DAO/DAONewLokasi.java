@@ -65,12 +65,12 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         }
         return data;
     }
-        public List getLokasiAkhir() {
+        public String getLokasiAkhir(String kd) {
         List<NewLokasi> data = new ArrayList<NewLokasi>();
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM lokasi WHERE kd_event='"+kdEvent+"' and keterangan = 'akhir'";
+            String sql = "SELECT * FROM lokasi WHERE kd_event='"+kd+"' and keterangan = 'akhir'";
             rs = db.ambilData(sql);
             while (rs.next()) {
                 NewLokasi lok = new NewLokasi();
@@ -87,6 +87,6 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
         }
-        return data;
+        return data.get(0).getNamaLokasi();
     }
 }

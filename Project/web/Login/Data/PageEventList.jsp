@@ -68,6 +68,7 @@
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");            
                       DAONewEvent namatanggal = new DAONewEvent();
                       List<NewEvent> list = new ArrayList<NewEvent>();
+                      DAONewLokasi dLok = new DAONewLokasi();
                       String ket = request.getParameter("ket");
                       if (ket == null) {
                           list = namatanggal.tampil();
@@ -77,7 +78,7 @@
       <tr>
           <td style="font-size: 14px;"><%=x + 1%></td>
           <td style="font-size: 14px;"><%=list.get(x).getNamaEvent()%></td>
-          <td style="font-size: 14px;"></td>
+          <td style="font-size: 14px;"><%=dLok.getLokasiAkhir(list.get(x).getKdEvent())%></td>
           <td style="font-size: 14px;"><%=format.format(list.get(x).getWaktuMulai())%></td>
           <td><a href="edit.html"><input type="submit" name="" value="EDIT" style="background-color: grey; width: 50%; height: 5px; line-height: 2px;"></a><a href="pageedit.html"><input type="submit" name="" value="DELETE" style="background-color: red; width: 50%; height: 5px; line-height: 2px;"></a></td>
       </tr>
