@@ -3,6 +3,8 @@
     Created on : Nov 20, 2017, 9:14:29 PM
     Author     : Hari
 --%>
+<%@page import="DAO.DAONewLokasi"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="DAO.DAONewEvent"%>
 <%@page import="model.NewEvent"%>
 <%@page import="java.util.List"%>
@@ -72,10 +74,12 @@
                             <th>Edit Your Event</th>
                         </tr>
                         <%
+                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                       DAONewEvent kt = new DAONewEvent();
+                      DAONewLokasi dLok = new DAONewLokasi();
                       List<NewEvent> data = new ArrayList<NewEvent>();
                       String ket = request.getParameter("ket");
-
+                        
                       if (ket == null) {
                           data = kt.tampil();
                       }
@@ -85,8 +89,8 @@
                         <tr>
                             <td title="NO"><%=x + 1%></td>
                             <td title="Event Name"><%=data.get(x).getNamaEvent()%></td>
-                            <td title="Location"><%=data.get(x).getKdTraveller()%></td>
-                            <td title="Ibu Kota"><%=data.get(x).getWaktuMulai()%></td>
+                            <td title="Location"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
+                            <td title="Ibu Kota"><%=format.format(data.get(x).getWaktuMulai())%></td>
                             <td><input type="submit" class="button2" onClick="opena()" value="Edit" ></td>
                         </tr>
                            <% 

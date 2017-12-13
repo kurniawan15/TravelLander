@@ -82,11 +82,11 @@
             </div>
             
             <input type="button" value="cari lokasi" onclick="getMap()">
-            <input type="text" id="latAwal" name="latitude_awal" readonly>
-            <input type="text" id="longAwal" name="longitude_awal" readonly>
+            <input type="hidden" id="latAwal" name="latitude_awal" readonly>
+            <input type="hidden" id="longAwal" name="longitude_awal" readonly>
             <br>
-            <input type="text" id="latAkhir" name="latitude_akhir" readonly>
-            <input type="text" id="longAkhir" name="longitude_akhir" readonly>
+            <input type="hidden" id="latAkhir" name="latitude_akhir" readonly>
+            <input type="hidden" id="longAkhir" name="longitude_akhir" readonly>
       
     </div>
      <div id="map"></div>

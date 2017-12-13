@@ -1,4 +1,5 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="DAO.DAONewLokasi"%>
 <%@page import="model.NewEvent"%>
 <%@page import="DAO.DAONewEvent"%>
@@ -52,6 +53,7 @@
   <h2 class="ftask">[Completed Event]</h2>
    <table class="table">
   <%
+                      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
                       DAONewEvent dEvent = new DAONewEvent();
                       List<NewEvent> data = new ArrayList<NewEvent>();
                       DAONewLokasi dLok = new DAONewLokasi();
@@ -61,7 +63,7 @@
                     %>
       <tr>
           <td style="font-size: 14px;"><%=x + 1%></td>
-          <td style="font-size: 14px;"><%=data.get(x).getKdEvent()%></td>
+          <td style="font-size: 14px;"><%=format.format(data.get(x).getWaktuMulai())%></td>
           <td style="font-size: 14px;"><%=data.get(x).getNamaEvent()%></td>
           <td style="font-size: 14px;"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
           <td style="font-size: 14px;"><%=data.get(x).getTravelMode()%></td>
