@@ -6,12 +6,14 @@
 
 <%@page import="Json.AccessJSON"%>
 <!DOCTYPE html>
-<html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+   
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
@@ -64,33 +66,36 @@
     <div class="waktu">
       <h1 class="hwaktu">Event Time :</h1>
       <!--____________________________Form input waktu awal____________________________-->
-      <input type="datetime-local" name="waktu_mulai" placeholder="start time"> <i>&nbsp;until&nbsp;</i>
-      <!--____________________________Form input waktu akhir--> 
-      <input type="datetime-local" name="waktu_selesai" placeholder="End time">   
-    </div>
-    
-    <!--____________________________Form Inputan Lokasi Awal____________________________-->
-    <div class="LokasiAwal">
-      <div class="title"><b><br>Location</b></div>
-      
-            <h1 class="hlokasiawal">Start Location :</h1>
-            <input type="text" id="from" name="from" required="required" placeholder="lokasi awal" size="30" />
-            <a id="from-link" href="#">Posisi sekarang</a>
-            <div class="LokasiAkhir">
-                <h1 class="hlokasiakhir">End Location :</h1>
-                <input type="text" id="to" name="to" required="required" placeholder="lokasi akhir" size="30" />
-            </div>
-            
-            <input type="button" value="cari lokasi" onclick="getMap()">
-            <input type="hidden" id="latAwal" name="latitude_awal" readonly>
-            <input type="hidden" id="longAwal" name="longitude_awal" readonly>
-            <br>
-            <input type="hidden" id="latAkhir" name="latitude_akhir" readonly>
-            <input type="hidden" id="longAkhir" name="longitude_akhir" readonly>
-      
-    </div>
-     <div id="map"></div>
-    <!--____________________________Form Inputan Lokasi Akhir____________________________-->   
+      <table border="0" cellpadding="0" cellspacing="3">
+        <tr>
+            <td colspan="2">
+                Source:
+                <input type="text" id="txtSource" value="" style="width: 200px" />
+                  <a id="from-link" href="#">Posisi sekarang</a>
+                &nbsp; Destination:
+                <input type="text" id="txtDestination" value="" style="width: 200px" />
+                <br />
+                <input type="button" value="Get Route" onclick="GetRoute()" />
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="dvDistance">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="dvMap" style="width: 500px; height: 500px">
+                </div>
+            </td>
+            <td>
+                <div id="dvPanel" style="width: 500px; height: 500px">
+                </div>
+            </td>
+        </tr>
+    </table>   
     
     
     <!--____________________________Form Inputan Nama Event____________________________-->
@@ -102,96 +107,11 @@
     <!--____________________________Form Inputan Transportasi____________________________-->   
   
       <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
-      <script type="text/javascript">
-        function openCity(evt, cityName) {
-          var i, tabcontent, tablinks; //deklarasi variabel
-          
-          document.getElementById("tipe_moda").value = cityName;
-          //mengambil element yang ada di class tabcontent dan menyembunyikan class 
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-          }
-          
-          //mengambil element yang ada di class tablinks dan menghapus yg aktif di display
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          
-          //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-          }
-          
-          // layer dari rute nya 
-      function Rute (from, to) {
-        // initialized kampus tercinta (POLBAN)
-        var myOptions = {
-          zoom: 5,
-          center: new google.maps.LatLng(-6.870458,107.571883),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        // Gambar objec map
-        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRequest = {
-          origin: from,
-          destination: to,
-          travelMode: google.maps.DirectionsTravelMode.DRIVING,
-          unitSystem: google.maps.UnitSystem.METRIC
-        };
+      <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>-->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag&libraries=places"></script>
+    <script type="text/javascript">
         
-        directionsService.route(
-          directionsRequest,
-          function(response, status)
-          {
-            if (status == google.maps.DirectionsStatus.OK)
-            {
-              new google.maps.DirectionsRenderer({
-                map: mapObject,
-                directions: response
-              });
-            }
-            else
-              $("#error").append("Unable to retrieve your route<br />");
-          }
-        );
-        
-      }
-      
-      function getLatLongAwal(emb){
-          var address = emb;
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAwal").value = results[0].geometry.location.lat();
-               document.getElementById("longAwal").value = results[0].geometry.location.lng();
-            
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      function getLatLongAkhir(des){
-          var address = des;
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
-               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
-            
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      //bagian google API
-      $(document).ready(function() {
+    $(document).ready(function() {
         // If the browser supports the Geolocation API
         if (typeof navigator.geolocation == "undefined") {
           $("#error").text("Your browser doesn't support the Geolocation API");
@@ -208,7 +128,7 @@
             },
             function(results, status) {
               if (status == google.maps.GeocoderStatus.OK)
-                $("#" + addressId).val(results[0].formatted_address);
+                alert($(addressId).val(results[0].formatted_address()));
               else
                 $("#error").append("Unable to retrieve your address<br />");
             });
@@ -229,69 +149,70 @@
           getLatLongAkhir($("#to").val());
         });
       });
-      
-      function getMap(){
-          var from = document.getElementById("from").value;
-          var to = document.getElementById("to").value;
-          
-          Rute(from,to);
-          getLatLongAwal(from);
-          getLatLongAkhir(to);
-          
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
-               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
-            
-           
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      function RuteKendaraan(moda) {
-        // initialized kampus tercinta (POLBAN)
-        
-        var myOptions = {
-          zoom: 5,
-          center: new google.maps.LatLng(-6.870458,107.571883),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        
-        var from = document.getElementById("from").value;
-        var to = document.getElementById("to").value;
-          
-        // Gambar objec map
-        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+    
+    
+    var source, destination;
+        var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
-        var directionsRequest = {
-          origin: from,
-          destination: to,
-          travelMode: moda,
-          unitSystem: google.maps.UnitSystem.METRIC
-        };
-        
-        directionsService.route(
-          directionsRequest,
-          function(response, status)
-          {
-            if (status == google.maps.DirectionsStatus.OK)
-            {
-              new google.maps.DirectionsRenderer({
-                map: mapObject,
-                directions: response
-              });
-            }
-            else
-              $("#error").append("Unable to retrieve your route<br />");
-          }
-        );
-      }
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('txtSource'));
+            new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute() {
+            var mumbai = new google.maps.LatLng(18.9750, 72.8258);
+            var mapOptions = {
+                zoom: 7,
+                center: mumbai
+            };
+            map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('dvPanel'));
+
+            //*********DIRECTIONS AND ROUTE**********************//
+            source = document.getElementById("txtSource").value;
+            destination = document.getElementById("txtDestination").value;
+
+            var request = {
+                origin: source,
+                destination: destination,
+                travelMode: google.maps.TravelMode.WALKING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Duration:" + duration;
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+    </script>
+
       
       
-      </script>
+
  
         <!--____________________________isi option di kendaraan pribadi____________________________--> 
         <table class="table" id="TabelFilter">
