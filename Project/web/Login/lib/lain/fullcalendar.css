@@ -4,18 +4,6 @@
  * (c) 2017 Adam Shaw
  */
 
-/* Travelander StyleMenu CSS 
---------------------------------------------------------------------------------------------------*/
-
-
-body {
-	margin:0;
-}
-
-
-/* Main UI 
---------------------------------------------------------------------------------------------------*/
-
 
 .fc {
 	direction: ltr;
@@ -36,12 +24,12 @@ body .fc { /* extra precedence to overcome jqui */
 
 
 .fc-highlight { /* when user is selecting cells */
-	background: #bce8f1; /* Light Blue */
+	background: #bce8f1;
 	opacity: .3;
 }
 
 .fc-bgevent { /* default look for background events */
-	background: rgb(143, 223, 130); /* Green(Leaf) */
+	background: rgb(143, 223, 130);
 	opacity: .3;
 }
 
@@ -252,7 +240,6 @@ hr.fc-divider {
 	border-collapse: collapse;
 	border-spacing: 0;
 	font-size: 1em; /* normalize cross-browser */
-	color: #000;
 }
 
 .fc th {
@@ -272,7 +259,6 @@ hr.fc-divider {
 }
 
 
-/*** Ada di Day, & Week View ***/
 /* Internal Nav Links
 --------------------------------------------------------------------------------------------------*/
 
@@ -282,7 +268,6 @@ a[data-goto] {
 
 a[data-goto]:hover {
 	text-decoration: underline;
-	/*color: #000000; Keterangan Waktu ketika ditunjuk o/ Pointer */
 }
 
 
@@ -340,6 +325,7 @@ a[data-goto]:hover {
 
 .fc-row .fc-bgevent-skeleton {
 	z-index: 2;
+
 }
 
 .fc-row .fc-highlight-skeleton {
