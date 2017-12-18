@@ -1,263 +1,182 @@
 body{
-  font-family:"Arial", Serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
 }
-
-.navbar{
-  background-color:#2980b9;
-  overflow:hidden;
-  height:50px;
-}
-
-/*---------------tombil navigasi---------------------*/
-.navbar a{
-  float:left;
-  display:block;
-  padding:14px 16px;
-}
-
-.navbar ul{
-  margin:0 0 0 0;
-  list-style:none;
-}
-
-.navbar a:hover{
-  background-color:#F8A200;
-  color:#000;
-}
-/*----------------------navigasi kiri -----------------*/
-.side-nav{
-  margin-top:8px; 
-  height:100%;
-  width:0;
-  position:fixed;
-  z-index:1;
-  top:0;
-  left:0;
-  background-color:#2c3e50;
-  overflow-x:hidden;
-  padding-top:60px;
-  transition:0.5s;
-}
-/*  text di sebelah  */
-.side-nav a{
-  padding:10px 2px 10px 5px;
-  text-decoration:none;
-  font-size:20px;
-  color:#fff;
-  display:block;
-  border-bottom: 1px solid #535353;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2;
-  -o-transition: 0.2;
-}
-/* efek */
-.side-nav a.selected
-{
-  background-color:#F8A200;
-  color:#fff;
-  padding-left: 40px;
-}
-
-.side-nav a:hover{
-    background-color:#F8A200;
-  color:#fff;
-  padding-left: 40px;
-}
-
-.side-nav .btn-close
-{
-  position:absolute;
-  top:0;
-  right:22px;
-  font-size:36px;
-  margin-left:50px;
-}
-/*----------------log out---------------------------*/
-ul#dropdown li a
-{
-  float:right;
-  background:#27ae60;
-  color:#fff;
-  text-decoration:none;
-  display:block;
-  height:50px;
-  width:80px;
-  text-align:center;
-  padding:14px 16px;
-}
-ul#dropdown li a:hover
-{
-  background-color:#F8A200;
-  color:#fff;
-}
-
-/*-------------------- halaman utama ------------------------*/
-
-#main{
-  
-  flex-flow: row wrap;
-  height:100%;
-
-}
-/*--------------------tabel--------------------------------*/
-
-.table{
-      margin:0 auto;
-    margin-top:8px;
-        width:95%;
-        overflow:auto;
-        font-family: helvetica,arial,sans-serif;
-        font-size:14px;
-        color:#000;
-        border-collapse: collapse;
-        text-align: center;
-}
-
-.table th {
-       
-        padding: 8px;
-        color:#fff;
-        background-color: #27ae60;
-}
-.table tr {
-    border-width: 1px;
-    padding: 8px;
-  font-size:20px;
-}
-.table tr td {
-    text-align: center;
-}
-tr:nth-child(odd){background-color: #f2f2f2}
-
-/*----------------------tombol edit dan delet---------------------*/
-
-.button1 {
-    position: relative;
-    background-color: #f39c12;
-    border: none;
-  border-radius:5px;
-    font-size: 12px;
-    color: #FFF;
-    padding: 5px;
-    width: 50px;
-    text-align: center;
-  cursor: pointer;
-}
-
-.button2 {
-    position: relative;
-    background-color: #c0392b;
-    border: none;
-  border-radius:5px;
-    font-size: 12px;
-    color: #FFF;
-    padding: 5px;
-    width: 50px;
-    text-align: center;
-  cursor: pointer;
-}
-
-
-@media(max-width:568px){
-  .navbar-nav{display:none}
-
-}
-
-@media screen and (max-height:568px){
-  /*.open-slide{display:none}*/
-}
-
-/*-------------------------main content---------------------------------*/
-
-.main-content 
-{
-  padding: 40px;
-  margin-top: 0;
-  padding: 0;
-  padding-top: 0px;
-  height: 100%;
-}
-
-.widget 
-{
-  flex-basis: 300px;
-  flex-grow: 10;
-  height: 100%;
-  margin: 15px;
-  border-radius: 6px;
-  background-color: #fff;
-  position: relative;
-}
-.widget .title 
-{
-  background-color: #eef1f7;
-  border-bottom: 1px solid #dfe4ec;
-  padding: 10px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  color: #617085;
-  font-weight: 600;
-}
-
-.widget.tex
-{
-  background-color: #eef1f7;
-  border-bottom: 1px solid #dfe4ec;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  font-weight: 600px;
-  padding:10px;
-}
-/*---------------------------Keterangan edit data----------------------------*/
-.confirm2 {
-    display: none; 
-    position: fixed;
-    z-index: 1; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
+@media (max-width: 1500px) {
+  .red{
+    background-color: #ffffff;
+    margin-top: 9%;
+    margin-left: 40%;
+    width: 22%;
     height: 100%;
-    overflow: auto; 
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4); 
+    padding-bottom: 3%;
+  }
 }
-.confirm-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 40%;
-  height:220px;
+@media (max-width: 1100px) {
+  .red{
+    background-color: #ffffff;
+    margin-top: 9%;
+    margin-left: 35%;
+    width: 30%;
+    height: 100%;
+    padding-bottom: 3%;
+  }
 }
-.exit {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+@media (max-width: 750px) {
+  .red{
+    background-color: #ffffff;
+    margin-top: 9%;
+    margin-left: 20%;
+    width: 60%;
+    height: 100%;
+    padding-bottom: 3%;
+  }
 }
-.exit:hover,
-.exit:focus {
-    color: #000;
-    text-decoration: none;
+@media (max-width: 400px) {
+  .red{
+    background-color: #ffffff;
+    margin-top: 9%;
+    margin-left: 10%;
+    width: 80%;
+    height: 100%;
+    padding-bottom: 3%;
+  }
+}
+.btn-info{
+  background-color: white;
+  border: 1px solid lightgrey;
+  color: grey;
+}
+
+.login-form{
+  background-color: white;
+  margin-top: 10%;
+}
+
+.tablinks {
+    padding-top: 0;
+    text-align: center;
+    padding-bottom: 0;
+    background-color: white;
+    color: black;
+    border: none;
+    outline: none;
     cursor: pointer;
+    font-size: 12px;
+    width: 50%;
 }
-/*-------------------------------input data------------------------------ */
+
+.tablinks:hover{
+    background-color: white;
+    color: grey;
+    transition: 0.5s;
+}
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#login {background-color:white;}
+#signup {background-color:white;}
+/*=================================================*/
+
+input[type=password], select{
+  width: 100%;
+  color: black;
+  padding: 6px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+input[type=text], select{
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: black;
+  padding: 6px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing;
+  opacity: 1;
+}
+/*---------------obrolan-------------------*/
+.tab-content{
+  padding-top: 10%;
+}
+/*=========================================================*/
+.header{
+  background-color: #004883;
+  padding-left: 0;
+  padding-right: 0;
+}
+#map {
+  width: 500px;
+  height: 280px;
+  margin-top: 10px;
+}
+.article {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 0;
+}
+.judul{
+    text-align: center;
+    color: black;
+    font-size: 15px;
+}
+.ftask{
+    font-size: 14px;
+    color: white;
+    line-height: 40px;
+    background-color: #27ae60;
+    height: 40px;
+    padding-left: 5%;
+}
+.hnamaevent{
+  font-size: 12px;
+  color: black;  
+  padding-left: 1%;
+}
+.hwaktu{
+  font-size: 12px;
+  color: black; 
+  padding-left: 1%;
+}
+.hlokasiawal{
+  font-size: 12px;
+  color: black; 
+  padding-left: 1%; 
+  opacity: 1;
+}
+.hlokasiakhir{
+  font-size: 12px;
+  color: black; 
+  padding-left: 1%;  
+  opacity: 1;
+}
+.htransportasi{
+  font-size: 12px;
+  color: black; 
+  padding-left: 1%;  
+  opacity: 1;
+}
+.hketevent{
+  font-size: 12px; 
+  padding-left: 1%;
+  color: black;  
+  opacity: 1;
+}
 .form 
 {
-  padding:2% 5%;
-  margin-top:5%;
-  border-radius:5px;
     border: 3px solid #f4f4f4;
-}
-input[type=text]
-{
-    width: 100%;
-    padding: 2% 4%;
-    margin: 8px 0;
-    font-size:18px;
-    border-radius:5px;
-    box-sizing: border-box;
 }
 button {
     background-color: #4CAF50;
@@ -265,156 +184,278 @@ button {
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
-    border-radius:5px;
     cursor: pointer;
     width: 100%;
 }
 button:hover {
     background-color:#F8A200;
-  color:#fff;
+    color:#fff;
 }
 
-/*-------------------------------konfirmasi delet data------------------------*/
-.ask-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-  border-radius:10px;
-    width: 20%;
-  height:100px;
-}
-.ask
-{
-  padding:2%;
-  margin-top:5%;
-  text-align:center;
-}
-.b1
-{
-  background-color: #4CAF50;
+@media screen and (max-width: 1500px){
+  input[type=submit] {
+    width: 49.6%;
+    background-color: #2980b9;
     color: white;
-    padding: 10px 12px;
+    padding: 4px 2px;
     margin: 8px 0;
+    font-size: 12px;
     border: none;
-  border-radius:5px;
+    border-radius: 4px;
     cursor: pointer;
-    width: 40%;
+  }
+  input[type=datetime-local] {
+    width: 44.5%; 
+    border-radius:5px;  
+    padding-top: 4px; 
+    padding-bottom: 4px; 
+    opacity: 0.8;
+    text-align: center;
+    font-size: 12px;
+  }
 }
-.b2
-{
-  background-color: #c0392b;
-    color: white;
-    padding: 10px 12px;
-    margin: 8px 0;
-    border: none;
-  border-radius:5px;
-    cursor: pointer;
-    width: 40%;
-}
-
-/*------------------------------------------bagian input data----------------------------*/
-.input
-{
-  font-weight:bold;
-  color:#6F6F6F;
-  font-size:100%;
-  width:240px;
-  padding:1%;
-}
-.inputButton
-{
-  background-color: #4CAF50;
+@media screen and (max-width: 1000px){
+  input[type=submit] {
+    width: 49.5%;
+    background-color: #2980b9;
     color: white;
     padding: 14px 20px;
-    margin: 1px 0;
+    margin: 8px 0;
     border: none;
-  border-radius:5px;
+    border-radius: 4px;
     cursor: pointer;
-    width: 170px;
+  }
+  input[type=datetime-local] {
+    width: 100%; 
+    border-radius:5px;  
+    padding-top: 2%; 
+    padding-bottom: 2%; 
+    opacity: 0.8;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 550px){
+  input[type=submit] {
+    width: 46.5%;
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=datetime-local] {
+    width: 100%; 
+    border-radius:5px;  
+    padding-top: 2%; 
+    padding-bottom: 2%; 
+    opacity: 0.8;
+
+  }
 }
 
-/*-----------------------------------calendar-----------------------------------*/
-#calendar {
-    max-width: 90%;
-    margin: 0 auto;
+input[type=submit]:hover {
+  background-color: #196393;
   }
+/* Style the tab */
+/*---------------------------------------------------------*/
 
-@media screen and (max-width:500px)
-{
-/*------------------------tabel phone-----------------*/
-    .table, .table tr, .table td, tbody
-  {
-        display: block;
-  }
-  .table th 
-  {
-       display: none;
-    }
-  .table tr td 
-  {
-        position: relative;
-        padding-left: 40%;
-        text-align: left;
-    }
-  .table tr td::before 
-  {
-        content: attr(title) " : ";
+.table{
+      margin:0 auto;
+        margin-top:8px;
+        width:100%;
+        overflow:auto;
         color:#000;
-        left: 15px;
-        position: absolute;
-    }
-  
-   .table tr {
-        border: none;
-    }
-    
-    .table tr:nth-child(1n+2){
-        padding: 15px 0; 
-    }
-  tr:nth-child(odd){background-color: #F4f4f4}
-  
-/*---------------Keterangan edit data----------------------------*/
+        text-align: center;
+}
+.table th {
+        padding: 8px;
+        text-align: center;
+        color:#fff;
+        font-size: 12px;
+        background-color: #27ae60;
+}
+.table tr {
+    border-width: 1px;
+    padding: 8px;
+    background-color: white;
+    font-size:11px;
+}
+.table tr td {
+    text-align: center;
+}
+tr:nth-child(odd){background-color: #f2f2f2}
+.table td {
+    padding-right: 10px;
+    padding-left: 10px;
+}
 
-  .confirm-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 70%;
-    height:156px;
-  }
-/*----------------konfirmasi edit data-------------------------*/
+/*-----------------------------------------------------*/
+@media screen and (max-width: 1500px){
+    .contentdetail {
+    padding-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 1em;
+    overflow: hidden;
+    margin-bottom: 50px;
+    }
+}
+@media screen and (max-width: 1100px){
+    .contendetail {
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 1em;
+    overflow: hidden;
+    margin-bottom: 50px;
+    }
+}
+@media screen and (max-width: 800px){
+    .contendetail {
+    padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 1em;
+    overflow: hidden;
+    margin-bottom: 50px;
+    }
+}
+.h2detail{
+    font-size: 20px;
+}
+.back{
+    text-decoration: none;
+    color:black;
+}
+.back:hover{
+    color: grey;
+}
+.title{
+  color: white;
+}
+/*----------------------------------------------------*/
+.fullpage{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.rightpage{
+  background-color: white;
+  padding-left: 0px;
+  padding-right: 0px;
+  overflow-x: hidden;
+  height: 570px;
+  z-index: 1;
 
-  .ask-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    border-radius:10px;
-    width: 80%;
-    height:120px;
-  }
-/*------------------Bagian input data--------------------------*/
-  .input
-  {
-    text-align:center;
-    font-weight:bold;
-    color:#6F6F6F;
-    font-size:100%;
-    width:100%;
-    padding:10px 1px;
-  }
-  .inputButton
-  {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin: 1px 0;
-    border: none;
-    border-radius:5px;
-    cursor: pointer;
-    width: 100%;
-  }
-
+}
+.leftpage{
+  background-color: #f2f2f2;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 570px;
+  overflow-x: hidden;
+}
+.leftpagefinish{
+  background-color: #f2f2f2;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 570px;
+  z-index: 1;
+  overflow-x: hidden;
+}
+.menubar{
+  position: fixed;
+  background-color: lightgrey;
+  z-index: 1;
+  padding-right: 0;
+  padding-left: 0;
+}
+.menubar ul{
+  padding-right: 0;
+  padding-right: 0; 
+  list-style: none;
+}
+.menubar ul li{
+  padding-right: 0;
+  padding-right: 0;
+}
+.none{
+  background-color: grey;
+  float: left;
+  width: 120px;
+  color: black;
+  background-color: lightgrey;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.none:hover{
+  background-color: #007ee6;
+  cursor: pointer;
+  transition: 0.4s;
+  color: white;
+}
+.pilih{
+  background-color: #f2f2f2;
+  float: left;
+  width: 120px;
+  color: black;
+  font-weight: bold;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.fullfooter{
+  font-size: 10px;
+  line-height: 40px;
+  color: white;
+  height: 40px;
+  z-index: 1;
+  text-align: center;
+  background-color: #007ee6;
+}
+.isicontent{ 
+  padding-right: 10%;
+  padding-left: 10%;
+}
+.kanan{
+  text-align: right;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+  color: white;
+}
+.kanan2{
+  text-align: right;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+  color: white;
+}
+.kanan:hover{
+  background-color: #003058;
+}
+.kanan2:hover{
+  background-color: #003058;
+}
+.h2detail{
+  font-size: 14px;
+  color: black;
+  text-align: left;
+  margin-left: 100px;
+  font-weight: bold;
+}
+.pdetail{
+  font-size: 12px;
+  margin-left: 100px;
+  color: black;
+  text-align: left;
+}
+.judul2{
+  text-align: center;
+  color: black;
+  font-size: 15px;
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -5,87 +5,73 @@
 --%>
 
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/allpages.css">
+	<title>TRAVELENDAR - Politeknik Negeri Bandung</title>
+	<link href="css/grid.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
+
 <style>
 body{
- /* Location of the image */
-  background-image: url(img/2.jpg);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
+	background-image: url(img/1.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 </style>
-<div class="header2">
-  	<h1>Travelander</h1>
-</div>
-<br>
-<br>
-<br>
-<br>
-<div class="row">
+<body>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 red col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1">
+			<div class="login-form">
+				<h1><center><img class="img-responsive" src="img/logo.png"></center></h1>
+				<br>
 
-<div class="col-5 1">
-		<div class="header">
-                    <form name="login" method="post" action="ceklogin.jsp">
-		  <center>Sign In</center>
-		</div>
-		    <input type="text" id="fname" name="user" placeholder="Username">
-		    <input type="password" id="lname" name="pass" placeholder="Password">
-		    <input type="submit" value="Login">
-		</div>
-		<div class="col-6 2">
-		<div class="header">
-                </form>
-                    <form name="registrasi" action="Registrasi/prosesregistrasi.jsp">
-		  <center>Register</center>
-		</div>
-			<div class="col-6 3.1">
-			    <input type="text" id="fname" name="firstname" placeholder="Your name..">
-			</div>
-			<div class="col-6 3.2">
-			    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-			</div>
-			<input type="text" id="lname" name="email" placeholder="Your E-mail..">
-			<div class="col-6 3.1">
-			    <input type="text" id="fname" name="user" placeholder="Your Username..">
-			</div>
-			<div class="col-6 3.2">
-			    <input type="password" id="lname" name="pass" placeholder="Your Password..">
-			</div>
-		    <label for="country" style="color: white">Country</label><br>
-		    <select id="country" name="country">
-		      <option value="australia">Indonesia</option>
-		      <option value="canada">Swedia</option>
-		    </select>
-		    <input type="submit" value="Submit">
-		</div>
+					<button class="tablink" onclick="openCity('login', this, '#25aae2')" id="defaultOpen">LOGIN</button>
+					<button class="tablink" onclick="openCity('signup', this, '#25aae2')">SIGNUP</button>
+					<div id="login" class="tabcontent">
+					  <form action="Dashboard.html">
+						<input type="text" name="user" placeholder="Username" style="text-align: left; font-size: 14px;">
+						<input type="password" name="pass" placeholder="Password">
+						<a href="pageinput.html"><button type="submit" name="login" class="btn btn-primary btn-block" onclick="Dashboard.html">Login</button></a>
+					  </form>
+					</div>
 
-</div>
-</form>
-        <br>
-        <br>
-	<div class="footer">
- 		<p>© Copyright Kelompok B2 | October 2017</p>
- 	</div>
+					<div id="signup" class="tabcontent">
+					  <form action="Dashboard.html">
+					  	<input type="text" name="pass" placeholder="Nickname" style="text-align: left; font-size: 14px;">
+						<input type="text" name="user" placeholder="Username"  style="text-align: left; font-size: 14px;">
+						<input type="password" name="pass" placeholder="Password">
+						<input type="password" name="pass" placeholder="Confirm Password">		
+					    <button type="submit" name="login" class="btn btn-primary btn-block" onclick="*">Submit</button>
+					  </form> 
+					</div>
+
+					<script>
+					function openCity(cityName,elmnt,color) {
+					    var i, tabcontent, tablinks;
+					    tabcontent = document.getElementsByClassName("tabcontent");
+					    for (i = 0; i < tabcontent.length; i++) {
+					        tabcontent[i].style.display = "none";
+					    }
+					    tablinks = document.getElementsByClassName("tablink");
+					    for (i = 0; i < tablinks.length; i++) {
+					        tablinks[i].style.backgroundColor = "";
+					    }
+					    document.getElementById(cityName).style.display = "block";
+					    elmnt.style.backgroundColor = color;
+
+					}
+					// Get the element with id="defaultOpen" and click on it
+					document.getElementById("defaultOpen").click();
+					</script>
+
+			</div>
+	</div>
 </body>
 </html>
+
 
