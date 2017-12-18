@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2017 at 04:27 PM
+-- Generation Time: Dec 18, 2017 at 05:40 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -53,6 +53,19 @@ INSERT INTO `event` (`KD_EVENT`, `KD_TRAVELLER`, `TRAVEL_MODE`, `AVOIDTOLLS`, `N
 ('KDETD00110111701', 'TD001', 'DRIVING', 0, 'Check in pesawat', '2017-11-10 06:20:00', '2017-11-10 07:45:00', 'Jangan lupa bawa tiket'),
 ('KDETD00110111702', 'TD001', 'DRIVING', 0, 'Penyerahan laporan', '2017-11-10 13:00:00', '2017-11-10 14:40:00', 'Jangan lupa bawa berkas');
 
+--
+-- Triggers `event`
+--
+DELIMITER $$
+CREATE TRIGGER `TambahEvent` BEFORE INSERT ON `event` FOR EACH ROW BEGIN
+     IF EXISTS(SELECT * FROM Event WHERE waktu_mulai BETWEEN waktu_mulai AND waktu_selesai)
+        THEN
+                  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Telah terdapat event dalam waktu tersebut';
+  END IF;
+    END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +80,32 @@ CREATE TABLE `lokasi` (
   `ALAMAT` text,
   `KETERANGAN` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lokasi`
+--
+
+INSERT INTO `lokasi` (`KD_EVENT`, `LATITUDE`, `LONGITUDE`, `NAMA_LOKASI`, `ALAMAT`, `KETERANGAN`) VALUES
+('KDETD00107111701', '-6.817923', '107.175629', 'Maleber, KarangTengah, Cianjur', 'Maleber, KarangTengah, Cianjur', 'Awal'),
+('KDETD00107111701', '-6.9085255', '107.6183885', 'HOTEL AMAROSSA BANDUNG', 'Jl. Aceh No. 71 A, Citarum, Bandung Wetan', 'Akhir'),
+('KDETD00108111701', ':-6.9085255', '107.6183885', 'HOTEL AMAROSSA BANDUNG', ' Jl. Aceh No. 71 A, Citarum, Bandung Wetan', 'Awal'),
+('KDETD00108111701', '-6.9041041', '107.6221608', 'SMAN 20 BANDUNG', 'Jalan Citarum No.23, Citarum, Bandung', 'Akhir'),
+('KDETD00108111702', '-6.9041041', '107.6221608', 'SMAN 20 BANDUNG', 'Jalan Citarum No.23, Citarum, Bandung', 'Awal'),
+('KDETD00108111702', '-6.9051523', '107.6212009', 'R.M AMPERA BANDUNG', 'Jl. Citarum No.3A, Citarum, Bandung', 'Akhir'),
+('KDETD00108111703', '-6.9051523', '107.6212009', 'R.M AMPERA BANDUNG', 'Jl. Citarum No.3A, Citarum, Bandung', 'Awal'),
+('KDETD00108111703', '-6.9085255', '107.6183885', 'HOTEL AMAROSSA BANDUNG', ' Jl. Aceh No. 71 A, Citarum, Bandung Wetan', 'Akhir'),
+('KDETD00109111701', '-6.9085255', '107.6183885', 'HOTEL AMAROSSA BANDUNG', ' Jl. Aceh No. 71 A, Citarum, Bandung Wetan', 'Awal'),
+('KDETD00109111701', '-6.9038931', '107.5788389', 'BANDARA HUSSEIN SASTRA NEGARA', 'Jl. Pajajaran No. 156, Cicendo, Kota Bandung', 'Akhir'),
+('KDETD00109111702', '-6.9038931', '107.5788389', 'BANDARA HUSSEIN SASTRA NEGARA', 'Jl. Pajajaran No. 156, Cicendo, Kota Bandung', 'Awal'),
+('KDETD00109111702', '-7.3414849', '112.7186495', 'SMAN 15 SURABAYA', 'Jl. Dukuh Menanggal Sel. No.103 Kota SBY', 'Akhir'),
+('KDETD00109111703', '-7.3414849', '112.7186495', 'SMAN 15 SURABAYA', 'Jl. Dukuh Menanggal Sel. No.103 Kota SBY', 'Awal'),
+('KDETD00109111703', '-7.2397085', '112.7309027', 'BEBEK HANDAYANI SURABAYA', 'Jl. Parang Kusumo No.2-I, Kemayoran,  Surabaya', 'Akhir'),
+('KDETD00109111704', '-7.2397085', '112.7309027', 'BEBEK HANDAYANI SURABAYA', 'Jl. Parang Kusumo No.2-I, Kemayoran,  Surabaya', 'Awal'),
+('KDETD00109111704', '-7.2364681', '112.7367438', 'HOTEL ARCADIA BY HORISON SURABAYA', 'Jl. Rajawali No.9-11 Krembangan, Surabaya', 'Akhir'),
+('KDETD00110111701', '-7.2364681', '112.7367438', 'HOTEL ARCADIA BY HORISON SURABAYA', 'Jl. Rajawali No.9-11 Krembangan, Surabaya', 'Awal'),
+('KDETD00110111701', '-7.375851', '112.786345', 'BANDARA JUANDA SURABAYA', 'Jl. Raya Ir. Juanda No.1, Sedati, Sidoarjo, Jawa Timur', 'Akhir'),
+('KDETD00110111702', '-7.375851', '112.786345', 'BANDARA JUANDA SURABAYA', 'Jl. Raya Ir. Juanda No.1, Sedati, Sidoarjo, Jawa Timur', 'Awal'),
+('KDETD00110111702', '-6.848501', '107.132545', 'DINAS PENDIDIKAN KAB CIANJUR', 'Jl. Perintis Kemerdekaan No. 3, Cilaku, Kabupaten Cianjur', 'Akhir');
 
 -- --------------------------------------------------------
 
