@@ -4,7 +4,11 @@
     Author     : Delvin v
 --%>
 
-
+<%@page import="model.Traveller"%>
+<%@page import="DAO.DAOTraveller"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +37,10 @@ body{
 					<button class="tablink" onclick="openCity('login', this, '#25aae2')" id="defaultOpen">LOGIN</button>
 					<button class="tablink" onclick="openCity('signup', this, '#25aae2')">SIGNUP</button>
 					<div id="login" class="tabcontent">
-					  <form action="Dashboard.html">
+					  <form action="../traveller?data=traveller&proses=cek-traveller" method="post">
 						<input type="text" name="user" placeholder="Username" style="text-align: left; font-size: 14px;">
 						<input type="password" name="pass" placeholder="Password">
-						<a href="pageinput.html"><button type="submit" name="login" class="btn btn-primary btn-block" onclick="Dashboard.html">Login</button></a>
+						<button type="submit" name="login" class="btn btn-primary btn-block" onclick="Dashboard.html">Login</button></a> 
 					  </form>
 					</div>
 
