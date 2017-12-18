@@ -23,9 +23,29 @@ public class DAOTraveller extends Traveller implements DAO {
 
 
 public DAOTraveller(){
-
      db = new KoneksiDB();
 }
+
+ public boolean cekLogin(String username, String password)
+        throws Exception {
+        boolean isUser = false;       
+        ResultSet rs = null;      
+        
+        try {
+           // Connection con = DBConnection.getConnection();
+            String sql = ("select * from traveller where USERNAME='" + username + "' and PASSWORD='" + password + "'");
+            rs = db.ambilData(sql);
+            if (rs.next()) {
+                isUser = true;
+                System.out.println("User authenticated successfully");
+            } else {
+                System.out.println("Invalid username or password!");
+            }
+        } catch (SQLException e) {
+            System.out.println("DB related Error");
+        }
+        return isUser;
+    }
 
     public void simpan(){
         String sql = "INSERT into traveller( Kd_Traveller, Nama_Traveller, Username, Password, Email) values ('" + kdTraveller + "','" + namaTraveller + "','" + username + "','" + password + "','" + email + "')";

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.Traveller;
 import Database.KoneksiDB;
 import DAO.DAOTraveller;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,12 +30,28 @@ public class ControllerTraveller extends HttpServlet {
             throws ServletException, IOException {
         String proses=request.getParameter("proses");
         String action=request.getParameter("action");
+        DAOTraveller um=new DAOTraveller();
+        
         if (proses.equals("input-traveller")){
             response.sendRedirect("tambah_traveller.jsp");
             return;
         }else if(proses.equals("edit-traveller")){
             response.sendRedirect("edit_traveller.jsp?Kd_Traveller="+request.getParameter("Kd_Traveller"));
             return;
+        }else if( proses.equals("cek-traveller")){
+            System.out.println("Login ");
+            try {
+                Boolean login = um.cekLogin(request.getParameter("user"), request.getParameter("pass"));
+                if (login == true){
+                    System.out.println("Login sukses");
+                    response.sendRedirect("Login/Data/addEvent.jsp");
+                }
+                else{
+                    System.out.println("Login gagal");
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else if(proses.equals("hapus-traveller")){
             DAOTraveller hm=new DAOTraveller();
             hm.setKdTraveller(request.getParameter("Kd_Traveller"));
@@ -62,7 +80,7 @@ public class ControllerTraveller extends HttpServlet {
                 } else if(proses.equals("hapus-traveller")){
                     um.hapus();
                 }
-                response.sendRedirect("indexTraveller.jsp");
+                response.sendRedirect("Login/Data/addEvent.jsp");
             }
         }
     }
