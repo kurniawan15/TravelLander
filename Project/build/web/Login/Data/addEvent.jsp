@@ -34,8 +34,8 @@
 				<ul>
 					<li class="none">Dashboard</li>
 					<li class="none">My Calendar</li>
-					<li class="pilih">Add Event</li>
-					<li class="none">My Event</li>
+					<a href="addEvent.jsp"><li class="none">Add Event</li></a> 
+					<a href="mylist.jsp"><li class="none">My Event</li></a>
 					<li class="none">History</li>
 				</ul>
 			</div>
