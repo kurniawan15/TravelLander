@@ -4,6 +4,18 @@
  * (c) 2017 Adam Shaw
  */
 
+/* Travelander StyleMenu CSS 
+--------------------------------------------------------------------------------------------------*/
+
+
+body {
+	margin:0;
+}
+
+
+/* Main UI 
+--------------------------------------------------------------------------------------------------*/
+
 
 .fc {
 	direction: ltr;
@@ -24,12 +36,12 @@ body .fc { /* extra precedence to overcome jqui */
 
 
 .fc-highlight { /* when user is selecting cells */
-	background: #bce8f1;
+	background: #bce8f1; /* Light Blue */
 	opacity: .3;
 }
 
 .fc-bgevent { /* default look for background events */
-	background: rgb(143, 223, 130);
+	background: rgb(143, 223, 130); /* Green(Leaf) */
 	opacity: .3;
 }
 
@@ -47,9 +59,9 @@ body .fc { /* extra precedence to overcome jqui */
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	
+
 	/* dimensions */
-	margin:10px;
+	margin: 0;
 	height: 2.1em;
 	padding: 0 .6em;
 
@@ -57,7 +69,6 @@ body .fc { /* extra precedence to overcome jqui */
 	font-size: 1em; /* normalize */
 	white-space: nowrap;
 	cursor: pointer;
-	
 }
 
 /* Firefox has an annoying inner border */
@@ -144,7 +155,6 @@ body .fc { /* extra precedence to overcome jqui */
 
 .fc-button-group {
 	display: inline-block;
-	
 }
 
 /*
@@ -242,7 +252,7 @@ hr.fc-divider {
 	border-collapse: collapse;
 	border-spacing: 0;
 	font-size: 1em; /* normalize cross-browser */
-	
+	color: #000;
 }
 
 .fc th {
@@ -262,6 +272,7 @@ hr.fc-divider {
 }
 
 
+/*** Ada di Day, & Week View ***/
 /* Internal Nav Links
 --------------------------------------------------------------------------------------------------*/
 
@@ -271,6 +282,7 @@ a[data-goto] {
 
 a[data-goto]:hover {
 	text-decoration: underline;
+	/*color: #000000; Keterangan Waktu ketika ditunjuk o/ Pointer */
 }
 
 
@@ -288,7 +300,6 @@ a[data-goto]:hover {
 	   the outer tbody will worry about this */
 	border-left: 0 hidden transparent;
 	border-right: 0 hidden transparent;
-	
 
 	/* no bottom borders on rows */
 	border-bottom: 0 hidden transparent; 
@@ -329,7 +340,6 @@ a[data-goto]:hover {
 
 .fc-row .fc-bgevent-skeleton {
 	z-index: 2;
-
 }
 
 .fc-row .fc-highlight-skeleton {
@@ -917,12 +927,10 @@ NOTE: use percentage font sizes or else old IE chokes
 
 .fc-toolbar {
 	text-align: center;
-	height:50px;
 }
 
 .fc-toolbar.fc-header-toolbar {
 	margin-bottom: 1em;
-	height:50px;
 }
 
 .fc-toolbar.fc-footer-toolbar {
@@ -1016,8 +1024,7 @@ NOTE: use percentage font sizes or else old IE chokes
 }
 
 .fc-basic-view .fc-body .fc-row {
-	height: 10px; /* ensure that all rows are at least this tall */
-	
+	min-height: 4em; /* ensure that all rows are at least this tall */
 }
 
 /* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
