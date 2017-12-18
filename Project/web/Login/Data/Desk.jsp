@@ -4,6 +4,8 @@
     Author     : Fachri Hammad
 --%>
 
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DAO.DAONewEvent, model.NewEvent, java.util.*" %>
 <!DOCTYPE html>
@@ -21,7 +23,13 @@
     <script src='../lib/lain/fullcalendar.min.js'></script>
     <title>Calendar</title>
     <%
-        List<NewEvent> newEvents ;
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        String dateNow;
+    // formatting
+        dateNow = format.format(new Date());
+        request.setAttribute("dateNow", dateNow);
+        
     %>
     
     
@@ -35,7 +43,8 @@
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listWeek'
       },
-      defaultDate: '2017-11-12',
+      
+      defaultDate: '${dateNow}', //Tanggal dinamis 13 Desember 2017(update)
       navLinks: true, // can click day/week names to navigate views
       editable: false,
       eventLimit: true, // allow "more" link when too many events
