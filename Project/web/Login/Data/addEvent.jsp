@@ -71,13 +71,13 @@
 			      <div id="calculate-route" name="calculate-route" action="#" method="get">
 			            <h1 class="hlokasiawal">Start Location :</h1>
 			            <input type="text" id="from" name="from" required="required" placeholder="Input First Location" size="30" style="width: 85%;" />
-			            <input type="button" id="from-link" value="Now" style="width: 14%;">
+                                    <input type="button" id="from-link" value="Now" style="width: 14%;">
 			            <div class="LokasiAkhir">
 			                <h1 class="hlokasiakhir">End Location :</h1>
 			                <input type="text" id="to" name="to" required="required" placeholder="Input Last Location" size="30" style="width: 85%;" />
-			            <input type="button" value="Search" style="width: 14%;"  onClick="getMap()">
+			            <input type="button" value="Search" style="width: 14%;"  onclick="getMap()">
 			            </div>
-			            <input type="text" id="latAwal" name="latitude_awal">
+			            <input type="hidden" id="latAwal" name="latitude_awal">
                                     <input type="hidden" id="longAwal" name="longitude_awal">
                                     <br>
                                     <input type="hidden" id="latAkhir" name="latitude_akhir">
@@ -86,7 +86,7 @@
 			    </div>
 
 			    <script type="text/javascript">
-				unction openCity(evt, cityName) {
+				function openCity(evt, cityName) {
           var i, tabcontent, tablinks; //deklarasi variabel
           
           document.getElementById("tipe_moda").value = cityName;
@@ -272,12 +272,16 @@
           }
         );
       }
+      
+      function cekOk(){
+          document.getElementById("from").value = "Cek yooo";
+        }
 		</script>	
         <!--____________________________Tombol Submit or cancel____________________________--> 
 		      <div class="col-12 enter">
 		        <br>
-		        <input type="submit" value="?" style="background-color: green; width: 15%; float: right; margin-bottom: 20px;">
-		        <input type="cancel" value="?" style="background-color: red; width: 15%; margin-bottom: 20px; float: right;">
+		        <input type="submit" value="OK" style="background-color: green; width: 15%; float: right; margin-bottom: 20px;">
+		        <input type="button" value="?" style="background-color: red; width: 15%; margin-bottom: 20px; float: right;">
 		        <br>
 		      </div>
 			    
