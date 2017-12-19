@@ -353,6 +353,17 @@ tr:nth-child(odd){background-color: #f2f2f2}
   color: white;
 }
 /*----------------------------------------------------*/
+img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.homepage{
+  background-color: #f2f2f2;
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 800px;
+}
 .fullpage{
   padding-left: 0px;
   padding-right: 0px;
@@ -382,7 +393,7 @@ tr:nth-child(odd){background-color: #f2f2f2}
   overflow-x: hidden;
 }
 .menubar{
-  position: fixed;
+  /*position: fixed;*/
   background-color: lightgrey;
   z-index: 1;
   padding-right: 0;
