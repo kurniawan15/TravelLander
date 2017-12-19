@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/web/Login/login.jsp</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/web/index.jsp</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/src/java/DAO/DAOTraveller.java</file>
@@ -12,6 +13,28 @@
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/web/Login/Admin/lokasi.jsp</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/src/java/DAO/DAOKota.java</file>
             <file>file:/D:/Data/JTK/Tingkat%202%202017/Semester%201/Proyek%203/Treveller%20B1/Project/web/Login/Admin/jarak.jsp</file>
+=======
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/controller/ControllerEvent.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/Data/addEvent.jsp</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/model/NewLokasi.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/Admin/jarak.jsp</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/controller/ControllerJarak.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/controller/ControllerPerjalanan.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/controller/ControllerTraveller.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/DAO/DAONewEvent.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/controller/ControllerNewEvent.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/model/NewEvent.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/Data/css/style.css</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/DAO/DAONewLokasi.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/css/style.css</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/Data/calendar.jsp</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/model/Event.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/model/NewModaPerjalanan.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/DAO/DAOLokasi.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/Json/CobaJson.java</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/web/Login/Data/mylist.jsp</file>
+            <file>file:/F:/Campus%20Life/Materi%20Kuliah/Semester3/Project%203/Travel%20Time/Project/src/java/Database/KoneksiDB.java</file>
+>>>>>>> aea576c4a795959eb98f414a939619efa7b94620
         </group>
     </open-files>
 </project-private>
