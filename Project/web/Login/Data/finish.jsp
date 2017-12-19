@@ -21,24 +21,25 @@
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
 			<center><img class="img-responsive" src="img/logo1.png">
 		</div>
-		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kiri">
-		</div>
 		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
 			<span class="glyphicon glyphicon-bell"></span>
 		</div>
 		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
 			Hi, Fajar&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
 		</div>
+                <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+                    Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
+		</div>
 	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 leftpagefinish">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
 				<ul>
-					<li class="none">Dashboard</li>
-					<li class="none">My Calendar</li>
-					<a href="addEvent.jsp"><li class="none">Add Event</li></a>
-					<a href="mylist.jsp"><li class="none">My Event</li></a>
-					<li class="pilih">History</li>
+				<a href="home.jsp"><li class="none">Dashboard</li></a>
+				<a href="calendar.jsp"><li class="none">My Calendar</li></a>
+				<a href="addEvent.jsp"><li class="none">Add Event</li></a>
+				<a href="mylist.jsp"><li class="none">My Event</li></a>
+				<a href="finish.jsp"><li class="pilih">History</li></a>
 				</ul>
 			</div>
 

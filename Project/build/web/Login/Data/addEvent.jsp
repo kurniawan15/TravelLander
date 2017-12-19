@@ -35,13 +35,14 @@
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
 			<center><img class="img-responsive" src="img/logo1.png">
 		</div>
-		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kiri">
-		</div>
 		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
 			<span class="glyphicon glyphicon-bell"></span>
 		</div>
 		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
 			Fajar&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
+		</div>
+             <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+                    Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
 		</div>
 	</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
@@ -85,7 +86,6 @@
 			    <div class="LokasiAwal">
 			      <div id="calculate-route" name="calculate-route" action="#" method="get">
 			            <h1 class="hlokasiawal">Start Location :</h1>
-<<<<<<< HEAD
 			            <input type="text" id="txtSource" placeholder="Input First Location" size="30" style="width: 85%;" />
                                    
 			            <input type="submit" id="from-link" value="Now" style="width: 14%;" />
@@ -93,27 +93,14 @@
 			                <h1 class="hlokasiakhir">End Location :</h1>
 			                <input type="text" id="txtDestination" placeholder="Input Last Location" size="30" style="width: 85%;" />
                                         
-                                        <input type="button" value="Get Route" style="width: 14%;" onclick="GetRoute()"/>
-=======
-			            <input type="text" id="from" name="from" required="required" placeholder="Input First Location" size="30" style="width: 85%;" />
-                                    <input type="button" id="from-link" value="Now" style="width: 14%;">
-			            <div class="LokasiAkhir">
-			                <h1 class="hlokasiakhir">End Location :</h1>
-			                <input type="text" id="to" name="to" required="required" placeholder="Input Last Location" size="30" style="width: 85%;" />
-			            <input type="button" value="Search" style="width: 14%;"  onclick="getMap()">
->>>>>>> aea576c4a795959eb98f414a939619efa7b94620
+                                        <input type="button" value="Get Route" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onclick="GetRoute()"/>
 			            </div>
-			            <input type="hidden" id="latAwal" name="latitude_awal">
-                                    <input type="hidden" id="longAwal" name="longitude_awal">
-                                    <br>
-                                    <input type="hidden" id="latAkhir" name="latitude_akhir">
-                                    <input type="hidden" id="longAkhir" name="longitude_akhir">
+			            
 			      </div>
 			    </div>
 
 			    <script type="text/javascript">
 				function openCity(evt, cityName) {
-<<<<<<< HEAD
 				  var i, tabcontent, tablinks; //deklarasi variabel
 				  
 				  document.getElementById("tipe_moda").value = cityName;
@@ -267,203 +254,13 @@
                     alert("Unable to find the distance via road.");
                 }
             });
-=======
-          var i, tabcontent, tablinks; //deklarasi variabel
-          
-          document.getElementById("tipe_moda").value = cityName;
-          //mengambil element yang ada di class tabcontent dan menyembunyikan class 
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-          }
-          
-          //mengambil element yang ada di class tablinks dan menghapus yg aktif di display
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-          
-          //menampilkan class yang aktif kelayar dengan posisi block/dibawah content tsb
-          document.getElementById(cityName).style.display = "block";
-          evt.currentTarget.className += " active";
-          }
-          
-          // layer dari rute nya 
-      function Rute (from, to) {
-        // initialized kampus tercinta (POLBAN)
-        var myOptions = {
-          zoom: 5,
-          center: new google.maps.LatLng(-6.870458,107.571883),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        // Gambar objec map
-        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRequest = {
-          origin: from,
-          destination: to,
-          travelMode: google.maps.DirectionsTravelMode.DRIVING,
-          unitSystem: google.maps.UnitSystem.METRIC
-        };
-        
-        directionsService.route(
-          directionsRequest,
-          function(response, status)
-          {
-            if (status == google.maps.DirectionsStatus.OK)
-            {
-              new google.maps.DirectionsRenderer({
-                map: mapObject,
-                directions: response
-              });
-            }
-            else
-              $("#error").append("Unable to retrieve your route<br />");
-          }
-        );
-        
-      }
-      
-      function getLatLongAwal(emb){
-          var address = emb;
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAwal").value = results[0].geometry.location.lat();
-               document.getElementById("longAwal").value = results[0].geometry.location.lng();
-            
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      function getLatLongAkhir(des){
-          var address = des;
-          var geocoder = new google.maps.Geocoder();
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
-               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
-            
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      //bagian google API
-      $(document).ready(function() {
-        // If the browser supports the Geolocation API
-        if (typeof navigator.geolocation == "undefined") {
-          $("#error").text("Your browser doesn't support the Geolocation API");
-          return;
-        }
-        $("#from-link, #to-link").click(function(event) {
-          event.preventDefault();
-          var addressId = this.id.substring(0, this.id.indexOf("-"));
-          //penanggilan posisi sekarang
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({
-              "location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
-            },
-            function(results, status) {
-              if (status == google.maps.GeocoderStatus.OK)
-                $("#" + addressId).val(results[0].formatted_address);
-              else
-                $("#error").append("Unable to retrieve your address<br />");
-            });
-          },
-          function(positionError){
-            $("#error").append("Error: " + positionError.message + "<br />");
-          },
-          {
-            enableHighAccuracy: true,
-            timeout: 10 * 1000 // 10 seconds
-          });
-        });
-        
-        $("#calculate-route").submit(function(event) {
-          event.preventDefault();
-          Rute($("#from").val(), $("#to").val());
-          getLatLongAwal($("#from").val());
-          getLatLongAkhir($("#to").val());
-        });
-      });
-      
-      function getMap(){
-          var from = document.getElementById("from").value;
-          var to = document.getElementById("to").value;
-          
-          Rute(from,to);
-          getLatLongAwal(from);
-          getLatLongAkhir(to);
-          
-          geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            
-               document.getElementById("latAkhir").value = results[0].geometry.location.lat();
-               document.getElementById("longAkhir").value = results[0].geometry.location.lng();
-            
-           
-            } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });   
-      }
-      
-      function RuteKendaraan(moda) {
-        // initialized kampus tercinta (POLBAN)
-        
-        var myOptions = {
-          zoom: 5,
-          center: new google.maps.LatLng(-6.870458,107.571883),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        
-        var from = document.getElementById("from").value;
-        var to = document.getElementById("to").value;
-          
-        // Gambar objec map
-        var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRequest = {
-          origin: from,
-          destination: to,
-          travelMode: moda,
-          unitSystem: google.maps.UnitSystem.METRIC
-        };
-        
-        directionsService.route(
-          directionsRequest,
-          function(response, status)
-          {
-            if (status == google.maps.DirectionsStatus.OK)
-            {
-              new google.maps.DirectionsRenderer({
-                map: mapObject,
-                directions: response
-              });
-            }
-            else
-              $("#error").append("Unable to retrieve your route<br />");
-          }
-        );
-      }
-      
-      function cekOk(){
-          document.getElementById("from").value = "Cek yooo";
->>>>>>> aea576c4a795959eb98f414a939619efa7b94620
         }
 		</script>	
         <!--____________________________Tombol Submit or cancel____________________________--> 
 		      <div class="col-12 enter">
 		        <br>
-		        <input type="submit" value="OK" style="background-color: green; width: 15%; float: right; margin-bottom: 20px;">
-		        <input type="button" value="?" style="background-color: red; width: 15%; margin-bottom: 20px; float: right;">
+		        <input type="submit" value="Create" style="background-color: green; width: 15%; float: right; margin-bottom: 20px;">
+		        <input type="submit" value="Cancel" style="background-color: red; width: 15%; margin-bottom: 20px; float: right;">
 		        <br>
 		      </div>
 			    
@@ -471,7 +268,7 @@
 			</div>
 		<div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 rightpage">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
-                            <div id="dvMap" style="width: 500px; height: 280px; margin-top:10px;" ></div>
+                            <div id="dvMap" style="width: 655x; height: 280px; margin-top:10px;" ></div>
                             
 	     	</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tablepilih">
@@ -531,7 +328,7 @@
 	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With ? by FrontEnd in Kosan Uda</div>
 
-</form>
+
 
   </form>
 </body>

@@ -90,7 +90,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t\t\t\t\t<div id=\"signup\" class=\"tabcontent\">\r\n");
       out.write("\t\t\t\t\t  <form action=\"Dashboard.html\">\r\n");
-      out.write("\t\t\t\t\t  \t<input type=\"text\" name=\"pass\" placeholder=\"Nickname\" style=\"text-align: left; font-size: 14px;\">\r\n");
+      out.write("\t\t\t\t\t  \t<input type=\"text\" name=\"pass\" placeholder=\"Fullname\" style=\"text-align: left; font-size: 14px;\">\r\n");
       out.write("\t\t\t\t\t\t<input type=\"text\" name=\"user\" placeholder=\"Username\"  style=\"text-align: left; font-size: 14px;\">\r\n");
       out.write("\t\t\t\t\t\t<input type=\"password\" name=\"pass\" placeholder=\"Password\">\r\n");
       out.write("\t\t\t\t\t\t<input type=\"password\" name=\"pass\" placeholder=\"Confirm Password\">\t\t\r\n");
@@ -119,6 +119,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t\t\t</div>\r\n");
       out.write("\t</div>\r\n");
+      out.write("    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooterlogin\"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Kelompok B1 | Made With <i style=\"color: red;\">?</i> by FrontEnd in Kosan Uda</i></div>\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
       out.write("\r\n");

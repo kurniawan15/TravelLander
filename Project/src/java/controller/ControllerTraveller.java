@@ -72,7 +72,7 @@ public class ControllerTraveller extends HttpServlet {
                     System.out.println(login);
                     if (login == true){
                     System.out.println("Login sukses");
-                    response.sendRedirect("Login/Data/addEvent.jsp");
+                    response.sendRedirect("Login/Data/home.jsp");
                     }
                     else{
                         System.out.println("Login gagal");
