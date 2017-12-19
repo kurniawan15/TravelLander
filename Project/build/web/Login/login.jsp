@@ -46,7 +46,7 @@ body{
 
 					<div id="signup" class="tabcontent">
 					  <form action="Dashboard.html">
-					  	<input type="text" name="pass" placeholder="Nickname" style="text-align: left; font-size: 14px;">
+					  	<input type="text" name="pass" placeholder="Fullname" style="text-align: left; font-size: 14px;">
 						<input type="text" name="user" placeholder="Username"  style="text-align: left; font-size: 14px;">
 						<input type="password" name="pass" placeholder="Password">
 						<input type="password" name="pass" placeholder="Confirm Password">		
@@ -75,6 +75,7 @@ body{
 
 			</div>
 	</div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooterlogin"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Kelompok B1 | Made With <i style="color: red;">?</i> by FrontEnd in Kosan Uda</i></div>
 </body>
 </html>
 

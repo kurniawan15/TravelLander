@@ -10,6 +10,7 @@ body{
     width: 22%;
     height: 100%;
     padding-bottom: 3%;
+    border-radius: 10px;
   }
 }
 @media (max-width: 1100px) {
@@ -20,6 +21,7 @@ body{
     width: 30%;
     height: 100%;
     padding-bottom: 3%;
+    border-radius: 10px;
   }
 }
 @media (max-width: 750px) {
@@ -30,6 +32,7 @@ body{
     width: 60%;
     height: 100%;
     padding-bottom: 3%;
+    border-radius: 10px;
   }
 }
 @media (max-width: 400px) {
@@ -52,7 +55,24 @@ body{
   background-color: white;
   margin-top: 10%;
 }
-
+.tablink {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    float: left;
+    background-color: lightgrey;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    width: 50%;
+}
+.tablink:hover{
+    background-color: #007ee6;
+    color: white;
+    transition: 0.5s;
+}
 .tablinks {
     padding-top: 0;
     text-align: center;
@@ -104,6 +124,7 @@ input[type=text], select{
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-sizing;
   opacity: 1;
 }
 /*---------------obrolan-------------------*/
@@ -457,4 +478,14 @@ tr:nth-child(odd){background-color: #f2f2f2}
   font-size: 15px;
   font-size: 20px;
   font-weight: bold;
+}
+.fullfooterlogin{
+  font-size: 10px;
+  line-height: 40px;
+  color: white;
+  height: 40px;
+  z-index: 1;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #3b9bb3;
 }
