@@ -38,20 +38,6 @@ public class ControllerTraveller extends HttpServlet {
         }else if(proses.equals("edit-traveller")){
             response.sendRedirect("edit_traveller.jsp?Kd_Traveller="+request.getParameter("Kd_Traveller"));
             return;
-        }else if( proses.equals("cek-traveller")){
-            System.out.println("Login ");
-            try {
-                Boolean login = um.cekLogin(request.getParameter("user"), request.getParameter("pass"));
-                if (login == true){
-                    System.out.println("Login sukses");
-                    response.sendRedirect("Login/Data/addEvent.jsp");
-                }
-                else{
-                    System.out.println("Login gagal");
-                }
-            } catch (Exception ex) {
-                Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }else if(proses.equals("hapus-traveller")){
             DAOTraveller hm=new DAOTraveller();
             hm.setKdTraveller(request.getParameter("Kd_Traveller"));
@@ -80,8 +66,24 @@ public class ControllerTraveller extends HttpServlet {
                 } else if(proses.equals("hapus-traveller")){
                     um.hapus();
                 }
-                response.sendRedirect("Login/Data/addEvent.jsp");
+                else if( proses.equals("cek-traveller")){
+                try {
+                    boolean login = um.cekLogin(request.getParameter("user"), request.getParameter("pass"));
+                    System.out.println(login);
+                    if (login == true){
+                    System.out.println("Login sukses");
+                    response.sendRedirect("Login/Data/addEvent.jsp");
+                    }
+                    else{
+                        System.out.println("Login gagal");
+                        response.sendRedirect("Login/login.jsp");
+                        }
+                } catch (Exception ex) {
+                     System.out.println("ERROR LOGIN");
+                    Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                  }
+               }
             }
         }
     }
-}
