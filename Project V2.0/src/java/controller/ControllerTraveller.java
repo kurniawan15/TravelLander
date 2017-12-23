@@ -76,7 +76,7 @@ public class ControllerTraveller extends HttpServlet {
                     }
                     else{
                         System.out.println("Login gagal");
-                        response.sendRedirect("Login/login.jsp");
+                        response.sendRedirect("index.jsp");
                         }
                 } catch (Exception ex) {
                      System.out.println("ERROR LOGIN");

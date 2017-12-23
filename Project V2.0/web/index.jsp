@@ -1,73 +1,82 @@
 <%-- 
     Document   : index
-    Created on : Nov 1, 2017, 9:46:39 PM
-    Author     : Cyber Pegasus
+    Created on : Sep 17, 2017, 11:09:46 PM
+    Author     : Delvin v
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Traveller"%>
+<%@page import="DAO.DAOTraveller"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <!DOCTYPE html>
 <html>
-    <head lang="en"> 
-   <!--     <meta charset="utf-8"> -->
-        <title>OutDates</title>
-        <link rel="stylesheet" href="css/style.css"/>
-    </head>
-    
-    <body>
-        <nav> 
-            <img src="images/logo_head.png" width=20% height=100%>
-        </nav>
-        
+<head>
+	<title>TRAVELENDAR - Politeknik Negeri Bandung</title>
+	<link href="css/grid.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
 
-        <div id="head">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#anchor-headline">What's This?</a></li>
-    
-                </ul>
-            </nav>
-        
-        </div>
+<style>
+body{
+	background-image: url(img/1.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+</style>
+<body>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 red col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1">
+			<div class="login-form">
+				<h1><center><img class="img-responsive" src="img/logo.png"></center></h1>
+				<br>
 
-             
-        <div class="sect sectOne">         
- 
-           <br />
-           <p id="Tagline">Create Your Simple Plans</p>   
-           <a href="Login/Data/addEvent.jsp"> <button>Get's Started</button> </a>  
-        
-        </div>
-        
-        <div class="subSection">
-            
-            <h3 id="anchor-headline"> Anchor </h3>            
-            
-            <br />
+					<button class="tablink" onclick="openCity('login', this, '#25aae2')" id="defaultOpen">LOGIN</button>
+					<button class="tablink" onclick="openCity('signup', this, '#25aae2')">SIGNUP</button>
+					<div id="login" class="tabcontent">
+					  <form action="traveller?data=traveller&proses=cek-traveller" method="post">
+						<input type="text" name="user" placeholder="Username" style="text-align: left; font-size: 14px;">
+						<input type="password" name="pass" placeholder="Password">
+						<button type="submit" name="login" class="btn btn-primary btn-block" onclick="Dashboard.html">Login</button></a> 
+					  </form>
+					</div>
 
+					<div id="signup" class="tabcontent">
+					  <form action="Dashboard.html">
+					  	<input type="text" name="pass" placeholder="Fullname" style="text-align: left; font-size: 14px;">
+						<input type="text" name="user" placeholder="Username"  style="text-align: left; font-size: 14px;">
+						<input type="password" name="pass" placeholder="Password">
+						<input type="password" name="pass" placeholder="Confirm Password">		
+					    <button type="submit" name="login" class="btn btn-primary btn-block" onclick="*">Submit</button>
+					  </form> 
+					</div>
 
-            <h2 id="heading-headline">Schedule - Check - Go</h2>
-            
-            <img src="images/logo_kotak.png" width="50%"" height="80%" >
-            <p>
-                  Create Your any Plan for Tomorrow and Next <br> Anything, Anytime, Anywhere
-            </p>
-            
+					<script>
+					function openCity(cityName,elmnt,color) {
+					    var i, tabcontent, tablinks;
+					    tabcontent = document.getElementsByClassName("tabcontent");
+					    for (i = 0; i < tabcontent.length; i++) {
+					        tabcontent[i].style.display = "none";
+					    }
+					    tablinks = document.getElementsByClassName("tablink");
+					    for (i = 0; i < tablinks.length; i++) {
+					        tablinks[i].style.backgroundColor = "";
+					    }
+					    document.getElementById(cityName).style.display = "block";
+					    elmnt.style.backgroundColor = color;
 
-        </div>
+					}
+					// Get the element with id="defaultOpen" and click on it
+					document.getElementById("defaultOpen").click();
+					</script>
 
-        <div class="tesc sectTwo">
-            
-           <br />
-           
-           <!--<img src="images/DAYS.png" width="20%" height="20%" id="Anchor-Down"> -->
-           <p>Start your Date Now!</p>  
-           <a href="#"> <button>Go</button> </a>  
-        
-
-        </div>
-
-
-    </body>
-
+			</div>
+	</div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooterlogin"><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Kelompok B1 | Made With <i style="color: red;">?</i> by FrontEnd in Kosan Uda</i></div>
+</body>
 </html>
+
+
