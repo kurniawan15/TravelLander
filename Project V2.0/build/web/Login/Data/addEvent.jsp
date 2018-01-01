@@ -77,9 +77,9 @@
 			    <div class="waktu">
 			      <h1 class="hwaktu">Event Time :</h1>
 			      <!--____________________________Form input waktu awal____________________________-->
-			      <input type="datetime-local" name="waktu_mulai" placeholder="start time"> <i style="color: black;">&nbsp;until&nbsp;</i>
+			      <input type="datetime-local" id="waktu_mulai" name="waktu_mulai" placeholder="start time"> <i style="color: black;">&nbsp;until&nbsp;</i>
 			      <!--____________________________Form input waktu akhir--> 
-			      <input type="datetime-local" name="waktu_selesai" placeholder="End time">   
+			      <input type="datetime-local" id="waktu_selesai" name="waktu_selesai" placeholder="End time">   
 			    </div>
     
     <!--____________________________Form Inputan Lokasi Awal____________________________-->
@@ -88,7 +88,7 @@
 			            <h1 class="hlokasiawal">Start Location :</h1>
 			            <input type="text" id="txtSource" placeholder="Input First Location" size="30" style="width: 85%;" />
                                    
-			            <input type="submit" id="from-link" value="Now" style="width: 14%;" />
+                                    <input type="button" id="from-link" value="Now" style="width: 14%;" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onClick="getCurrentPosition()"/>
 			            <div class="LokasiAkhir">
 			                <h1 class="hlokasiakhir">End Location :</h1>
 			                <input type="text" id="txtDestination" placeholder="Input Last Location" size="30" style="width: 85%;" />
@@ -131,6 +131,28 @@
             directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
         });
 
+
+        function getCurrentPosition(){
+            navigator.geolocation.getCurrentPosition(function(position) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+              "location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+            },
+            function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK)
+                document.getElementById("txtSource").value = results[0].formatted_address;
+              else
+                $("#error").append("Unable to retrieve your address<br />");
+            });
+          },
+          function(positionError){
+            $("#error").append("Error: " + positionError.message + "<br />");
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 10 * 1000 // 10 seconds
+          });
+        }
         function GetRoute() {
             var mumbai = new google.maps.LatLng(18.9750, 72.8258);
             var mapOptions = {
@@ -171,12 +193,18 @@
                     var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance");
                     var dvDuration = document.getElementById("dvDuration");
+                    var dvEstTime = document.getElementById("dvEstTime");
+                    
+                    var startTime = document.getElementById("waktu_mulai").value;
                     dvDistance.innerHTML = "";
                     dvDistance.innerHTML += distance;
+                    dvDuration.innerHTML = "";
                     dvDuration.innerHTML += duration;
+                    dvEstTime.innerHTML = "";
+                    dvEstTime.innerHTML = startTime;
 
                 } else {
-                    alert("Unable to find the distance via road.");
+                    alert("Unable to find the distance with walking.");
                 }
             });
             
@@ -196,10 +224,11 @@
                     var dvDuration = document.getElementById("dvDuration1");
                     dvDistance1.innerHTML = "";
                     dvDistance1.innerHTML += distance;
+                    dvDuration1.innerHTML = "";
                     dvDuration1.innerHTML += duration;
 
                 } else {
-                    alert("Unable to find the distance via road.");
+                    alert("Unable to find the distance when driving.");
                 }
             });
             
@@ -222,10 +251,11 @@
                     var dvDuration = document.getElementById("dvDuration2");
                     dvDistance2.innerHTML = "";
                     dvDistance2.innerHTML += distance;
+                    dvDuration2.innerHTML = "";
                     dvDuration2.innerHTML += duration;
 
                 } else {
-                    alert("Unable to find the distance via road.");
+                    alert("Unable to find the distance via bus.");
                 }
             });
             
@@ -248,12 +278,15 @@
                     var dvDuration = document.getElementById("dvDuration3");
                     dvDistance3.innerHTML = "";
                     dvDistance3.innerHTML += distance;
+                    dvDuration3.innerHTML = "";
                     dvDuration3.innerHTML += duration;
 
                 } else {
-                    alert("Unable to find the distance via road.");
+                    alert("Unable to find the distance via train.");
                 }
             });
+            
+            
         }
 		</script>	
         <!--____________________________Tombol Submit or cancel____________________________--> 
@@ -285,7 +318,7 @@
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_walk</i> Walk</td>
                         <td title="Location"><div id="dvDistance"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration"></div></td>
-	                <td title="Ibu Kota">-</td>
+                        <td title="Ibu Kota"><div id="dvEstTime"></div></td>
 	            </tr>
 	            <tr>
 	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
