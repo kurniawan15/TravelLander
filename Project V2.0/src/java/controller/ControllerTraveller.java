@@ -15,75 +15,81 @@ import javax.servlet.http.HttpServletResponse;
 import model.Traveller;
 import Database.KoneksiDB;
 import DAO.DAOTraveller;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author Fadhil-PC
+ * @author Pegasus Cyber
  */
-
 @WebServlet("/traveller")
 public class ControllerTraveller extends HttpServlet {
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)                  //doget:menampilkan
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) //doget:menampilkan
             throws ServletException, IOException {
-        String proses=request.getParameter("proses");
-        String action=request.getParameter("action");
-        DAOTraveller um=new DAOTraveller();
-        
-        if (proses.equals("input-traveller")){
-            response.sendRedirect("tambah_traveller.jsp");
+        String proses = request.getParameter("proses");
+        String action = request.getParameter("action");
+     
+        if (proses.equals("input-traveller")) {
+        //    response.sendRedirect("tambah_traveller.jsp");
             return;
-        }else if(proses.equals("edit-traveller")){
-            response.sendRedirect("edit_traveller.jsp?Kd_Traveller="+request.getParameter("Kd_Traveller"));
+        } else if (proses.equals("edit-traveller")) {
+        //    response.sendRedirect("edit_traveller.jsp?Kd_Traveller=" + request.getParameter("Kd_Traveller"));
             return;
-        }else if(proses.equals("hapus-traveller")){
-            DAOTraveller hm=new DAOTraveller();
+        } else if (proses.equals("hapus-traveller")) {
+            DAOTraveller hm = new DAOTraveller();
             hm.setKdTraveller(request.getParameter("Kd_Traveller"));
             hm.hapus();
             response.sendRedirect("indexTraveller.jsp");
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)                 //dopost: mengambil
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) //dopost: mengambil
             throws ServletException, IOException {
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
-        
-        if (data != null){
-            if(data.equals("traveller")){
-                DAOTraveller um=new DAOTraveller();
-                um.setKdTraveller(request.getParameter("Kd_Traveller"));
-                um.setNamaTraveller(request.getParameter("Nama_Traveller"));
-                um.setUsername(request.getParameter("Username"));
-                um.setPassword(request.getParameter("Password"));
-                um.setEmail(request.getParameter("Email"));
-                if (proses.equals("input-traveller")){
-                    um.simpan();
-                }else if (proses.equals("update-traveller")){
-                    um.update();
-                } else if(proses.equals("hapus-traveller")){
-                    um.hapus();
-                }
-                else if( proses.equals("cek-traveller")){
-                try {
-                    boolean login = um.cekLogin(request.getParameter("user"), request.getParameter("pass"));
-                    System.out.println(login);
-                    if (login == true){
-                    System.out.println("Login sukses");
-                    response.sendRedirect("Login/Data/home.jsp");
-                    }
-                    else{
-                        System.out.println("Login gagal");
+
+        if (data != null) {
+            if (data.equals("traveller")) {
+               
+                DAOTraveller dt = new DAOTraveller();
+                dt.setKdTraveller(request.getParameter("KD_TRAVELLER"));
+                dt.setNamaTraveller(request.getParameter("NAMA_TRAVELLER"));
+                dt.setUsername(request.getParameter("USERNAME"));
+                dt.setPassword(request.getParameter("PASSWORD"));
+                dt.setEmail(request.getParameter("EMAIL"));
+                if (proses.equals("input-traveller")) {
+                    try {
+                        String kd = dt.getNewId();
+                        dt.setKdTraveller(kd);
+                        dt.simpan();
+                        response.sendRedirect("Login/Data/home.jsp");
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
                         response.sendRedirect("index.jsp");
-                        }
-                } catch (Exception ex) {
-                     System.out.println("ERROR LOGIN");
-                    Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                  }
-               }
+                } else if (proses.equals("update-traveller")) {
+                    dt.update();
+                } else if (proses.equals("hapus-traveller")) {
+                    dt.hapus();
+                } else if (proses.equals("cek-traveller")) {
+                    try {
+                        boolean login = dt.cekLogin(request.getParameter("USERNAME"), request.getParameter("PASSWORD"));
+                        System.out.println(login);
+                        if (login == true) {
+                            System.out.println("Login sukses");
+                            response.sendRedirect("Login/Data/home.jsp");
+                        } else {
+                            System.out.println("Login gagal");
+                            response.sendRedirect("index.jsp");
+                        }
+                    } catch (Exception ex) {
+                        System.out.println("ERROR LOGIN");
+                        Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
         }
     }
+}

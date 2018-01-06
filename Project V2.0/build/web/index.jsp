@@ -38,18 +38,21 @@ body{
 					<button class="tablink" onclick="openCity('signup', this, '#25aae2')">SIGNUP</button>
 					<div id="login" class="tabcontent">
 					  <form action="traveller?data=traveller&proses=cek-traveller" method="post">
-						<input type="text" name="user" placeholder="Username" style="text-align: left; font-size: 14px;">
-						<input type="password" name="pass" placeholder="Password">
+						<input type="text" name="USERNAME" placeholder="Username" style="text-align: left; font-size: 14px;">
+						<input type="password" name="PASSWORD" placeholder="Password">
 						<button type="submit" name="login" class="btn btn-primary btn-block" onclick="Dashboard.html">Login</button></a> 
 					  </form>
 					</div>
 
 					<div id="signup" class="tabcontent">
-					  <form action="Dashboard.html">
-					  	<input type="text" name="pass" placeholder="Fullname" style="text-align: left; font-size: 14px;">
-						<input type="text" name="user" placeholder="Username"  style="text-align: left; font-size: 14px;">
-						<input type="password" name="pass" placeholder="Password">
-						<input type="password" name="pass" placeholder="Confirm Password">		
+					  <form action="traveller?data=traveller&proses=input-traveller" method="post"
+					  	<input type="text" name="EMAIL" placeholder="Email" style="text-align: left; font-size: 14px;">
+					  	
+						<input type="text" name="NAMA_TRAVELLER" placeholder="Fullname"  style="text-align: left; font-size: 14px;">
+                                                <input type="text" name="EMAIL" placeholder="Email" style="text-align: left; font-size: 14px;">
+					  	<input type="text" name="USERNAME" placeholder="Username" style="text-align: left; font-size: 14px;">
+						<input type="password" name="PASSWORD" placeholder="Password">
+						<input type="password" name="CONFIRM_PASSWORD" placeholder="Confirm Password">		
 					    <button type="submit" name="login" class="btn btn-primary btn-block" onclick="*">Submit</button>
 					  </form> 
 					</div>

@@ -112,7 +112,7 @@ public DAOTraveller(){
             String kdTraveller = "TR0000";
             
             int cnt = 0;
-            String sql = "SELECT MAX(Kd_Traveller) FROM traveller"; 
+            String sql = "SELECT MAX(KD_TRAVELLER) FROM traveller"; 
             
             ResultSet resultSet = db.ambilData(sql);
 
