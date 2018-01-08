@@ -45,16 +45,18 @@
       },
       defaultDate: '2017-11-12',
       navLinks: true, // can click day/week names to navigate views
-      editable: true,
+      editable: false,
+      businessHours: true, 
       eventLimit: true, // allow "more" link when too many events
-      events: [
+      timeFormat: 'H(:mm)',
+            events: [
         <%                        
               for (int x = 0; x < data.size(); x++) {
               %>
                         {
                             title: '<%=data.get(x).getNamaEvent()%>',
                             start: '<%=format.format(data.get(x).getWaktuMulai())%>',
-                            end: '<%=format.format(data.get(x).getWaktuSelesai())%>',
+                            end: '<%=format.format(data.get(x).getWaktuSelesai())%>'
                                                                 },
             <%}%>
       ]
