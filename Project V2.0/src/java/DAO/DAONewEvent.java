@@ -8,7 +8,6 @@ package DAO;
 import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -146,11 +145,4 @@ public class DAONewEvent extends NewEvent implements DAO{
             
             return idEvent;
          }
-    
-    public Date getDepartureTime(Date arrTime,Time trivial){
-        Date deptTime = null;
-        
-        deptTime = new Date(arrTime.getTime() - trivial.getTime());
-        return deptTime;
-    } 
 }

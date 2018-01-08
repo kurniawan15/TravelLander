@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag"></script>
+           
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
@@ -150,22 +150,20 @@
                       </div>
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
 			  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
-			  <p class="pdetail">Distance &nbsp;&nbsp;: 0.55 KM</p>
-			  <p class="pdetail">Estimated &nbsp;&nbsp;: 5 Minutes</p>
+                          <p class="pdetail"><div id="dvDistance" style="margin-left: 100px;"></div></p>
+			  <p class="pdetail"><div id="dvDuration" style="margin-left: 100px;"></div></p>
 			  <p class="pdetail">Departure Time &nbsp;&nbsp;: 06:45</p>
                       </div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
-                            <div id="map" style="width: 500px; height:500px;"></div>
+                            <div id="map" style="width: 550px; height:300px; margin-left: 100px;"></div>
 	     	</div>
                           <script type="text/javascript">
-                              
-      
-      function initMap() {
+ function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
-          center: {lat: 41.85, lng: -87.65}
+          center: {lat: -6.8712, lng: 107.5738}
         });
         directionsDisplay.setMap(map);
 
@@ -176,28 +174,78 @@
         document.getElementById('end').addEventListener('change', onChangeHandler);
       }
 
-      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        directionsService.route({
-          origin: document.getElementById('start').value,
-          destination: document.getElementById('end').value,
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: -6.8712, lng:107.5738}  // Kampus tercinta.
+        });
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          draggable: true,
+          map: map,
+          panel: document.getElementById('right-panel')
+        });
+
+        directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
+
+        displayRoute('<%=dLok.getLokasiAwal(kd)%>', '<%=dLok.getLokasiAkhir(kd)%>', directionsService,
+            directionsDisplay);
+            
+            //*********DISTANCE AND DURATION **********************//
+            var service = new google.maps.DistanceMatrixService;
+            service.getDistanceMatrix({
+                origins: ['<%=dLok.getLokasiAwal(kd)%>'],
+                destinations: ['<%=dLok.getLokasiAkhir(kd)%>'],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.text;
+                    var dvDistance = document.getElementById("dvDistance");
+                    var dvDuration = document.getElementById("dvDuration");
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance :" + distance;
+                    dvDuration.innerHTML += "duration :" +duration;
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+      }
+
+      function displayRoute(origin, destination, service, display) {
+        service.route({
+          origin: origin,
+          destination: destination,
           
-          travelMode: 'DRIVING'
+          travelMode: 'DRIVING',
+          avoidTolls: true
         }, function(response, status) {
           if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-            alert(origin);
+            display.setDirections(response);
           } else {
-            window.alert('Directions request failed due to ' + status);
+            alert('Could not display directions due to: ' + status);
           }
         });
       }
+
+      //*********DISTANCE AND DURATION WALKING**********************//
+
+            
     </script>
+    
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag&callback=initMap">
-    </script>              
+    </script>                           
                               
                               
-                          
+            
                          
                           
 			

@@ -89,4 +89,28 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         }
         return data.get(0).getNamaLokasi();
     }
+        public String getLokasiAwal(String kd) {
+        List<NewLokasi> data = new ArrayList<NewLokasi>();
+        ResultSet rs = null;
+ 
+        try {
+            String sql = "SELECT * FROM lokasi WHERE kd_event='"+kd+"' and keterangan = 'awal'";
+            rs = db.ambilData(sql);
+            while (rs.next()) {
+                NewLokasi lok = new NewLokasi();
+                lok.setKdEvent(rs.getString("kd_event"));
+                lok.setNamaLokasi(rs.getString("nama_lokasi"));
+                lok.setLatitude(rs.getString("latitude"));
+                lok.setLongitude(rs.getString("longitude"));
+                lok.setAlamat(rs.getString("alamat"));
+                lok.setKeterangan(rs.getString("keterangan"));
+                data.add(lok);
+
+            }
+            db.diskonek(rs);
+        } catch (Exception ex) {
+            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
+        }
+        return data.get(0).getNamaLokasi();
+    }
 }

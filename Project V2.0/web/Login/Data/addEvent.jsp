@@ -3,9 +3,6 @@
     Created on : Sep 15, 2017, 8:39:55 PM
     Author     : hari pc
 --%>
-<%@page import="java.lang.String"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@page import="model.NewEvent"%>
 <%@page import="model.NewLokasi"%>
 <%@page import="model.NewModaPerjalanan"%>
@@ -162,7 +159,6 @@
                 zoom: 7,
                 center: mumbai
             };
-            
             map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById('dvPanel'));
@@ -198,14 +194,14 @@
                     var dvDistance = document.getElementById("dvDistance");
                     var dvDuration = document.getElementById("dvDuration");
                     var dvEstTime = document.getElementById("dvEstTime");
-                    var dur = response.rows[0].elements[0].duration.value;
-                    var startTime = new Date(document.getElementById("waktu_mulai").value.toString().substring(0,4) + "-" + document.getElementById("waktu_mulai").value.toString().substring(5,7)+ "-" + document.getElementById("waktu_mulai").value.toString().substring(8,10));
+                    
+                    var startTime = document.getElementById("waktu_mulai").value;
                     dvDistance.innerHTML = "";
                     dvDistance.innerHTML += distance;
                     dvDuration.innerHTML = "";
                     dvDuration.innerHTML += duration;
                     dvEstTime.innerHTML = "";
-                    dvEstTime.innerHTML += new Date(startTime.getTime() - dur * 1000);
+                    dvEstTime.innerHTML = startTime;
 
                 } else {
                     alert("Unable to find the distance with walking.");
@@ -280,7 +276,6 @@
                     var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance3");
                     var dvDuration = document.getElementById("dvDuration3");
-                    
                     dvDistance3.innerHTML = "";
                     dvDistance3.innerHTML += distance;
                     dvDuration3.innerHTML = "";
