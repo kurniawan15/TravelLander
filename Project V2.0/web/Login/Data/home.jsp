@@ -17,7 +17,7 @@
                         <span class="glyphicon glyphicon-bell"></span>
                     </div>
                     <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                        <%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
+                        <%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
                     </div>
                     <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
                         Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>

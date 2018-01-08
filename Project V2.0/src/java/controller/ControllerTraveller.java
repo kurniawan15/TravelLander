@@ -12,12 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSessionEvent;
 import model.Traveller;
 import Database.KoneksiDB;
 import DAO.DAOTraveller;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.websocket.Session;
 
 /**
  *
@@ -79,7 +81,10 @@ public class ControllerTraveller extends HttpServlet {
                         System.out.println(login);
                         if (login == true) {
                             System.out.println("Login sukses");
+                            request.getSession(false).invalidate();
+                            request.getSession(true).setAttribute("USERNAME",dt.getNamaTraveller());
                             response.sendRedirect("Login/Data/home.jsp");
+                           
                         } else {
                             System.out.println("Login gagal");
                             response.sendRedirect("index.jsp");

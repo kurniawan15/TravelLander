@@ -44,6 +44,7 @@ public class DAONewEvent extends NewEvent implements DAO{
     public void hapus() {
         String sql ="DELETE FROM event WHERE Kd_Event = '"+kdEvent+"'";
         db.simpanData(sql);
+        System.out.println(sql);
     }
 
     @Override

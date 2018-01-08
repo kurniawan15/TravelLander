@@ -36,9 +36,12 @@ public class ControllerNewEvent extends HttpServlet{
             return;
         }else if(proses.equals("hapus-event")){
             DAONewEvent ev=new DAONewEvent();
-            ev.setKdEvent(request.getParameter("Id_Event"));
+            DAONewLokasi lok = new DAONewLokasi();
+            ev.setKdEvent(request.getParameter("kd_event"));
+            lok.setKdEvent(request.getParameter("kd_event"));
+            lok.hapus();
             ev.hapus();
-            response.sendRedirect("indexEvent.jsp");
+            response.sendRedirect("Login/Data/home.jsp");
         }
     }
 

@@ -89,7 +89,7 @@
 			          <td style="font-size: 12px; line-height: 20px;"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
                                   <td style="font-size: 12px; line-height: 20px;"><%=format.format(data.get(x).getWaktuSelesai())%></td>
 			          <td style="font-size: 12px; line-height: 35px;"><span class="glyphicon glyphicon-edit"></span></td>
-			          <td style="font-size: 12px; line-height: 35px;"><span class="glyphicon glyphicon-trash"></span></td>
+			          <td style="font-size: 12px; line-height: 35px;"><a href="../../Event?kd_event=<%=data.get(x).getKdEvent()%>&proses=hapus-event"><span class="glyphicon glyphicon-trash"></span></a></td>
                                   <td style="font-size: 12px; line-height: 20px;"><a href="?kd_event=<%=data.get(x).getKdEvent()%>"><button class="tablinks" id="defaultOpen" onclick="opencity('tabcontent','pageedit')"><span class="glyphicon glyphicon glyphicon-list"></span></button></a></td>
 			      </tr>
                               <% 
