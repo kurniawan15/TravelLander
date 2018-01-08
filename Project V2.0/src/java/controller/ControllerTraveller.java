@@ -17,6 +17,8 @@ import model.Traveller;
 import Database.KoneksiDB;
 import DAO.DAOTraveller;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.websocket.Session;
@@ -77,12 +79,13 @@ public class ControllerTraveller extends HttpServlet {
                     dt.hapus();
                 } else if (proses.equals("cek-traveller")) {
                     try {
-                        boolean login = dt.cekLogin(request.getParameter("USERNAME"), request.getParameter("PASSWORD"));
-                        System.out.println(login);
-                        if (login == true) {
+                        Traveller t = dt.cekLogin(request.getParameter("USERNAME"), request.getParameter("PASSWORD"));
+                        
+                        if (t != null) {
                             System.out.println("Login sukses");
+                            
                             request.getSession(false).invalidate();
-                            request.getSession(true).setAttribute("USERNAME",dt.getNamaTraveller());
+                            request.getSession(true).setAttribute("USERNAME",t.getNamaTraveller());
                             response.sendRedirect("Login/Data/home.jsp");
                            
                         } else {

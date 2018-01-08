@@ -26,25 +26,30 @@ public DAOTraveller(){
      db = new KoneksiDB();
 }
 
- public boolean cekLogin(String username, String password)
+ public Traveller cekLogin(String username, String password)
         throws Exception {
         boolean isUser = false;       
         ResultSet rs = null;      
-        
+        Traveller t = null;
         try {
            // Connection con = DBConnection.getConnection();
             String sql = ("select * from traveller where USERNAME='" + username + "' and PASSWORD='" + password + "'");
             rs = db.ambilData(sql);
             if (rs.next()) {
                 isUser = true;
+                t = new Traveller();
+                t.setEmail(rs.getString("email"));
+                t.setNamaTraveller(rs.getString("nama_traveller"));
+                t.setKdTraveller(rs.getString("kd_traveller"));
                 System.out.println("User authenticated successfully");
             } else {
+                t = null;
                 System.out.println("Invalid username or password!");
             }
         } catch (SQLException e) {
             System.out.println("DB related Error");
         }
-        return isUser;
+        return t;
     }
 
     public void simpan(){
@@ -107,6 +112,8 @@ public DAOTraveller(){
         return data;
 
     }
+        
+        
         public String getNewId() throws SQLException{
             
             String kdTraveller = "TR0000";
