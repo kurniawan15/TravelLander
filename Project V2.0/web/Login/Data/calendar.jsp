@@ -4,6 +4,7 @@
     Author     : Hari
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%@page import="DAO.DAONewEvent, model.NewEvent, DAO.DAONewLokasi, model.NewLokasi, java.util.*"%>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -19,6 +21,17 @@
     <script src='lib/moment.min.js'></script>    
     <script src='lib/jquery.min.js'></script>
     <script src='lib/lain/fullcalendar.min.js'></script>
+    
+      <%
+            String username = (String) session.getAttribute("USERNAME");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            DAONewEvent ev = new DAONewEvent();
+            List<NewEvent> data = new ArrayList<NewEvent>();
+            String ket = request.getParameter("ket");
+            data = ev.tampil();
+            ev.setKdEvent("");
+
+         %>
     
     <script>
 
@@ -35,45 +48,15 @@
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
-                                {
-          title: 'Working',
-                                        url: '#',
-          start: '2017-11-07',
-          end: '2017-11-10'
-        },
-        {
-          title: 'Conference',
-                                        url: '#',
-          start: '2017-11-11',
-          end: '2017-11-13'
-        },
-        {
-          title: 'Meeting',
-                                        url: '#',
-          start: '2017-11-12T10:30:00',
-          end: '2017-11-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-                                        url: '#',
-          start: '2017-11-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-                                        url: '#',
-          start: '2017-11-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-                                        url: '#',
-          start: '2017-11-12T17:30:00'
-        },
-        
-        {
-          title: 'Click for Google',
-          url: 'editEvent.jsp',
-          start: '2017-11-28'
-        }
+        <%                        
+              for (int x = 0; x < data.size(); x++) {
+              %>
+                        {
+                            title: '<%=data.get(x).getNamaEvent()%>',
+                            start: '<%=format.format(data.get(x).getWaktuMulai())%>',
+                            end: '<%=format.format(data.get(x).getWaktuSelesai())%>',
+                                                                },
+            <%}%>
       ]
     });
     
