@@ -162,6 +162,12 @@
             map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById('dvPanel'));
+            
+            //Enable all radio
+            var moda = document.getElementsByName('moda');
+            for (var i = 0, len = moda.length; i<len; i++){
+                moda[i].disabled = false;
+            }
 
             //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("txtSource").value;
@@ -177,7 +183,10 @@
                     directionsDisplay.setDirections(response);
                 }
             });
-
+            
+            //Mengambil Start Time
+            var startTime = new Date(document.getElementById("waktu_mulai").value.toString().substring(0,4),document.getElementById("waktu_mulai").value.toString().substring(5,7) - 1,document.getElementById("waktu_mulai").value.toString().substring(8,10),
+                    document.getElementById("waktu_mulai").value.toString().substring(11,13),document.getElementById("waktu_mulai").value.toString().substring(14),0,0);
             //*********DISTANCE AND DURATION WALKING**********************//
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix({
@@ -194,17 +203,24 @@
                     var dvDistance = document.getElementById("dvDistance");
                     var dvDuration = document.getElementById("dvDuration");
                     var dvEstTime = document.getElementById("dvEstTime");
+                    var dur = response.rows[0].elements[0].duration.value;
                     
-                    var startTime = document.getElementById("waktu_mulai").value;
+                    var estTime = new Date(startTime.getTime() - dur * 1000);
+                    var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
+                    
                     dvDistance.innerHTML = "";
+                dvDuration.innerHTML = "";
+                dvEstTime.innerHTML = "";
+                
                     dvDistance.innerHTML += distance;
-                    dvDuration.innerHTML = "";
                     dvDuration.innerHTML += duration;
-                    dvEstTime.innerHTML = "";
-                    dvEstTime.innerHTML = startTime;
+                    
+                    dvEstTime.innerHTML +=  formatEstTime;
+
 
                 } else {
                     alert("Unable to find the distance with walking.");
+                    document.getElementById("radioWalk").disabled=true;
                 }
             });
             
@@ -217,19 +233,30 @@
                 avoidHighways: false,
                 avoidTolls: false
             }, function (response, status) {
+                dvDistance1.innerHTML = "";
+                dvDuration1.innerHTML = "";
+                dvEstTime1.innerHTML = "";
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
                     var distance = response.rows[0].elements[0].distance.text;
                     var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance1");
                     var dvDuration = document.getElementById("dvDuration1");
-                    dvDistance1.innerHTML = "";
+                    var dvEstTime = document.getElementById("dvEstTime1");
+                    var dur = response.rows[0].elements[0].duration.value;
+                    
+                    var estTime = new Date(startTime.getTime() - dur * 1000);
+                    var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
+                   
+                    
                     dvDistance1.innerHTML += distance;
-                    dvDuration1.innerHTML = "";
+                    
                     dvDuration1.innerHTML += duration;
-
+                    
+                    dvEstTime1.innerHTML += formatEstTime;
                 } else {
-                    alert("Unable to find the distance when driving.");
-                }
+                    alert("Unable to find the distance when driving with motorcycle.");
+                    document.getElementById("radioCar").disabled=true;
+    }
             });
             
             //*********DISTANCE AND DURATION BUS**********************//
@@ -244,18 +271,30 @@
                 avoidHighways: false,
                 avoidTolls: false
             }, function (response, status) {
+                dvDistance2.innerHTML = "";
+                dvDuration2.innerHTML = "";
+                dvEstTime2.innerHTML = "";
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
                     var distance = response.rows[0].elements[0].distance.text;
                     var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance2");
                     var dvDuration = document.getElementById("dvDuration2");
-                    dvDistance2.innerHTML = "";
+                    var dvEstTime = document.getElementById("dvEstTime2");
+                    var dur = response.rows[0].elements[0].duration.value;
+                    
+                    var estTime = new Date(startTime.getTime() - dur * 1000);
+                    var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
+                   
+                    
                     dvDistance2.innerHTML += distance;
-                    dvDuration2.innerHTML = "";
+                    
                     dvDuration2.innerHTML += duration;
+                    
+                    dvEstTime2.innerHTML += formatEstTime;
 
                 } else {
                     alert("Unable to find the distance via bus.");
+                    document.getElementById("radioBus").disabled=true;
                 }
             });
             
@@ -271,19 +310,31 @@
                 avoidHighways: false,
                 avoidTolls: false
             }, function (response, status) {
+                dvDistance3.innerHTML = "";
+                dvDuration3.innerHTML = "";
+                dvEstTime3.innerHTML = "";
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
                     var distance = response.rows[0].elements[0].distance.text;
                     var duration = response.rows[0].elements[0].duration.text;
                     var dvDistance = document.getElementById("dvDistance3");
                     var dvDuration = document.getElementById("dvDuration3");
-                    dvDistance3.innerHTML = "";
+                    var dvEstTime = document.getElementById("dvEstTime3");
+                    var dur = response.rows[0].elements[0].duration.value;
+                    
+                    var estTime = new Date(startTime.getTime() - dur * 1000);
+                    var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
+                   
+                    
                     dvDistance3.innerHTML += distance;
-                    dvDuration3.innerHTML = "";
+                    
                     dvDuration3.innerHTML += duration;
+                    
+                    dvEstTime3.innerHTML += formatEstTime;
 
                 } else {
                     alert("Unable to find the distance via train.");
-                }
+                    document.getElementById("radioTrain").disabled=true;
+            }
             });
             
             
@@ -314,42 +365,42 @@
 	                <th>Departure Time</th>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+                        <td title="NO"><input type="radio" name="moda" value="#" id="radioWalk"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_walk</i> Walk</td>
                         <td title="Location"><div id="dvDistance"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration"></div></td>
                         <td title="Ibu Kota"><div id="dvEstTime"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="#" id="radioMotor"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_bike</i> Motorcycle</td>
 	                <td title="Location"></td>
 	                <td title="Ibu Kota"></td>
 	                <td title="Ibu Kota">-</td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="#" id="radioCar"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_car</i> Car</td>
 	                <td title="Location"><div id="dvDistance1"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration1"></div></td>
-	                <td title="Ibu Kota">-</td>
+	                <td title="Ibu Kota" ><div id="dvEstTime1"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="#" id="radioBus"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_bus</i> Bus</td>
 	                <td title="Location"><div id="dvDistance2"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration2"></div></td>
-	                <td title="Ibu Kota">-</td>
+	                <td title="Ibu Kota"><div id="dvEstTime2"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="#" id="radioTrain"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_subway</i> Train</td>
 	                <td title="Location"><div id="dvDistance3"></div></td>
 	                <td title="Ibu Kota"><div id="dvDuration3"></div></td>
-	                <td title="Ibu Kota">-</td>
+	                <td title="Ibu Kota"><div id="dvEstTime3"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="#" value="#"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="#" id="radioPlane"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">flight</i> Aeroplane</td>
 	                <td title="Location">-</td>
 	                <td title="Ibu Kota">-</td>
