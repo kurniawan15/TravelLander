@@ -4,8 +4,6 @@
     Author     : Hari
 --%>
 <%@page import="DAO.DAONewEvent"%>
-<%@page import="DAO.DAOEventNext"%>
-<%@page import="model.EventNext"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.NewEvent"%>
 <%@page import="DAO.DAONewLokasi"%>
@@ -61,7 +59,6 @@
 			  <div id="main">                                         
 			  <br><br>
 			  <h1 class="judul">Event List</h1>
-                          <p id="demo"></p> 
 			   <table class="table">
 			      <tr>
 			          <th>NO</th>
@@ -73,17 +70,14 @@
 			          <th>View</th>
 			      </tr>
                               <%
-                                  
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                      //DAONewEvent kt = new DAONewEvent();
-                      DAOEventNext nx = new DAOEventNext();
+                      DAONewEvent kt = new DAONewEvent();
                       DAONewLokasi dLok = new DAONewLokasi();
-                      List<EventNext> data = new ArrayList<EventNext>();
-                      try{
+                      List<NewEvent> data = new ArrayList<NewEvent>();
                       String ket = request.getParameter("ket");
-                      nx.setKdTraveller("");
+                      kt.setKdEvent("");
                       if (ket == null) {
-                          data = nx.getEventNext("TD001");
+                          data = kt.tampil();
                       }
                   
                       for (int x = 0; x < data.size(); x++) {
@@ -100,9 +94,6 @@
 			      </tr>
                               <% 
                                 }
-}catch(Exception ex){
-    ex.printStackTrace();
-}
                               %>
 				      <script type="text/javascript">
 				        function openCity(evt, editEvent) {
@@ -132,13 +123,12 @@
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 rightpage">
 			<!--<div id="pageedit" class="tabcontent">-->
 		      <h1 class="judul">Detail Event</h1>
-                      
                       <%
                           if(request.getParameter("kd_event")!= null){
                                 String kd = request.getParameter("kd_event");
-                                nx.setKdEvent(kd);
-                                List<EventNext> ev = new ArrayList<EventNext>();
-                                ev = nx.getEventNext("TD001");
+                                kt.setKdEvent(kd);
+                                List<NewEvent> ev = new ArrayList<NewEvent>();
+                                ev = kt.cariID();
                       %>
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
 			  <h2 class="h2detail">Detail</h2>
@@ -162,7 +152,7 @@
 			  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
                           <p class="pdetail"><div id="dvDistance" style="margin-left: 100px;"></div></p>
 			  <p class="pdetail"><div id="dvDuration" style="margin-left: 100px;"></div></p>
-			  <p class="pdetail" >Departure Time &nbsp;&nbsp;: 06:45  <p ></p></p>
+			  <p class="pdetail">Departure Time &nbsp;&nbsp;: 06:45</p>
                       </div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
                             <div id="map" style="width: 550px; height:300px; margin-left: 100px;"></div>
@@ -244,35 +234,8 @@
           }
         });
       }
-/*------------------------------Hitung Mundur----------------------------------*/
-// Set the date we're counting down to
-var countDownDate = new Date("<%=format.format(data.get(0).getWaktuMulai())%>").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "Jadwal Sudah Trelewat";
-    }
-}, 1000);
+      //*********DISTANCE AND DURATION WALKING**********************//
 
             
     </script>
@@ -295,7 +258,6 @@ var x = setInterval(function() {
 </article>
 </div>
 		</div>
-               
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda </div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda</div>
 </body>
 </html>

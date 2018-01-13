@@ -355,12 +355,6 @@ tr:nth-child(odd){background-color: #f2f2f2}
   height: 565px;
   overflow-x: hidden;
 }
-.leftpage_calendar{
-  padding-left: 0px;
-  padding-right: 0px;
-  height: 100%;
-  overflow-x: hidden;
-}
 .leftpagefinish{
   background-color: #f2f2f2;
   padding-left: 0px;
