@@ -19,7 +19,7 @@ import model.EventNext;
  * @author Hari
  */
 public class DAOEventNext extends EventNext implements DAO{
-    static  KoneksiDB db = null;
+    KoneksiDB db = null;
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public DAOEventNext() {
        db = new KoneksiDB();
@@ -28,21 +28,21 @@ public class DAOEventNext extends EventNext implements DAO{
 
     public void simpan(){
         //
-        String sql = "INSERT into eventNext(Kd_Event,Kd_Traveller,Nama_Traveller, Travel_Mode,Avoidtolls,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan, Nama_Lokasi, Alamat, Latitude, Langitude) values('"+kdEvent+"','"+kdTraveller+"','"+namaTraveller+"','"+travelMode+"',"+avoidtolls+",'"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+keterangan+"','"+namaLokasi+"','"+alamat+"','"+latitude+"','"+langitude+"')";
+        String sql = "INSERT into event(Kd_Event,Kd_Traveller,Nama_Traveller, Travel_Mode,Avoidtolls,Nama_Event,Waktu_Mulai,Waktu_Selesai,Keterangan, Nama_Lokasi, Alamat, Latitude, Langitude) values('"+kdEvent+"','"+kdTraveller+"','"+namaTraveller+"','"+travelMode+"',"+avoidtolls+",'"+namaEvent+"','"+format.format(waktuMulai)+"','"+format.format(waktuSelesai)+"','"+keterangan+"','"+namaLokasi+"','"+alamat+"','"+latitude+"','"+langitude+"')";
         db.simpanData(sql);
          System.out.println(sql);
     }
 
     @Override
     public void update() {
-       String sql = "UPDATE eventNextNext set Travel_Mode = '"+travelMode+"',Avoidtolls = '"+avoidtolls+"',Nama_Event = '"+namaEvent+"',Waktu_Mulai = '"+format.format(waktuMulai)+"', Waktu_Selesai= '"+format.format(waktuSelesai)+"',Keterangan = '"+keterangan+"' where Kd_Event = '"+kdEvent+"' and Kd_Traveller = '"+kdTraveller+"'";
+       String sql = "UPDATE event set Travel_Mode = '"+travelMode+"',Avoidtolls = '"+avoidtolls+"',Nama_Event = '"+namaEvent+"',Waktu_Mulai = '"+format.format(waktuMulai)+"', Waktu_Selesai= '"+format.format(waktuSelesai)+"',Keterangan = '"+keterangan+"' where Kd_Event = '"+kdEvent+"' and Kd_Traveller = '"+kdTraveller+"'";
        db.simpanData(sql);
        System.out.println(sql);
     }
 
     @Override
     public void hapus() {
-        String sql ="DELETE FROM eventNext WHERE Kd_Event = '"+kdEvent+"'";
+        String sql ="DELETE FROM event WHERE Kd_Event = '"+kdEvent+"'";
         db.simpanData(sql);
         System.out.println(sql);
     }
@@ -52,7 +52,7 @@ public class DAOEventNext extends EventNext implements DAO{
         List<EventNext> listEvent = new ArrayList<EventNext>();
         ResultSet rs = null;
         try{
-            String sql = "SELECT * FROM eventNext";
+            String sql = "SELECT * FROM event";
             rs = db.ambilData(sql);
             System.out.println(sql);
             while(rs.next()){
@@ -76,8 +76,8 @@ public class DAOEventNext extends EventNext implements DAO{
 
     public List<EventNext> getEventNext (String kdTraveller){
         List<EventNext> listEvent = new ArrayList<EventNext>();
-        String sql ="call lampau_event ('"+kdTraveller+"')";
-        ResultSet rs =db.getDataProcedure(sql);
+        String sql ="call event_next('"+kdTraveller+"')";
+        ResultSet rs = db.getDataProcedure(sql);
         try{
             while(rs.next()){
                 EventNext nx = new EventNext();
@@ -88,7 +88,7 @@ public class DAOEventNext extends EventNext implements DAO{
                 nx.setNamaEvent(rs.getString("Nama_Event"));
                 nx.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
                 nx.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));
-                nx.setKeterangan(rs.getString("Keterangan"));
+                nx.setKeterangan(rs.getString("Keterangan_Event"));
                 listEvent.add(nx);
             }            
         }catch (SQLException ex){

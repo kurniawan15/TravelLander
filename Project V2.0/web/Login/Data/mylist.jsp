@@ -73,15 +73,17 @@
 			          <th>View</th>
 			      </tr>
                               <%
+                                  
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                       //DAONewEvent kt = new DAONewEvent();
                       DAOEventNext nx = new DAOEventNext();
                       DAONewLokasi dLok = new DAONewLokasi();
                       List<EventNext> data = new ArrayList<EventNext>();
+                      try{
                       String ket = request.getParameter("ket");
                       nx.setKdTraveller("");
                       if (ket == null) {
-                          data = nx.getEventNext("Kd_Traveller");
+                          data = nx.getEventNext("TD001");
                       }
                   
                       for (int x = 0; x < data.size(); x++) {
@@ -98,6 +100,9 @@
 			      </tr>
                               <% 
                                 }
+}catch(Exception ex){
+    ex.printStackTrace();
+}
                               %>
 				      <script type="text/javascript">
 				        function openCity(evt, editEvent) {
@@ -133,7 +138,7 @@
                                 String kd = request.getParameter("kd_event");
                                 nx.setKdEvent(kd);
                                 List<EventNext> ev = new ArrayList<EventNext>();
-                                ev = nx.getEventNext("Kd_Traveller");
+                                ev = nx.getEventNext("TD001");
                       %>
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
 			  <h2 class="h2detail">Detail</h2>

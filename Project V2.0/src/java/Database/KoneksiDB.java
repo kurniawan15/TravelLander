@@ -18,7 +18,6 @@ import java.sql.Statement;
 public class KoneksiDB {
    static  private Connection conn;
     private Statement st;
-    private Connection con;
     private CallableStatement cst;
 
 
@@ -72,7 +71,7 @@ public class KoneksiDB {
         ResultSet rs = null;
         try {
             koneksi();
-            cst =con.prepareCall(sql);
+            cst =conn.prepareCall(sql);
             cst.executeQuery();
             rs = cst.getResultSet();
         } catch (Exception x) {
