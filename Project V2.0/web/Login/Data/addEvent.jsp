@@ -48,13 +48,11 @@
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
 		<div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 leftpage">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-				<ul>
-					<li class="none">Dashboard</li>
-					<li class="none">My Calendar</li>
-					<a href="addEvent.jsp"><li class="none">Add Event</li></a> 
-					<a href="mylist.jsp"><li class="none">My Event</li></a>
-					<li class="none">History</li>
-				</ul>
+				<a href="home.jsp"><li class="none">Dashboard</li></a>
+                                <a href="calendar.jsp"><li class="none">My Calendar</li></a>
+                                <a href="addEvent.jsp"><li class="none">Add Event</li></a> 
+                                <a href="mylist.jsp"><li class="none">My Event</li></a>
+                                <li class="none">History</li>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 isicontent">
@@ -93,7 +91,7 @@
 			                <h1 class="hlokasiakhir">End Location :</h1>
 			                <input type="text" id="txtDestination" placeholder="Input Last Location" size="30" style="width: 85%;" />
                                         
-                                        <input type="button" value="Get Route" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onclick="GetRoute()"/>
+                                        <input type="button" value="Get Route" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onclick="GetRoute('DRIVING')"/>
 			            </div>
 			            
 			      </div>
@@ -153,13 +151,13 @@
             timeout: 10 * 1000 // 10 seconds
           });
         }
-        function GetRoute() {
+        function GetRoute(md) {
             var mumbai = new google.maps.LatLng(18.9750, 72.8258);
             var mapOptions = {
                 zoom: 7,
                 center: mumbai
             };
-            map = new google.maps.Map(document.getElementById('dvMap'), mapOptions);
+            map = new google.maps.Map(documentgetElementById('dvMap'), mapOptions);
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById('dvPanel'));
             
@@ -172,11 +170,11 @@
             //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("txtSource").value;
             destination = document.getElementById("txtDestination").value;
-
+            var tmode = 'google.maps.TravelMode.' + md
             var request = {
                 origin: source,
                 destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING
+                travelMode: tmode 
             };
             directionsService.route(request, function (response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {

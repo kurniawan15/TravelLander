@@ -1,131 +1,166 @@
-<%-- 
-    Document   : calendar
-    Created on : Dec 5, 2017, 12:25:15 PM
-    Author     : Hari
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
+<%@page import="java.text.ParseException"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="DAO.DAONewEvent, model.NewEvent, java.util.*" %>
+<%@page import="model.NewModelCalendar"%>
+<%@page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%@page import="DAO.DAONewEvent, model.NewEvent, DAO.DAONewLokasi, model.NewLokasi, java.util.*"%>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <link href='lib/lain/fullcalendar.min.css' rel='stylesheet' />
-    
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/style_calendar.css">  
+    <link href='lib/lain/fullcalendar.css' rel='stylesheet' />
     <script src='lib/moment.min.js'></script>    
     <script src='lib/jquery.min.js'></script>
     <script src='lib/lain/fullcalendar.min.js'></script>
-    
-      <%
-            String username = (String) session.getAttribute("USERNAME");
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            DAONewEvent ev = new DAONewEvent();
-            List<NewEvent> data = new ArrayList<NewEvent>();
-            String ket = request.getParameter("ket");
-            data = ev.tampil();
-            ev.setKdEvent("");
+    <style>
 
-         %>
-    
-    <script>
 
-  $(document).ready(function() {
+
+      #calendar {
+        max-width: 70%;
+
+
+        margin: 40px auto;
+      }
+
+    </style>
+    <head>
+        
+        <title>Calendar</title>
+        <%
+                String pattern = "yyyy-MM-dd";
+                SimpleDateFormat format = new SimpleDateFormat(pattern);
+                String dateNow;
+                
+                // formatting Date Now Dynamic
+                dateNow = format.format(new Date());    
+                request.setAttribute("dateNow", dateNow);
+        
+                //Title fill
+                String title = "Hello";
+                request.setAttribute("title", title);
+                
+                // Start Example fill
+                String start = "2018-01-07";
+                request.setAttribute("start", start);
+        
+        
+              DAONewEvent listbaca = new DAONewEvent();
+              List<NewEvent> events = listbaca.tampil();  
+                                                                
+            
+              List<NewModelCalendar> listCal = new ArrayList<NewModelCalendar>();
+           
+               
+              for(int fill=0; fill<=events.size()-1; fill++ )
+              {
+                  NewModelCalendar filling = new NewModelCalendar(); 
+                  //events.get(fill).getNamaEvent();
+                  //filling.setTitleEvent("Saskeeh");
+                  filling.setTitleEvent(events.get(fill).getNamaEvent());
+                  filling.setStartTime(format.format(events.get(fill).getWaktuMulai()));
+                  filling.setEndTime(format.format(events.get(fill).getWaktuSelesai()));
+                  
+                  listCal.add(filling);
+                  
+              }
+              
+              request.setAttribute("listCal", listCal);
+           /*    */
+              
+              
+    %>
     
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listWeek'
-      },
-      defaultDate: '2017-11-12',
-      navLinks: true, // can click day/week names to navigate views
-      editable: false,
-      businessHours: true, 
-      eventLimit: true, // allow "more" link when too many events
-      timeFormat: 'H(:mm)',
-            events: [
-        <%                        
-              for (int x = 0; x < data.size(); x++) {
-              %>
+    
+    
+        <script>
+
+            $(document).ready(function() 
+            {
+    
+                $('#calendar').fullCalendar(
+                {
+                    header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay,listWeek'
+                    },
+      
+                    defaultDate: '${dateNow}', //Tanggal dinamis 13 Desember 2017(update)
+                    navLinks: true, // can click day/week names to navigate views
+                    editable: false,
+                    eventLimit: true, // allow "more" link when too many events
+                    events: 
+                    [
+                           
+                    <c:forEach items="${listCal}" var="item">
                         {
-                            title: '<%=data.get(x).getNamaEvent()%>',
-                            start: '<%=format.format(data.get(x).getWaktuMulai())%>',
-                            end: '<%=format.format(data.get(x).getWaktuSelesai())%>'
-                                                                },
-            <%}%>
-      ]
-    });
+                            title: '${item.titleEvent}',
+                            start: '${item.startTime}',
+                            end: '${item.endTime}',
+                        },
+                    </c:forEach>
+                       
+                        
+                        
+                    
+          
+                    ]
+                });
     
-  });
+            });
 
     </script>
-
-<style>
-
-
-
-  #calendar {
-    max-width: 70%;
-
-    margin: 0 auto;
-  }
-
-</style>
-</head>
-<style>
-  body{
-    background-image: url(img/backweb.jpg);/*call image*/
-    background-position: center center;/*set posisi background agar ditengah*/
-    background-repeat: no-repeat;/*set gambar biar gaberulang*/
-    background-attachment: fixed;/*set gambar agar ketika discroll tidak ikut bergerak*/
-    background-size: cover;/*set ukuran gambar sesuai ukuran layar*/
-    }
-</style>
-<body>
-
-<div class="flex-container">
-<div class="headbar">
-<header>
-  <center><img class="logoweb" src="img/L210.png"></center>
-</header>
-</div>
-
-<nav class="nav">
-<ul>
-   <br><br><br>
-    <a href="myEvent.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">home</i>Dasboard</li></a>
-    <li class="pilih"><i class="material-icons" style="font-size:20px;color:white">date_range</i>Calendar</li>
-    <a href="addEvent.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">add</i>Create Schedule</li></a>
-    <a href="listData.jsp.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">done</i>Finished Task</li>
-    <a href="PageEventList.jsp"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">list</i>Event List</li></a>
-    <a href="#"><li class="none"><i class="material-icons" style="font-size:20px;color:white; padding-right: 30px;">build</i>Manage</li></a>
-</ul>
-</nav>
-
-<article class="article">
-  <div class="contentlist">
-  <div id="main">                                         
-  <br><br><br><br><br>
+    
+    
+    <style>
+        
+        #calendar 
+        {
+            max-width: 70%;
 
 
-      <div id='calendar'></div>
+        margin: 40px auto;
+        }
 
-
-
-
-   
-  </div>
-  </div>
-</article>
-
-<footer>Copyright &copy; Kelompok B1 | Front-End [Made With Love] </footer>
-</div>
-
-</body>
+    </style>
+        
+        
+    </head>
+    <body>
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
+	<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
+        </div>
+	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive" src="img/logo1.png">
+	</div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+            <span class="glyphicon glyphicon-bell"></span>
+	</div>
+	<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+            Fajar&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
+	</div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+            Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
+	</div>        
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 leftpage_calendar">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
+                <ul>
+                    <a href="home.jsp"><li class="none">Dashboard</li></a>
+                    <a href="calendar.jsp"><li class="none">My Calendar</li></a>
+                    <a href="addEvent.jsp"><li class="none">Add Event</li></a> 
+                    <a href="mylist.jsp"><li class="none">My Event</li></a>
+                    <li class="none">History</li>
+		</ul>
+            </div>
+            <div id='calendar'></div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With ? by FrontEnd in Kosan Uda</div>
+    </body>
 </html>

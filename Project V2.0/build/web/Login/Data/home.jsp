@@ -27,7 +27,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
                     <ul>
                         <a href="home.jsp"><li class="pilih">Dashboard</li></a>
-                        <a href="calendar.jsp"><li class="none">My Calendar</li></a>
+                        <a href="calendarv2(dynamic).jsp"><li class="none">My Calendar</li></a>
                         <a href="addEvent.jsp"><li class="none">Add Event</li></a>
                         <a href="mylist.jsp"><li class="none">My Event</li></a>
                         <a href="finish.jsp"><li class="none">History</li></a>
