@@ -73,9 +73,9 @@
             DAONewEvent ev = new DAONewEvent();
             List<NewEvent> data = new ArrayList<NewEvent>();
             String ket = request.getParameter("ket");
-            
-            ev.setKdTraveller("TD001");
-            data = ev.getEventByTraveller();
+            data = ev.tampil();
+            ev.setKdEvent("");
+
          %>
 
     $(document).ready(function() {

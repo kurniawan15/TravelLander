@@ -146,39 +146,6 @@ public class DAONewEvent extends NewEvent implements DAO{
             
             return idEvent;
          }
-    /**
-     * 
-     * @return List Traveller
-     */
-    public List getEventByTraveller() {
-        List<NewEvent> listEvent = new ArrayList<NewEvent>();
-        ResultSet rs = null;
- 
-        try {
-            String sql = "SELECT * FROM event WHERE Kd_Traveller='"+kdTraveller+"'";
-            rs = db.ambilData(sql);
-            System.out.println(sql);
-            while (rs.next()) {
-                NewEvent ev = new NewEvent();
-                ev.setKdEvent(rs.getString("Kd_Event"));
-                ev.setKdTraveller(rs.getString("Kd_Traveller"));
-                
-                ev.setTravelMode(rs.getString("Travel_Mode"));
-                ev.setAvoidtolls(rs.getInt("Avoidtolls"));
-                
-                ev.setNamaEvent(rs.getString("Nama_Event"));
-                ev.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
-                ev.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));
-                ev.setKeterangan(rs.getString("Keterangan"));
-                
-                listEvent.add(ev);
-            }
-            db.diskonek(rs);
-        } catch (Exception ex) {
-            System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
-        }
-        return listEvent;
-    }
 /*-------------------------------------------------------------------------------------------------------------*/    
     public List<NewEvent> getEventNext (String kdTraveller){
         List<NewEvent> listEvent = new ArrayList<NewEvent>();
