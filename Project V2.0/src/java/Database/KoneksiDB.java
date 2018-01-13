@@ -5,6 +5,7 @@
  */
 package Database;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,6 +18,7 @@ import java.sql.Statement;
 public class KoneksiDB {
    static  private Connection conn;
     private Statement st;
+    private CallableStatement cst;
 
 
     public void koneksi() {
@@ -64,5 +66,17 @@ public class KoneksiDB {
         } catch (Exception x) {
             System.out.println("Terjadi kesalahan simpan data : " + x);
         }
+    }
+    public ResultSet getDataProcedure(String sql) {
+        ResultSet rs = null;
+        try {
+            koneksi();
+            cst =conn.prepareCall(sql);
+            cst.executeQuery();
+            rs = cst.getResultSet();
+        } catch (Exception x) {
+            System.out.println("Terjadi kesalahan ambil data  Procedure: " + x);
+        }
+        return rs;
     }
 }

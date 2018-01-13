@@ -8,6 +8,7 @@ package DAO;
 import Database.KoneksiDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -145,4 +146,34 @@ public class DAONewEvent extends NewEvent implements DAO{
             
             return idEvent;
          }
+/*-------------------------------------------------------------------------------------------------------------*/    
+    public List<NewEvent> getEventNext (String kdTraveller){
+        List<NewEvent> listEvent = new ArrayList<NewEvent>();
+        String sql ="call event_next('"+kdTraveller+"')";
+        ResultSet rs =db.getDataProcedure(sql);
+        try{
+            while(rs.next()){
+                NewEvent nx = new NewEvent();
+                nx.setKdEvent(rs.getString("Kd_Event"));
+                nx.setKdTraveller (rs.getString("Kd_Traveller"));
+                nx.setTravelMode(rs.getString("Travel_Mode"));
+                nx.setAvoidtolls(rs.getInt("Avoidtolls"));
+                nx.setNamaEvent(rs.getString("Nama_Event"));
+                nx.setWaktuMulai(new Date(rs.getTimestamp("Waktu_Mulai").getTime()));
+                nx.setWaktuSelesai(new Date(rs.getTimestamp("Waktu_Selesai").getTime()));
+                nx.setKeterangan(rs.getString("Keterangan"));
+                listEvent.add(nx);
+            }            
+        }catch (SQLException ex){
+            System.out.println("terjadi kesalahan saat menampilkan EventNex : ");
+            ex.printStackTrace();
+        }
+        return listEvent;
+    } 
+    public Date getDepartureTime(Date arrTime,Time trivial){
+        Date deptTime = null;
+        
+        deptTime = new Date(arrTime.getTime() - trivial.getTime());
+        return deptTime;
+    } 
 }

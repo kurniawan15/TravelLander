@@ -1,0 +1,82 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+.leftpage_calendar{
+  padding-left: 0px;
+  padding-right: 0px;
+  height: 100%;
+  overflow-x: hidden;
+}
+.fullpage{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.menubar{
+  position: absolute;
+  background-color: lightgrey;
+  z-index: 1;
+  padding-right: 0;
+  padding-left: 0;
+}
+.menubar ul{
+  padding-right: 0;
+  padding-right: 0; 
+  list-style: none;
+}
+.menubar ul li{
+  padding-right: 0;
+  padding-right: 0;
+}
+.none{
+  background-color: grey;
+  float: left;
+  width: 120px;
+  color: black;
+  background-color: lightgrey;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.none:hover{
+  background-color: #007ee6;
+  cursor: pointer;
+  transition: 0.4s;
+  color: white;
+}
+.fullfooter{
+  font-size: 10px;
+  line-height: 40px;
+  color: white;
+  height: 40px;
+  z-index: 1;
+  text-align: center;
+  background-color: #007ee6;
+}
+.kanan{
+  text-align: right;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+  color: white;
+}
+.kanan2{
+  text-align: right;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+  color: white;
+}
+.kanan:hover{
+  background-color: #003058;
+}
+.kanan2:hover{
+  background-color: #003058;
+}
+.header{
+  background-color: #004883;
+  padding-left: 0;
+  padding-right: 0;
+}
