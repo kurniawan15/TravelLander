@@ -47,6 +47,14 @@ public class ControllerTraveller extends HttpServlet {
             hm.setKdTraveller(request.getParameter("Kd_Traveller"));
             hm.hapus();
             response.sendRedirect("indexTraveller.jsp");
+        } else if (proses.equals("logout-traveller")) {
+            System.out.println("Logout");
+            HttpSession session = request.getSession();
+            if (session.getAttribute("USERNAME") != null) {
+                session.removeAttribute("USERNAME");
+                response.sendRedirect("index.jsp");
+            }
+
         }
     }
 
@@ -96,13 +104,6 @@ public class ControllerTraveller extends HttpServlet {
                     } catch (Exception ex) {
                         System.out.println("ERROR LOGIN");
                         Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else if (proses.equals("logout-traveller")) {
-                    HttpSession session = request.getSession();
-                    if (session.getAttribute("USERNAME") != null) {
-                        System.out.println("LogOUt ");
-                        session.removeAttribute("USERNAME");
-                        response.sendRedirect("../../index.jsp");
                     }
                 }
             }
