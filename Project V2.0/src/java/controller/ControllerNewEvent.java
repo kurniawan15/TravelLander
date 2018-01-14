@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,8 +53,8 @@ public class ControllerNewEvent extends HttpServlet{
         String proses = request.getParameter("proses");
         
         //1/14/2018 5:50 PM
-        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
-        
+        SimpleDateFormat format = new SimpleDateFormat("M/d/yyyy h:m a");
+        System.out.println("Tanngah har i ini : " + format.format(new Date()));
         if (data != null){
             if(data.equals("event")){
                 DAONewEvent ev = new DAONewEvent();
@@ -66,6 +67,9 @@ public class ControllerNewEvent extends HttpServlet{
                 ev.setAvoidtolls(Integer.parseInt(toll));
                 ev.setTravelMode(moda);
                 ev.setKeterangan(request.getParameter("keterangan"));
+                System.out.println(request.getParameter("waktu_mulai"));
+                System.out.println(request.getParameter("waktu_selesai"));
+                
                 try {
                     ev.setWaktuMulai(format.parse(request.getParameter("waktu_mulai")));
                     ev.setWaktuSelesai(format.parse(request.getParameter("waktu_selesai")));
@@ -107,7 +111,7 @@ public class ControllerNewEvent extends HttpServlet{
                 } else if(proses.equals("hapus-event")){
                     ev.hapus();
                 }
-                response.sendRedirect("Login/Data/listData.jsp");
+                response.sendRedirect("Login/Data/mylist.jsp");
             }
         }
     }

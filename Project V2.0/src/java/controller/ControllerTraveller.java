@@ -95,6 +95,7 @@ public class ControllerTraveller extends HttpServlet {
 
                             request.getSession(false).invalidate();
                             request.getSession(true).setAttribute("USERNAME", t.getNamaTraveller());
+                            request.getSession(true).setAttribute("KdTraveller", t.getKdTraveller());
                             response.sendRedirect("Login/Data/home.jsp");
 
                         } else {

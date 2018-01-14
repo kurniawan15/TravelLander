@@ -19,9 +19,8 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
@@ -71,11 +70,12 @@
                       DAOEventNext nx = new DAOEventNext();
                       DAONewLokasi dLok = new DAONewLokasi();
                       List<EventNext> data = new ArrayList<EventNext>();
-                      try{
+                      NewLokasi lokAwal = new NewLokasi();
+                      NewLokasi lokAkhir = new NewLokasi();
                       String ket = request.getParameter("ket");
-                      nx.setKdTraveller("");
+                      
                       if (ket == null) {
-                          data = nx.getEventNext("TD001");
+                          data = nx.getEventNext(session.getAttribute("KdTraveller").toString());
                       }
                   
                       for (int x = 0; x < data.size(); x++) {
@@ -84,7 +84,7 @@
 				      <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
 			          <td style="font-size: 12px; line-height: 20px;"><%=x + 1%></td>
 			          <td style="font-size: 12px; line-height: 20px;"><%=data.get(x).getNamaEvent()%></td>
-			          <td style="font-size: 12px; line-height: 20px;"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
+			          <td style="font-size: 12px; line-height: 20px;"><%NewLokasi l = new NewLokasi(); l = dLok.getLokasiAkhir(data.get(x).getKdEvent()); out.println(l.getNamaLokasi());%></td>
                                   <td style="font-size: 12px; line-height: 20px;"><%=format.format(data.get(x).getWaktuSelesai())%></td>
 			          <td style="font-size: 12px; line-height: 45px;"><a href="edit.html"><i style="font-size: 20px; color: grey;" class="material-icons">edit</i></a></td>
 			          <td><button class="btn"><i style="font-size: 19px; text-align: center;" class="material-icons">delete</i></button>
@@ -97,7 +97,7 @@
 								</div>
 							</div>
 						<div class="cover"></div>
-						<script src="js/jquery.min.js"></script>
+						<script src="Js/jquery.min.js"></script>
 						<script>
 							$(document).ready(function(){
 								$(".btn").on('click', function(){
@@ -168,7 +168,21 @@
                 
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 rightpage">
 			<!--<div id="pageedit" class="tabcontent">-->
-<<<<<<< HEAD
+                <%
+                    if(request.getParameter("kd_event")!=null){
+                        String kd = request.getParameter("kd_event");
+                        
+                        DAONewEvent dEv = new DAONewEvent();
+                        
+                        List<NewEvent> ev = new ArrayList<NewEvent>();
+                        dEv.setKdEvent(kd);
+
+                        ev = dEv.cariID();
+                        lokAwal = dLok.getLokasiAwal(kd);
+                        lokAkhir = dLok.getLokasiAkhir(kd);
+                        
+//                      ev.get(0).get
+                %>
 			<br>
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 tableviews">
@@ -178,8 +192,8 @@
 	                <th>Event Time</th>
 	            </tr>
 	            <tr>
-	                <td title="EventName"> - </td>
-	                <td title="EventTime"> - </td>
+	                <td title="EventName"> <%=ev.get(0).getNamaEvent()%> </td>
+                        <td title="EventTime"><%=format.format(ev.get(0).getWaktuMulai())%></td>
 	            </tr>
 	        </table>
 	        <br><br>
@@ -189,8 +203,8 @@
 	                <th>Description</th>
 	            </tr>
 	            <tr>
-	                <td title="EndPoint"> - </td>
-	                <td title="Description"> - </td>
+                        <td title="EndPoint"> <%=lokAwal.getNamaLokasi()%> </td>
+	                <td title="Description"><%=ev.get(0).getKeterangan()%></td>
 	            </tr>
 	        </table>
 	        <br><br>
@@ -202,48 +216,15 @@
 	                <th>Departure Time</th>
 	            </tr>
 	            <tr>
-	                <td title="Transport"> - </td>
-	                <td title="Distance"> - </td>
-	                <td title="Estimated"> - </td>
-	                <td title="Departure"> - </td>
+	                <td title="Transport"> <%=ev.get(0).getTravelMode()%> </td>
+                        <td title="Distance"><div id="distance"></div></td>
+	                <td title="Estimated"><div id="est_time"></div></td>
+	                <td title="Departure"><div id="dept_time"></div></td>
 	            </tr>
 	        </table>
 	        <br>
 	    </div>
-=======
-		      <h1 class="judul">Detail Event</h1>
-                      <%
-                          if(request.getParameter("kd_event")!= null){
-                                String kd = request.getParameter("kd_event");
-                                kt.setKdEvent(kd);
-                                List<NewEvent> ev = new ArrayList<NewEvent>();
-                                ev = kt.cariID();
-                      %>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Detail</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-                          <p class="pdetail">Event Name &nbsp;&nbsp;:  <%=ev.get(0).getNamaEvent()%></p>
-			  <p class="pdetail">Event Time &nbsp;&nbsp;: <%=format.format(ev.get(0).getWaktuMulai())%> until <%=format.format(ev.get(0).getWaktuSelesai())%></p>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Location</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-                          
-                      <p class="pdetail">End Point &nbsp;&nbsp;:<%=dLok.getLokasiAkhir(kd)%></div></p>  <div id="end">
-			  <p class="pdetail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description &nbsp;&nbsp;: <%=ev.get(0).getKeterangan()%></p>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Transportation</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-			  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
-                          <p class="pdetail"><div id="dvDistance" style="margin-left: 100px;"></div></p>
-			  <p class="pdetail"><div id="dvDuration" style="margin-left: 100px;"></div></p>
-			  <p class="pdetail">Departure Time &nbsp;&nbsp;: 06:45</p>
-                      </div>
->>>>>>> 778e259681649414cafec075744af6c4cd8257df
+
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
             <div class="col-lg-1"></div>                
 			<div class="col-lg-10" id="map" style="width: 530px; height:280px;"></div>
@@ -258,23 +239,31 @@
           zoom: 7,
           center: {lat: 41.85, lng: -87.65}
         });
+        
         directionsDisplay.setMap(map);
 
-        var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-        };
-        document.getElementById('start').addEventListener('change', onChangeHandler);
-        document.getElementById('end').addEventListener('change', onChangeHandler);
+       
+//        document.getElementById('start').addEventListener('change', onChangeHandler);
+//        document.getElementById('end').addEventListener('change', onChangeHandler);
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         directionsService.route({
-          origin: document.getElementById('start').value,
-          destination: document.getElementById('end').value,
-          
-          travelMode: 'DRIVING'
+          origin: '<%=lokAwal.getAlamat()%>',
+          destination: '<%=lokAkhir.getAlamat()%>',
+          <%if(ev.get(0).getTravelMode().equals("TRAIN") || ev.get(0).getTravelMode().equals("BUS")){%>
+                travelMode: google.maps.TravelMode.TRANSIT,
+                    transitOptions: {
+                    modes: ['<%=ev.get(0).getTravelMode()%>']
+                  }
+          <%} else{
+                %>
+                travelMode: '<%=ev.get(0).getTravelMode()%>'
+                <%
+            }%>
         }, function(response, status) {
-          if (status === 'OK') {
+          if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
             alert(origin);
           } else {
@@ -283,7 +272,7 @@
         });
       }
 
-<<<<<<< HEAD
+
       var deleteLinks = document.querySelectorAll('.delete');
 
 		for (var i = 0; i < deleteLinks.length; i++) {
@@ -291,9 +280,9 @@
 			  event.preventDefault();
 
 			  var choice = confirm(this.getAttribute('data-confirm'));
-=======
+
       //*********DISTANCE AND DURATION WALKING**********************//
->>>>>>> 778e259681649414cafec075744af6c4cd8257df
+
 
 			  if (choice) {
 			    window.location.href = this.getAttribute('href');
@@ -306,15 +295,14 @@
     </script>              
 			
                      
-  		</div>
+  		</div><%
+                }
+                %>
   </div>
 </article>
 </div>
 		</div>
-<<<<<<< HEAD
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
-=======
+
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda</div>
->>>>>>> 778e259681649414cafec075744af6c4cd8257df
 </body>
 </html>

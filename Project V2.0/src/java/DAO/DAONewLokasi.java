@@ -65,7 +65,7 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         }
         return data;
     }
-        public String getLokasiAkhir(String kd) {
+        public NewLokasi getLokasiAkhir(String kd) {
         List<NewLokasi> data = new ArrayList<NewLokasi>();
         ResultSet rs = null;
  
@@ -87,9 +87,9 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
         }
-        return data.get(0).getNamaLokasi();
+        return data.get(0);
     }
-        public String getLokasiAwal(String kd) {
+        public NewLokasi getLokasiAwal(String kd) {
         List<NewLokasi> data = new ArrayList<NewLokasi>();
         ResultSet rs = null;
  
@@ -111,6 +111,6 @@ public class DAONewLokasi extends NewLokasi implements DAO {
         } catch (Exception ex) {
             System.out.println("Terjadi Kesalah Saat menampilkan Cari ID" + ex);
         }
-        return data.get(0).getNamaLokasi();
+        return data.get(0);
     }
 }
