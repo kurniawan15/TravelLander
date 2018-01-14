@@ -9,26 +9,18 @@
 
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" type="text/css" href="css/grid.css">
-    <link rel="stylesheet" type="text/css" href="css/style_calendar.css">  
-    <link href='lib/lain/fullcalendar.css' rel='stylesheet' />
-    <script src='lib/moment.min.js'></script>    
-    <script src='lib/jquery.min.js'></script>
-    <script src='lib/lain/fullcalendar.min.js'></script>
-    <style>
-
-
-
-      #calendar {
-        max-width: 70%;
-
-
-        margin: 40px auto;
-      }
-
-    </style>
     <head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/grid.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
+        
+        <!--Script Calendar-->
+        <link href='../lib/lain/fullcalendar.min.css' rel='stylesheet' />
+        <script src='../lib/moment.min.js'></script>    
+        <script src='../lib/jquery.min.js'></script>
+        <script src='../lib/lain/fullcalendar.min.js'></script>
         <title>Calendar</title>
         <%
                 String pattern = "yyyy-MM-dd";
@@ -121,9 +113,7 @@
         #calendar 
         {
             max-width: 70%;
-
-
-        margin: 40px auto;
+            margin: 0 auto;
         }
 
     </style>
@@ -131,36 +121,48 @@
         
     </head>
     <body>
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
-	<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
-        </div>
-	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-            <center><img class="img-responsive" src="img/logo1.png">
-	</div>
-        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
-            <span class="glyphicon glyphicon-bell"></span>
-	</div>
-	<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-            Fajar&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
-	</div>
-        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-            Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
-	</div>        
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 leftpage_calendar">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-                <ul>
-                    <a href="home.jsp"><li class="none">Dashboard</li></a>
-                    <a href="calendar.jsp"><li class="none">My Calendar</li></a>
-                    <a href="addEvent.jsp"><li class="none">Add Event</li></a> 
-                    <a href="mylist.jsp"><li class="none">My Event</li></a>
-                    <li class="none">History</li>
-		</ul>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
             </div>
-            <div id='calendar'></div>
-        </div>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With ? by FrontEnd in Kosan Uda</div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
+                <center><img class="img-responsive" src="img/logo1.png">
+                    </div>
+                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+                        <span class="glyphicon glyphicon-bell"></span>
+                    </div>
+                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+                        <%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
+                        Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
+                    </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
+                    <ul>
+                        <a href="home.jsp"><li class="none">Dashboard</li></a>
+                        <a href="calendar.jsp"><li class="pilih">My Calendar</li></a>
+                        <a href="addEvent.jsp"><li class="none">Add Event</li></a>
+                        <a href="mylist.jsp"><li class="none">My Event</li></a>
+                        <a href="finish.jsp"><li class="none">History</li></a>
+                    </ul>
+                </div>
+                <img src="img/avatar.png" alt="Avatar" style="width:20%">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home">
+                    <article class="article">
+                        <div class="contentlist">
+                            <div id="main">
+                                <br><br>
+                             
+                                
+                                <!-- Calendar Place Here -->
+                                 <div id='calendar'></div>
+                                 
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With by FrontEnd in Kosan Uda</div>
     </body>
 </html>

@@ -15,45 +15,38 @@
 <%@page import="Database.KoneksiDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-           
+           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
-<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
-		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
-		</div>
-		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-			<center><img class="img-responsive" src="img/logo1.png">
-		</div>
-		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
-			<span class="glyphicon glyphicon-bell"></span>
-		</div>
-		<div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-			Hi, Fajar&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
-		</div>
-                <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                    Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
-		</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
+        	 <ul>
+                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li></a>
+                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li></a>
+                <li class="pilih"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive logo" src="img/logo1.png">
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
+            <center><button onclick="myFunction()" class="dropbtn">Hi, Fajar Panca Saputra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+              <div id="myDropdown" class="dropdown-content">
+                <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+              </div>
+        </div>
 	</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 leftpagefinish">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-				<ul>
-                                <a href="home.jsp"><li class="pilih">Dashboard</li></a>
-				<a href="calendar.jsp"><li class="none">My Calendar</li></a>
-				<a href="addEvent.jsp"><li class="none">Add Event</li></a>
-				<a href="mylist.jsp"><li class="pilih">My Event</li></a>
-				<a href="finish.jsp"><li class="none">History</li></a>
-					
-				</ul>
-			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 isicontent">
 			<article class="article">
@@ -61,18 +54,17 @@
 			  <div id="main">                                         
 			  <br><br>
 			  <h1 class="judul">Event List</h1>
-                          <p id="demo"></p> 
 			   <table class="table">
 			      <tr>
 			          <th>NO</th>
 			          <th>Event Name</th>
 			          <th>Event Location</th>
 			          <th>Date & Time</th>
-			          <th>&nbsp;&nbsp;Edit&nbsp;&nbsp;</th>
-			          <th>Delete</th>
-			          <th>View</th>
+			          <th>Edit</th>
+			          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</th>
+			          <th>&nbsp;&nbsp;&nbsp;&nbsp;View</th>
 			      </tr>
-                              <%
+                             <%
                                   
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                       //DAONewEvent kt = new DAONewEvent();
@@ -94,17 +86,65 @@
 			          <td style="font-size: 12px; line-height: 20px;"><%=data.get(x).getNamaEvent()%></td>
 			          <td style="font-size: 12px; line-height: 20px;"><%=dLok.getLokasiAkhir(data.get(x).getKdEvent())%></td>
                                   <td style="font-size: 12px; line-height: 20px;"><%=format.format(data.get(x).getWaktuSelesai())%></td>
-			          <td style="font-size: 12px; line-height: 35px;"><span class="glyphicon glyphicon-edit"></span></td>
-			          <td style="font-size: 12px; line-height: 35px;"><a href="../../Event?kd_event=<%=data.get(x).getKdEvent()%>&proses=hapus-event"><span class="glyphicon glyphicon-trash"></span></a></td>
-                                  <td style="font-size: 12px; line-height: 20px;"><a href="?kd_event=<%=data.get(x).getKdEvent()%>"><button class="tablinks" id="defaultOpen" onclick="opencity('tabcontent','pageedit')"><span class="glyphicon glyphicon glyphicon-list"></span></button></a></td>
-			      </tr>
-                              <% 
+			          <td style="font-size: 12px; line-height: 45px;"><a href="edit.html"><i style="font-size: 20px; color: grey;" class="material-icons">edit</i></a></td>
+			          <td><button class="btn"><i style="font-size: 19px; text-align: center;" class="material-icons">delete</i></button>
+							<div class="popup">
+								<span id="close">&times;</span>
+								<p class="confirm">Do you want to delete this event?</p>
+								<div class="option">
+									<a class="confirmbtn" href="">cancel</a>
+									<a class="confirmbtn" href="">delete</a>
+								</div>
+							</div>
+						<div class="cover"></div>
+						<script src="js/jquery.min.js"></script>
+						<script>
+							$(document).ready(function(){
+								$(".btn").on('click', function(){
+									$(".cover").fadeIn('slow');
+									$(".popup").fadeIn('slow');
+								});
+								$(".popup").on('click', function(){
+									if($(event.target).is("#close")){
+										$(".cover").fadeOut('slow');
+										$(".popup").fadeOut('slow');
+									}
+								});
+								$('.cover').on('click', function(){
+									$(".cover").fadeOut('slow');
+									$(".popup").fadeOut('slow');
+								});
+							});
+						</script>	</td>
+                                  <td style="font-size: 12px; line-height: 20px; background-color: none;"><a href="?kd_event=<%=data.get(x).getKdEvent()%>"><button class="tablinks" id="defaultOpen" onclick="opencity('tabcontent','pageedit')"><i style="font-size: 20px; color: grey;" class="material-icons">subject</i></a></td>
+			      		</tr>
+
+                               <% 
                                 }
 }catch(Exception ex){
     ex.printStackTrace();
 }
                               %>
 				      <script type="text/javascript">
+				        function myFunction() {
+		                    document.getElementById("myDropdown").classList.toggle("show");
+		                }
+
+		                // Close the dropdown if the user clicks outside of it
+		                window.onclick = function(event) {
+		                  if (!event.target.matches('.dropbtn')) {
+
+		                    var dropdowns = document.getElementsByClassName("dropdown-content");
+		                    var i;
+		                    for (i = 0; i < dropdowns.length; i++) {
+		                      var openDropdown = dropdowns[i];
+		                      if (openDropdown.classList.contains('show')) {
+		                        openDropdown.classList.remove('show');
+		                      }
+		                    }
+		                  }
+		                }
+
 				        function openCity(evt, editEvent) {
 				          var i, tabcontent, tablinks; //deklarasi variabel
 				          //mengambil element yang ada di class tabcontent dan menyembunyikan class 
@@ -131,49 +171,60 @@
                 
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 rightpage">
 			<!--<div id="pageedit" class="tabcontent">-->
-		      <h1 class="judul">Detail Event</h1>
-                      
-                      <%
-                          if(request.getParameter("kd_event")!= null){
-                                String kd = request.getParameter("kd_event");
-                                nx.setKdEvent(kd);
-                                List<EventNext> ev = new ArrayList<EventNext>();
-                                ev = nx.getEventNext("TD001");
-                      %>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Detail</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-                          <p class="pdetail">Event Name &nbsp;&nbsp;:  <%=ev.get(0).getNamaEvent()%></p>
-			  <p class="pdetail">Event Time &nbsp;&nbsp;: <%=format.format(ev.get(0).getWaktuMulai())%> until <%=format.format(ev.get(0).getWaktuSelesai())%></p>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Location</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-                          
-                      <p class="pdetail">End Point &nbsp;&nbsp;:<%=dLok.getLokasiAkhir(kd)%></div></p>  <div id="end">
-			  <p class="pdetail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description &nbsp;&nbsp;: <%=ev.get(0).getKeterangan()%></p>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
-			  <h2 class="h2detail">Transportation</h2>
-                      </div>
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
-			  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
-                          <p class="pdetail"><div id="dvDistance" style="margin-left: 100px;"></div></p>
-			  <p class="pdetail"><div id="dvDuration" style="margin-left: 100px;"></div></p>
-			  <p class="pdetail" >Departure Time &nbsp;&nbsp;: 06:45  <p ></p></p>
-                      </div>
+			<br>
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 tableviews">
+			<table class="tableview" id="">
+	            <tr>
+	                <th>Event Name</th>
+	                <th>Event Time</th>
+	            </tr>
+	            <tr>
+	                <td title="EventName"> - </td>
+	                <td title="EventTime"> - </td>
+	            </tr>
+	        </table>
+	        <br><br>
+	        <table class="tableview" id="">
+	            <tr>
+	                <th>End Point</th>
+	                <th>Description</th>
+	            </tr>
+	            <tr>
+	                <td title="EndPoint"> - </td>
+	                <td title="Description"> - </td>
+	            </tr>
+	        </table>
+	        <br><br>
+	        <table class="tableview" id="">
+	            <tr>
+	                <th>Transport Name</th>
+	                <th>Distance</th>
+	                <th>Estimated</th>
+	                <th>Departure Time</th>
+	            </tr>
+	            <tr>
+	                <td title="Transport"> - </td>
+	                <td title="Distance"> - </td>
+	                <td title="Estimated"> - </td>
+	                <td title="Departure"> - </td>
+	            </tr>
+	        </table>
+	        <br>
+	    </div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
-                            <div id="map" style="width: 550px; height:300px; margin-left: 100px;"></div>
+            <div class="col-lg-1"></div>                
+			<div class="col-lg-10" id="map" style="width: 530px; height:280px;"></div>
 	     	</div>
-                          <script type="text/javascript">
- function initMap() {
+
+    <script type="text/javascript">               
+      
+      function initMap() {
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 7,
-          center: {lat: -6.8712, lng: 107.5738}
+          center: {lat: 41.85, lng: -87.65}
         });
         directionsDisplay.setMap(map);
 
@@ -184,118 +235,46 @@
         document.getElementById('end').addEventListener('change', onChangeHandler);
       }
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -6.8712, lng:107.5738}  // Kampus tercinta.
-        });
-
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-          draggable: true,
-          map: map,
-          panel: document.getElementById('right-panel')
-        });
-
-        directionsDisplay.addListener('directions_changed', function() {
-          computeTotalDistance(directionsDisplay.getDirections());
-        });
-
-        displayRoute('<%=dLok.getLokasiAwal(kd)%>', '<%=dLok.getLokasiAkhir(kd)%>', directionsService,
-            directionsDisplay);
-            
-            //*********DISTANCE AND DURATION **********************//
-            var service = new google.maps.DistanceMatrixService;
-            service.getDistanceMatrix({
-                origins: ['<%=dLok.getLokasiAwal(kd)%>'],
-                destinations: ['<%=dLok.getLokasiAkhir(kd)%>'],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.METRIC,
-                avoidHighways: false,
-                avoidTolls: false
-            }, function (response, status) {
-                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    var distance = response.rows[0].elements[0].distance.text;
-                    var duration = response.rows[0].elements[0].duration.text;
-                    var dvDistance = document.getElementById("dvDistance");
-                    var dvDuration = document.getElementById("dvDuration");
-                    dvDistance.innerHTML = "";
-                    dvDistance.innerHTML += "Distance :" + distance;
-                    dvDuration.innerHTML += "duration :" +duration;
-
-                } else {
-                    alert("Unable to find the distance via road.");
-                }
-            });
-      }
-
-      function displayRoute(origin, destination, service, display) {
-        service.route({
-          origin: origin,
-          destination: destination,
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
           
-          travelMode: 'DRIVING',
-          avoidTolls: true
+          travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {
-            display.setDirections(response);
+            directionsDisplay.setDirections(response);
+            alert(origin);
           } else {
-            alert('Could not display directions due to: ' + status);
+            window.alert('Directions request failed due to ' + status);
           }
         });
       }
-/*------------------------------Hitung Mundur----------------------------------*/
-// Set the date we're counting down to
-var countDownDate = new Date("<%=format.format(data.get(0).getWaktuMulai())%>").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+      var deleteLinks = document.querySelectorAll('.delete');
 
-    // Get todays date and time
-    var now = new Date().getTime();
-    
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "Jadwal Sudah Trelewat";
-    }
-}, 1000);
+		for (var i = 0; i < deleteLinks.length; i++) {
+		  deleteLinks[i].addEventListener('click', function(event) {
+			  event.preventDefault();
 
-            
+			  var choice = confirm(this.getAttribute('data-confirm'));
+
+			  if (choice) {
+			    window.location.href = this.getAttribute('href');
+			  }
+		  });
+		}
     </script>
-    
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag&callback=initMap">
-    </script>                           
-                              
-                              
-            
-                         
-                          
+    </script>              
 			
-                        <%
-                        }
-
-                        %>
+                     
   		</div>
   </div>
 </article>
 </div>
 		</div>
-               
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda </div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
 </body>
 </html>

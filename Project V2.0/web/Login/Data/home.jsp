@@ -7,39 +7,37 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
-            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-                <center><img class="img-responsive" src="img/logo1.png">
-                    </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
-                        <span class="glyphicon glyphicon-bell"></span>
-                    </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                        <%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
-                    </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                        Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
-                    </div>
-            </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
+             <ul>
+                <li class="pilih"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li>
+                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li></a>
+                <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li></a>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive logo" src="img/logo1.png">
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
+            <center><button onclick="myFunction()" class="dropbtn">Hi, Fajar Panca Saputra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+              <div id="myDropdown" class="dropdown-content">
+                <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+              </div>
+        </div>
+    </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-                    <ul>
-                        <a href="home.jsp"><li class="pilih">Dashboard</li></a>
-                        <a href="calendar.jsp"><li class="none">My Calendar</li></a>
-                        <a href="addEvent.jsp"><li class="none">Add Event</li></a>
-                        <a href="mylist.jsp"><li class="none">My Event</li></a>
-                        <a href="finish.jsp"><li class="none">History</li></a>
-                    </ul>
-                </div>
+               
                 <img src="img/avatar.png" alt="Avatar" style="width:20%">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home">
                     <article class="article">
                         <div class="contentlist">
                             <div id="main">
+                                <h1 class="welcome">WELCOME TRAVELER, HAVE NICE DAY</h1>
                                 <br><br>
-                                <h1 class="judul">Event Hari Ini</h1>
+                                <h1 class="judul">Your Event Today</h1>
+                                <div class="col-lg-12 info">
                                 <table class="table">
                                     <tr>
                                         <th>NO</th>
@@ -56,9 +54,9 @@
                                         <td style="font-size: 12px; line-height: 20px;">Pengawasan dan Pelatihan</td>
                                         <td style="font-size: 12px; line-height: 20px;">SMAN 20 BANDUNG</td>
                                         <td style="font-size: 12px; line-height: 20px;">21-09-2017, 17.00</td>
-                                        <td style="font-size: 12px; line-height: 35px;"><a href="editEvent.html"><span class="glyphicon glyphicon-edit"></span></a></td>
-                                        <td style="font-size: 12px; line-height: 35px;"><span class="glyphicon glyphicon-trash"></span></td>
-                                        <td style="font-size: 12px; line-height: 20px;"><button class="tablinks" onclick="openCity(event, 'pageedit')" id="defaultOpen"><span class="glyphicon glyphicon glyphicon-list"></span></button></td>
+                                        <td style="font-size: 12px; line-height: 35px;"><a href="edit.html"><i style="font-size: 20px;" class="material-icons">mode_edit</i></a></td>
+                                        <td style="font-size: 12px; line-height: 35px;"><a href="#" class="delete" data-confirm="Are you sure to delete this Event?"><i style="font-size: 20px;" class="material-icons">delete</i></a></td>
+                                        <td style="font-size: 12px; line-height: 20px;"><button class="tablinks" onclick="openCity(event, 'pageedit')" id="defaultOpen"><i style="font-size: 20px;" class="material-icons">subject</i></button></td>
                                     </tr>
                                     <script type="text/javascript">
                                         function openCity(evt, editEvent) {
@@ -77,12 +75,46 @@
                                             document.getElementById(editEvent).style.display = "block";
                                             evt.currentTarget.className += " active";
                                         }
+
+                                        function myFunction() {
+                                            document.getElementById("myDropdown").classList.toggle("show");
+                                        }
+
+                                        // Close the dropdown if the user clicks outside of it
+                                        window.onclick = function(event) {
+                                          if (!event.target.matches('.dropbtn')) {
+
+                                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                                            var i;
+                                            for (i = 0; i < dropdowns.length; i++) {
+                                              var openDropdown = dropdowns[i];
+                                              if (openDropdown.classList.contains('show')) {
+                                                openDropdown.classList.remove('show');
+                                              }
+                                            }
+                                          }
+                                        }
+                                        var deleteLinks = document.querySelectorAll('.delete');
+
+                                        for (var i = 0; i < deleteLinks.length; i++) {
+                                          deleteLinks[i].addEventListener('click', function(event) {
+                                              event.preventDefault();
+
+                                              var choice = confirm(this.getAttribute('data-confirm'));
+
+                                              if (choice) {
+                                                window.location.href = this.getAttribute('href');
+                                              }
+                                          });
+                                        }
                                     </script>
                                 </table>
+                                </div>
                                 <!--____________________________Tombol Create Event____________________________--> 
                                 <div class="col-12 enter">
-                                    <br>
-                                    <input type="submit" value="Create Event" onclick="window.location.href = 'addEvent.jsp'" style="background-color: green; width: 15%; float: left; margin-bottom: 20px;">
+                                    <br><center>
+                                    <input type="submit" value="Create New Event" onclick="window.location.href = 'addEvent.jsp'" style="background-color: #0062b3; width: 200px; height: 40px; margin-bottom: 20px;">
+                                    <br></center>
                                     <br>
                                 </div>
                             </div>
@@ -90,6 +122,6 @@
                     </article>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With by FrontEnd in Kosan Uda</div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
     </body>
 </html>
