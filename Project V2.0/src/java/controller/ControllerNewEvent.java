@@ -75,15 +75,17 @@ public class ControllerNewEvent extends HttpServlet{
                     response.sendRedirect("");
                 }
                 
+                String namaLokasiAwal[] = request.getParameter("from").split(",");
+                String namaLokasiAkhir[] = request.getParameter("from").split(",");
                 DAONewLokasi lokAwal = new DAONewLokasi();
-                lokAwal.setNamaLokasi(request.getParameter("from"));
+                lokAwal.setNamaLokasi(namaLokasiAwal[0]);
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("longitude_awal"));
                 lokAwal.setAlamat(request.getParameter("from"));
                 lokAwal.setKeterangan("awal");
                 
                 DAONewLokasi lokAkhir = new DAONewLokasi();
-                lokAkhir.setNamaLokasi(request.getParameter("to"));
+                lokAkhir.setNamaLokasi(namaLokasiAkhir[0]);
                 lokAkhir.setLatitude(request.getParameter("latitude_akhir"));
                 lokAkhir.setLongitude(request.getParameter("longitude_akhir"));
                 lokAkhir.setAlamat(request.getParameter("to"));

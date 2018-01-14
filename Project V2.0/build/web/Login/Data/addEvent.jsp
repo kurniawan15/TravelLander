@@ -28,7 +28,7 @@
         
 </head>
 <body>
-    <form action="../../Event?data=event&proses=input-event">
+    <form action="../../Event?data=event&proses=input-event" method="post">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
 		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
 		</div>
@@ -194,12 +194,18 @@
             /*SET lat long*/
             geocoder = new google.maps.Geocoder();
             geocoder.geocode({
-            'address': address
+            'address': source
             }, function(results, status) {      
-                var lat=document.getElementById("lat").innerHTML=results[0].geometry.location.lat();    
-                var lng=document.getElementById("lng").innerHTML=results[0].geometry.location.lng();        
+                document.getElementById("latitude_awal").value = results[0].geometry.location.lat();    
+                document.getElementById("longitude_awal").value =results[0].geometry.location.lng();        
             });
             
+            geocoder.geocode({
+            'address': destination
+            }, function(results, status) {      
+                document.getElementById("latitude_akhir").value = results[0].geometry.location.lat();    
+                document.getElementById("longitude_akhir").value =results[0].geometry.location.lng();        
+            });
             
             //Mengambil Start Time
             var startTime = new Date(document.getElementById("waktu_mulai").value.toString().substring(0,4),document.getElementById("waktu_mulai").value.toString().substring(5,7) - 1,document.getElementById("waktu_mulai").value.toString().substring(8,10),

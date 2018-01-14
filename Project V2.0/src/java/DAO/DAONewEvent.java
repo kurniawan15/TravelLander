@@ -107,11 +107,11 @@ public class DAONewEvent extends NewEvent implements DAO{
     
     public String getNewId() throws SQLException{
             
-            //KDETD00113011802
+            //KDETDXXXDDMMYYZZ
             SimpleDateFormat format = new SimpleDateFormat("ddMMyy");    
             String date = format.format(waktuMulai);
-            String kdTraveller = "TD001";
-            String idEvent = "KDE" + kdTraveller + date;
+          
+            String idEvent = "KDE" + kdTraveller +date;
             
             idEvent = idEvent + "00";
             
@@ -126,7 +126,7 @@ public class DAONewEvent extends NewEvent implements DAO{
             } 
             
             if(idEvent == null){
-                idEvent = "EV" + kdTraveller + date + "01";
+                idEvent = "KDE" + kdTraveller + date +  "01";
             }
             else{
                 cnt = Integer.parseInt(idEvent.substring(14));
@@ -135,10 +135,10 @@ public class DAONewEvent extends NewEvent implements DAO{
             
             cnt++;
             if(cnt < 10){
-                idEvent = "EV" + kdTraveller + date + "0" +String.valueOf(cnt);
+                idEvent = "KDE" + kdTraveller+ date  + "0" +String.valueOf(cnt);
             }
             else{
-               idEvent = "EV" + date  + kdTraveller +String.valueOf(cnt);
+               idEvent = "KDE" + kdTraveller+ date   + String.valueOf(cnt);
             }
             
             db.diskonek(resultSet);
