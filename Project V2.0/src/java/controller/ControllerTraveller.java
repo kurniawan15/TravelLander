@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 /**
@@ -34,12 +35,12 @@ public class ControllerTraveller extends HttpServlet {
             throws ServletException, IOException {
         String proses = request.getParameter("proses");
         String action = request.getParameter("action");
-     
+
         if (proses.equals("input-traveller")) {
-        //    response.sendRedirect("tambah_traveller.jsp");
+            //    response.sendRedirect("tambah_traveller.jsp");
             return;
         } else if (proses.equals("edit-traveller")) {
-        //    response.sendRedirect("edit_traveller.jsp?Kd_Traveller=" + request.getParameter("Kd_Traveller"));
+            //    response.sendRedirect("edit_traveller.jsp?Kd_Traveller=" + request.getParameter("Kd_Traveller"));
             return;
         } else if (proses.equals("hapus-traveller")) {
             DAOTraveller hm = new DAOTraveller();
@@ -56,7 +57,7 @@ public class ControllerTraveller extends HttpServlet {
 
         if (data != null) {
             if (data.equals("traveller")) {
-               
+
                 DAOTraveller dt = new DAOTraveller();
                 dt.setKdTraveller(request.getParameter("KD_TRAVELLER"));
                 dt.setNamaTraveller(request.getParameter("NAMA_TRAVELLER"));
@@ -80,14 +81,14 @@ public class ControllerTraveller extends HttpServlet {
                 } else if (proses.equals("cek-traveller")) {
                     try {
                         Traveller t = dt.cekLogin(request.getParameter("USERNAME"), request.getParameter("PASSWORD"));
-                        
+
                         if (t != null) {
                             System.out.println("Login sukses");
-                            
+
                             request.getSession(false).invalidate();
-                            request.getSession(true).setAttribute("USERNAME",t.getNamaTraveller());
+                            request.getSession(true).setAttribute("USERNAME", t.getNamaTraveller());
                             response.sendRedirect("Login/Data/home.jsp");
-                           
+
                         } else {
                             System.out.println("Login gagal");
                             response.sendRedirect("index.jsp");
@@ -96,8 +97,16 @@ public class ControllerTraveller extends HttpServlet {
                         System.out.println("ERROR LOGIN");
                         Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                } else if (proses.equals("logout-traveller")) {
+                    HttpSession session = request.getSession();
+                    if (session.getAttribute("USERNAME") != null) {
+                        System.out.println("LogOUt ");
+                        session.removeAttribute("USERNAME");
+                        response.sendRedirect("../../index.jsp");
+                    }
                 }
             }
+
         }
     }
 }

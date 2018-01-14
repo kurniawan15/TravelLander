@@ -21,9 +21,9 @@
         <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-            <center><button onclick="myFunction()" class="dropbtn">Hi, Fajar Panca Saputra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+            <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
               <div id="myDropdown" class="dropdown-content">
-                <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+                <center><a href="traveller?data=traveller&proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
               </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
                     <article class="article">
                         <div class="contentlist">
                             <div id="main">
-                                <h1 class="welcome">WELCOME TRAVELER, HAVE NICE DAY</h1>
+                                <h1 class="welcome">WELCOME <%out.println("");%><%=session.getAttribute("USERNAME")%>, HAVE NICE DAY</h1>
                                 <br><br>
                                 <h1 class="judul">Your Event Today</h1>
                                 <div class="col-lg-12 info">
