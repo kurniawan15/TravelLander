@@ -22,7 +22,7 @@
 <head>
     <title></title>
         <link rel="stylesheet" type="text/css" href="css/grid.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style2.css">
         <title></title>
         <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.common-material.min.css" />
         <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.3.1026/styles/kendo.material.min.css" />
@@ -87,7 +87,7 @@
                         });
                     });
                 </script>
-                <input id="waktu_mulai" title="datetimepicker" style="width: 49%;" />
+                <input id="waktu_mulai" name="waktu_mulai" title="datetimepicker" style="width: 49%;" />
 			      <!--____________________________Form input waktu akhir--> 
                 <script>
                     $(document).ready(function () {
@@ -98,19 +98,19 @@
                         });
                     });
                 </script>
-			    <input id="waktu_selesai" title="datetimepickerlast" style="width: 49%;" />   
+			    <input id="waktu_selesai" name="waktu_selesai" title="datetimepickerlast" style="width: 49%;" />   
 			    </div>
     
     <!--____________________________Form Inputan Lokasi Awal____________________________-->
 			    <div class="LokasiAwal">
 			      <div id="calculate-route" name="calculate-route" action="#" method="get">
 			            <h1 class="hlokasiawal">Start Location :</h1>
-			            <input type="text" id="txtSource" placeholder="Input First Location" size="30" style="width: 85%; height: 40px;" />
+			            <input type="text" name="from"  id="txtSource" placeholder="Input First Location" size="30" style="width: 85%; height: 40px;" />
                                    
                         <button class="button1" type="button" id="from-link"onClick="getCurrentPosition()"/>Now</button>
 			            <div class="LokasiAkhir">
 			                <h1 class="hlokasiakhir">End Location :</h1>
-			                <input type="text" id="txtDestination" placeholder="Input End Location" size="30" style="width: 85%; height: 40px;" />
+			                <input type="text" name="to" id="txtDestination" placeholder="Input End Location" size="30" style="width: 85%; height: 40px;" />
                                         
                                         <button class="button1" type="button" onclick="GetRoute('DRIVING')"/>Get</button>
 			            </div>

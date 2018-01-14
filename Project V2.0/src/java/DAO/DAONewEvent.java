@@ -79,7 +79,7 @@ public class DAONewEvent extends NewEvent implements DAO{
         ResultSet rs = null;
  
         try {
-            String sql = "SELECT * FROM event WHERE Kd_Event='"+kdEvent+"'";
+            String sql = "SELECT * FROM event WHERE Kd_Event='"+kdEvent+"' ";
             rs = db.ambilData(sql);
             System.out.println(sql);
             while (rs.next()) {
