@@ -76,20 +76,20 @@ public class ControllerNewEvent extends HttpServlet{
                 }
                 
                 String namaLokasiAwal[] = request.getParameter("from").split(",");
-                String namaLokasiAkhir[] = request.getParameter("from").split(",");
+                String namaLokasiAkhir[] = request.getParameter("to").split(",");
                 DAONewLokasi lokAwal = new DAONewLokasi();
                 lokAwal.setNamaLokasi(namaLokasiAwal[0]);
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("longitude_awal"));
                 lokAwal.setAlamat(request.getParameter("from"));
-                lokAwal.setKeterangan("awal");
+                lokAwal.setKeterangan("AWAL");
                 
                 DAONewLokasi lokAkhir = new DAONewLokasi();
                 lokAkhir.setNamaLokasi(namaLokasiAkhir[0]);
                 lokAkhir.setLatitude(request.getParameter("latitude_akhir"));
                 lokAkhir.setLongitude(request.getParameter("longitude_akhir"));
                 lokAkhir.setAlamat(request.getParameter("to"));
-                lokAkhir.setKeterangan("akhir");
+                lokAkhir.setKeterangan("AKHIR");
                 
                 if (proses.equals("input-event")){
                     try {
