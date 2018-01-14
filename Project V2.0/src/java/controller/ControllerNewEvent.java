@@ -51,18 +51,17 @@ public class ControllerNewEvent extends HttpServlet{
         String data = request.getParameter("data");
         String proses = request.getParameter("proses");
         
-       
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        //1/14/2018 5:50 PM
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
         
         if (data != null){
             if(data.equals("event")){
                 DAONewEvent ev = new DAONewEvent();
-                String trans[] = request.getParameter("transport").split(";");
+                String trans[] = request.getParameter("moda").split(",");
                 String moda = trans[0];
                 String toll = trans[1];
                 
-                
-                ev.setKdTraveller(request.getParameter("kd_traveller"));
+                ev.setKdTraveller(request.getSession(true).getAttribute("KdTraveller").toString());
                 ev.setNamaEvent(request.getParameter("nama_event"));
                 ev.setAvoidtolls(Integer.parseInt(toll));
                 ev.setTravelMode(moda);
@@ -74,19 +73,21 @@ public class ControllerNewEvent extends HttpServlet{
                     response.sendRedirect("");
                 }
                 
+                String namaLokasiAwal[] = request.getParameter("from").split(",");
+                String namaLokasiAkhir[] = request.getParameter("to").split(",");
                 DAONewLokasi lokAwal = new DAONewLokasi();
-                lokAwal.setNamaLokasi(request.getParameter("from"));
+                lokAwal.setNamaLokasi(namaLokasiAwal[0]);
                 lokAwal.setLatitude(request.getParameter("latitude_awal"));
                 lokAwal.setLongitude(request.getParameter("longitude_awal"));
                 lokAwal.setAlamat(request.getParameter("from"));
-                lokAwal.setKeterangan("awal");
+                lokAwal.setKeterangan("AWAL");
                 
                 DAONewLokasi lokAkhir = new DAONewLokasi();
-                lokAkhir.setNamaLokasi(request.getParameter("to"));
+                lokAkhir.setNamaLokasi(namaLokasiAkhir[0]);
                 lokAkhir.setLatitude(request.getParameter("latitude_akhir"));
                 lokAkhir.setLongitude(request.getParameter("longitude_akhir"));
                 lokAkhir.setAlamat(request.getParameter("to"));
-                lokAkhir.setKeterangan("akhir");
+                lokAkhir.setKeterangan("AKHIR");
                 
                 if (proses.equals("input-event")){
                     try {

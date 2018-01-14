@@ -121,9 +121,6 @@
 
                                <% 
                                 }
-}catch(Exception ex){
-    ex.printStackTrace();
-}
                               %>
 				      <script type="text/javascript">
 				        function myFunction() {

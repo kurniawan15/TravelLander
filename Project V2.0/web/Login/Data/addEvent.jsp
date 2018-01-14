@@ -53,7 +53,7 @@
               </div>
         </div>
 	</div>
-    <form>
+    <form action="../../Event?data=event&proses=input-event" method="post">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
 		<div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 leftpage">
 			
@@ -112,7 +112,7 @@
 			                <h1 class="hlokasiakhir">End Location :</h1>
 			                <input type="text" id="txtDestination" placeholder="Input End Location" size="30" style="width: 85%; height: 40px;" />
                                         
-                                        <button class="button1" type="button" onclick="GetRoute()"/>Get</button>
+                                        <button class="button1" type="button" onclick="GetRoute('DRIVING')"/>Get</button>
 			            </div>
                               <div id="latLong">
                                     <input type="hidden" id="latitude_awal" name="latitude_awal"/>
@@ -246,10 +246,24 @@
                 document.getElementById("latitude_akhir").value = results[0].geometry.location.lat();    
                 document.getElementById("longitude_akhir").value =results[0].geometry.location.lng();        
             });
+            //Mengambil Start Time Dengan FORMAT 1/14/2018 5:50 PM
+            var fullTgl = document.getElementById("waktu_mulai").value.toString().split(" ");
+//            for(var i = 0, len = moda.length; i<len; i++){
+//                alert(fullTgl[i]);
+//            }
+            var tgl = fullTgl[0].toString().split("/");
+            var jam = fullTgl[1].toString().split(":");
+        alert("Jam : " + jam[0]);    
+        if(fullTgl[2] == 'PM' ){
+                jam[0] = parseInt(jam[0]) + 12;
+            }
+            alert("Jam : " + jam[0]);
             
-            //Mengambil Start Time
-            var startTime = new Date(document.getElementById("waktu_mulai").value.toString().substring(0,4),document.getElementById("waktu_mulai").value.toString().substring(5,7) - 1,document.getElementById("waktu_mulai").value.toString().substring(8,10),
-                    document.getElementById("waktu_mulai").value.toString().substring(11,13),document.getElementById("waktu_mulai").value.toString().substring(14),0,0);
+            var startTime = new Date(tgl[2],tgl[0] - 1,tgl[1],
+                    jam[0],jam[1],0,0);
+            
+            alert(startTime);
+            
             //*********DISTANCE AND DURATION WALKING**********************//
             var service = new google.maps.DistanceMatrixService();
             service.getDistanceMatrix({
@@ -446,8 +460,8 @@
         <!--____________________________Tombol Submit or cancel____________________________--> 
 		      <div class="col-12 enter">
 		        <br><br><center>
-		        <input type="submit" value="Clear" style="background-color: #0070cc; width: 100px; height: 30px;">
-                <input type="submit" value="Create" style="background-color: #004680; width: 100px; height: 30px; margin-bottom: 10px;">
+                            <input type="button"  value="Clear" style="background-color: #0070cc; width: 100px; height: 30px;"/>
+                        <input type="submit" value="Create" style="background-color: #004680; width: 100px; height: 30px; margin-bottom: 10px;">
 		        </center>
 		      </div>
 			    
