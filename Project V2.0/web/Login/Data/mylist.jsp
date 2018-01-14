@@ -4,6 +4,8 @@
     Author     : Hari
 --%>
 <%@page import="DAO.DAONewEvent"%>
+<%@page import="DAO.DAOEventNext"%>
+<%@page import="model.EventNext"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.NewEvent"%>
 <%@page import="DAO.DAONewLokasi"%>
@@ -62,20 +64,18 @@
 			          <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</th>
 			          <th>&nbsp;&nbsp;&nbsp;&nbsp;View</th>
 			      </tr>
-<<<<<<< HEAD
                              <%
                                   
-=======
-                              <%
->>>>>>> 778e259681649414cafec075744af6c4cd8257df
                       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-                      DAONewEvent kt = new DAONewEvent();
+                      //DAONewEvent kt = new DAONewEvent();
+                      DAOEventNext nx = new DAOEventNext();
                       DAONewLokasi dLok = new DAONewLokasi();
-                      List<NewEvent> data = new ArrayList<NewEvent>();
+                      List<EventNext> data = new ArrayList<EventNext>();
+                      try{
                       String ket = request.getParameter("ket");
-                      kt.setKdEvent("");
+                      nx.setKdTraveller("");
                       if (ket == null) {
-                          data = kt.tampil();
+                          data = nx.getEventNext("TD001");
                       }
                   
                       for (int x = 0; x < data.size(); x++) {
