@@ -61,9 +61,7 @@ public class ControllerNewEvent extends HttpServlet{
                 String moda = trans[0];
                 String toll = trans[1];
                 
-                /*MOHON NANTI DIEDIT*/
-                ev.setKdTraveller("TD001");
-                /*=======================*/
+                ev.setKdTraveller(request.getSession(true).getAttribute("KdTraveller").toString());
                 ev.setNamaEvent(request.getParameter("nama_event"));
                 ev.setAvoidtolls(Integer.parseInt(toll));
                 ev.setTravelMode(moda);
