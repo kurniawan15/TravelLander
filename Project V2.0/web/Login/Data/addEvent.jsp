@@ -28,7 +28,7 @@
         
 </head>
 <body>
-    <form>
+    <form action="../../Event?data=event&proses=input-event" method="post">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
 		<div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
 		</div>
@@ -48,13 +48,11 @@
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullpage">
 		<div class="col-lg-6 col-md-5 col-sm-12 col-xs-12 leftpage">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-				<ul>
-					<li class="none">Dashboard</li>
-					<li class="none">My Calendar</li>
-					<a href="addEvent.jsp"><li class="none">Add Event</li></a> 
-					<a href="mylist.jsp"><li class="none">My Event</li></a>
-					<li class="none">History</li>
-				</ul>
+				<a href="home.jsp"><li class="none">Dashboard</li></a>
+                                <a href="calendar.jsp"><li class="none">My Calendar</li></a>
+                                <a href="addEvent.jsp"><li class="none">Add Event</li></a> 
+                                <a href="mylist.jsp"><li class="none">My Event</li></a>
+                                <li class="none">History</li>
 			</div>
 
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 isicontent">
@@ -86,16 +84,21 @@
 			    <div class="LokasiAwal">
 			      <div id="calculate-route" name="calculate-route" action="#" method="get">
 			            <h1 class="hlokasiawal">Start Location :</h1>
-			            <input type="text" id="txtSource" placeholder="Input First Location" size="30" style="width: 85%;" />
+			            <input type="text" id="txtSource" name="from" placeholder="Input First Location" size="30" style="width: 85%;" />
                                    
-                                    <input type="button" id="from-link" value="Now" style="width: 14%;" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onClick="getCurrentPosition()"/>
+                                    <input type="button" id="from-link"  value="Now" style="width: 14%;" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onClick="getCurrentPosition()"/>
 			            <div class="LokasiAkhir">
 			                <h1 class="hlokasiakhir">End Location :</h1>
-			                <input type="text" id="txtDestination" placeholder="Input Last Location" size="30" style="width: 85%;" />
+			                <input type="text" id="txtDestination" name="to" placeholder="Input Last Location" size="30" style="width: 85%;" />
                                         
-                                        <input type="button" value="Get Route" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onclick="GetRoute()"/>
+                                        <input type="button" value="Get Route" style="width: 14%; font-size: 12px; height: 30px; background-color: #2980b9; color: white;" onclick="GetRoute('DRIVING')"/>
 			            </div>
-			            
+			            <div id="latLong">
+                                        <input type="hidden" id="latitude_awal" name="latitude_awal"/>
+                                        <input type="hidden" id="longitude_awal" name="longitude_awal"/>
+                                        <input type="hidden" id="latitude_akhir" name="latitude_akhir"/>
+                                        <input type="hidden" id="longitude_akhir" name="longitude_akhir"/>
+                                    </div>
 			      </div>
 			    </div>
 
@@ -122,7 +125,8 @@
 				  }
 				  
                                   //--------------------------------------------------Bagian Google API----------------------------------------------------------------
-				var source, destination;
+	var source, destination;
+    
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
         google.maps.event.addDomListener(window, 'load', function () {
@@ -153,7 +157,8 @@
             timeout: 10 * 1000 // 10 seconds
           });
         }
-        function GetRoute() {
+        
+        function GetRoute(md){
             var mumbai = new google.maps.LatLng(18.9750, 72.8258);
             var mapOptions = {
                 zoom: 7,
@@ -168,20 +173,38 @@
             for (var i = 0, len = moda.length; i<len; i++){
                 moda[i].disabled = false;
             }
-
+                moda[2].checked = true;
             //*********DIRECTIONS AND ROUTE**********************//
             source = document.getElementById("txtSource").value;
             destination = document.getElementById("txtDestination").value;
 
+            
+            //Direction Service
             var request = {
                 origin: source,
                 destination: destination,
-                travelMode: google.maps.TravelMode.DRIVING
+                travelMode: md
             };
             directionsService.route(request, function (response, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
                     directionsDisplay.setDirections(response);
                 }
+            });
+            
+            /*SET lat long*/
+            geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+            'address': source
+            }, function(results, status) {      
+                document.getElementById("latitude_awal").value = results[0].geometry.location.lat();    
+                document.getElementById("longitude_awal").value =results[0].geometry.location.lng();        
+            });
+            
+            geocoder.geocode({
+            'address': destination
+            }, function(results, status) {      
+                document.getElementById("latitude_akhir").value = results[0].geometry.location.lat();    
+                document.getElementById("longitude_akhir").value =results[0].geometry.location.lng();        
             });
             
             //Mengambil Start Time
@@ -339,6 +362,45 @@
             
             
         }
+        
+        function changeRoute(md){
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('dvPanel'));
+            
+            
+            
+            
+            //*********DIRECTIONS AND ROUTE**********************//
+            source = document.getElementById("txtSource").value;
+            destination = document.getElementById("txtDestination").value;
+
+            var request;
+            if(md == 'TRAIN' || md == 'BUS'){
+                
+               request = {
+                origin: source,
+                destination: destination,
+                travelMode: google.maps.TravelMode.TRANSIT,
+                transitOptions: {
+                    modes: [md]
+                  }
+                };
+            }
+            else{
+                request = {
+                origin: source,
+                destination: destination,
+                travelMode: md
+                };
+            }
+            
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+        }
 		</script>	
         <!--____________________________Tombol Submit or cancel____________________________--> 
 		      <div class="col-12 enter">
@@ -365,35 +427,35 @@
 	                <th>Departure Time</th>
 	            </tr>
 	            <tr>
-                        <td title="NO"><input type="radio" name="moda" value="#" id="radioWalk"><br></td>
+                        <td title="NO"><input type="radio" name="moda" value="WALKING,0" id="radioWalk" onchange="changeRoute('WALKING')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_walk</i> Walk</td>
                         <td title="Location"><div id="dvDistance"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration"></div></td>
                         <td title="Ibu Kota"><div id="dvEstTime"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="moda" value="#" id="radioMotor"><br></td>
+                        <td title="NO"><input type="radio" name="moda" value="DRIVING,1" id="radioMotor" onchange="changeRoute('DRIVING')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_bike</i> Motorcycle</td>
 	                <td title="Location"></td>
 	                <td title="Ibu Kota"></td>
 	                <td title="Ibu Kota">-</td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="moda" value="#" id="radioCar"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="DRIVING,0" id="radioCar" onchange="changeRoute('DRIVING')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_car</i> Car</td>
 	                <td title="Location"><div id="dvDistance1"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration1"></div></td>
 	                <td title="Ibu Kota" ><div id="dvEstTime1"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="moda" value="#" id="radioBus"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="BUS,0" id="radioBus" onchange="changeRoute('BUS')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_bus</i> Bus</td>
 	                <td title="Location"><div id="dvDistance2"></div></td>
                         <td title="Ibu Kota"><div id="dvDuration2"></div></td>
 	                <td title="Ibu Kota"><div id="dvEstTime2"></div></td>
 	            </tr>
 	            <tr>
-	                <td title="NO"><input type="radio" name="moda" value="#" id="radioTrain"><br></td>
+	                <td title="NO"><input type="radio" name="moda" value="TRAIN,0" id="radioTrain" onchange="changeRoute('TRAIN')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_subway</i> Train</td>
 	                <td title="Location"><div id="dvDistance3"></div></td>
 	                <td title="Ibu Kota"><div id="dvDuration3"></div></td>

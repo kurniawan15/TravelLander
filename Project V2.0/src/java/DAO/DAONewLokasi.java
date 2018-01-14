@@ -25,7 +25,7 @@ public class DAONewLokasi extends NewLokasi implements DAO {
     }
 
     public void simpan(){
-        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + kdEvent + "','" + namaLokasi + "'," + latitude + ", " + longitude + ", '"+alamat+ "', '"+keterangan+ "')";
+        String sql = "INSERT into lokasi(kd_event, nama_lokasi, latitude, longitude, alamat, keterangan) values ('" + kdEvent + "','" + namaLokasi + "','" + latitude + "', '" + longitude + "', '"+alamat+ "', '"+keterangan+ "')";
         db.simpanData(sql);
     }
     public void update(){
