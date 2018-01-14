@@ -21,32 +21,20 @@
         <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-            <center><button onclick="myFunction()" class="dropbtn">Hi, Fajar Panca Saputra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+            <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
               <div id="myDropdown" class="dropdown-content">
-                <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+                <center><a href="traveller?data=traveller&proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
               </div>
         </div>
     </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
-<<<<<<< HEAD
                
-=======
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-                    <ul>
-                        <a href="home.jsp"><li class="pilih">Dashboard</li></a>
-                        <a href="calendar.jsp"><li class="none">My Calendar</li></a>
-                        <a href="addEvent.jsp"><li class="none">Add Event</li></a>
-                        <a href="mylist.jsp"><li class="none">My Event</li></a>
-                        <a href="finish.jsp"><li class="none">History</li></a>
-                    </ul>
-                </div>
->>>>>>> 778e259681649414cafec075744af6c4cd8257df
                 <img src="img/avatar.png" alt="Avatar" style="width:20%">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home">
                     <article class="article">
                         <div class="contentlist">
                             <div id="main">
-                                <h1 class="welcome">WELCOME TRAVELER, HAVE NICE DAY</h1>
+                                <h1 class="welcome">WELCOME <%out.println("");%><%=session.getAttribute("USERNAME")%>, HAVE NICE DAY</h1>
                                 <br><br>
                                 <h1 class="judul">Your Event Today</h1>
                                 <div class="col-lg-12 info">

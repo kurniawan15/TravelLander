@@ -39,7 +39,7 @@
         <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-            <center><button onclick="myFunction()" class="dropbtn">Hi, Fajar Panca Saputra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+            <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
               <div id="myDropdown" class="dropdown-content">
                 <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
               </div>
@@ -121,9 +121,6 @@
 
                                <% 
                                 }
-}catch(Exception ex){
-    ex.printStackTrace();
-}
                               %>
 				      <script type="text/javascript">
 				        function myFunction() {
