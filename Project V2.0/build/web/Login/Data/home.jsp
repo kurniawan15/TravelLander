@@ -28,7 +28,19 @@
         </div>
     </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
+<<<<<<< HEAD
                
+=======
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
+                    <ul>
+                        <a href="home.jsp"><li class="pilih">Dashboard</li></a>
+                        <a href="calendar.jsp"><li class="none">My Calendar</li></a>
+                        <a href="addEvent.jsp"><li class="none">Add Event</li></a>
+                        <a href="mylist.jsp"><li class="none">My Event</li></a>
+                        <a href="finish.jsp"><li class="none">History</li></a>
+                    </ul>
+                </div>
+>>>>>>> 778e259681649414cafec075744af6c4cd8257df
                 <img src="img/avatar.png" alt="Avatar" style="width:20%">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home">
                     <article class="article">

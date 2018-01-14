@@ -171,6 +171,7 @@
                 
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 rightpage">
 			<!--<div id="pageedit" class="tabcontent">-->
+<<<<<<< HEAD
 			<br>
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 tableviews">
@@ -212,6 +213,40 @@
 	        </table>
 	        <br>
 	    </div>
+=======
+		      <h1 class="judul">Detail Event</h1>
+                      <%
+                          if(request.getParameter("kd_event")!= null){
+                                String kd = request.getParameter("kd_event");
+                                kt.setKdEvent(kd);
+                                List<NewEvent> ev = new ArrayList<NewEvent>();
+                                ev = kt.cariID();
+                      %>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
+			  <h2 class="h2detail">Detail</h2>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
+                          <p class="pdetail">Event Name &nbsp;&nbsp;:  <%=ev.get(0).getNamaEvent()%></p>
+			  <p class="pdetail">Event Time &nbsp;&nbsp;: <%=format.format(ev.get(0).getWaktuMulai())%> until <%=format.format(ev.get(0).getWaktuSelesai())%></p>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
+			  <h2 class="h2detail">Location</h2>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
+                          
+                      <p class="pdetail">End Point &nbsp;&nbsp;:<%=dLok.getLokasiAkhir(kd)%></div></p>  <div id="end">
+			  <p class="pdetail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description &nbsp;&nbsp;: <%=ev.get(0).getKeterangan()%></p>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1judul">
+			  <h2 class="h2detail">Transportation</h2>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail1">
+			  <p class="pdetail">Transport Name &nbsp;&nbsp;: Motorcycle</p>
+                          <p class="pdetail"><div id="dvDistance" style="margin-left: 100px;"></div></p>
+			  <p class="pdetail"><div id="dvDuration" style="margin-left: 100px;"></div></p>
+			  <p class="pdetail">Departure Time &nbsp;&nbsp;: 06:45</p>
+                      </div>
+>>>>>>> 778e259681649414cafec075744af6c4cd8257df
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 maptampil">
             <div class="col-lg-1"></div>                
 			<div class="col-lg-10" id="map" style="width: 530px; height:280px;"></div>
@@ -251,6 +286,7 @@
         });
       }
 
+<<<<<<< HEAD
       var deleteLinks = document.querySelectorAll('.delete');
 
 		for (var i = 0; i < deleteLinks.length; i++) {
@@ -258,6 +294,9 @@
 			  event.preventDefault();
 
 			  var choice = confirm(this.getAttribute('data-confirm'));
+=======
+      //*********DISTANCE AND DURATION WALKING**********************//
+>>>>>>> 778e259681649414cafec075744af6c4cd8257df
 
 			  if (choice) {
 			    window.location.href = this.getAttribute('href');
@@ -275,6 +314,10 @@
 </article>
 </div>
 		</div>
+<<<<<<< HEAD
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
+=======
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda</div>
+>>>>>>> 778e259681649414cafec075744af6c4cd8257df
 </body>
 </html>
