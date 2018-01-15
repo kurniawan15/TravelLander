@@ -27,7 +27,8 @@
         
                         
               DAONewEvent listbaca = new DAONewEvent();
-              List<NewEvent> events = listbaca.tampil();  
+              listbaca.setKdTraveller(session.getAttribute("KdTraveller").toString());
+              List<NewEvent> events = listbaca.getEventByTraveller();  
                                                                 
             
               List<NewModelCalendar> listCal = new ArrayList<NewModelCalendar>();
@@ -60,7 +61,7 @@
     <head>
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/grid.css">
-        <link rel="stylesheet" type="text/css" href="css/calendar.css">
+        <link rel="stylesheet" type="text/css" href="css/style_calendar.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <!-- Script Untuk Calendar -->
@@ -115,25 +116,31 @@
     </head>
     <body>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
-            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
-                <ul>
-                    <li class="pilih"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li>
-                    <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li></a>
-                    <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li></a>
-                </ul>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-                <center><img class="img-responsive logo" src="img/logo1.png">
-                    </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
-                    </div>
-                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-                        <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
-                        <div id="myDropdown" class="dropdown-content">
-                            <center><a href="../../traveller?proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
-                        </div>
-                    </div>
-            </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
+        	 <ul>
+                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;Home</li></a>
+                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;Add Event</li></a>
+                <a href="CalendarBase.jsp" style="text-decoration: none; color: white;"><li class="pilih"><i style="font-size: 14px;" class="material-icons">event_note</i>&nbsp;&nbsp;Calendar</li></a>
+                <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;My Event</li></a>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive logo" src="img/logo1.png"></center>
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 null">
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 notif">
+        	<ul>
+        		<li><i style="font-size: 16px;" class="material-icons">notifications</i></li>
+        	</ul>
+        </div>
+        <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
+            <center><button onclick="myFunction()" class="dropbtn">Hi, <%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+              <div id="myDropdown" class="dropdown-content">
+                <center><a href="../../traveller?proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+              </div>
+        </div>
+	</div>
                         
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
                
@@ -149,6 +156,6 @@
                     </article>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With by FrontEnd in Kosan Uda</div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
     </body>
 </html>

@@ -55,6 +55,7 @@ public DAOTraveller(){
     public void simpan(){
         String sql = "INSERT into traveller( Kd_Traveller, Nama_Traveller, Username, Password, Email) values ('" + kdTraveller + "','" + namaTraveller + "','" + username + "','" + password + "','" + email + "')";
         db.simpanData(sql);
+        System.out.println(sql);
     }
     public void update(){
         String sql="UPDATE traveller SET Nama_Traveller='"+namaTraveller+"', Username='"+username+"', Password='"+password+"', Email='"+email+"' WHERE Kd_Traveller='"+ kdTraveller +"' ";
@@ -116,7 +117,7 @@ public DAOTraveller(){
         
         public String getNewId() throws SQLException{
             
-            String kdTraveller = "TR0000";
+            String kdTraveller = "TD000";
             
             int cnt = 0;
             String sql = "SELECT MAX(KD_TRAVELLER) FROM traveller"; 
@@ -129,17 +130,15 @@ public DAOTraveller(){
             
             cnt = Integer.parseInt(kdTraveller.substring(2));
             cnt++;
-            if(cnt >= 1000){
-                kdTraveller = "TR" + String.valueOf(cnt);
+            if(cnt >= 100){
+                kdTraveller = "TD" + String.valueOf(cnt);
             }
-            else if(cnt < 1000 && cnt >= 100){
-               kdTraveller = "TR" + "0" + String.valueOf(cnt);
-            }
+            
             else if(cnt < 100 && cnt >= 10){
-               kdTraveller = "TR" + "00" + String.valueOf(cnt);
+               kdTraveller = "TD" + "0" + String.valueOf(cnt);
             }
             else{
-               kdTraveller = "TR" + "000" + String.valueOf(cnt);
+               kdTraveller = "TD" + "00" + String.valueOf(cnt);
             }
             db.diskonek(resultSet);
             return kdTraveller;

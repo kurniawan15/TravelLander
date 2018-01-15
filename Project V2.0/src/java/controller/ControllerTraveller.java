@@ -50,11 +50,15 @@ public class ControllerTraveller extends HttpServlet {
         } else if (proses.equals("logout-traveller")) {
             System.out.println("Logout");
             HttpSession session = request.getSession();
+            
             if (session.getAttribute("USERNAME") != null) {
-                session.removeAttribute("USERNAME");
+                request.getSession(false).invalidate();
+                response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+                response.setHeader("Pragma","no-cache"); //HTTP 1.0 
+                response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
                 response.sendRedirect("index.jsp");
             }else{
-                response.sendRedirect("Login/Data/home.jsp");
+                response.sendRedirect("index.jsp");
             }
 
         }
@@ -98,15 +102,25 @@ public class ControllerTraveller extends HttpServlet {
                             request.getSession(false).invalidate();
                             request.getSession(true).setAttribute("USERNAME", t.getNamaTraveller());
                             request.getSession(true).setAttribute("KdTraveller", t.getKdTraveller());
+                            response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+                            response.setHeader("Pragma","no-cache"); //HTTP 1.0 
+                            response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
                             response.sendRedirect("Login/Data/home.jsp");
-
-                        } else {
+                           } else {
                             System.out.println("Login gagal");
                             response.sendRedirect("index.jsp");
                         }
                     } catch (Exception ex) {
                         System.out.println("ERROR LOGIN");
                         Logger.getLogger(ControllerTraveller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }else if(proses.equals("daftar-traveller")){
+                    try {
+                        dt.setKdTraveller(dt.getNewId());
+                        dt.simpan();
+                        response.sendRedirect("index.jsp");
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
                     }
                 }
             }

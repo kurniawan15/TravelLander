@@ -25,22 +25,28 @@
 </head>
 <body>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
         	 <ul>
-                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li></a>
-                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li></a>
-                <li class="pilih"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li>
+                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;Home</li></a>
+                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;Add Event</li></a>
+                <a href="CalendarBase.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">event_note</i>&nbsp;&nbsp;Calendar</li></a>
+                <li class="pilih"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;My Event</li>
             </ul>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-            <center><img class="img-responsive logo" src="img/logo1.png">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive logo" src="img/logo1.png"></center>
         </div>
-        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 null">
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 notif">
+        	<ul>
+        		<li><i style="font-size: 16px;" class="material-icons">notifications</i></li>
+        	</ul>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-            <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+            <center><button onclick="myFunction()" class="dropbtn">Hi, <%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
               <div id="myDropdown" class="dropdown-content">
-                <center><a href="#contact">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+                <center><a href="../../traveller?proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
               </div>
         </div>
 	</div>
@@ -212,14 +218,14 @@
 	            <tr>
 	                <th>Transport Name</th>
 	                <th>Distance</th>
-	                <th>Estimated</th>
+	                <th>Estimated Duration</th>
 	                <th>Departure Time</th>
 	            </tr>
 	            <tr>
 	                <td title="Transport"> <%=ev.get(0).getTravelMode()%> </td>
-                        <td title="Distance"><div id="distance"></div></td>
-	                <td title="Estimated"><div id="est_time"></div></td>
-	                <td title="Departure"><div id="dept_time"></div></td>
+                        <td title="Distance"><div id="dist"> </div></td>
+	                <td title="Estimated"><div id="est_time"> </div></td>
+	                <td title="Departure"><div id="dept_time"> </div></td>
 	            </tr>
 	        </table>
 	        <br>
@@ -246,7 +252,7 @@
        
         //Distance MATRIX untuk menampilkan jarak dan waktu keberangkatan
         var service = new google.maps.DistanceMatrixService();
-            service.getDistanceMatrix({
+        service.getDistanceMatrix({
                 origins: ['<%=lokAwal.getAlamat()%>'],
                 destinations: ['<%=lokAkhir.getAlamat()%>'],
                 <%if(ev.get(0).getTravelMode().equals("TRAIN") || ev.get(0).getTravelMode().equals("BUS")){%>
@@ -264,13 +270,20 @@
                 avoidTolls: false
             }, function (response, status) {
                 if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-                    document.getElementById("distance").value = response.rows[0].elements[0].distance.text;
-                    
+//                    document.getElementById("distance").value = response.rows[0].elements[0].distance.text;
+//                        document.getElementById("dist").value = response.rows[0].elements[0].distance.text;
+                        var dur = response.rows[0].elements[0].duration.value;
+                        dist.innerHTML += response.rows[0].elements[0].distance.text;
+                        est_time.innerHTML += response.rows[0].elements[0].duration.text;
+                        
+                    var estTime = new Date(<%=ev.get(0).getWaktuMulai().getTime()%> - dur * 1000);
+                    var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
+                    dept_time.innerHTML += formatEstTime;
                 } else {
-                    alert("Unable to find the distance with walking.");
-                    document.getElementById("radioWalk").disabled=true;
-                }
+                    alert("Unable to find the distance.");
+                    }
             });
+            
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -305,7 +318,6 @@
 
 			  var choice = confirm(this.getAttribute('data-confirm'));
 
-      //*********DISTANCE AND DURATION WALKING**********************//
 
 
 			  if (choice) {
@@ -327,6 +339,6 @@
 </div>
 		</div>
 
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fullfooter">&copy; Kelompok B1 | Made With â¤ by FrontEnd in Kosan Uda</div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-footer">&copy; Kelompok B1 | Front End Team</div>
 </body>
 </html>

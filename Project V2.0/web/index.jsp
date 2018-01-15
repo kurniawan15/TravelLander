@@ -29,6 +29,10 @@ body{
 }
 </style>
 <body>
+    <%  response.setHeader("Cache-Control","no-cache"); //HTTP 1.1 
+        response.setHeader("Pragma","no-cache"); //HTTP 1.0 
+        response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
+       %>
 	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 red col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-1">
 			<div class="login-form">
 				<h1><center><img class="img-responsive" src="img/logo.png"></center></h1>
@@ -45,7 +49,7 @@ body{
 					</div>
 
 					<div id="signup" class="tabcontent">
-					  <form action="traveller?data=traveller&proses=input-traveller" method="post"
+					  <form action="traveller?data=traveller&proses=input-traveller" name="tipe" method="post"
 					  	<input type="text" name="EMAIL" placeholder="Email" style="text-align: left; font-size: 14px;">
 					  	
 						<input type="text" name="NAMA_TRAVELLER" placeholder="Fullname"  style="text-align: left; font-size: 14px;">
@@ -70,6 +74,13 @@ body{
 					    }
 					    document.getElementById(cityName).style.display = "block";
 					    elmnt.style.backgroundColor = color;
+                                            
+                                            if(cityName == 'signup'){
+                                                document.tipe.action="traveller?data=traveller&proses=daftar-traveller";
+                                            }
+                                            else{
+                                                document.tipe.action="traveller?data=traveller&proses=input-traveller";
+                                            }
 
 					}
 					// Get the element with id="defaultOpen" and click on it

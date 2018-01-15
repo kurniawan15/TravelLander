@@ -33,25 +33,35 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv4kFWkwB0XYeqOlfLxT0ZYsc4DRyNdag&libraries=places"></script>      
 </head>
 <body>
+    <%
+        if(session == null ){
+           response.sendRedirect("../../index.jsp");
+        }         
+%>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
-            <ul>
-                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li></a>
-                <li class="pilih"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li>
-                <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li></a>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
+        	 <ul>
+                <a href="home.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;Home</li></a>
+                <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="pilih"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;Add Event</li></a>
+                <a href="CalendarBase.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">event_note</i>&nbsp;&nbsp;Calendar</li></a>
+                <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;My Event</li></a>
             </ul>
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-            <center><img class="img-responsive logo" src="img/logo1.png">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 kiri">
+            <center><img class="img-responsive logo" src="img/logo1.png"></center>
         </div>
-        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 null">
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 notif">
+        	<ul>
+        		<li><i style="font-size: 16px;" class="material-icons">notifications</i></li>
+        	</ul>
         </div>
         <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
-            <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+            <center><button onclick="myFunction()" class="dropbtn">Hi, <%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
               <div id="myDropdown" class="dropdown-content">
-                <center><a href="../../index.jsp"
-                           >Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
-              </div>
+                <center><a href="../../traveller?proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+              </div>//
         </div>
 	</div>
     <form action="../../Event?data=event&proses=input-event" method="post">
@@ -254,16 +264,12 @@
 //            }
             var tgl = fullTgl[0].toString().split("/");
             var jam = fullTgl[1].toString().split(":");
-        alert("Jam : " + jam[0]);    
-        if(fullTgl[2] == 'PM' ){
+            if(fullTgl[2] == 'PM' ){
                 jam[0] = parseInt(jam[0]) + 12;
             }
-            alert("Jam : " + jam[0]);
             
-            var startTime = new Date(tgl[2],tgl[0] - 1,tgl[1],
-                    jam[0],jam[1],0,0);
+            var startTime = new Date(tgl[2],tgl[0] - 1,tgl[1],jam[0],jam[1],0,0);
             
-            alert(startTime);
             
             //*********DISTANCE AND DURATION WALKING**********************//
             var service = new google.maps.DistanceMatrixService();
@@ -287,8 +293,8 @@
                     var formatEstTime = estTime.getDate()+ "-" + estTime.getMonth() +1 + "-" + estTime.getFullYear()+ " " + estTime.getHours() + ":" + estTime.getMinutes();
                     
                     dvDistance.innerHTML = "";
-                dvDuration.innerHTML = "";
-                dvEstTime.innerHTML = "";
+                    dvDuration.innerHTML = "";
+                    dvEstTime.innerHTML = "";
                 
                     dvDistance.innerHTML += distance;
                     dvDuration.innerHTML += duration;
@@ -489,6 +495,7 @@
                         <td title="Ibu Kota"><div id="dvDuration"></div></td>
                         <td title="Ibu Kota"><div id="dvEstTime"></div></td>
 	            </tr>
+                    
 	            <tr>
                         <td title="NO"><input type="radio" name="moda" value="DRIVING,1" id="radioMotor" onchange="changeRoute('DRIVING')"><br></td>
 	                <td title="Event Name"><i class="material-icons" style="float: left;font-size: 20px; color: grey;">directions_bike</i> Motorcycle</td>
