@@ -60,7 +60,7 @@
     <head>
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/grid.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style2.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <!-- Script Untuk Calendar -->

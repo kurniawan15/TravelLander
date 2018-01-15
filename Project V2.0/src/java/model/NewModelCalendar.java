@@ -18,7 +18,9 @@ public class NewModelCalendar
     // dikirim ke JSON
     private String startTime;
     private String endTime;
-
+    private String startHour;
+    private String endHour;
+    
     
     /**
      * @return the titleEvent
@@ -60,5 +62,33 @@ public class NewModelCalendar
      */
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+    /**
+     * @return the startHour
+     */
+    public String getStartHour() {
+        return startHour;
+    }
+
+    /**
+     * @param startHour the startHour to set
+     */
+    public void setStartHour(String startHour) {
+        this.startHour = startHour;
+    }
+
+    /**
+     * @return the endHour
+     */
+    public String getEndHour() {
+        return endHour;
+    }
+
+    /**
+     * @param endHour the endHour to set
+     */
+    public void setEndHour(String endHour) {
+        this.endHour = endHour;
     }
 }
