@@ -1,6 +1,14 @@
 <!DOCTYPE html>
-<%@page import="model.Traveller"%>
-<%@page import="DAO.DAOTraveller"%>
+<%@page import="DAO.DAONewEvent"%>
+<%@page import="DAO.DAOEventToday"%>
+<%@page import="model.EventNext"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="model.NewEvent"%>
+<%@page import="DAO.DAONewLokasi"%>
+<%@page import="model.NewLokasi"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Database.KoneksiDB"%>
 <html>
     <head>
         <title></title>
@@ -57,16 +65,35 @@
                                             <th>Delete</th>
                                             <th>View</th>
                                         </tr>
+                                        <%         
+                                           SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                                           //DAONewEvent kt = new DAONewEvent();
+                                           DAOEventToday et = new DAOEventToday();
+                                           DAONewLokasi dLok = new DAONewLokasi();
+                                           List<EventNext> data = new ArrayList<EventNext>();
+                                           NewLokasi lokAwal = new NewLokasi();
+                                           NewLokasi lokAkhir = new NewLokasi();
+                                           String ket = request.getParameter("ket");
+
+                                           if (ket == null) {
+                                               data = et.getEventToday(session.getAttribute("KdTraveller").toString());
+                                           }
+
+                                           for (int x = 0; x < data.size(); x++) {
+                                         %>
                                         <tr>
                                             <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   
-                                            <td style="font-size: 12px; line-height: 20px;">1</td>
-                                            <td style="font-size: 12px; line-height: 20px;">Pengawasan dan Pelatihan</td>
-                                            <td style="font-size: 12px; line-height: 20px;">SMAN 20 BANDUNG</td>
-                                            <td style="font-size: 12px; line-height: 20px;">21-09-2017, 17.00</td>
+                                            <td style="font-size: 12px; line-height: 20px;"><%=x + 1%></td>
+                                            <td style="font-size: 12px; line-height: 20px;"><%=data.get(x).getNamaEvent()%></td>
+                                            <td style="font-size: 12px; line-height: 20px;"><%NewLokasi l = new NewLokasi(); l = dLok.getLokasiAkhir(data.get(x).getKdEvent()); out.println(l.getNamaLokasi());%></td>
+                                            <td style="font-size: 12px; line-height: 20px;"><%=format.format(data.get(x).getWaktuSelesai())%></td>
                                             <td style="font-size: 12px; line-height: 35px;"><a href="edit.html"><i style="font-size: 20px;" class="material-icons">mode_edit</i></a></td>
                                             <td style="font-size: 12px; line-height: 35px;"><a href="#" class="delete" data-confirm="Are you sure to delete this Event?"><i style="font-size: 20px;" class="material-icons">delete</i></a></td>
                                             <td style="font-size: 12px; line-height: 20px;"><button class="tablinks" onclick="openCity(event, 'pageedit')" id="defaultOpen"><i style="font-size: 20px;" class="material-icons">subject</i></button></td>
                                         </tr>
+                                            <% 
+                                             }
+                                           %>
                                         <script type="text/javascript">
                                             function openCity(evt, editEvent) {
                                                 var i, tabcontent, tablinks; //deklarasi variabel
@@ -116,6 +143,51 @@
                                                     }
                                                 });
                                             }
+                                         
+    
+//----------------------------------------------------------------Hitung Mundur dan web notification--------------------------------------    
+                                        if(window.Notification && Notification.permission !== "denied") 
+                                        {
+                                            var countDownDate = new Date("2018-01-15 10:33").getTime();
+
+                                            // pengapdetan selama 1 detik
+                                            var x = setInterval(function() {
+
+
+                                                var now = new Date().getTime();
+
+
+                                                var distance = countDownDate - now;
+
+                                                //hitung hitung yang menyenangkan
+                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+                                                //document.getElementById("mundur").innerHTML = days + "d " + hours + "h "
+                                               // + minutes + "m " + seconds + "s ";
+
+                                                //kondisi kalo gak ada event
+                                                if (distance < 0) {
+                                                    clearInterval(x);
+                                                    Notification.requestPermission(function(status) 
+                                                    {  // status is "granted", if accepted by user
+                                                        var n = new Notification('Title', 
+                                                        { 
+                                                                body: 'I am the body text!',
+                                                                icon: '/path/to/icon.png' // optional
+                                                        }); 
+                                                    }); 
+
+                                                }
+                                            }, 1000);       
+                                        }
+                                        
+                             
+                                            
+                                            
                                         </script>
                                     </table>
                                 </div>
