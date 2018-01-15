@@ -53,6 +53,8 @@ public class ControllerTraveller extends HttpServlet {
             if (session.getAttribute("USERNAME") != null) {
                 session.removeAttribute("USERNAME");
                 response.sendRedirect("index.jsp");
+            }else{
+                response.sendRedirect("Login/Data/home.jsp");
             }
 
         }

@@ -60,7 +60,7 @@
     <head>
         <title></title>
         <link rel="stylesheet" type="text/css" href="css/grid.css">
-        <link rel="stylesheet" type="text/css" href="css/style2.css">
+        <link rel="stylesheet" type="text/css" href="css/calendar.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <!-- Script Untuk Calendar -->
@@ -114,33 +114,30 @@
         
     </head>
     <body>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fixed-header">
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 kiri">
+                <ul>
+                    <li class="pilih"><i style="font-size: 14px;" class="material-icons">home</i>&nbsp;&nbsp;&nbsp;Home</li>
+                    <a href="addEvent.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">add</i>&nbsp;&nbsp;&nbsp;Add Event</li></a>
+                    <a href="mylist.jsp" style="text-decoration: none; color: white;"><li class="none"><i style="font-size: 14px;" class="material-icons">toc</i>&nbsp;&nbsp;&nbsp;My Event</li></a>
+                </ul>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 kiri">
-                <center><img class="img-responsive" src="img/logo1.png">
+                <center><img class="img-responsive logo" src="img/logo1.png">
                     </div>
                     <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan">
-                        <span class="glyphicon glyphicon-bell"></span>
                     </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                        <%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
-                    </div>
-                    <div class="col-lg-1 col-md-12 col-sm-12 col-xs-12 kanan2">
-                        Logout&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 dropdown">
+                        <center><button onclick="myFunction()" class="dropbtn"><%out.println("Hi, ");%><%=session.getAttribute("USERNAME")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">arrow_drop_down</i></button></center>
+                        <div id="myDropdown" class="dropdown-content">
+                            <center><a href="../../traveller?proses=logout-traveller">Logout &nbsp;&nbsp;&nbsp;<i style="font-size: 14px;" class="material-icons">launch</i></a></center>
+                        </div>
                     </div>
             </div>
+                        
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 homepage">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 menubar">
-                    <ul>
-                        <a href="home.jsp"><li class="none">Dashboard</li></a>
-                        <a href="calendar.jsp"><li class="pilih">My Calendar</li></a>
-                        <a href="addEvent.jsp"><li class="none">Add Event</li></a>
-                        <a href="mylist.jsp"><li class="none">My Event</li></a>
-                        <a href="finish.jsp"><li class="none">History</li></a>
-                    </ul>
-                </div>
-                <img src="img/avatar.png" alt="Avatar" style="width:20%">
+               
+                
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 home">
                     <article class="article">
                         <div class="contentlist">
