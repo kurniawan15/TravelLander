@@ -189,22 +189,22 @@
 			<table class="tableview" id="">
 	            <tr>
 	                <th>Event Name</th>
-	                <th>Event Time</th>
+	                <th>Event Desc</th>
 	            </tr>
 	            <tr>
 	                <td title="EventName"> <%=ev.get(0).getNamaEvent()%> </td>
-                        <td title="EventTime"><%=format.format(ev.get(0).getWaktuMulai())%></td>
+                        <td title="EventDesc"><%=ev.get(0).getKeterangan()%></td>
 	            </tr>
 	        </table>
 	        <br><br>
 	        <table class="tableview" id="">
 	            <tr>
 	                <th>End Point</th>
-	                <th>Description</th>
+	                <th>Event Time</th>
 	            </tr>
 	            <tr>
                         <td title="EndPoint"> <%=lokAwal.getNamaLokasi()%> </td>
-	                <td title="Description"><%=ev.get(0).getKeterangan()%></td>
+	                <td title="Event Time"><%=format.format(ev.get(0).getWaktuMulai())%></td>
 	            </tr>
 	        </table>
 	        <br><br>
@@ -242,10 +242,35 @@
         
         directionsDisplay.setMap(map);
 
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
        
-//        document.getElementById('start').addEventListener('change', onChangeHandler);
-//        document.getElementById('end').addEventListener('change', onChangeHandler);
+        //Distance MATRIX untuk menampilkan jarak dan waktu keberangkatan
+        var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: ['<%=lokAwal.getAlamat()%>'],
+                destinations: ['<%=lokAkhir.getAlamat()%>'],
+                <%if(ev.get(0).getTravelMode().equals("TRAIN") || ev.get(0).getTravelMode().equals("BUS")){%>
+                travelMode: google.maps.TravelMode.TRANSIT,
+                    transitOptions: {
+                    modes: ['<%=ev.get(0).getTravelMode()%>']
+                  },
+                <%} else{
+                %>
+                travelMode: '<%=ev.get(0).getTravelMode()%>',
+                <%
+            }%>
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    document.getElementById("distance").value = response.rows[0].elements[0].distance.text;
+                    
+                } else {
+                    alert("Unable to find the distance with walking.");
+                    document.getElementById("radioWalk").disabled=true;
+                }
+            });
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -265,7 +290,6 @@
         }, function(response, status) {
           if (status === google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
-            alert(origin);
           } else {
             window.alert('Directions request failed due to ' + status);
           }

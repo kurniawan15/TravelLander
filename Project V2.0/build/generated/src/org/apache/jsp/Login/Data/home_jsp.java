@@ -3,8 +3,16 @@ package org.apache.jsp.Login.Data;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import model.Traveller;
-import DAO.DAOTraveller;
+import DAO.DAONewEvent;
+import DAO.DAOEventToday;
+import model.EventNext;
+import java.text.SimpleDateFormat;
+import model.NewEvent;
+import DAO.DAONewLokasi;
+import model.NewLokasi;
+import java.util.List;
+import java.util.ArrayList;
+import Database.KoneksiDB;
 
 public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -46,6 +54,14 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <title></title>\r\n");
@@ -73,7 +89,7 @@ out.println("Hi, ");
       out.print(session.getAttribute("USERNAME"));
       out.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style=\"font-size: 14px;\" class=\"material-icons\">arrow_drop_down</i></button></center>\r\n");
       out.write("                        <div id=\"myDropdown\" class=\"dropdown-content\">\r\n");
-      out.write("                            <center><a href=\"traveller?proses=logout-traveller\">Logout &nbsp;&nbsp;&nbsp;<i style=\"font-size: 14px;\" class=\"material-icons\">launch</i></a></center>\r\n");
+      out.write("                            <center><a href=\"../../traveller?proses=logout-traveller\">Logout &nbsp;&nbsp;&nbsp;<i style=\"font-size: 14px;\" class=\"material-icons\">launch</i></a></center>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
       out.write("            </div>\r\n");
@@ -110,16 +126,47 @@ out.println("");
       out.write("                                            <th>Delete</th>\r\n");
       out.write("                                            <th>View</th>\r\n");
       out.write("                                        </tr>\r\n");
+      out.write("                                        ");
+         
+                                           SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                                           //DAONewEvent kt = new DAONewEvent();
+                                           DAOEventToday et = new DAOEventToday();
+                                           DAONewLokasi dLok = new DAONewLokasi();
+                                           List<EventNext> data = new ArrayList<EventNext>();
+                                           NewLokasi lokAwal = new NewLokasi();
+                                           NewLokasi lokAkhir = new NewLokasi();
+                                           String ket = request.getParameter("ket");
+
+                                           if (ket == null) {
+                                               data = et.getEventToday(session.getAttribute("KdTraveller").toString());
+                                           }
+
+                                           for (int x = 0; x < data.size(); x++) {
+                                         
+      out.write("\r\n");
       out.write("                                        <tr>\r\n");
       out.write("                                            <!--____________________________script fungsi option kendaraan umum/pribadi____________________________-->   \r\n");
-      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">1</td>\r\n");
-      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">Pengawasan dan Pelatihan</td>\r\n");
-      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">SMAN 20 BANDUNG</td>\r\n");
-      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">21-09-2017, 17.00</td>\r\n");
+      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">");
+      out.print(x + 1);
+      out.write("</td>\r\n");
+      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">");
+      out.print(data.get(x).getNamaEvent());
+      out.write("</td>\r\n");
+      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">");
+NewLokasi l = new NewLokasi(); l = dLok.getLokasiAkhir(data.get(x).getKdEvent()); out.println(l.getNamaLokasi());
+      out.write("</td>\r\n");
+      out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\">");
+      out.print(format.format(data.get(x).getWaktuSelesai()));
+      out.write("</td>\r\n");
       out.write("                                            <td style=\"font-size: 12px; line-height: 35px;\"><a href=\"edit.html\"><i style=\"font-size: 20px;\" class=\"material-icons\">mode_edit</i></a></td>\r\n");
       out.write("                                            <td style=\"font-size: 12px; line-height: 35px;\"><a href=\"#\" class=\"delete\" data-confirm=\"Are you sure to delete this Event?\"><i style=\"font-size: 20px;\" class=\"material-icons\">delete</i></a></td>\r\n");
       out.write("                                            <td style=\"font-size: 12px; line-height: 20px;\"><button class=\"tablinks\" onclick=\"openCity(event, 'pageedit')\" id=\"defaultOpen\"><i style=\"font-size: 20px;\" class=\"material-icons\">subject</i></button></td>\r\n");
       out.write("                                        </tr>\r\n");
+      out.write("                                            ");
+ 
+                                             }
+                                           
+      out.write("\r\n");
       out.write("                                        <script type=\"text/javascript\">\r\n");
       out.write("                                            function openCity(evt, editEvent) {\r\n");
       out.write("                                                var i, tabcontent, tablinks; //deklarasi variabel\r\n");
@@ -169,6 +216,51 @@ out.println("");
       out.write("                                                    }\r\n");
       out.write("                                                });\r\n");
       out.write("                                            }\r\n");
+      out.write("                                         \r\n");
+      out.write("    \r\n");
+      out.write("//----------------------------------------------------------------Hitung Mundur dan web notification--------------------------------------    \r\n");
+      out.write("                                        if(window.Notification && Notification.permission !== \"denied\") \r\n");
+      out.write("                                        {\r\n");
+      out.write("                                            var countDownDate = new Date(\"2018-01-15 10:33\").getTime();\r\n");
+      out.write("\r\n");
+      out.write("                                            // pengapdetan selama 1 detik\r\n");
+      out.write("                                            var x = setInterval(function() {\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                                var now = new Date().getTime();\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                                var distance = countDownDate - now;\r\n");
+      out.write("\r\n");
+      out.write("                                                //hitung hitung yang menyenangkan\r\n");
+      out.write("                                                var days = Math.floor(distance / (1000 * 60 * 60 * 24));\r\n");
+      out.write("                                                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));\r\n");
+      out.write("                                                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));\r\n");
+      out.write("                                                var seconds = Math.floor((distance % (1000 * 60)) / 1000);\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                                //document.getElementById(\"mundur\").innerHTML = days + \"d \" + hours + \"h \"\r\n");
+      out.write("                                               // + minutes + \"m \" + seconds + \"s \";\r\n");
+      out.write("\r\n");
+      out.write("                                                //kondisi kalo gak ada event\r\n");
+      out.write("                                                if (distance < 0) {\r\n");
+      out.write("                                                    clearInterval(x);\r\n");
+      out.write("                                                    Notification.requestPermission(function(status) \r\n");
+      out.write("                                                    {  // status is \"granted\", if accepted by user\r\n");
+      out.write("                                                        var n = new Notification('Title', \r\n");
+      out.write("                                                        { \r\n");
+      out.write("                                                                body: 'I am the body text!',\r\n");
+      out.write("                                                                icon: '/path/to/icon.png' // optional\r\n");
+      out.write("                                                        }); \r\n");
+      out.write("                                                    }); \r\n");
+      out.write("\r\n");
+      out.write("                                                }\r\n");
+      out.write("                                            }, 1000);       \r\n");
+      out.write("                                        }\r\n");
+      out.write("                                        \r\n");
+      out.write("                             \r\n");
+      out.write("                                            \r\n");
+      out.write("                                            \r\n");
       out.write("                                        </script>\r\n");
       out.write("                                    </table>\r\n");
       out.write("                                </div>\r\n");
