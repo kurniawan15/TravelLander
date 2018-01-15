@@ -104,7 +104,7 @@
         
         #calendar 
         {
-            max-width: 60%;
+            max-width: 50%;
             max-height: 5%;
             margin: 0 auto;
         }

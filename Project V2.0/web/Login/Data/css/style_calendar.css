@@ -142,7 +142,7 @@ input[type=text], select{
     font-size: 9px;
     height: 25px;
     line-height: 25px;
-    bottom: 0;
+    bottom: -65px;
     left: 0;
 }   
 .judul1{
